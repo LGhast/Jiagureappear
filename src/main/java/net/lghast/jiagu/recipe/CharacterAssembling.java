@@ -3,7 +3,6 @@ package net.lghast.jiagu.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.item.CharacterItem;
 import net.lghast.jiagu.register.ModSerializers;

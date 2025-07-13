@@ -22,7 +22,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import org.apache.commons.compress.utils.Sets;
 
-import java.util.Objects;
 import java.util.Set;
 
 public class JianSwordAmethyst extends SwordItem {
@@ -32,31 +31,9 @@ public class JianSwordAmethyst extends SwordItem {
         super(tier, properties);
     }
 
-    private static final Set<ResourceKey<Enchantment>> supportedEnchantment = Sets.newHashSet(
-            Enchantments.SHARPNESS,Enchantments.SWEEPING_EDGE,Enchantments.KNOCKBACK,
-            Enchantments.LOOTING,Enchantments.MENDING,Enchantments.UNBREAKING,
-            Enchantments.VANISHING_CURSE,Enchantments.BINDING_CURSE
-    );
-
     @Override
     public boolean isEnchantable(ItemStack stack) {
         return true;
-    }
-
-    @Override
-    public boolean isPrimaryItemFor(ItemStack stack, Holder<Enchantment> enchantment) {
-        if(supportedEnchantment.contains(enchantment.getKey())){
-            return true;
-        }
-        return super.isPrimaryItemFor(stack, enchantment);
-    }
-
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        if(supportedEnchantment.contains(enchantment.getKey())){
-            return true;
-        }
-        return super.supportsEnchantment(stack, enchantment);
     }
 
     @EventBusSubscriber(modid = JiaguReappear.MOD_ID)

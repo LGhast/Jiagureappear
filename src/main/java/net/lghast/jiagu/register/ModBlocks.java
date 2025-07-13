@@ -2,11 +2,8 @@ package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.block.*;
-import net.lghast.jiagu.register.ModItems;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;

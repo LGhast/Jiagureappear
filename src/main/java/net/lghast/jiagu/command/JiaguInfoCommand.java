@@ -2,19 +2,12 @@ package net.lghast.jiagu.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.lghast.jiagu.item.CharacterItem;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.commands.synchronization.brigadier.StringArgumentSerializer;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 import java.util.List;
@@ -44,26 +37,26 @@ public class JiaguInfoCommand {
                             List<String> list = CharacterInfo.getComponents(input);
                             if(list == null || list.isEmpty()){
                                 source.sendSuccess(() ->
-                                                Component.literal("可製自：§7無"), false
+                                                Component.literal("解為：§7無"), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
-                                                Component.literal("可製自：§3" + CharacterInfo.getCharactersDisassemblable(input)), false
+                                                Component.literal("解為：§3" + CharacterInfo.getCharactersDisassemblable(input)), false
                                 );
                             }
 
                             String assemblable = CharacterInfo.getCharactersAssemblable(input);
                             if(assemblable.isEmpty()){
                                 source.sendSuccess(() ->
-                                                Component.literal("可製為：§7無\n"), false
+                                                Component.literal("合為：§7無\n"), false
                                 );
                             }else if(assemblable.length()>12){
                                 source.sendSuccess(() ->
-                                                Component.literal("可製為：\n§3" + assemblable + "\n"), false
+                                                Component.literal("合為：\n§3" + assemblable + "\n"), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
-                                        Component.literal("可製為：§3" + assemblable + "\n"), false
+                                        Component.literal("合為：§3" + assemblable + "\n"), false
                                 );
                             }
 

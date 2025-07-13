@@ -6,7 +6,6 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.lghast.jiagu.item.CharacterItem;
 import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.utils.CharacterInfo;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -19,7 +18,6 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 @EventBusSubscriber
 public class GiveCharacterCommand {
@@ -79,8 +77,6 @@ public class GiveCharacterCommand {
             boolean added = player.addItem(stack);
             if (added) {
                 successCount++;
-
-                // 发送反馈给执行者
                 if (targets.size() == 1) {
                     source.sendSuccess(() ->
                                     Component.translatable("commands.givecharacter.success.single",

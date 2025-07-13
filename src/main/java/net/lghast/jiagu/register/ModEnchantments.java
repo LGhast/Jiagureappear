@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> IGNITING = ResourceKey.create(Registries.ENCHANTMENT,
@@ -51,7 +50,7 @@ public class ModEnchantments {
 
         register(context, INQUISITIVENESS, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.INQUISITIVENESS_ENCHANTABLE),
-                3,
+                4,
                 3,
                 Enchantment.dynamicCost(15, 8),
                 Enchantment.dynamicCost(60, 8),

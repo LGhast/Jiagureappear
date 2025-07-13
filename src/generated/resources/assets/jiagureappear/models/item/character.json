@@ -1016,6 +1016,24 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/shi_food",
+      "predicate": {
+        "jiagureappear:inscription": 170.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tuo_pocket",
+      "predicate": {
+        "jiagureappear:inscription": 171.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yu_fish",
+      "predicate": {
+        "jiagureappear:inscription": 172.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/lin_woods",
       "predicate": {
         "jiagureappear:inscription": 1000.0
@@ -1784,6 +1802,24 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/he_core",
+      "predicate": {
+        "jiagureappear:inscription": 1138.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/hui_backwash",
+      "predicate": {
+        "jiagureappear:inscription": 1139.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/nang_pocket",
+      "predicate": {
+        "jiagureappear:inscription": 1140.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/yan_strict",
       "predicate": {
         "jiagureappear:inscription": 2000.0
@@ -2285,6 +2321,24 @@
       "model": "jiagureappear:item/characters/ku_wither",
       "predicate": {
         "jiagureappear:inscription": 2083.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gui_salmon",
+      "predicate": {
+        "jiagureappear:inscription": 2084.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/nang_bread",
+      "predicate": {
+        "jiagureappear:inscription": 2085.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xue_cod",
+      "predicate": {
+        "jiagureappear:inscription": 2086.0
       }
     },
     {

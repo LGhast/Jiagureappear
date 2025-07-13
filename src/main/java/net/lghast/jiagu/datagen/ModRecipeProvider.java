@@ -1,6 +1,5 @@
 package net.lghast.jiagu.datagen;
 
-import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.datagen.recipebuilders.AmethystSmithingBuilder;
 import net.lghast.jiagu.register.ModBlocks;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingBuilder;
@@ -20,14 +19,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static net.lghast.jiagu.JiaguReappear.MOD_ID;
-import static net.lghast.jiagu.register.ModItems.ITEMS;
 
 public class ModRecipeProvider extends RecipeProvider {
     private static final String CONVERSE_MULTI = "_from_conversion_multi";

@@ -1,30 +1,16 @@
 package net.lghast.jiagu.block;
 
 import net.lghast.jiagu.item.CharacterItem;
-import net.lghast.jiagu.register.ModEnchantments;
 import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.utils.CharacterInfo;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-
-import java.util.List;
-import java.util.Random;
 
 abstract public class LuckyJiaguBlock extends Block {
     public LuckyJiaguBlock(Properties properties) {

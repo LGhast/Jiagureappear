@@ -3,7 +3,6 @@ package net.lghast.jiagu.register;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.food.Foods;
 
 public class ModFoodProperties {
     public static final FoodProperties SHADOW_BERRIES = new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f)

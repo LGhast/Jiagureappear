@@ -5,25 +5,20 @@ import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
@@ -51,10 +46,6 @@ public class YiConflagrantAmethystItem extends Item {
         return repairCandidate.is(Items.BLAZE_ROD);
     }
 
-    private static final Set<ResourceKey<Enchantment>> supportedEnchantment = Sets.newHashSet(
-            Enchantments.MENDING,Enchantments.UNBREAKING,
-            Enchantments.VANISHING_CURSE,Enchantments.BINDING_CURSE
-    );
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
@@ -148,19 +139,4 @@ public class YiConflagrantAmethystItem extends Item {
         return true;
     }
 
-    @Override
-    public boolean isPrimaryItemFor(ItemStack stack, Holder<Enchantment> enchantment) {
-        if(supportedEnchantment.contains(enchantment.getKey())){
-            return true;
-        }
-        return super.isPrimaryItemFor(stack, enchantment);
-    }
-
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        if(supportedEnchantment.contains(enchantment.getKey())){
-            return true;
-        }
-        return super.supportsEnchantment(stack, enchantment);
-    }
 }

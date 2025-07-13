@@ -1,10 +1,8 @@
 package net.lghast.jiagu.utils;
 
-import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.item.CharacterItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 import java.util.*;
 
@@ -279,6 +277,12 @@ public class CharacterInfo {
             Map.entry("魄", newData(CharacterStructure.HORIZONTAL,"白", "鬼")),
             Map.entry("扇", newData(CharacterStructure.VERTICAL,"戶", "羽")),
             Map.entry("物", newData(CharacterStructure.VERTICAL,"牛", "勿")),
+            Map.entry("核", newData(CharacterStructure.VERTICAL,"木", "亥")),
+            Map.entry("洄", newData(CharacterStructure.VERTICAL,"水", "回")),
+            Map.entry("饢", newData(CharacterStructure.VERTICAL,"食", "囊")),
+            Map.entry("鮭", newData(CharacterStructure.VERTICAL,"魚", "圭")),
+            Map.entry("鱈", newData(CharacterStructure.VERTICAL,"魚", "雪")),
+            Map.entry("囊", newData(CharacterStructure.T_SHAPE_INVERT,"橐", "土", "complex", "又")),
             Map.entry("勿", newData(CharacterStructure.T_SHAPE_HORIZONTAL,"simple", "simple", "刀", "simple")),
             Map.entry("寒", newData(CharacterStructure.RECTANGLE, "simple", "宀", "simple", "simple", "人", "simple")),
             Map.entry("幺", newData(CharacterStructure.SAME,"玄")),
@@ -534,6 +538,9 @@ public class CharacterInfo {
             Map.entry("矢", new CharacterData(167.0f, "shi_arrow")),
             Map.entry("世", new CharacterData(168.0f, "shi_world")),
             Map.entry("勿", new CharacterData(169.0f, "wu_not")),
+            Map.entry("食", new CharacterData(170.0f, "shi_food")),
+            Map.entry("橐", new CharacterData(171.0f, "tuo_pocket")),
+            Map.entry("魚", new CharacterData(172.0f, "yu_fish")),
 
 
             //Iron Level
@@ -665,6 +672,9 @@ public class CharacterInfo {
             Map.entry("魄", new CharacterData(1135.0f, "po_soul")),
             Map.entry("扇", new CharacterData(1136.0f, "shan_fan")),
             Map.entry("物", new CharacterData(1137.0f, "wu_thing")),
+            Map.entry("核", new CharacterData(1138.0f, "he_core")),
+            Map.entry("洄", new CharacterData(1139.0f, "hui_backwash")),
+            Map.entry("囊", new CharacterData(1140.0f, "nang_pocket")),
 
 
             //Gold Level
@@ -752,6 +762,10 @@ public class CharacterInfo {
             Map.entry("飆", new CharacterData(2081.0f, "biao_gale")),
             Map.entry("贆", new CharacterData(2082.0f, "biao_shellfish")),
             Map.entry("枯", new CharacterData(2083.0f, "ku_wither")),
+            Map.entry("鮭", new CharacterData(2084.0f, "gui_salmon")),
+            Map.entry("饢", new CharacterData(2085.0f, "nang_bread")),
+            Map.entry("鱈", new CharacterData(2086.0f, "xue_cod")),
+
 
             //Diamond Level
             Map.entry("巖", new CharacterData(3000.0f, "yan_rock")),
@@ -815,14 +829,6 @@ public class CharacterInfo {
         CharacterData data = CHARACTER_DATA.get(character);
         if (data == null) return CharacterItem.DEFAULT_INSCRIPTION;
         return data.identifier();
-    }
-
-    public static String combineInscriptions(ItemStack... characterItems){
-        StringBuilder inscriptions = new StringBuilder();
-        for(ItemStack item : characterItems){
-            inscriptions.append(CharacterItem.getInscription(item));
-        }
-        return inscriptions.toString();
     }
 
     private static final List<String> inscriptionsLucky = new ArrayList<>();

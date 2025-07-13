@@ -1,9 +1,7 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;

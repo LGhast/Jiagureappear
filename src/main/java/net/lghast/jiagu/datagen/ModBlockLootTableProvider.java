@@ -27,7 +27,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected Iterable<Block> getKnownBlocks(){
         return ModBlocks.BLOCKS.getEntries().stream()
                 .map(Holder::value)
-                .filter(block -> !shouldSkipBlock(block)) // 自定义过滤逻辑
+                .filter(block -> !shouldSkipBlock(block))
                 ::iterator;
     }
 

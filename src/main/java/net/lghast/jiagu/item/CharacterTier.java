@@ -2,13 +2,10 @@ package net.lghast.jiagu.item;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
-
-import java.util.function.Supplier;
 
 public enum CharacterTier implements Tier {
     AMETHYST(3.0f, 1234, 8.0F, 18, Ingredient.of(Items.AMETHYST_SHARD), BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
