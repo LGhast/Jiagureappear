@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "刀"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    }
+  },
+  "pattern": [
+    " U ",
+    " MR",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "勿"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "勿"
+}

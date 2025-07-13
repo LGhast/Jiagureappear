@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,activated=false": {
+      "model": "jiagureappear:block/character_disassembler"
+    },
+    "facing=north,activated=true": {
+      "model": "jiagureappear:block/character_disassembler_on"
+    },
+    "facing=east,activated=false": {
+      "model": "jiagureappear:block/character_disassembler",
+      "y": 90
+    },
+    "facing=east,activated=true": {
+      "model": "jiagureappear:block/character_disassembler_on",
+      "y": 90
+    },
+    "facing=south,activated=false": {
+      "model": "jiagureappear:block/character_disassembler",
+      "y": 180
+    },
+    "facing=south,activated=true": {
+      "model": "jiagureappear:block/character_disassembler_on",
+      "y": 180
+    },
+    "facing=west,activated=false": {
+      "model": "jiagureappear:block/character_disassembler",
+      "y": 270
+    },
+    "facing=west,activated=true": {
+      "model": "jiagureappear:block/character_disassembler_on",
+      "y": 270
+    }
+  }
+}

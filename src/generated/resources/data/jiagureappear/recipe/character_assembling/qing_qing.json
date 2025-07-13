@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "厂"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "殳"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "殸"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "殸"
+}

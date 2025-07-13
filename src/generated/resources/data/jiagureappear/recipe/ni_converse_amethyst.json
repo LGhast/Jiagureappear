@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "N": {
+      "item": "jiagureappear:ni_converse_amethyst_dormant"
+    }
+  },
+  "pattern": [
+    " A ",
+    "ANA",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:ni_converse_amethyst"
+  }
+}

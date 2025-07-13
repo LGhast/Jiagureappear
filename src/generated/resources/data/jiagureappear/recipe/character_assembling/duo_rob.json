@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "隹"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "小"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "衣"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " DR"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "奪"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "奪"
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jiagureappear:block/rubbing_table_bottom",
+    "up": "jiagureappear:block/rubbing_table_top",
+    "north": "jiagureappear:block/rubbing_table_side",
+    "east": "jiagureappear:block/rubbing_table_side",
+    "south": "jiagureappear:block/rubbing_table_side",
+    "west": "jiagureappear:block/rubbing_table_side",
+    "particle": "jiagureappear:block/rubbing_table_bottom"
+  },
+  "render_type": "solid"
+}

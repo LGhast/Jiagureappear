@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jiagureappear:item/jian_sword_amethyst"
+  }
+}

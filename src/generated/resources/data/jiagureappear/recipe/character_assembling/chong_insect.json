@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虫"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虫"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虫"
+    }
+  },
+  "pattern": [
+    " U ",
+    "L R",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "蟲"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "蟲"
+}

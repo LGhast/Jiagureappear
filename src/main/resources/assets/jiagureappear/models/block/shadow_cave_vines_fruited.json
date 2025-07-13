@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "jiagureappear:block/shadow_cave_vines_fruited"
+  },
+  "render_type" : "cutout"
+}

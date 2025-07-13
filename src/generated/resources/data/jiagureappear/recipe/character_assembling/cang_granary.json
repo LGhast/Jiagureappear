@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "口"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "戶"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "亼"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "倉"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "倉"
+}

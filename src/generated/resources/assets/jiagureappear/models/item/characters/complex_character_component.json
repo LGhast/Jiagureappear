@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jiagureappear:item/characters/complex_character_component"
+  }
+}

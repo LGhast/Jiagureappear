@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_character_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:character"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:tong_copper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_character_item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:tong_copper"
+    ]
+  }
+}

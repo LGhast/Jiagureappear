@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "止"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "此"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "此"
+}

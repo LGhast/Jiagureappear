@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "臼"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "午"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "舂"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "舂"
+}

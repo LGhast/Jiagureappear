@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "base": {
+    "type": "jiagureappear:character_ingredient",
+    "inscription": "劍"
+  },
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:jian_sword_amethyst"
+  },
+  "template": {
+    "item": "jiagureappear:amethyst_upgrade_smithing_template"
+  }
+}

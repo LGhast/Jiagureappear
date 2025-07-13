@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jiagureappear:block/rubbing_table"
+    },
+    "facing=east": {
+      "model": "jiagureappear:block/rubbing_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jiagureappear:block/rubbing_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jiagureappear:block/rubbing_table",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jiagureappear:shadow_berries"
+    },
+    {
+      "item": "jiagureappear:ni_converse_amethyst"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:glow_berries"
+  }
+}

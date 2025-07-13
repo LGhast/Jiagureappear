@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ni_converse_amethyst": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:ni_converse_amethyst"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:snow_block_from_conversion_single"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ni_converse_amethyst"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:snow_block_from_conversion_single"
+    ]
+  }
+}

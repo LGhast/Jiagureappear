@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "止"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "來"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "麥"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "麥"
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jiagureappear:block/cangjie_ding_tripod"
+    },
+    "facing=east": {
+      "model": "jiagureappear:block/cangjie_ding_tripod",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jiagureappear:block/cangjie_ding_tripod",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jiagureappear:block/cangjie_ding_tripod",
+      "y": 270
+    }
+  }
+}

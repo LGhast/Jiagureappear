@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "A": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    },
+    "B": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    },
+    "C": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    },
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    }
+  },
+  "pattern": [
+    "AB ",
+    "CD ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "燚"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "燚"
+}

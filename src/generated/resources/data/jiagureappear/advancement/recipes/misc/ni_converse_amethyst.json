@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ni_converse_amethyst_dormant": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:ni_converse_amethyst_dormant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:ni_converse_amethyst"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ni_converse_amethyst_dormant"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:ni_converse_amethyst"
+    ]
+  }
+}

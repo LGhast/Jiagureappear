@@ -1,0 +1,45 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "A": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "B": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "宀"
+    },
+    "C": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "E": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    },
+    "F": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEF",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "寒"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "寒"
+}

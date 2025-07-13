@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "jiagureappear:block/lucky_jiagu_block_gold"
+  }
+}

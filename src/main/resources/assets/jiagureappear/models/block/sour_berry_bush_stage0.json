@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "jiagureappear:block/sour_berry_bush_stage0"
+  },
+  "render_type": "cutout"
+}

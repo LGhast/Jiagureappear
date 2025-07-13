@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "jiagureappear:lucky_jiagu_block"
+    }
+  },
+  "pattern": [
+    " A ",
+    "ANA",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:lucky_jiagu_block_iron"
+  }
+}

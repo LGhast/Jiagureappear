@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "jiagureappear:yolime"
+    },
+    "N": {
+      "item": "jiagureappear:ni_converse_amethyst"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "MNM",
+    "MMM"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:slime_ball"
+  }
+}

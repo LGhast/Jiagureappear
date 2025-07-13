@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "M": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "PI ",
+    "MM ",
+    "WW "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:rubbing_table"
+  }
+}

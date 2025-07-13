@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "jiagureappear:sour_berries"
+    },
+    "N": {
+      "item": "jiagureappear:ni_converse_amethyst"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "MNM",
+    "MMM"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:sweet_berries"
+  }
+}

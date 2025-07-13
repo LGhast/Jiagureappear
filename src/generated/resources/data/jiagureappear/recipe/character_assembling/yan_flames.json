@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "火"
+    }
+  },
+  "pattern": [
+    " U ",
+    "L R",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "焱"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "焱"
+}

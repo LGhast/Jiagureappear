@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "女"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "貝"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "貝"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "嬰"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "嬰"
+}

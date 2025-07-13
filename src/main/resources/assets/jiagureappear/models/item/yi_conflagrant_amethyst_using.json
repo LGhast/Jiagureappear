@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jiagureappear:item/yi_conflagrant_amethyst_using"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "皿"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "卩"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "目"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "監"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "監"
+}
