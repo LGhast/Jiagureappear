@@ -21,6 +21,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CANGJIE_DING_TRIPOD.get());
         dropSelf(ModBlocks.RUBBING_TABLE.get());
         dropSelf(ModBlocks.YOLIME_BLOCK.get());
+        dropSelf(ModBlocks.AUTO_DISASSEMBLER.get());
+        dropSelf(ModBlocks.CANGJIE_MORPHER.get());
     }
 
     @Override

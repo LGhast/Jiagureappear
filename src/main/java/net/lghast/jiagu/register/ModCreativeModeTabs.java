@@ -38,7 +38,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SOUR_BERRIES);
                         output.accept(ModBlocks.RUBBING_TABLE);
                         output.accept(ModBlocks.CHARACTER_DISASSEMBLER);
+                        output.accept(ModBlocks.AUTO_DISASSEMBLER);
                         output.accept(ModBlocks.CANGJIE_DING_TRIPOD);
+                        output.accept(ModBlocks.CANGJIE_MORPHER);
                         output.accept(ModBlocks.GOLDEN_BRICKS);
                         output.accept(ModItems.CANGJIE_JADE_BURIN);
                         output.accept(ModBlocks.LUCKY_JIAGU_BLOCK);

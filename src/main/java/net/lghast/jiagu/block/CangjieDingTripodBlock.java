@@ -19,6 +19,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -98,7 +99,7 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
         spawnCharacters(itemName, serverLevel, pos);
         if(!player.isCreative()) {
             mainHandItem.shrink(1);
-            if (offHandItem.is(Items.TURTLE_HELMET)) {
+            if (offHandItem.isDamageableItem()) {
                 offHandItem.hurtAndBreak(5, player, EquipmentSlot.OFFHAND);
             } else if(!offHandItem.is(ModItems.INFINITE_PAPYRUS)){
                 offHandItem.shrink(1);

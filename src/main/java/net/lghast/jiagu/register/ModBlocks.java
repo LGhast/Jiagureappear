@@ -73,6 +73,14 @@ public class ModBlocks {
             ()-> new LuckyJiaguBlockGold(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD)
                     .sound(SoundType.METAL).noLootTable()));
 
+    public static final DeferredBlock<Block> AUTO_DISASSEMBLER = registerBlock("auto_disassembler",
+            ()-> new AutoDisassemblerBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
+                    .sound(SoundType.COPPER).strength(3.5f,3.5f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> CANGJIE_MORPHER = registerBlock("cangjie_morpher",
+            ()-> new CangjieMorpherBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD)
+                    .strength(3.5f,6f).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name,block);
         registerBlockItem(name,toReturn);

@@ -1,0 +1,9 @@
+{
+  "parent": "jiagureappear:block/auto_disassembler",
+  "textures": {
+    "top": "jiagureappear:block/auto_disassembler_top_triggered",
+    "south": "jiagureappear:block/auto_disassembler_south_triggered",
+    "west": "jiagureappear:block/auto_disassembler_west_triggered",
+    "east": "jiagureappear:block/auto_disassembler_east_triggered"
+  }
+}

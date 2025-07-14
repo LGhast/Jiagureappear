@@ -62,8 +62,12 @@ public class ModUtils {
     }
 
     public static void damage(ItemStack stack){
+        damage(stack, 1);
+    }
+
+    public static void damage(ItemStack stack,int count){
         if(stack.isDamageableItem()){
-            int damage = stack.getDamageValue()+1;
+            int damage = stack.getDamageValue()+count;
             if(damage>=stack.getMaxDamage()){
                 stack.shrink(1);
             }else{

@@ -1,0 +1,9 @@
+{
+  "parent": "jiagureappear:block/cangjie_morpher",
+  "textures": {
+    "top": "jiagureappear:block/cangjie_morpher_top_triggered",
+    "south": "jiagureappear:block/cangjie_morpher_south_triggered",
+    "west": "jiagureappear:block/cangjie_morpher_west_triggered",
+    "east": "jiagureappear:block/cangjie_morpher_east_triggered"
+  }
+}

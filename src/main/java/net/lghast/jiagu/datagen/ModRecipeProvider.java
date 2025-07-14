@@ -43,7 +43,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.YOLIME_BREAD.get(), 1)
                 .requires(ModItems.YOLIME).requires(Items.BREAD)
-                .unlockedBy("has_paper", has(Items.PAPER))
+                .unlockedBy("has_yolime", has(ModItems.YOLIME))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE.get(), 1)
@@ -168,6 +168,30 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('M',Items.IRON_INGOT)
                 .define('W', ItemTags.PLANKS)
                 .unlockedBy("has_ink_sac", has(Items.INK_SAC))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,ModBlocks.AUTO_DISASSEMBLER.get(), 1)
+                .pattern("III")
+                .pattern("IDI")
+                .pattern("CPC")
+                .define('D', ModBlocks.CHARACTER_DISASSEMBLER)
+                .define('I',Items.IRON_INGOT)
+                .define('C', Items.COPPER_INGOT)
+                .define('P', Items.DROPPER)
+                .unlockedBy("has_character_disassembler",
+                        has(ModBlocks.CHARACTER_DISASSEMBLER.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,ModBlocks.CANGJIE_MORPHER.get(), 1)
+                .pattern("III")
+                .pattern("IDI")
+                .pattern("RPR")
+                .define('D', ModBlocks.CHARACTER_DISASSEMBLER)
+                .define('I',Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .define('P', Items.DROPPER)
+                .unlockedBy("has_cangjie_ding_tripod",
+                        has(ModBlocks.CANGJIE_DING_TRIPOD.get()))
                 .save(recipeOutput);
 
         converseRecipe(recipeOutput, Items.SWEET_BERRIES, ModItems.SOUR_BERRIES, "sweet_berries", "sour_berries");

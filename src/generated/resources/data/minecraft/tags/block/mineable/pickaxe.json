@@ -2,6 +2,8 @@
   "values": [
     "jiagureappear:golden_bricks",
     "jiagureappear:cangjie_ding_tripod",
-    "jiagureappear:character_disassembler"
+    "jiagureappear:character_disassembler",
+    "jiagureappear:auto_disassembler",
+    "jiagureappear:cangjie_morpher"
   ]
 }

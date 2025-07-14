@@ -40,6 +40,7 @@ public class JiaguReappear
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
         ModIngredientTypes.register(modEventBus);

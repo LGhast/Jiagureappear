@@ -24,7 +24,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.GOLDEN_BRICKS.get())
                 .add(ModBlocks.CANGJIE_DING_TRIPOD.get())
-                .add(ModBlocks.CHARACTER_DISASSEMBLER.get());
+                .add(ModBlocks.CHARACTER_DISASSEMBLER.get())
+                .add(ModBlocks.AUTO_DISASSEMBLER.get())
+                .add(ModBlocks.CANGJIE_MORPHER.get())
+        ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.GOLDEN_BRICKS.get());
