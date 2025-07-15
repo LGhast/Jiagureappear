@@ -19,7 +19,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.RUBBING_TABLE.get());
+                .add(ModBlocks.RUBBING_TABLE.get())
+        ;
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.GOLDEN_BRICKS.get())
@@ -27,6 +28,16 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CHARACTER_DISASSEMBLER.get())
                 .add(ModBlocks.AUTO_DISASSEMBLER.get())
                 .add(ModBlocks.CANGJIE_MORPHER.get())
+                .add(ModBlocks.WENCHANG_ALTAR.get())
+                .add(ModBlocks.RUBBING_MACHINE.get())
+        ;
+
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.CANGJIE_DING_TRIPOD.get())
+                .add(ModBlocks.CHARACTER_DISASSEMBLER.get())
+                .add(ModBlocks.CANGJIE_MORPHER.get())
+                .add(ModBlocks.AUTO_DISASSEMBLER.get())
+                .add(ModBlocks.RUBBING_MACHINE.get())
         ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)

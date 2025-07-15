@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rubbing_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:rubbing_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:rubbing_machine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rubbing_table"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:rubbing_machine"
+    ]
+  }
+}

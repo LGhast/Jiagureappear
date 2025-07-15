@@ -71,4 +71,9 @@ public class ModTags {
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:wuthering_enchantable")
     );
+
+    public static final TagKey<Item> WENCHANG_ALTAR_DISPLAYABLE = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:wenchang_altar_displayable")
+    );
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "D": {
+      "item": "jiagureappear:rubbing_machine"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:dropper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "III",
+    "IDI",
+    "RPR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:rubbing_machine"
+  }
+}

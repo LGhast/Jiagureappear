@@ -7,6 +7,7 @@
   "block.jiagureappear.cangjie_ding_tripod.no_enchantment": "右手之物未為淬靈",
   "block.jiagureappear.character_disassembler": "析字案",
   "block.jiagureappear.rubbing_table": "拓案",
+  "block.jiagureappear.rubbing_machine": "拓械",
   "block.jiagureappear.rubbing_table.wrong_item": "宜以右手持墨",
   "block.jiagureappear.rubbing_table.named_item": "此物見易其名，不宜於此",
   "block.jiagureappear.rubbing_table.lack_characters": "漢字之物不足",
@@ -26,6 +27,7 @@
   "block.jiagureappear.lucky_jiagu_block_gold": "金質甲骨時運塊",
   "block.jiagureappear.auto_disassembler": "析字械",
   "block.jiagureappear.cangjie_morpher": "倉頡聖械",
+  "block.jiagureappear.wenchang_altar": "文昌壇",
   "container.auto_disassembler": "析字械",
   "container.cangjie_morpher": "倉頡聖械",
   "enchantment.jiagureappear.cremation": "焚",
@@ -36,8 +38,8 @@
   "item.jiagureappear.bone_lamella": "骨板",
   "item.jiagureappear.turtle_plastron": "龜腹甲",
   "item.jiagureappear.infinite_papyrus": "不窮楮素",
-  "item.jiagureappear.character": "漢字",
-  "item.jiagureappear.character_default": "漢字",
+  "item.jiagureappear.character": "甲骨文",
+  "item.jiagureappear.character_default": "甲骨文",
   "item.jiagureappear.character.from": "§7解為: %s",
   "item.jiagureappear.character.no": "§8無",
   "item.jiagureappear.character.to": "§7合為: %s",
@@ -73,5 +75,6 @@
   "gui.jiagureappear.rubbing.current_inscriptions": "拓文：",
   "gui.jiagureappear.rubbing.default": "無拓文",
   "commands.givecharacter.success.single": "既予<%2$s>×%1$d至%3$s",
-  "commands.givecharacter.success.multiple": "既予%1$d戲者<%3$s>×%2$d"
+  "commands.givecharacter.success.multiple": "既予%1$d戲者<%3$s>×%2$d",
+  "container.rubbing_machine": "拓械"
 }

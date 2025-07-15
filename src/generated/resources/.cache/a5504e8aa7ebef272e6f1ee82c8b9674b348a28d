@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-13T11:57:07.5486493	Tags for minecraft:item mod id jiagureappear
+// 1.21.1	2025-07-15T17:42:01.8295894	Tags for minecraft:item mod id jiagureappear
 29948f5b8f0df3f500ee34694cc3bd40a67c84b9 data/c/tags/item/foods/berry.json
 6780e8a5174321dcb0d5c80642a6321d167f5dc1 data/c/tags/item/foods/bread.json
 639e1c35b9afb4ef91553fdefe529485832b49db data/jiagureappear/tags/item/amethyst_inscriptions.json
@@ -10,6 +10,7 @@ e4f43c9d45f087d0ed3d7e96942e5db2c3885771 data/jiagureappear/tags/item/inquisitiv
 d5f57cadf3d103e95846e8fb702559a2c712bf35 data/jiagureappear/tags/item/jiagu_lucky_blocks.json
 b256b48d8f7227f7f830624a33654e32fb87a989 data/jiagureappear/tags/item/jiagu_materials.json
 1d452a6fc02c4b80078dfaae5722910058dcbae1 data/jiagureappear/tags/item/rubbing_inks.json
+c0d99422e3c2a794a9d2d8c88d62a9430168d1c7 data/jiagureappear/tags/item/wenchang_altar_displayable.json
 b8d89548339e5dbf7234772eb6337aa0e2403035 data/jiagureappear/tags/item/wuthering_enchantable.json
 29948f5b8f0df3f500ee34694cc3bd40a67c84b9 data/minecraft/tags/item/fox_food.json
 433940ebdcbdfb7e6346e20230db0de5a6e4f570 data/minecraft/tags/item/piglin_loved.json

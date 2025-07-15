@@ -32,6 +32,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FurnaceBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -177,7 +178,6 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 if(contentSlotItem.isEmpty() && materialSlotItem.isEmpty()){
                     return InteractionResult.PASS;
                 }
-
                 if (!contentSlotItem.isEmpty()) {
                     popOutItem(level, pos, state, contentSlotItem);
                     blockEntity.setItem(0, ItemStack.EMPTY);
@@ -189,29 +189,38 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 return InteractionResult.SUCCESS;
             }
 
-            if (materialSlotItem.isEmpty() && heldItem.is(ModTags.JIAGU_MATERIALS) && !heldItem.is(ModItems.YELLOW_PAPER)) {
-                putItemIn(1, level, heldItem, blockEntity, player);
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+            if (!level.isClientSide) {
+                if (materialSlotItem.isEmpty() || ModUtils.canSupplement(materialSlotItem, heldItem)) {
+                    boolean inkSuccess = ModUtils.tryPutOrSupplement(
+                            player,
+                            heldItem,
+                            materialSlotItem,
+                            itemStack -> itemStack.is(ModTags.JIAGU_MATERIALS) &&
+                                    !itemStack.is(ModItems.YELLOW_PAPER),
+                            newStack -> blockEntity.setItem(1, newStack)
+                    );
+                    if (inkSuccess) {
+                        return InteractionResult.SUCCESS;
+                    }
+                }
 
-            if (contentSlotItem.isEmpty() && !heldItem.is(ModTags.INVALID_TO_CHARACTERS)
-                    && !contentSlotItem.has(DataComponents.CUSTOM_NAME)) {
-                putItemIn(0, level, heldItem, blockEntity, player);
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                if (contentSlotItem.isEmpty() || ModUtils.canSupplement(contentSlotItem, heldItem)) {
+                    boolean referenceSuccess = ModUtils.tryPutOrSupplement(
+                            player,
+                            heldItem,
+                            contentSlotItem,
+                            itemStack -> !itemStack.is(ModTags.INVALID_TO_CHARACTERS)
+                                    && !itemStack.has(DataComponents.CUSTOM_NAME),
+                            newStack -> blockEntity.setItem(0, newStack)
+                    );
+                    if (referenceSuccess) {
+                        return InteractionResult.SUCCESS;
+                    }
+                }
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
         return InteractionResult.PASS;
-    }
-
-    private void putItemIn(int index, Level level, ItemStack heldItem, CangjieMorpherBlockEntity blockEntity, Player player){
-        if (!level.isClientSide) {
-            int count = heldItem.getCount();
-            ItemStack itemToPlace = heldItem.copyWithCount(count);
-            blockEntity.setItem(index, itemToPlace);
-            if (!player.isCreative()) {
-                heldItem.shrink(count);
-            }
-        }
     }
 
     private void popOutItem(Level level, BlockPos pos, BlockState state, ItemStack stack) {

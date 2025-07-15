@@ -194,6 +194,30 @@ public class ModRecipeProvider extends RecipeProvider {
                         has(ModBlocks.CANGJIE_DING_TRIPOD.get()))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,ModBlocks.RUBBING_MACHINE.get(), 1)
+                .pattern("III")
+                .pattern("IDI")
+                .pattern("RPR")
+                .define('D', ModBlocks.RUBBING_MACHINE)
+                .define('I',Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .define('P', Items.DROPPER)
+                .unlockedBy("has_rubbing_table",
+                        has(ModBlocks.RUBBING_TABLE.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.WENCHANG_ALTAR.get(), 1)
+                .pattern("EQE")
+                .pattern(" Q ")
+                .pattern("EEE")
+                .define('Q', Items.QUARTZ)
+                .define('E', Items.EMERALD)
+                .unlockedBy("has_emerald",
+                        has(Items.EMERALD))
+                .save(recipeOutput);
+
+
+
         converseRecipe(recipeOutput, Items.SWEET_BERRIES, ModItems.SOUR_BERRIES, "sweet_berries", "sour_berries");
         converseRecipe(recipeOutput, Items.GLOW_BERRIES, ModItems.SHADOW_BERRIES, "glow_berries", "shadow_berries");
         converseRecipe(recipeOutput, Items.SLIME_BALL, ModItems.YOLIME, "slime_ball", "yolime");
@@ -284,6 +308,7 @@ public class ModRecipeProvider extends RecipeProvider {
             case BIAS -> characterBias(output, characterResult, components);
             case SQUARE -> characterSquare(output, characterResult, components);
             case RECTANGLE -> characterRectangle(output, characterResult, components);
+            case CROSS -> characterCross(output, characterResult, components);
             case SAME -> characterSame(output, characterResult, components);
         }
     }
@@ -412,6 +437,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('L', ingredients.get(1))
                 .define('R', ingredients.get(2))
                 .define('D', ingredients.get(3))
+                .unlockedBy("has_character_item",has(ModItems.CHARACTER_ITEM)));
+    }
+
+    private void characterCross(RecipeOutput output, String characterResult, List<String> ingredients){
+        if(ingredients==null || characterResult==null) return;
+        if(ingredients.size()<5) return;
+        generateCharacterRecipe(output, characterResult, builder -> builder
+                .pattern(" U ")
+                .pattern("LMR")
+                .pattern(" D ")
+                .define('U', ingredients.getFirst())
+                .define('L', ingredients.get(1))
+                .define('M', ingredients.get(2))
+                .define('R', ingredients.get(3))
+                .define('D', ingredients.get(4))
                 .unlockedBy("has_character_item",has(ModItems.CHARACTER_ITEM)));
     }
 

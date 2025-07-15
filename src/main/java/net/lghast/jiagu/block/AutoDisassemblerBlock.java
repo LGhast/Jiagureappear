@@ -169,17 +169,15 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                 return InteractionResult.PASS;
             }
 
-            if (slotItem.isEmpty() && heldItem.is(ModItems.CHARACTER_ITEM)) {
-                if (!level.isClientSide) {
-                    int count = heldItem.getCount();
-                    ItemStack itemToPlace = heldItem.copyWithCount(count);
-                    blockEntity.setItem(0, itemToPlace);
-                    if (!player.isCreative()) {
-                        heldItem.shrink(count);
-                    }
-                }
-                return InteractionResult.sidedSuccess(level.isClientSide);
+            if(!level.isClientSide) {
+                boolean success = ModUtils.tryPutOrSupplement(player, heldItem, slotItem,
+                        itemStack -> itemStack.is(ModItems.CHARACTER_ITEM),
+                        newStack -> blockEntity.setItem(0, newStack)
+                );
+
+                if(success) return InteractionResult.SUCCESS;
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
         return InteractionResult.PASS;
     }

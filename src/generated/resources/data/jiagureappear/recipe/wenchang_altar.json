@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    "EQE",
+    " Q ",
+    "EEE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:wenchang_altar"
+  }
+}

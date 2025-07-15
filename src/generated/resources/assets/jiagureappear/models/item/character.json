@@ -1034,6 +1034,30 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/long_loong",
+      "predicate": {
+        "jiagureappear:inscription": 173.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tu_rabbit",
+      "predicate": {
+        "jiagureappear:inscription": 174.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/wen_word",
+      "predicate": {
+        "jiagureappear:inscription": 175.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xian_trap",
+      "predicate": {
+        "jiagureappear:inscription": 176.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/lin_woods",
       "predicate": {
         "jiagureappear:inscription": 1000.0
@@ -1817,6 +1841,24 @@
       "model": "jiagureappear:item/characters/nang_pocket",
       "predicate": {
         "jiagureappear:inscription": 1140.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/chang_flourish",
+      "predicate": {
+        "jiagureappear:inscription": 1141.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiang_fragrance",
+      "predicate": {
+        "jiagureappear:inscription": 1142.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yan_flame",
+      "predicate": {
+        "jiagureappear:inscription": 1143.0
       }
     },
     {

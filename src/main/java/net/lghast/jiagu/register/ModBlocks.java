@@ -81,6 +81,14 @@ public class ModBlocks {
             ()-> new CangjieMorpherBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD)
                     .strength(3.5f,6f).sound(SoundType.COPPER).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> RUBBING_MACHINE = registerBlock("rubbing_machine",
+            ()-> new RubbingMachineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
+                    .strength(2.5f,2.5f).sound(SoundType.WOOD).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> WENCHANG_ALTAR = registerBlock("wenchang_altar",
+            ()-> new WenchangAltarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD)
+                    .sound(SoundType.STONE).strength(5.0f,6.0f).requiresCorrectToolForDrops()));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name,block);
         registerBlockItem(name,toReturn);

@@ -67,6 +67,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BIAO_GALE_AMETHYST.asItem())
         ;
 
+        tag(ModTags.WENCHANG_ALTAR_DISPLAYABLE)
+                .add(ModItems.CHARACTER_ITEM.asItem())
+                .add(ModItems.TAOIST_TALISMAN.asItem())
+                .addTag(ModTags.AMETHYST_INSCRIPTIONS)
+        ;
+
         tag(ModTags.IGNITING_ENCHANTABLE).add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem());
         tag(ModTags.CREMATION_ENCHANTABLE).add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem());
         tag(ModTags.INQUISITIVENESS_ENCHANTABLE).add(ModItems.JIAN_SWORD_AMETHYST.asItem());

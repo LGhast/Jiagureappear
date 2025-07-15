@@ -1,0 +1,9 @@
+{
+  "parent": "jiagureappear:block/rubbing_machine_triggered",
+  "textures": {
+    "top": "jiagureappear:block/rubbing_machine_top_crafting",
+    "north": "jiagureappear:block/rubbing_machine_north_crafting",
+    "east": "jiagureappear:block/rubbing_machine_east_crafting",
+    "west": "jiagureappear:block/rubbing_machine_west_crafting"
+  }
+}

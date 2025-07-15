@@ -7,8 +7,12 @@ import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
@@ -38,6 +42,7 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
             }
         }
     }
+
 
     @Override
     protected NonNullList<ItemStack> getItems() {
@@ -71,7 +76,21 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return (slot == 0 && !stack.is(ModTags.INVALID_TO_CHARACTERS))
+        return (slot == 0 && !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.has(DataComponents.CUSTOM_NAME))
                 || (slot == 1 && stack.is(ModTags.JIAGU_MATERIALS) && !stack.is(ModItems.YELLOW_PAPER));
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        super.saveAdditional(tag, provider);
+        tag.putInt("DisassemblingTicks", morphingTicks);
+        ContainerHelper.saveAllItems(tag, items, provider);
+    }
+
+    @Override
+    public void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        super.loadAdditional(tag, provider);
+        morphingTicks = tag.getInt("DisassemblingTicks");
+        ContainerHelper.loadAllItems(tag, items, provider);
     }
 }

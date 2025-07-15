@@ -4,8 +4,11 @@ import net.lghast.jiagu.block.AutoDisassemblerBlock;
 import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
@@ -61,9 +64,22 @@ public class AutoDisassemblerBlockEntity extends RandomizableContainerBlockEntit
         return null;
     }
 
-    // 漏斗支持
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
         return slot == 0 && stack.is(ModItems.CHARACTER_ITEM);
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        super.saveAdditional(tag, provider);
+        tag.putInt("DisassemblingTicks", disassemblingTicks);
+        ContainerHelper.saveAllItems(tag, items, provider);
+    }
+
+    @Override
+    public void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        super.loadAdditional(tag, provider);
+        disassemblingTicks = tag.getInt("DisassemblingTicks");
+        ContainerHelper.loadAllItems(tag, items, provider);
     }
 }

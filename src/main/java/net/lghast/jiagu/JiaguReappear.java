@@ -1,5 +1,6 @@
 package net.lghast.jiagu;
 
+import net.lghast.jiagu.block.renderer.WenchangAltarRenderer;
 import net.lghast.jiagu.item.CharacterItem;
 import net.lghast.jiagu.particle.JiaguFloatingParticles;
 import net.lghast.jiagu.particle.JiaguParticles;
@@ -7,9 +8,11 @@ import net.lghast.jiagu.register.*;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
@@ -113,6 +116,14 @@ public class JiaguReappear
                     );
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHARACTER_DISASSEMBLER.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.WENCHANG_ALTAR.get(), RenderType.cutout());
+
+            BlockEntityRenderers.register(
+                    ModBlockEntities.WENCHANG_ALTAR.get(),
+                    WenchangAltarRenderer::new
+            );
         });
     }
+
+
 }

@@ -1,19 +1,19 @@
 {
-  "type": "jiagureappear:character_assembling",
+  "type": "jiagureappear:character_assembling_non_mirrored",
   "category": "misc",
   "key": {
     "L": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "圭"
-    },
-    "U": {
-      "type": "jiagureappear:character_ingredient",
       "inscription": "魚"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "圭"
     }
   },
   "pattern": [
-    " U ",
-    " L ",
+    "   ",
+    "LR ",
     "   "
   ],
   "result": {

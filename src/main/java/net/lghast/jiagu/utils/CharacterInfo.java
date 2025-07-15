@@ -276,12 +276,16 @@ public class CharacterInfo {
             Map.entry("枯", newData(CharacterStructure.HORIZONTAL,"木", "古")),
             Map.entry("魄", newData(CharacterStructure.HORIZONTAL,"白", "鬼")),
             Map.entry("扇", newData(CharacterStructure.VERTICAL,"戶", "羽")),
-            Map.entry("物", newData(CharacterStructure.VERTICAL,"牛", "勿")),
-            Map.entry("核", newData(CharacterStructure.VERTICAL,"木", "亥")),
-            Map.entry("洄", newData(CharacterStructure.VERTICAL,"水", "回")),
-            Map.entry("饢", newData(CharacterStructure.VERTICAL,"食", "囊")),
-            Map.entry("鮭", newData(CharacterStructure.VERTICAL,"魚", "圭")),
-            Map.entry("鱈", newData(CharacterStructure.VERTICAL,"魚", "雪")),
+            Map.entry("物", newData(CharacterStructure.HORIZONTAL,"牛", "勿")),
+            Map.entry("核", newData(CharacterStructure.HORIZONTAL,"木", "亥")),
+            Map.entry("洄", newData(CharacterStructure.HORIZONTAL,"水", "回")),
+            Map.entry("饢", newData(CharacterStructure.HORIZONTAL,"食", "囊")),
+            Map.entry("鮭", newData(CharacterStructure.HORIZONTAL,"魚", "圭")),
+            Map.entry("鱈", newData(CharacterStructure.HORIZONTAL,"魚", "雪")),
+            Map.entry("昌", newData(CharacterStructure.VERTICAL,"日", "口")),
+            Map.entry("臽", newData(CharacterStructure.VERTICAL,"人", "simple")),
+            Map.entry("焰", newData(CharacterStructure.HORIZONTAL,"火", "臽")),
+            Map.entry("香", newData(CharacterStructure.CROSS,"simple", "simple", "禾", "simple", "口")),
             Map.entry("囊", newData(CharacterStructure.T_SHAPE_INVERT,"橐", "土", "complex", "又")),
             Map.entry("勿", newData(CharacterStructure.T_SHAPE_HORIZONTAL,"simple", "simple", "刀", "simple")),
             Map.entry("寒", newData(CharacterStructure.RECTANGLE, "simple", "宀", "simple", "simple", "人", "simple")),
@@ -541,6 +545,10 @@ public class CharacterInfo {
             Map.entry("食", new CharacterData(170.0f, "shi_food")),
             Map.entry("橐", new CharacterData(171.0f, "tuo_pocket")),
             Map.entry("魚", new CharacterData(172.0f, "yu_fish")),
+            Map.entry("龍", new CharacterData(173.0f, "long_loong")),
+            Map.entry("兔", new CharacterData(174.0f, "tu_rabbit")),
+            Map.entry("文", new CharacterData(175.0f, "wen_word")),
+            Map.entry("臽", new CharacterData(176.0f, "xian_trap")),
 
 
             //Iron Level
@@ -675,7 +683,9 @@ public class CharacterInfo {
             Map.entry("核", new CharacterData(1138.0f, "he_core")),
             Map.entry("洄", new CharacterData(1139.0f, "hui_backwash")),
             Map.entry("囊", new CharacterData(1140.0f, "nang_pocket")),
-
+            Map.entry("昌", new CharacterData(1141.0f, "chang_flourish")),
+            Map.entry("香", new CharacterData(1142.0f, "xiang_fragrance")),
+            Map.entry("焰", new CharacterData(1143.0f, "yan_flame")),
 
             //Gold Level
             Map.entry("嚴", new CharacterData(2000.0f, "yan_strict")),

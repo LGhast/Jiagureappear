@@ -5,11 +5,13 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public class ModUtils {
     public static void spawnItem(ServerLevel level, double x, double y, double z, ItemStack stack, boolean pickUpDelay) {
@@ -107,5 +109,52 @@ public class ModUtils {
         }
 
         return result.toString();
+    }
+
+    public static boolean tryPutOrSupplement(Player player, ItemStack heldItem, ItemStack slotItem,
+                                                 Predicate<ItemStack> validator, SlotSetter setSlot) {
+
+        if (player.isSpectator() || heldItem.isEmpty() || !validator.test(heldItem)) {
+            return false;
+        }
+        if (slotItem.isEmpty()) {
+            setSlot.set(heldItem.copy());
+            if (!player.isCreative()) {
+                heldItem.setCount(0);
+            }
+            return true;
+        }
+
+        if (canSupplement(slotItem, heldItem, validator)) {
+            int spaceLeft = slotItem.getMaxStackSize() - slotItem.getCount();
+            int toTransfer = Math.min(spaceLeft, heldItem.getCount());
+
+            if (toTransfer > 0) {
+                ItemStack newSlotItem = slotItem.copy();
+                newSlotItem.grow(toTransfer);
+                setSlot.set(newSlotItem);
+
+                if (!player.isCreative()) {
+                    heldItem.shrink(toTransfer);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean canSupplement(ItemStack slotItem, ItemStack heldItem, Predicate<ItemStack> validator) {
+        return !heldItem.isEmpty() &&
+                ItemStack.isSameItemSameComponents(slotItem, heldItem) &&
+                validator.test(heldItem);
+    }
+
+    public static boolean canSupplement(ItemStack slotItem, ItemStack heldItem) {
+        return !heldItem.isEmpty() && ItemStack.isSameItemSameComponents(slotItem, heldItem);
+    }
+
+    @FunctionalInterface
+    public interface SlotSetter {
+        void set(ItemStack stack);
     }
 }

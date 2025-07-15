@@ -20,5 +20,6 @@ public enum CharacterStructure {
     ARROW_INVERT,
     BIAS,
     SQUARE,
+    CROSS,
     SAME
 }
