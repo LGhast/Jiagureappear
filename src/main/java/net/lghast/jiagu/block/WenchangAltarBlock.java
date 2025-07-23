@@ -100,6 +100,8 @@ public class WenchangAltarBlock extends BaseEntityBlock {
                         heldItem.shrink(1);
                     }
 
+                    level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
+
                     level.setBlock(pos, state.setValue(HAS_ITEM, true), 3);
                     return InteractionResult.sidedSuccess(level.isClientSide());
                 }
@@ -127,7 +129,7 @@ public class WenchangAltarBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? createTickerHelper(type, ModBlockEntities.WENCHANG_ALTAR.get(), WenchangAltarBlockEntity::clientTick) : null;
+        return null;
     }
 
     @Override

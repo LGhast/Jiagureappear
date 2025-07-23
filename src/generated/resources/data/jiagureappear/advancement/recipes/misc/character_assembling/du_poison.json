@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jiagureappear:default"
+        "recipe": "jiagureappear:du_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jiagureappear:default"
+      "jiagureappear:du_poison"
     ]
   }
 }

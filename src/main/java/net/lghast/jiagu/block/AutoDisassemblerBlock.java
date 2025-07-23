@@ -140,7 +140,7 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                     DefaultDispenseItemBehavior.spawnItem(level, content, 6, direction, spawnPos);
                     ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
                             pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
-                            0.3, 0.4, 0.3, 10, 0.2);
+                            0.3, 0.4, 0.3, 10, 0.05);
                 }
 
                 blockEntity.setItem(0, ItemStack.EMPTY);
@@ -175,7 +175,10 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                         newStack -> blockEntity.setItem(0, newStack)
                 );
 
-                if(success) return InteractionResult.SUCCESS;
+                if(success){
+                    level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
+                    return InteractionResult.SUCCESS;
+                }
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -186,6 +189,7 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
         Direction direction = state.getValue(ORIENTATION).front();
         Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
         DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
+        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
     }
 
     @Override

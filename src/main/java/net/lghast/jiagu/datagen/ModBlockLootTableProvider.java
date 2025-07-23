@@ -25,6 +25,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CANGJIE_MORPHER.get());
         dropSelf(ModBlocks.RUBBING_MACHINE.get());
         dropSelf(ModBlocks.WENCHANG_ALTAR.get());
+        dropSelf(ModBlocks.YAOWANG_GOURD.get());
     }
 
     @Override

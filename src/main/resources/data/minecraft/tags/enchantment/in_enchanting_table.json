@@ -1,10 +1,14 @@
 {
   "replace": false,
   "value": [
-    "jiagureappear: igniting",
-    "jiagureappear: cremation",
+    "jiagureappear:igniting",
+    "jiagureappear:cremation",
     "jiagureappear:inquisitiveness",
     "jiagureappear:flurry",
-    "jiagureappear:wuthering"
+    "jiagureappear:wuthering",
+    "jiagureappear:benevolence",
+    "jiagureappear:hippocrates",
+    "jiagureappear:panacea",
+    "jiagureappear:malady"
   ]
 }

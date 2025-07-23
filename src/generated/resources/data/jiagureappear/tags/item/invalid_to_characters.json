@@ -1,8 +1,6 @@
 {
   "values": [
     "jiagureappear:character",
-    "minecraft:potion",
-    "minecraft:tipped_arrow",
-    "minecraft:ominous_bottle"
+    "#jiagureappear:amethyst_inscriptions"
   ]
 }

@@ -6,6 +6,7 @@ import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingBuilder;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingNonMirroredBuilder;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.item.CharacterItem;
+import net.lghast.jiagu.register.ModTags;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.lghast.jiagu.utils.CharacterStructure;
 import net.minecraft.core.HolderLookup;
@@ -38,6 +39,11 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes(RecipeOutput recipeOutput){
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.YELLOW_PAPER.get(), 1)
                 .requires(Items.YELLOW_DYE).requires(Items.PAPER)
+                .unlockedBy("has_paper", has(Items.PAPER))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.EMPTY_PRESCRIPTION.get(), 1)
+                .requires(Items.INK_SAC).requires(Items.PAPER).requires(ModTags.HERBS)
                 .unlockedBy("has_paper", has(Items.PAPER))
                 .save(recipeOutput);
 
@@ -186,7 +192,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("III")
                 .pattern("IDI")
                 .pattern("RPR")
-                .define('D', ModBlocks.CHARACTER_DISASSEMBLER)
+                .define('D', ModBlocks.CANGJIE_MORPHER)
                 .define('I',Items.IRON_INGOT)
                 .define('R', Items.REDSTONE)
                 .define('P', Items.DROPPER)
@@ -216,6 +222,19 @@ public class ModRecipeProvider extends RecipeProvider {
                         has(Items.EMERALD))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.YAOWANG_GOURD.get(), 1)
+                .pattern("RS ")
+                .pattern("WGW")
+                .pattern("WNW")
+                .define('R', Items.RED_DYE)
+                .define('S', Items.STRING)
+                .define('G', Items.GHAST_TEAR)
+                .define('W', ItemTags.PLANKS)
+                .define('N', Items.NETHERITE_SCRAP)
+                .unlockedBy("has_ghast_tear",
+                        has(Items.GHAST_TEAR))
+                .save(recipeOutput);
+
 
 
         converseRecipe(recipeOutput, Items.SWEET_BERRIES, ModItems.SOUR_BERRIES, "sweet_berries", "sour_berries");
@@ -230,6 +249,7 @@ public class ModRecipeProvider extends RecipeProvider {
         amethystSmithing(recipeOutput, "劍", ModItems.JIAN_SWORD_AMETHYST.asItem(), "jian_sword_amethyst");
         amethystSmithing(recipeOutput, "燚", ModItems.YI_CONFLAGRANT_AMETHYST.asItem(), "yi_conflagrant_amethyst");
         amethystSmithing(recipeOutput, "飆", ModItems.BIAO_GALE_AMETHYST.asItem(), "biao_gale_amethyst");
+        amethystSmithing(recipeOutput, "醫", ModItems.YI_CURE_AMETHYST.asItem(), "yi_cure_amethyst");
 
         for (String s : CharacterInfo.CHARACTER_COMPONENTS.keySet()){
             generateFor(recipeOutput, s);

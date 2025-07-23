@@ -1,29 +1,29 @@
 {
-  "type": "jiagureappear:character_assembling_non_mirrored",
+  "type": "jiagureappear:character_assembling",
   "category": "misc",
   "key": {
     "L": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "木"
+      "inscription": "樂"
     },
-    "R": {
+    "U": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "隹"
+      "inscription": "艸"
     }
   },
   "pattern": [
-    "   ",
-    "LR ",
+    " U ",
+    " L ",
     "   "
   ],
   "result": {
     "components": {
       "minecraft:custom_data": {
-        "inscription": "椎"
+        "inscription": "藥"
       }
     },
     "count": 1,
     "id": "jiagureappear:character"
   },
-  "result_inscription": "椎"
+  "result_inscription": "藥"
 }

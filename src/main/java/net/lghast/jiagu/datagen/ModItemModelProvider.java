@@ -35,11 +35,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.TURTLE_PLASTRON.get());
         basicItem(ModItems.YELLOW_PAPER.get());
         basicItem(ModItems.TAOIST_TALISMAN.get());
-        basicItem(ModItems.PRESCRIPTION.get());
+        basicItem(ModItems.EMPTY_PRESCRIPTION.get());
         basicItem(ModItems.YOLIME.get());
         basicItem(ModItems.YOLIME_BREAD.get());
         basicItem(ModItems.SHADOW_BERRIES.get());
         basicItem(ModItems.SOUR_BERRIES.get());
+        basicItem(ModItems.PARASITE_SPORE.get());
         basicItem(ModItems.NI_CONVERSE_AMETHYST.get());
         basicItem(ModItems.NI_CONVERSE_AMETHYST_DORMANT.get());
         basicItem(ModItems.JIAN_SWORD_AMETHYST.get());

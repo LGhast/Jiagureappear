@@ -22,6 +22,11 @@ public class ModTags {
             ResourceLocation.parse("jiagureappear:invalid_to_characters")
     );
 
+    public static final TagKey<Item> INVALID_TO_BE_RUBBED = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:invalid_to_be_rubbed")
+    );
+
     public static final TagKey<Item> JIAGU_LUCKY_BLOCK_ITEMS = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:jiagu_lucky_blocks")
@@ -35,6 +40,11 @@ public class ModTags {
     public static final TagKey<Item> RUBBING_INKS = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:rubbing_inks")
+    );
+
+    public static final TagKey<Item> HERBS = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:herbs")
     );
 
     public static final TagKey<Item> JIAGU_MATERIALS = TagKey.create(
@@ -70,6 +80,26 @@ public class ModTags {
     public static final TagKey<Item> WUTHERING_ENCHANTABLE = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:wuthering_enchantable")
+    );
+
+    public static final TagKey<Item> BENEVOLENCE_ENCHANTABLE = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:benevolence_enchantable")
+    );
+
+    public static final TagKey<Item> HIPPOCRATES_ENCHANTABLE = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:hippocrates_enchantable")
+    );
+
+    public static final TagKey<Item> PANACEA_ENCHANTABLE = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:panacea_enchantable")
+    );
+
+    public static final TagKey<Item> MALADY_ENCHANTABLE = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:malady_enchantable")
     );
 
     public static final TagKey<Item> WENCHANG_ALTAR_DISPLAYABLE = TagKey.create(

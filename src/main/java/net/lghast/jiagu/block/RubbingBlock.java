@@ -5,6 +5,7 @@ import net.lghast.jiagu.item.CharacterItem;
 import net.lghast.jiagu.item.TaoistTalismanItem;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModParticles;
+import net.lghast.jiagu.register.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -61,6 +62,11 @@ public class RubbingBlock extends HorizontalDirectionalBlock{
             return InteractionResult.SUCCESS;
         }
 
+        if(itemToRub.is(ModTags.INVALID_TO_BE_RUBBED)) {
+            player.displayClientMessage(Component.translatable("block.jiagureappear.rubbing_table.wrong_item_mainhand"),true);
+            return InteractionResult.SUCCESS;
+        }
+
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
             if(!serverPlayer.getLanguage().equals("lzh")){
                 player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
@@ -72,7 +78,7 @@ public class RubbingBlock extends HorizontalDirectionalBlock{
                     player.displayClientMessage(Component.translatable("block.jiagureappear.rubbing_table.named_item"),true);
                     return InteractionResult.SUCCESS;
                 }
-                if(!mainHandItem.is(Items.INK_SAC)) {
+                if(!mainHandItem.is(ModTags.RUBBING_INKS)) {
                     player.displayClientMessage(Component.translatable("block.jiagureappear.rubbing_table.wrong_item"),true);
                     return InteractionResult.SUCCESS;
                 }

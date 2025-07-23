@@ -46,8 +46,9 @@ public class JianSwordAmethyst extends SwordItem {
             if (entityKilled.level().isClientSide) return;
             if(!(entityKilled.level() instanceof ServerLevel serverLevel)) return;
 
-            if(entityKilled instanceof Player) return;
-            if(entityKilled.hasCustomName()) return;
+            if(!(entityKilled instanceof Player)) {
+                if(entityKilled.hasCustomName()) return;
+            }
 
             if(event.getSource().getDirectEntity() instanceof LivingEntity source){
                 ItemStack mainHandItem = source.getMainHandItem();
@@ -59,7 +60,7 @@ public class JianSwordAmethyst extends SwordItem {
                     ItemEnchantments enchantments = mainHandItem.getTagEnchantments();
                     float rate = CHARACTER_RATE * (1 + enchantments.getLevel(inquisitivenessHolder) * 0.5f);
                     if(Math.random() < rate){
-                        String entityName = ModUtils.getCharacters(entityKilled);
+                        String entityName = entityKilled instanceof Player? "戲者" : ModUtils.getCharacters(entityKilled);
                         for (int i = 0; i < entityName.length(); i++) {
                             char c = entityName.charAt(i);
                             ItemStack characterItem = new ItemStack(ModItems.CHARACTER_ITEM.get());

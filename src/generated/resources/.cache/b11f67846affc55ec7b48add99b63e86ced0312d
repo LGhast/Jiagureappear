@@ -1,7 +1,7 @@
-// 1.21.1	2025-07-15T19:55:35.5519623	Tags for minecraft:block mod id jiagureappear
+// 1.21.1	2025-07-18T12:34:49.9189651	Tags for minecraft:block mod id jiagureappear
 d5f57cadf3d103e95846e8fb702559a2c712bf35 data/jiagureappear/tags/block/jiagu_lucky_blocks.json
 433940ebdcbdfb7e6346e20230db0de5a6e4f570 data/minecraft/tags/block/guarded_by_piglins.json
-a67ea79584c6bb8fc754eb74029f03742f15ef10 data/minecraft/tags/block/mineable/axe.json
+78e29515514934e8bb8fd6642ff75907d381d054 data/minecraft/tags/block/mineable/axe.json
 465764f3547fff13ec6b29252af3721aeec16f93 data/minecraft/tags/block/mineable/pickaxe.json
 433940ebdcbdfb7e6346e20230db0de5a6e4f570 data/minecraft/tags/block/needs_iron_tool.json
 ec599f401d529ea53fdad60c76a2e297eed1d8f3 data/minecraft/tags/block/needs_stone_tool.json

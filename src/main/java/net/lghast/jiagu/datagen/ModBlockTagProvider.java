@@ -20,6 +20,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.RUBBING_TABLE.get())
+                .add(ModBlocks.YAOWANG_GOURD.get())
         ;
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)

@@ -89,6 +89,10 @@ public class ModBlocks {
             ()-> new WenchangAltarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD)
                     .sound(SoundType.STONE).strength(5.0f,6.0f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> YAOWANG_GOURD = registerBlock("yaowang_gourd",
+            ()-> new YaowangGourdBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
+                    .sound(SoundType.WOOD).strength(2.0f,3.0f)));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name,block);
         registerBlockItem(name,toReturn);

@@ -1,33 +1,16 @@
 package net.lghast.jiagu.datagen.recipebuilders;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.ingredient.CharacterIngredient;
-import net.lghast.jiagu.item.CharacterItem;
-import net.lghast.jiagu.recipe.CharacterAssembling;
 import net.lghast.jiagu.register.ModItems;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.ShapedRecipePattern;
-import net.neoforged.neoforge.common.crafting.ICustomIngredient;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import org.jetbrains.annotations.NotNull;
 
 public class AmethystSmithingBuilder extends SmithingTransformRecipeBuilder {
     private final String identifier;
@@ -44,13 +27,13 @@ public class AmethystSmithingBuilder extends SmithingTransformRecipeBuilder {
     }
 
     @Override
-    public AmethystSmithingBuilder unlocks(String key, Criterion<?> criterion) {
+    public @NotNull AmethystSmithingBuilder unlocks(@NotNull String key, @NotNull Criterion<?> criterion) {
         super.unlocks(key, criterion);
         return this;
     }
 
     @Override
-    public void save(RecipeOutput output, ResourceLocation id) {
+    public void save(@NotNull RecipeOutput output, @NotNull ResourceLocation id) {
         ResourceLocation fixedId = ResourceLocation.parse(
                 JiaguReappear.MOD_ID + ":" + identifier
         );
@@ -58,7 +41,7 @@ public class AmethystSmithingBuilder extends SmithingTransformRecipeBuilder {
     }
 
     @Override
-    public void save(RecipeOutput recipeOutput, String recipeId) {
+    public void save(@NotNull RecipeOutput recipeOutput, @NotNull String recipeId) {
         this.save(recipeOutput, ResourceLocation.parse(recipeId));
     }
 

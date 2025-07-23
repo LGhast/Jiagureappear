@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> IGNITING = ResourceKey.create(Registries.ENCHANTMENT,
@@ -23,6 +24,18 @@ public class ModEnchantments {
 
     public static final ResourceKey<Enchantment> WUTHERING = ResourceKey.create(Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "wuthering"));
+
+    public static final ResourceKey<Enchantment> BENEVOLENCE = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "benevolence"));
+
+    public static final ResourceKey<Enchantment> HIPPOCRATES = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "hippocrates"));
+
+    public static final ResourceKey<Enchantment> PANACEA = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "panacea"));
+
+    public static final ResourceKey<Enchantment> MALADY = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "malady"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context){
         var enchantments = context.lookup(Registries.ENCHANTMENT);
@@ -50,7 +63,7 @@ public class ModEnchantments {
 
         register(context, INQUISITIVENESS, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.INQUISITIVENESS_ENCHANTABLE),
-                4,
+                8,
                 3,
                 Enchantment.dynamicCost(15, 8),
                 Enchantment.dynamicCost(60, 8),
@@ -74,6 +87,46 @@ public class ModEnchantments {
                 3,
                 Enchantment.dynamicCost(16, 8),
                 Enchantment.dynamicCost(60, 8),
+                4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, BENEVOLENCE, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.BENEVOLENCE_ENCHANTABLE),
+                4,
+                2,
+                Enchantment.constantCost(20),
+                Enchantment.constantCost(30),
+                4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, HIPPOCRATES, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.HIPPOCRATES_ENCHANTABLE),
+                4,
+                3,
+                Enchantment.dynamicCost(16, 10),
+                Enchantment.dynamicCost(60, 10),
+                4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, PANACEA, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.PANACEA_ENCHANTABLE),
+                10,
+                6,
+                Enchantment.dynamicCost(1, 11),
+                Enchantment.dynamicCost(20, 11),
+                4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, MALADY, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.MALADY_ENCHANTABLE),
+                4,
+                3,
+                Enchantment.dynamicCost(16, 10),
+                Enchantment.dynamicCost(60, 10),
                 4,
                 EquipmentSlotGroup.MAINHAND
         )));

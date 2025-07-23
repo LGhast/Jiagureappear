@@ -18,18 +18,9 @@ import javax.annotation.Nullable;
 
 public class WenchangAltarBlockEntity extends BlockEntity {
     private ItemStack item = ItemStack.EMPTY;
-    public float rotation = 0.0f;
-    public float bobOffset = 0.0f;
 
     public WenchangAltarBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.WENCHANG_ALTAR.get(), pos, state);
-    }
-
-    public static void clientTick(Level level, BlockPos pos, BlockState state, WenchangAltarBlockEntity blockEntity) {
-        blockEntity.rotation += 4.0f;
-        if (blockEntity.rotation >= 360.0f) {
-            blockEntity.rotation = 0.0f;
-        }
     }
 
     public ItemStack getItem() {

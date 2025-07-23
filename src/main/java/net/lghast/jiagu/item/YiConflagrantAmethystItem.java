@@ -5,7 +5,6 @@ import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,16 +18,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import org.apache.commons.compress.utils.Sets;
-
-import java.util.Set;
 
 public class YiConflagrantAmethystItem extends Item {
-    private int cooldownTimer = 0;
+    private int cooldownTicks = 0;
     private static final int INTERVAL = 20;
     private static final float DAMAGE = 1;
 
@@ -60,7 +55,7 @@ public class YiConflagrantAmethystItem extends Item {
             return InteractionResultHolder.fail(stack);
         }
 
-        cooldownTimer = 0;
+        cooldownTicks = 0;
 
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
@@ -76,15 +71,10 @@ public class YiConflagrantAmethystItem extends Item {
         super.onUseTick(level, user, stack, remainingUseDuration);
         if (level.isClientSide)  return;
 
-        cooldownTimer++;
+        cooldownTicks++;
 
-        ItemEnchantments enchantments = stack.getTagEnchantments();
-        Holder<Enchantment> cremationHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
-                .getHolderOrThrow(ModEnchantments.CREMATION);
-
-        float interval = INTERVAL * (1.0f - (enchantments.getLevel(cremationHolder) * 0.17f));
-        if (cooldownTimer < interval)  return;
-        cooldownTimer = 0;
+        if (cooldownTicks < getInterval(level, stack))  return;
+        cooldownTicks = 0;
 
         double rangeXZ = 4;
         double rangeY = 1.5;
@@ -93,14 +83,11 @@ public class YiConflagrantAmethystItem extends Item {
                 user.getX() + rangeXZ, user.getY() + rangeY, user.getZ() + rangeXZ
         );
 
-        Holder<Enchantment> ignitingHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
-                .getHolderOrThrow(ModEnchantments.IGNITING);
-        Holder<DamageType> damageTypeHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
-                .getHolderOrThrow(DamageTypes.ON_FIRE);
-
         for (LivingEntity target : level.getEntitiesOfClass(LivingEntity.class, area,
                 e -> e != user && e.isAlive())) {
 
+            Holder<DamageType> damageTypeHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
+                    .getHolderOrThrow(DamageTypes.ON_FIRE);
             DamageSource source = new DamageSource(damageTypeHolder, user);
 
             if (target.hurt(source, DAMAGE)) {
@@ -110,7 +97,9 @@ public class YiConflagrantAmethystItem extends Item {
                     serverLevel.playSound(null, target.getOnPos(), SoundEvents.GENERIC_BURN, SoundSource.NEUTRAL);
                 }
 
-                if(enchantments.keySet().contains(ignitingHolder)){
+                Holder<Enchantment> ignitingHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                        .getHolderOrThrow(ModEnchantments.IGNITING);
+                if(stack.getEnchantmentLevel(ignitingHolder)>0){
                     target.igniteForSeconds(5);
                 }
 
@@ -122,6 +111,12 @@ public class YiConflagrantAmethystItem extends Item {
                 }
             }
         }
+    }
+
+    private float getInterval(Level level, ItemStack stack){
+        Holder<Enchantment> cremationHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                .getHolderOrThrow(ModEnchantments.CREMATION);
+        return Math.max(1, INTERVAL * (1.0f - (stack.getEnchantmentLevel(cremationHolder) * 0.17f)));
     }
 
     @Override

@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "jiagureappear:item/prescriptions/poison",
+      "predicate": {
+        "jiagureappear:prescription": 1.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/strength",
+      "predicate": {
+        "jiagureappear:prescription": 2.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/speed",
+      "predicate": {
+        "jiagureappear:prescription": 3.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/weakness",
+      "predicate": {
+        "jiagureappear:prescription": 4.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/night_vision",
+      "predicate": {
+        "jiagureappear:prescription": 5.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/fire_resistance",
+      "predicate": {
+        "jiagureappear:prescription": 6.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/hunger",
+      "predicate": {
+        "jiagureappear:prescription": 7.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/darkness",
+      "predicate": {
+        "jiagureappear:prescription": 8.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/water_breathing",
+      "predicate": {
+        "jiagureappear:prescription": 9.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/invisibility",
+      "predicate": {
+        "jiagureappear:prescription": 10.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/resistance",
+      "predicate": {
+        "jiagureappear:prescription": 11.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/regeneration",
+      "predicate": {
+        "jiagureappear:prescription": 12.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "jiagureappear:item/prescriptions/default"
+  }
+}

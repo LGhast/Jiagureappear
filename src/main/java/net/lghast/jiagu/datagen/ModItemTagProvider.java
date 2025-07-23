@@ -34,8 +34,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.INVALID_TO_CHARACTERS)
                 .add(ModItems.CHARACTER_ITEM.asItem())
+                .addTag(ModTags.AMETHYST_INSCRIPTIONS)
+        ;
+
+        tag(ModTags.INVALID_TO_BE_RUBBED)
+                .add(ModItems.CHARACTER_ITEM.asItem())
+                .add(ModItems.TAOIST_TALISMAN.asItem())
+                .add(ModItems.PRESCRIPTION.asItem())
+                .addTag(ModTags.AMETHYST_INSCRIPTIONS)
                 .add(Items.POTION)
                 .add(Items.TIPPED_ARROW)
+                .add(Items.ENCHANTED_BOOK)
                 .add(Items.OMINOUS_BOTTLE)
         ;
 
@@ -65,12 +74,30 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.JIAN_SWORD_AMETHYST.asItem())
                 .add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem())
                 .add(ModItems.BIAO_GALE_AMETHYST.asItem())
+                .add(ModItems.YI_CURE_AMETHYST.asItem())
         ;
 
         tag(ModTags.WENCHANG_ALTAR_DISPLAYABLE)
                 .add(ModItems.CHARACTER_ITEM.asItem())
                 .add(ModItems.TAOIST_TALISMAN.asItem())
+                .add(ModItems.PRESCRIPTION.asItem())
                 .addTag(ModTags.AMETHYST_INSCRIPTIONS)
+        ;
+
+        tag(ModTags.HERBS)
+                .addTag(ItemTags.FLOWERS)
+                .addTag(ItemTags.LEAVES)
+                .addTag(ItemTags.SAPLINGS)
+                .add(Items.SHORT_GRASS)
+                .add(Items.TALL_GRASS)
+                .add(Items.FERN)
+                .add(Items.LARGE_FERN)
+                .add(Items.SMALL_DRIPLEAF)
+                .add(Items.BIG_DRIPLEAF)
+                .add(Items.KELP)
+                .add(Items.SEAGRASS)
+                .add(Items.GLOW_LICHEN)
+                .addTag(ModTags.FOODS_BERRY)
         ;
 
         tag(ModTags.IGNITING_ENCHANTABLE).add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem());
@@ -78,5 +105,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.INQUISITIVENESS_ENCHANTABLE).add(ModItems.JIAN_SWORD_AMETHYST.asItem());
         tag(ModTags.FLURRY_ENCHANTABLE).add(ModItems.BIAO_GALE_AMETHYST.asItem());
         tag(ModTags.WUTHERING_ENCHANTABLE).add(ModItems.BIAO_GALE_AMETHYST.asItem());
+        tag(ModTags.BENEVOLENCE_ENCHANTABLE).add(ModItems.YI_CURE_AMETHYST.asItem());
+        tag(ModTags.HIPPOCRATES_ENCHANTABLE).add(ModItems.YI_CURE_AMETHYST.asItem());
+        tag(ModTags.PANACEA_ENCHANTABLE)
+                .add(ModItems.YI_CURE_AMETHYST.asItem())
+                .add(ModItems.GU_PARASITE_AMETHYST.asItem());
+        tag(ModTags.MALADY_ENCHANTABLE).add(ModItems.GU_PARASITE_AMETHYST.asItem());
     }
 }

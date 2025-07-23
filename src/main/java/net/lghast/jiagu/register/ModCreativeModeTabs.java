@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHARACTER_ITEM);
                         output.accept(ModItems.YELLOW_PAPER);
                         output.accept(ModItems.TAOIST_TALISMAN);
+                        output.accept(ModItems.EMPTY_PRESCRIPTION);
                         output.accept(ModItems.PRESCRIPTION);
                         output.accept(ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE);
                         output.accept(ModItems.NI_CONVERSE_AMETHYST);
@@ -31,6 +32,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.JIAN_SWORD_AMETHYST);
                         output.accept(ModItems.YI_CONFLAGRANT_AMETHYST);
                         output.accept(ModItems.BIAO_GALE_AMETHYST);
+                        output.accept(ModItems.YI_CURE_AMETHYST);
+                        output.accept(ModItems.GU_PARASITE_AMETHYST);
                         output.accept(ModItems.YOLIME);
                         output.accept(ModItems.YOLIME_BREAD);
                         output.accept(ModBlocks.YOLIME_BLOCK);
@@ -43,6 +46,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.RUBBING_TABLE);
                         output.accept(ModBlocks.RUBBING_MACHINE);
                         output.accept(ModBlocks.WENCHANG_ALTAR);
+                        output.accept(ModBlocks.YAOWANG_GOURD);
                         output.accept(ModBlocks.GOLDEN_BRICKS);
                         output.accept(ModItems.CANGJIE_JADE_BURIN);
                         output.accept(ModBlocks.LUCKY_JIAGU_BLOCK);

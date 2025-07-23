@@ -1,6 +1,7 @@
 package net.lghast.jiagu.block;
 
 import com.mojang.serialization.MapCodec;
+import net.lghast.jiagu.item.PrescriptionItem;
 import net.lghast.jiagu.item.TaoistTalismanItem;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.item.CharacterItem;
@@ -17,9 +18,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -94,9 +97,18 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
     }
 
     private void normalTransfer(ServerLevel serverLevel, BlockPos pos, Player player,ItemStack mainHandItem,ItemStack offHandItem){
-        String spell = TaoistTalismanItem.getSpell(mainHandItem);
-        String itemName = Objects.equals(spell, null) ? ModUtils.getCharacters(mainHandItem) : ModUtils.getCharacters(spell);
-        spawnCharacters(itemName, serverLevel, pos);
+        String morpherResult;
+        if(mainHandItem.is(ModItems.TAOIST_TALISMAN)){
+            String spell = TaoistTalismanItem.getSpell(mainHandItem);
+            morpherResult = Objects.equals(spell, null) ? ModUtils.getCharacters(mainHandItem) : ModUtils.getCharacters(spell);
+        }else if(mainHandItem.is(ModItems.PRESCRIPTION)){
+            MobEffect effect = PrescriptionItem.getEffect(mainHandItem);
+            morpherResult = effect==null ? ModUtils.getCharacters(mainHandItem) : ModUtils.getCharacters(effect);
+        }else{
+            morpherResult = ModUtils.getCharacters(mainHandItem);
+        }
+
+        spawnCharacters(morpherResult, serverLevel, pos);
         if(!player.isCreative()) {
             mainHandItem.shrink(1);
             if (offHandItem.isDamageableItem()) {
@@ -111,6 +123,7 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
 
     private void enchantmentTransfer(ServerLevel serverLevel, BlockPos pos, Player player, ItemStack mainHandItem, ItemStack offHandItem){
         ItemEnchantments enchantments = mainHandItem.getTagEnchantments();
+
         if(enchantments.isEmpty()){
             player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.no_enchantment"),true);
             return;

@@ -7,6 +7,9 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -33,6 +36,8 @@ public class BiaoGaleAmethystItem extends Item {
     private static final int BASE_DISTANCE = 6;
     private static final int WIND_ANGLE = 30;
     private static final double BASE_SPEED = 0.3;
+
+    private int usingTicks = 0;
 
 
     public BiaoGaleAmethystItem(Properties properties) {
@@ -62,7 +67,7 @@ public class BiaoGaleAmethystItem extends Item {
             return InteractionResultHolder.fail(stack);
         }
 
-
+        usingTicks = 0;
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
     }
@@ -76,27 +81,19 @@ public class BiaoGaleAmethystItem extends Item {
     public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseDuration) {
         super.onUseTick(level, user, stack, remainingUseDuration);
         if(!(user instanceof Player player) || !(level instanceof ServerLevel serverLevel)) return;
-        if (Math.random() < 0.08) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_SMALL,
-                    player.getX(), player.getY() + 0.5, player.getZ(), 0.3, 0.3, 0.3, 1, 0.5);
+
+        usingTicks ++;
+        spawnParticles(serverLevel, player);
+        if (usingTicks % 15 == 0) {
+            level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.BREEZE_IDLE_GROUND, SoundSource.NEUTRAL);
         }
-        if (Math.random() < 0.07) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_LARGE,
-                    player.getX(), player.getY() + 0.5, player.getZ(), 0.3, 0.3, 0.3, 1, 0.5);
-        }
+
         Vec3 eyePos = player.getEyePosition();
         Vec3 lookVec = player.getLookAngle();
         Vec3 newEyePos = eyePos.add(lookVec.scale(0.5));
 
-
-        Holder<Enchantment> wutheringHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
-                .getHolderOrThrow(ModEnchantments.WUTHERING);
-        Holder<Enchantment> flurryHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
-                .getHolderOrThrow(ModEnchantments.FLURRY);
-
-        double windDistance = BASE_DISTANCE * (stack.getEnchantmentLevel(wutheringHolder) * 0.2 + 1);
-        double windSpeed = BASE_SPEED * (stack.getEnchantmentLevel(flurryHolder) * 0.25 + 1);
-
+        double windDistance = getWindDistance(level, stack);
         double yCenter = player.getY();
         AABB area = new AABB(
                 player.getX()-windDistance, yCenter-0.5, player.getZ()-windDistance,
@@ -133,7 +130,7 @@ public class BiaoGaleAmethystItem extends Item {
             AABB box = entity.getBoundingBox();
             double volume = entity instanceof ItemEntity itemEntity ?
                     itemEntity.getItem().getCount()/100.0+1 : box.getXsize() * box.getYsize() * box.getZsize();
-            double speed = windSpeed / (1 + volume * 1.2);
+            double speed = getWindSpeed(level, stack) / (1 + volume * 1.2);
 
             Vec3 velocity = entity.getDeltaMovement()
                     .add(pushDir.scale(speed))
@@ -158,6 +155,29 @@ public class BiaoGaleAmethystItem extends Item {
         double angleRad = Math.acos(dot);
 
         return Math.toDegrees(angleRad) <= angleDeg;
+    }
+
+    private double getWindDistance(Level level, ItemStack stack){
+        Holder<Enchantment> wutheringHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                .getHolderOrThrow(ModEnchantments.WUTHERING);
+        return BASE_DISTANCE * (stack.getEnchantmentLevel(wutheringHolder) * 0.2 + 1);
+    }
+
+    private double getWindSpeed(Level level, ItemStack stack){
+        Holder<Enchantment> flurryHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                .getHolderOrThrow(ModEnchantments.FLURRY);
+        return BASE_SPEED * (stack.getEnchantmentLevel(flurryHolder) * 0.25 + 1);
+    }
+
+    private void spawnParticles(ServerLevel serverLevel, Player player){
+        if (usingTicks % 10 == 0) {
+            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_SMALL,
+                    player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
+        }
+        if (usingTicks % 15 == 0) {
+            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_LARGE,
+                    player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
+        }
     }
 
 

@@ -3,6 +3,7 @@ package net.lghast.jiagu.utils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -30,36 +31,16 @@ public class ModUtils {
         level.addFreshEntity(itemEntity);
     }
 
-    public static void spawnParticles(Level level, ParticleOptions particle,
-                             double x, double y, double z,
-                             double dx, double dy, double dz,
-                             double speed, int count) {
-
-        if (level.isClientSide) {
-            for (int i = 0; i < count; i++) {
-                double offsetX = (level.random.nextDouble() - 0.5) * speed;
-                double offsetY = (level.random.nextDouble() - 0.5) * speed;
-                double offsetZ = (level.random.nextDouble() - 0.5) * speed;
-
-                level.addParticle(particle,
-                        x + offsetX,
-                        y + offsetY,
-                        z + offsetZ,
-                        dx, dy, dz);
-            }
-        }
-    }
-
     public static void spawnParticlesForAll(ServerLevel serverLevel, ParticleOptions particle,
                                    double x, double y, double z,
                                    double dx, double dy, double dz,
-                                   int count, double range) {
+                                   int count, double speed) {
 
         serverLevel.sendParticles(particle,
                 x, y, z,
                 count,
                 dx, dy, dz,
-                range);
+                speed);
 
     }
 
@@ -90,6 +71,9 @@ public class ModUtils {
     }
     public static String getCharacters(Entity entity){
         return Objects.requireNonNull(entity.getDisplayName()).getString().replace(" ", "").replace("“", "").replace("”", "");
+    }
+    public static String getCharacters(MobEffect effect){
+        return effect.getDisplayName().getString().replace(" ", "").replace("“", "").replace("”", "");
     }
 
     public static String insertLineBreaks(String input, int interval) {

@@ -114,7 +114,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
             ItemStack reference = blockEntity.getItem(0);
             ItemStack ink = blockEntity.getItem(1);
 
-            if (!reference.is(ModTags.INVALID_TO_CHARACTERS) && ink.is(ModTags.RUBBING_INKS)
+            if (!reference.is(ModTags.INVALID_TO_BE_RUBBED) && ink.is(ModTags.RUBBING_INKS)
                     && !state.getValue(CRAFTING)) {
                 level.setBlock(pos, state.setValue(CRAFTING, true), 3);
                 blockEntity.startMorphing();
@@ -175,7 +175,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
         level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS);
         ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
                 pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
-                0.3, 0.4, 0.3, 10, 0.2);
+                0.3, 0.4, 0.3, 10, 0.05);
     }
 
     @Override
@@ -213,6 +213,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
                     );
 
                     if (inkSuccess) {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -228,6 +229,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
                     );
 
                     if (referenceSuccess) {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -241,11 +243,12 @@ public class RubbingMachineBlock extends BaseEntityBlock {
         Direction direction = state.getValue(ORIENTATION).front();
         Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
         DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
+        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
         ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SQUID_INK,
-                pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.3, 0.3, 3, 0.2);
+                pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.3, 0.3, 3, 0.1);
         ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                 pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.3, 0.3, 5, 0.2);
     }

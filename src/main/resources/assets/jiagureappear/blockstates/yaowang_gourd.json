@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jiagureappear:block/yaowang_gourd"
+    },
+    "facing=east": {
+      "model": "jiagureappear:block/yaowang_gourd",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jiagureappear:block/yaowang_gourd",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jiagureappear:block/yaowang_gourd",
+      "y": 270
+    }
+  }
+}

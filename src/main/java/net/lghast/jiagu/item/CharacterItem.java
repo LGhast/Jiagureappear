@@ -11,7 +11,7 @@ import net.minecraft.world.item.component.CustomData;
 
 import java.util.List;
 
-public class CharacterItem extends Item {
+public class CharacterItem extends Item{
 
     public static final String INSCRIPTION = "inscription";
 
@@ -34,7 +34,6 @@ public class CharacterItem extends Item {
         }
         return "default";
     }
-
 
     public static void setInscription(ItemStack stack, String inscription){
         CompoundTag tag =new CompoundTag();

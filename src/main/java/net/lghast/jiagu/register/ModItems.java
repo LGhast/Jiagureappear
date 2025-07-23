@@ -1,7 +1,9 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
+import net.lghast.jiagu.data_component.Prescription;
 import net.lghast.jiagu.item.*;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -22,6 +24,9 @@ public class ModItems {
     public static final DeferredItem<Item> YELLOW_PAPER = ITEMS.register("yellow_paper",
             ()-> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> EMPTY_PRESCRIPTION = ITEMS.register("empty_prescription",
+            ()-> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> YOLIME = ITEMS.register("yolime",
             ()-> new Item(new Item.Properties()));
 
@@ -39,13 +44,19 @@ public class ModItems {
     public static final DeferredItem<Item> TAOIST_TALISMAN = ITEMS.register("taoist_talisman",
             ()-> new TaoistTalismanItem(new Item.Properties()));
 
-    public static final DeferredItem<Item> PRESCRIPTION = ITEMS.register("prescription",
-            ()-> new PrescriptionItem(new Item.Properties()));
+    public static final DeferredItem<PrescriptionItem> PRESCRIPTION =
+            ITEMS.register("prescription", () ->
+                    new PrescriptionItem(new Item.Properties()
+                            .component(ModDataComponents.PRESCRIPTION.value(), new Prescription())
+                    ));
 
     public static final DeferredItem<Item> BONE_LAMELLA = ITEMS.register("bone_lamella",
             ()-> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> TURTLE_PLASTRON = ITEMS.register("turtle_plastron",
+            ()-> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> PARASITE_SPORE = ITEMS.register("parasite_spore",
             ()-> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> AMETHYST_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("amethyst_upgrade_smithing_template",
@@ -66,6 +77,12 @@ public class ModItems {
 
     public static final DeferredItem<Item> BIAO_GALE_AMETHYST = ITEMS.register("biao_gale_amethyst",
             ()-> new BiaoGaleAmethystItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> YI_CURE_AMETHYST = ITEMS.register("yi_cure_amethyst",
+            ()-> new YiCureAmethystItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> GU_PARASITE_AMETHYST = ITEMS.register("gu_parasite_amethyst",
+            ()-> new GuParasiteAmethystItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

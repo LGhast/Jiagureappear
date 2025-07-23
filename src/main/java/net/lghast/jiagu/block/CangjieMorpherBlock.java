@@ -127,17 +127,19 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
 
                 if(content.has(DataComponents.CUSTOM_NAME)){
-                    level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS);
-                    ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
-                            pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
-                            0.3, 0.4, 0.3, 10, 0.2);
+                    morphingFailure(level, pos);
                     return;
                 }
 
-                String spell = TaoistTalismanItem.getSpell(content);
-                String itemName = Objects.equals(spell, null) ? ModUtils.getCharacters(content) : ModUtils.getCharacters(spell);
+                String morpherResult;
+                if (content.is(ModItems.TAOIST_TALISMAN)) {
+                    String spell = TaoistTalismanItem.getSpell(content);
+                    morpherResult = Objects.equals(spell, null) ? ModUtils.getCharacters(content) : ModUtils.getCharacters(spell);
+                }else{
+                    morpherResult = ModUtils.getCharacters(content);
+                }
 
-                char[] components = itemName.toCharArray();
+                char[] components = morpherResult.toCharArray();
                 int count;
                 if(material.is(ModItems.INFINITE_PAPYRUS)){
                     count = content.getCount();
@@ -165,6 +167,13 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 }
             }
         }
+    }
+
+    private void morphingFailure(ServerLevel level, BlockPos pos){
+        level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS);
+        ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
+                pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
+                0.3, 0.4, 0.3, 10, 0.05);
     }
 
     @Override
@@ -200,6 +209,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                             newStack -> blockEntity.setItem(1, newStack)
                     );
                     if (inkSuccess) {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -214,6 +224,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                             newStack -> blockEntity.setItem(0, newStack)
                     );
                     if (referenceSuccess) {
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -227,6 +238,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
         Direction direction = state.getValue(ORIENTATION).front();
         Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
         DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
+        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
