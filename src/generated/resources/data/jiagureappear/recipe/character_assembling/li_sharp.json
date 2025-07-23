@@ -1,0 +1,29 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "禾"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "刀"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "利"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "利"
+}

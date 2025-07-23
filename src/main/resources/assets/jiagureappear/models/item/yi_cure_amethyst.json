@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "jiagureappear:item/yi_cure_amethyst_normal",
+      "predicate": {
+        "jiagureappear:using": 0.0,
+        "jiagureappear:dormant": 0.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/yi_cure_amethyst_using",
+      "predicate": {
+        "jiagureappear:using": 1.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/yi_cure_amethyst_dormant",
+      "predicate": {
+        "jiagureappear:using": 0.0,
+        "jiagureappear:dormant": 1.0
+      }
+    }
+  ]
+}

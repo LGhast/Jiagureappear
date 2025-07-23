@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#minecraft:flowers",
+    "#minecraft:leaves",
+    "#minecraft:saplings",
+    "minecraft:short_grass",
+    "minecraft:tall_grass",
+    "minecraft:fern",
+    "minecraft:large_fern",
+    "minecraft:small_dripleaf",
+    "minecraft:big_dripleaf",
+    "minecraft:kelp",
+    "minecraft:seagrass",
+    "minecraft:glow_lichen",
+    "#c:foods/berry"
+  ]
+}

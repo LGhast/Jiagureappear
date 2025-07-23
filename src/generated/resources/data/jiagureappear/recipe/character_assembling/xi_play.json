@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "豆"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "戈"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虍"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "戲"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "戲"
+}

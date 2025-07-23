@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "化"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "化"
+}

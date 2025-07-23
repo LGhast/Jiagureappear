@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:ghast_tear"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "RS ",
+    "WGW",
+    "WNW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:yaowang_gourd"
+  }
+}

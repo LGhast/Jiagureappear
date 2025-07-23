@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "向"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "尚"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "尚"
+}

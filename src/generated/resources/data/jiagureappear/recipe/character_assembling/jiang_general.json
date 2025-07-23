@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "爿"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "將"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "將"
+}

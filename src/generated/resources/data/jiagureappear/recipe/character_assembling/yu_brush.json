@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "D  "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "聿"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "聿"
+}

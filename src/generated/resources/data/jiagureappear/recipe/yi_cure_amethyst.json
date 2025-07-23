@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "base": {
+    "type": "jiagureappear:character_ingredient",
+    "inscription": "醫"
+  },
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:yi_cure_amethyst"
+  },
+  "template": {
+    "item": "jiagureappear:amethyst_upgrade_smithing_template"
+  }
+}
