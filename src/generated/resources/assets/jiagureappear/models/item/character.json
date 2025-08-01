@@ -1238,6 +1238,24 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/dai_band",
+      "predicate": {
+        "jiagureappear:inscription": 207.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kao_horn",
+      "predicate": {
+        "jiagureappear:inscription": 208.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lao_old",
+      "predicate": {
+        "jiagureappear:inscription": 209.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/lin_woods",
       "predicate": {
         "jiagureappear:inscription": 1000.0
@@ -2276,6 +2294,30 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/kao_exam",
+      "predicate": {
+        "jiagureappear:inscription": 1183.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ke_can",
+      "predicate": {
+        "jiagureappear:inscription": 1184.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ru_milk",
+      "predicate": {
+        "jiagureappear:inscription": 1185.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yu_depress",
+      "predicate": {
+        "jiagureappear:inscription": 1186.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/yan_strict",
       "predicate": {
         "jiagureappear:inscription": 2000.0
@@ -2966,6 +3008,24 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/he_river",
+      "predicate": {
+        "jiagureappear:inscription": 2115.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kao_grill",
+      "predicate": {
+        "jiagureappear:inscription": 2116.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mi_lost",
+      "predicate": {
+        "jiagureappear:inscription": 2117.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/yan_rock",
       "predicate": {
         "jiagureappear:inscription": 3000.0
@@ -3053,6 +3113,12 @@
       "model": "jiagureappear:item/characters/li_beet",
       "predicate": {
         "jiagureappear:inscription": 3014.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mi_mystery",
+      "predicate": {
+        "jiagureappear:inscription": 3015.0
       }
     },
     {

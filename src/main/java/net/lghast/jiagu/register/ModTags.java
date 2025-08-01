@@ -3,8 +3,11 @@ package net.lghast.jiagu.register;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+
+import javax.swing.text.html.parser.Entity;
 
 public class ModTags {
     public static final TagKey<Item> FOODS_BREAD = TagKey.create(
@@ -105,5 +108,10 @@ public class ModTags {
     public static final TagKey<Item> WENCHANG_ALTAR_DISPLAYABLE = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:wenchang_altar_displayable")
+    );
+
+    public static final TagKey<EntityType<?>> MOBS_WITH_FUR = TagKey.create(
+            Registries.ENTITY_TYPE,
+            ResourceLocation.parse("jiagureappear:mobs_with_fur")
     );
 }

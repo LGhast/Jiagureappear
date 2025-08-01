@@ -72,6 +72,18 @@
       "predicate": {
         "jiagureappear:prescription": 12.0
       }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/slowness",
+      "predicate": {
+        "jiagureappear:prescription": 13.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/wither",
+      "predicate": {
+        "jiagureappear:prescription": 14.0
+      }
     }
   ],
   "textures": {

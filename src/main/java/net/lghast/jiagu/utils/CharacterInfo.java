@@ -366,6 +366,14 @@ public class CharacterInfo {
             Map.entry("向", newData(CharacterStructure.VERTICAL,"宀", "口")),
             Map.entry("頁", newData(CharacterStructure.VERTICAL_LONG,"simple", "complex", "卩")),
             Map.entry("狀", newData(CharacterStructure.HORIZONTAL,"爿", "犬")),
+            Map.entry("河", newData(CharacterStructure.HORIZONTAL,"水", "可")),
+            Map.entry("考", newData(CharacterStructure.VERTICAL,"老", "丂")),
+            Map.entry("烤", newData(CharacterStructure.HORIZONTAL,"火", "考")),
+            Map.entry("可", newData(CharacterStructure.HORIZONTAL,"口", "丂")),
+            Map.entry("迷", newData(CharacterStructure.HORIZONTAL,"辵", "米")),
+            Map.entry("謎", newData(CharacterStructure.HORIZONTAL,"言", "迷")),
+            Map.entry("乳", newData(CharacterStructure.HORIZONTAL,"子", "女")),
+            Map.entry("鬱", newData(CharacterStructure.T_SHAPE_INVERT,"大", "木", "人", "木")),
             Map.entry("幺", newData(CharacterStructure.SAME,"玄")),
             Map.entry("玄", newData(CharacterStructure.SAME,"幺"))
 
@@ -656,6 +664,9 @@ public class CharacterInfo {
             Map.entry("卵", new CharacterData(204.0f, "luan_egg")),
             Map.entry("黍", new CharacterData(205.0f, "shu_millet")),
             Map.entry("頁", new CharacterData(206.0f, "ye_head")),
+            Map.entry("帶", new CharacterData(207.0f, "dai_band")),
+            Map.entry("丂", new CharacterData(208.0f, "kao_horn")),
+            Map.entry("老", new CharacterData(209.0f, "lao_old")),
 
 
             //Iron Level
@@ -832,7 +843,10 @@ public class CharacterInfo {
             Map.entry("鮮", new CharacterData(1180.0f, "xian_fresh")),
             Map.entry("向", new CharacterData(1181.0f, "xiang_direction")),
             Map.entry("狀", new CharacterData(1182.0f, "zhuang_state")),
-
+            Map.entry("考", new CharacterData(1183.0f, "kao_exam")),
+            Map.entry("可", new CharacterData(1184.0f, "ke_can")),
+            Map.entry("乳", new CharacterData(1185.0f, "ru_milk")),
+            Map.entry("鬱", new CharacterData(1186.0f, "yu_depress")),
 
             //Gold Level
             Map.entry("嚴", new CharacterData(2000.0f, "yan_strict")),
@@ -950,6 +964,9 @@ public class CharacterInfo {
             Map.entry("賞", new CharacterData(2112.0f, "shang_award")),
             Map.entry("碩", new CharacterData(2113.0f, "shuo_large")),
             Map.entry("蘚", new CharacterData(2114.0f, "xian_moss")),
+            Map.entry("河", new CharacterData(2115.0f, "he_river")),
+            Map.entry("烤", new CharacterData(2116.0f, "kao_grill")),
+            Map.entry("迷", new CharacterData(2117.0f, "mi_lost")),
 
 
             //Diamond Level
@@ -968,6 +985,7 @@ public class CharacterInfo {
             Map.entry("貓", new CharacterData(3012.0f, "mao_cat")),
             Map.entry("瑚", new CharacterData(3013.0f, "hu_coral")),
             Map.entry("藜", new CharacterData(3014.0f, "li_beet")),
+            Map.entry("謎", new CharacterData(3015.0f, "mi_mystery")),
 
 
             //Special Level
@@ -1067,13 +1085,14 @@ public class CharacterInfo {
             Map.entry(MobEffects.WEAKNESS, 4.0f),
             Map.entry(MobEffects.NIGHT_VISION, 5.0f),
             Map.entry(MobEffects.FIRE_RESISTANCE, 6.0f),
-
             Map.entry(MobEffects.HUNGER, 7.0f),
             Map.entry(MobEffects.DARKNESS, 8.0f),
             Map.entry(MobEffects.WATER_BREATHING, 9.0f),
             Map.entry(MobEffects.INVISIBILITY, 10.0f),
             Map.entry(MobEffects.DAMAGE_RESISTANCE, 11.0f),
-            Map.entry(MobEffects.REGENERATION, 12.0f)
+            Map.entry(MobEffects.REGENERATION, 12.0f),
+            Map.entry(MobEffects.MOVEMENT_SLOWDOWN, 13.0f),
+            Map.entry(MobEffects.WITHER, 14.0f)
     ));
 
     public static float getFloatValue(Holder<MobEffect> effectHolder) {

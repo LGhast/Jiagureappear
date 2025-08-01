@@ -1,6 +1,7 @@
 package net.lghast.jiagu.item;
 
 import net.lghast.jiagu.register.ModEnchantments;
+import net.lghast.jiagu.register.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -87,10 +88,10 @@ public class YiConflagrantAmethystItem extends Item {
                 e -> e != user && e.isAlive())) {
 
             Holder<DamageType> damageTypeHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
-                    .getHolderOrThrow(DamageTypes.ON_FIRE);
+                    .getHolderOrThrow(DamageTypes.IN_FIRE);
             DamageSource source = new DamageSource(damageTypeHolder, user);
 
-            if (target.hurt(source, DAMAGE)) {
+            if (target.hurt(source, getDamage(target))) {
                 if (level instanceof ServerLevel serverLevel) {
                     ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.FLAME,
                             target.getX(), target.getY() + 1.0, target.getZ(), 0.5, 0.5, 0.5, 20, 0.02);
@@ -103,10 +104,8 @@ public class YiConflagrantAmethystItem extends Item {
                     target.igniteForSeconds(5);
                 }
 
-                if (level.getRandom().nextFloat() < 0.4f) {
-                    if (level.getRandom().nextFloat() < 0.04f) {
-                        stack.hurtAndBreak(1, user, EquipmentSlot.MAINHAND);
-                    }
+                if (level.getRandom().nextFloat() < 0.1f) {
+                    stack.hurtAndBreak(1, user, EquipmentSlot.MAINHAND);
                     if (stack.isEmpty()) break;
                 }
             }
@@ -117,6 +116,13 @@ public class YiConflagrantAmethystItem extends Item {
         Holder<Enchantment> cremationHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.CREMATION);
         return Math.max(1, INTERVAL * (1.0f - (stack.getEnchantmentLevel(cremationHolder) * 0.17f)));
+    }
+
+    private float getDamage(LivingEntity target){
+        if(target.getType().is(ModTags.MOBS_WITH_FUR)){
+            return Math.random()<0.4 ? DAMAGE * 2 : DAMAGE;
+        }
+        return DAMAGE;
     }
 
     @Override

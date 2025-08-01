@@ -1,8 +1,8 @@
-// 1.21.1	2025-07-23T23:11:07.4106259	Item Models: jiagureappear
+// 1.21.1	2025-08-01T19:58:06.9039597	Item Models: jiagureappear
 163d45fcc6b5f4ca6c42d370e942a934797a52d1 assets/jiagureappear/models/item/amethyst_upgrade_smithing_template.json
 47475b3ecf8cd9290b142d647fed33386727f126 assets/jiagureappear/models/item/biao_gale_amethyst.json
 5c4b0dab5279325b1cc0433fec8313e4a2b75766 assets/jiagureappear/models/item/bone_lamella.json
-30b0931e876b380fb374aed5d50a95b9a5c973db assets/jiagureappear/models/item/character.json
+73ac2d27878172d6f4ec3a9977287ae44f92cd74 assets/jiagureappear/models/item/character.json
 3ac3255e5a76048d4becf6882c592811aa19f896 assets/jiagureappear/models/item/characters/ai_badman.json
 6d06c78cc10a5c1b12df17e270d02327ed804761 assets/jiagureappear/models/item/characters/an_dark.json
 574d4c6b19ce37a5dddb4dfe49d0375e919e3215 assets/jiagureappear/models/item/characters/an_safe.json
@@ -58,6 +58,7 @@ a7161697154fc1a98bee8ed9a37a2cab737a5420 assets/jiagureappear/models/item/charac
 075ce22f9b6323cb1db03c09f5bb383465b6bbdc assets/jiagureappear/models/item/characters/cui_green.json
 041bc3fb55aba9c034d595da406e854aec775b88 assets/jiagureappear/models/item/characters/cui_quench.json
 2c6b37e2a7c63a0fae687baf8f2eb448d0dc5754 assets/jiagureappear/models/item/characters/cyrillic_letters.json
+8789eedec15badd4a692adae84d8e72b9dd2bce7 assets/jiagureappear/models/item/characters/dai_band.json
 18a463c12d2f4fea7b7f09654c9e10c3cf62e3c9 assets/jiagureappear/models/item/characters/dai_cyan.json
 40ebb20c051bed77a2b3843a7384f289533fa60a assets/jiagureappear/models/item/characters/dai_die.json
 2b8aaf43ef9fbb75c556cfd128e90ec6104c422c assets/jiagureappear/models/item/characters/dai_generation.json
@@ -148,6 +149,7 @@ a50f3029fc1d35cbac70196466f521cf948f1d8b assets/jiagureappear/models/item/charac
 675390b7165391c4704884d3893be7ee16d6d0c3 assets/jiagureappear/models/item/characters/he_brown.json
 f6992fe0d8b00e356fac78d23ec2af57ede44478 assets/jiagureappear/models/item/characters/he_core.json
 b1b674861452cc3074c9ba82a7a45d185aed1526 assets/jiagureappear/models/item/characters/he_crops.json
+d234b0bc964af22976902d013f2235c360fc79c1 assets/jiagureappear/models/item/characters/he_river.json
 969f2c4ca8529b0e4cc54694a39c99a423671e17 assets/jiagureappear/models/item/characters/he_why.json
 9ededed0800277f12a9ded0160e4349042cd3c14 assets/jiagureappear/models/item/characters/hong_red.json
 b379f5d08696cdb89238fb88c9c52b6d429e097a assets/jiagureappear/models/item/characters/huang_yellow.json
@@ -206,6 +208,10 @@ d978a619d1cfd53b2c7248544cc3c86268a8493b assets/jiagureappear/models/item/charac
 523c00bb26c10ac233f8c4cc439e7f3e2998bf38 assets/jiagureappear/models/item/characters/jun_ruler.json
 86f2a082948562a7408a35e79903bec8ad6cacf1 assets/jiagureappear/models/item/characters/kai_pattern.json
 d89b8a1467b71cc4a172932e8c40e7c981652671 assets/jiagureappear/models/item/characters/kana.json
+4d8c8d3c60b11b140db5f955bc4d485ce3d61fa8 assets/jiagureappear/models/item/characters/kao_exam.json
+575f2a0bdf9c858670c733bbdb22e18e005a4710 assets/jiagureappear/models/item/characters/kao_grill.json
+64ae463a222a28a0dd0eb6335de6b43bfb48d44d assets/jiagureappear/models/item/characters/kao_horn.json
+d280c6b5638fd5e5618d135b35a2237124b540ec assets/jiagureappear/models/item/characters/ke_can.json
 7f8c29d82eb62d4d0cbecb6e15e4fd478b57c4a7 assets/jiagureappear/models/item/characters/ke_shell.json
 ad5ab1a58146a2a6ddcf4897ba6ec60169dd71a4 assets/jiagureappear/models/item/characters/ke_thirst.json
 97151109c3b360f7c7a92acea128c9433acf061f assets/jiagureappear/models/item/characters/kong_empty.json
@@ -218,6 +224,7 @@ d141a32eba9f04c6b61707d134fa3d26935eb8f5 assets/jiagureappear/models/item/charac
 f6e97fda4b24ee2bd173646b3f2a964f16885f96 assets/jiagureappear/models/item/characters/lan_blue.json
 a06f9b5579a943e73dc3a5fc1e3190e271165da5 assets/jiagureappear/models/item/characters/lan_fence.json
 520f7372a99d4b2b29f18a405c6fcf47d1d89b74 assets/jiagureappear/models/item/characters/lan_orchid.json
+e6014cbd7fbf8876bda52fd2fdefa9cf658ef293 assets/jiagureappear/models/item/characters/lao_old.json
 8761b2f3a998c408296fcf35edbfbe43535cf18f assets/jiagureappear/models/item/characters/latin_letters.json
 47427b2f3cef0b139a000b2d3734e93d700e4739 assets/jiagureappear/models/item/characters/lei_plough.json
 a17e3a99faad66782922cf5c94b632925fbf1cdd assets/jiagureappear/models/item/characters/lghast.json
@@ -258,6 +265,8 @@ cea9a15b42ac13b6cb3e4a55c17721b3b19b03a2 assets/jiagureappear/models/item/charac
 8b2be66889b8c21c537bf10ea1c2b808cc95d9f9 assets/jiagureappear/models/item/characters/minecraft.json
 d9fdb23bd9b4b193233df15c9a487fff534a0c4c assets/jiagureappear/models/item/characters/min_vessel.json
 2765de9c3690f7796a67f63d5c6b31668d7e4b87 assets/jiagureappear/models/item/characters/mi_honey.json
+08472a0ea35acff6315c657049a7d1d3d6c94a95 assets/jiagureappear/models/item/characters/mi_lost.json
+847181af2ec97a66091bfa85a4b9b97bdfdef5c4 assets/jiagureappear/models/item/characters/mi_mystery.json
 07c4631a3c241e0862a339226784dcc3046c426b assets/jiagureappear/models/item/characters/mi_quiet.json
 ee566b23c6452f76e40726bc6f9b8ddd46dd4e4e assets/jiagureappear/models/item/characters/mi_rice.json
 6c04292fe495171bb9869e6edb6aa7f2bc329e86 assets/jiagureappear/models/item/characters/mi_silk.json
@@ -321,6 +330,7 @@ ba96f0e8ee0310d896a16da45d4049f1aa7c13bf assets/jiagureappear/models/item/charac
 cbb75f29f741712c1430cb233d12bed607ee11e3 assets/jiagureappear/models/item/characters/rou_meat.json
 88a2dc09cc1ea92c8f7bceccacb16a543293d8d5 assets/jiagureappear/models/item/characters/rui_sharp.json
 64571c6cc5503b989511e4f1d9e8cbbab8b06408 assets/jiagureappear/models/item/characters/ruo_if.json
+bb4844d424f7a89ba98512debd4fe3b1c238824e assets/jiagureappear/models/item/characters/ru_milk.json
 e969172ca24f8f52d4d620b1fedbb9f9d8443bcd assets/jiagureappear/models/item/characters/san_three.json
 d01f4a1419d943872f7d39e43fec1ea3f0b1d743 assets/jiagureappear/models/item/characters/sen_forest.json
 e85700b124728a8d5c4ca664beb175da5c2b07dd assets/jiagureappear/models/item/characters/shang_award.json
@@ -478,6 +488,7 @@ d30d8eae0c56a052036955f7eeff0d3be19ac23f assets/jiagureappear/models/item/charac
 a4dd307aa480fdab20139e93f6a51ee6882023cc assets/jiagureappear/models/item/characters/yue_pearl.json
 8662909d626617de94d61e95af90fdb78df9f82d assets/jiagureappear/models/item/characters/yue_speak.json
 aec75a7e9cac6e66a01f63abce80fb96304cc11a assets/jiagureappear/models/item/characters/yu_brush.json
+593f7c574454ee560cc0dbc6e7338213068c4d4e assets/jiagureappear/models/item/characters/yu_depress.json
 fd3613590a21b5368feddfb673ccef1165081e3a assets/jiagureappear/models/item/characters/yu_feather.json
 46ffd5bd021e7c31adabc0a759409c5e8372591e assets/jiagureappear/models/item/characters/yu_fish.json
 31e562ac2ba3b05fc8856cca977c7c7c88e50af1 assets/jiagureappear/models/item/characters/yu_jade.json

@@ -104,7 +104,7 @@ public class YiCureAmethystItem extends Item {
                     for (MobEffectInstance e : effects) {
                         Holder<MobEffect> effectHolder = e.getEffect();
 
-                        if (!effectHolder.value().isBeneficial() && e.getAmplifier() < 2) {
+                        if (!effectHolder.value().isBeneficial() && e.getAmplifier() <= benevolenceLevel) {
                             player.removeEffect(effectHolder);
                         }
                     }
