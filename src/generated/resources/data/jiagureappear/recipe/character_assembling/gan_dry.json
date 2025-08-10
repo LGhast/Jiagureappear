@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "旦"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "乙"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "㫃"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "乾"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "乾"
+}

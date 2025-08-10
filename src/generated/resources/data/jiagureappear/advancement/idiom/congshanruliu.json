@@ -1,0 +1,30 @@
+{
+  "parent": "jiagureappear:idiom/root",
+  "criteria": {
+    "formed_idiom": {
+      "conditions": {
+        "idiom": "從善如流"
+      },
+      "trigger": "jiagureappear:idiom_formed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.congshanruliu.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:knowledge_book"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.congshanruliu.title"
+    }
+  },
+  "requirements": [
+    [
+      "formed_idiom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

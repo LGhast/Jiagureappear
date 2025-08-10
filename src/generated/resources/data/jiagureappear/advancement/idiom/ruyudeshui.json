@@ -1,0 +1,30 @@
+{
+  "parent": "jiagureappear:idiom/root",
+  "criteria": {
+    "formed_idiom": {
+      "conditions": {
+        "idiom": "如魚得水"
+      },
+      "trigger": "jiagureappear:idiom_formed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.ruyudeshui.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:tropical_fish_bucket"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.ruyudeshui.title"
+    }
+  },
+  "requirements": [
+    [
+      "formed_idiom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

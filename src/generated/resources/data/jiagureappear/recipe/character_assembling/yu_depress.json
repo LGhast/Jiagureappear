@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "木"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "木"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "大"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LMR",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "鬱"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "鬱"
+}

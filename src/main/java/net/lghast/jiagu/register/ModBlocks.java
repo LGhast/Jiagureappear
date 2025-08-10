@@ -89,6 +89,10 @@ public class ModBlocks {
             ()-> new WenchangAltarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD)
                     .sound(SoundType.STONE).strength(5.0f,6.0f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> ERUDITE_WENCHANG_ALTAR = registerBlock("erudite_wenchang_altar",
+            ()-> new EruditeWenchangAltarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD)
+                    .sound(SoundType.STONE).strength(5.0f,6.0f).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> YAOWANG_GOURD = registerBlock("yaowang_gourd",
             ()-> new YaowangGourdBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
                     .sound(SoundType.WOOD).strength(2.0f,3.0f)));

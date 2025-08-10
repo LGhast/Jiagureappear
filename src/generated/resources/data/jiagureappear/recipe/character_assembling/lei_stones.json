@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "石"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "石"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "石"
+    }
+  },
+  "pattern": [
+    " U ",
+    "L R",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "磊"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "磊"
+}

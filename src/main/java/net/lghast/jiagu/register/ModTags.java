@@ -7,9 +7,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import javax.swing.text.html.parser.Entity;
-
 public class ModTags {
+    //ITEMS
     public static final TagKey<Item> FOODS_BREAD = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("c:foods/bread")
@@ -32,11 +31,6 @@ public class ModTags {
 
     public static final TagKey<Item> JIAGU_LUCKY_BLOCK_ITEMS = TagKey.create(
             Registries.ITEM,
-            ResourceLocation.parse("jiagureappear:jiagu_lucky_blocks")
-    );
-
-    public static final TagKey<Block> JIAGU_LUCKY_BLOCKS = TagKey.create(
-            Registries.BLOCK,
             ResourceLocation.parse("jiagureappear:jiagu_lucky_blocks")
     );
 
@@ -110,6 +104,18 @@ public class ModTags {
             ResourceLocation.parse("jiagureappear:wenchang_altar_displayable")
     );
 
+    //BLOCKS
+    public static final TagKey<Block> JIAGU_LUCKY_BLOCKS = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.parse("jiagureappear:jiagu_lucky_blocks")
+    );
+
+    public static final TagKey<Block> WENCHANG_ALTARS = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.parse("jiagureappear:wenchang_altars")
+    );
+
+    //ENTITIES
     public static final TagKey<EntityType<?>> MOBS_WITH_FUR = TagKey.create(
             Registries.ENTITY_TYPE,
             ResourceLocation.parse("jiagureappear:mobs_with_fur")

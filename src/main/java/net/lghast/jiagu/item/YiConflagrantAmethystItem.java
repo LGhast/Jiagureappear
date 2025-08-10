@@ -19,14 +19,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 public class YiConflagrantAmethystItem extends Item {
     private int cooldownTicks = 0;
     private static final int INTERVAL = 20;
-    private static final float DAMAGE = 1;
+    private static final float DAMAGE = 1.0f;
 
     public YiConflagrantAmethystItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));

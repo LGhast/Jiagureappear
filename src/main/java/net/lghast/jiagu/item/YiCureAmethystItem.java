@@ -68,7 +68,12 @@ public class YiCureAmethystItem extends Item {
 
     @Override
     public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
-        if(!(entity instanceof Player player)) return;
+        if (entity.level().isClientSide) {
+            return;
+        }
+        if(!(entity instanceof Player player)) {
+            return;
+        }
 
         Level level = player.level();
         ItemStack offHandItem = player.getOffhandItem();

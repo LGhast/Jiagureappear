@@ -374,6 +374,36 @@ public class CharacterInfo {
             Map.entry("謎", newData(CharacterStructure.HORIZONTAL,"言", "迷")),
             Map.entry("乳", newData(CharacterStructure.HORIZONTAL,"子", "女")),
             Map.entry("鬱", newData(CharacterStructure.T_SHAPE_INVERT,"大", "木", "人", "木")),
+            Map.entry("得", newData(CharacterStructure.TRIANGLE_RIGHT,"貝", "彳", "又")),
+            Map.entry("乾", newData(CharacterStructure.TRIANGLE,"㫃", "旦", "乙")),
+            Map.entry("鉸", newData(CharacterStructure.HORIZONTAL,"金", "交")),
+            Map.entry("㐬", newData(CharacterStructure.VERTICAL_LONG,"子", "reversal", "川")),
+            Map.entry("流", newData(CharacterStructure.HORIZONTAL,"水", "㐬")),
+            Map.entry("琉", newData(CharacterStructure.HORIZONTAL,"玉", "㐬")),
+            Map.entry("融", newData(CharacterStructure.CROSS,"鬲", "虫", "reversal", "虫", "鬲")),
+            Map.entry("如", newData(CharacterStructure.HORIZONTAL,"女", "口")),
+            Map.entry("柄", newData(CharacterStructure.HORIZONTAL,"木", "丙")),
+            Map.entry("芳", newData(CharacterStructure.VERTICAL,"艸", "方")),
+            Map.entry("各", newData(CharacterStructure.VERTICAL_LONG,"止", "reversal", "口")),
+            Map.entry("孤", newData(CharacterStructure.HORIZONTAL,"子", "瓜")),
+            Map.entry("硄", newData(CharacterStructure.HORIZONTAL,"石", "光")),
+            Map.entry("光", newData(CharacterStructure.VERTICAL,"火", "卩")),
+            Map.entry("瑰", newData(CharacterStructure.HORIZONTAL,"玉", "鬼")),
+            Map.entry("花", newData(CharacterStructure.VERTICAL,"艸", "化")),
+            Map.entry("滑", newData(CharacterStructure.HORIZONTAL,"水", "骨")),
+            Map.entry("堦", newData(CharacterStructure.HORIZONTAL,"土", "皆")),
+            Map.entry("磊", newData(CharacterStructure.ARROW,"石", "石", "石")),
+            Map.entry("落", newData(CharacterStructure.VERTICAL,"艸", "洛")),
+            Map.entry("洛", newData(CharacterStructure.HORIZONTAL,"水", "各")),
+            Map.entry("明", newData(CharacterStructure.HORIZONTAL,"日", "月")),
+            Map.entry("牡", newData(CharacterStructure.HORIZONTAL,"牛", "土")),
+            Map.entry("息", newData(CharacterStructure.T_SHAPE_INVERT,"自", "simple", "simple", "simple")),
+            Map.entry("鼻", newData(CharacterStructure.VERTICAL,"自", "畀")),
+            Map.entry("不", newData(CharacterStructure.VERTICAL,"simple", "木")),
+            Map.entry("粗", newData(CharacterStructure.HORIZONTAL,"米", "且")),
+            Map.entry("弘", newData(CharacterStructure.VERTICAL,"弓", "口")),
+            Map.entry("煉", newData(CharacterStructure.HORIZONTAL,"火", "柬")),
+            Map.entry("強", newData(CharacterStructure.HORIZONTAL,"弘", "虫")),
             Map.entry("幺", newData(CharacterStructure.SAME,"玄")),
             Map.entry("玄", newData(CharacterStructure.SAME,"幺"))
 
@@ -667,6 +697,16 @@ public class CharacterInfo {
             Map.entry("帶", new CharacterData(207.0f, "dai_band")),
             Map.entry("丂", new CharacterData(208.0f, "kao_horn")),
             Map.entry("老", new CharacterData(209.0f, "lao_old")),
+            Map.entry("川", new CharacterData(210.0f, "chuan_river")),
+            Map.entry("乙", new CharacterData(211.0f, "yi_second")),
+            Map.entry("交", new CharacterData(212.0f, "jiao_cross")),
+            Map.entry("車", new CharacterData(213.0f, "che_vehicle")),
+            Map.entry("丹", new CharacterData(214.0f, "dan_red")),
+            Map.entry("息", new CharacterData(215.0f, "xi_breath")),
+            Map.entry("中", new CharacterData(216.0f, "zhong_middle")),
+            Map.entry("自", new CharacterData(217.0f, "zi_self")),
+            Map.entry("畀", new CharacterData(218.0f, "bi_give")),
+            Map.entry("不", new CharacterData(219.0f, "bu_no")),
 
 
             //Iron Level
@@ -847,6 +887,23 @@ public class CharacterInfo {
             Map.entry("可", new CharacterData(1184.0f, "ke_can")),
             Map.entry("乳", new CharacterData(1185.0f, "ru_milk")),
             Map.entry("鬱", new CharacterData(1186.0f, "yu_depress")),
+            Map.entry("得", new CharacterData(1187.0f, "de_obtain")),
+            Map.entry("乾", new CharacterData(1188.0f, "gan_dry")),
+            Map.entry("㐬", new CharacterData(1189.0f, "liu_drifting")),
+            Map.entry("融", new CharacterData(1190.0f, "rong_fuse")),
+            Map.entry("如", new CharacterData(1191.0f, "ru_like")),
+            Map.entry("柄", new CharacterData(1192.0f, "bing_haft")),
+            Map.entry("各", new CharacterData(1193.0f, "ge_each")),
+            Map.entry("孤", new CharacterData(1194.0f, "gu_lonely")),
+            Map.entry("光", new CharacterData(1195.0f, "guang_light")),
+            Map.entry("瑰", new CharacterData(1196.0f, "gui_jades")),
+            Map.entry("明", new CharacterData(1197.0f, "ming_bright")),
+            Map.entry("牡", new CharacterData(1198.0f, "mu_male")),
+            Map.entry("鼻", new CharacterData(1199.0f, "bi_nose")),
+            Map.entry("粗", new CharacterData(1200.0f, "cu_coarse")),
+            Map.entry("弘", new CharacterData(1201.0f, "hong_vast")),
+            Map.entry("煉", new CharacterData(1202.0f, "lian_smelt")),
+
 
             //Gold Level
             Map.entry("嚴", new CharacterData(2000.0f, "yan_strict")),
@@ -967,7 +1024,16 @@ public class CharacterInfo {
             Map.entry("河", new CharacterData(2115.0f, "he_river")),
             Map.entry("烤", new CharacterData(2116.0f, "kao_grill")),
             Map.entry("迷", new CharacterData(2117.0f, "mi_lost")),
-
+            Map.entry("鉸", new CharacterData(2118.0f, "jiao_shears")),
+            Map.entry("流", new CharacterData(2119.0f, "liu_flow")),
+            Map.entry("琉", new CharacterData(2120.0f, "liu_glass")),
+            Map.entry("芳", new CharacterData(2121.0f, "fang_fragrant")),
+            Map.entry("硄", new CharacterData(2122.0f, "guang_glowstone")),
+            Map.entry("花", new CharacterData(2123.0f, "hua_flowers")),
+            Map.entry("滑", new CharacterData(2124.0f, "hua_smooth")),
+            Map.entry("磊", new CharacterData(2125.0f, "lei_stones")),
+            Map.entry("洛", new CharacterData(2126.0f, "luo_luo")),
+            Map.entry("強", new CharacterData(2127.0f, "qiang_strong")),
 
             //Diamond Level
             Map.entry("巖", new CharacterData(3000.0f, "yan_rock")),
@@ -986,7 +1052,8 @@ public class CharacterInfo {
             Map.entry("瑚", new CharacterData(3013.0f, "hu_coral")),
             Map.entry("藜", new CharacterData(3014.0f, "li_beet")),
             Map.entry("謎", new CharacterData(3015.0f, "mi_mystery")),
-
+            Map.entry("堦", new CharacterData(3016.0f, "jie_basalt")),
+            Map.entry("落", new CharacterData(3017.0f, "luo_fall")),
 
             //Special Level
             Map.entry("1", new CharacterData(5000.0f, "numbers")),
@@ -1098,4 +1165,9 @@ public class CharacterInfo {
     public static float getFloatValue(Holder<MobEffect> effectHolder) {
         return PRESCRIPTION_MAP.getOrDefault(effectHolder, 0.0f);
     }
+
+    public static final List<String> IDIOMS = List.of(
+            "小心翼翼","一石二鳥","九牛一毛","水乳交融","如魚得水","從善如流","孤芳自賞","光明磊落",
+            "自強不息"
+    );
 }

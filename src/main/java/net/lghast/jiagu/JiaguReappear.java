@@ -1,5 +1,7 @@
 package net.lghast.jiagu;
 
+import net.lghast.jiagu.advancement.IdiomFormedTrigger;
+import net.lghast.jiagu.block.renderer.EruditeWenchangAltarRenderer;
 import net.lghast.jiagu.block.renderer.WenchangAltarRenderer;
 import net.lghast.jiagu.data_component.Prescription;
 import net.lghast.jiagu.item.CharacterItem;
@@ -23,8 +25,10 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
@@ -54,6 +58,7 @@ public class JiaguReappear
         NeoForge.EVENT_BUS.register(this);
 
         ModDataComponents.REGISTRAR.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
@@ -66,11 +71,14 @@ public class JiaguReappear
         ModParticles.register(modEventBus);
         ModPotions.register(modEventBus);
 
+        IdiomFormedTrigger.TRIGGER_TYPES.register(modEventBus);
+
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::onClientSetup);
         modEventBus.addListener(this::commonSetup);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -157,11 +165,17 @@ public class JiaguReappear
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHARACTER_DISASSEMBLER.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.WENCHANG_ALTAR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ERUDITE_WENCHANG_ALTAR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.YAOWANG_GOURD.get(), RenderType.cutout());
 
             BlockEntityRenderers.register(
                     ModBlockEntities.WENCHANG_ALTAR.get(),
                     WenchangAltarRenderer::new
+            );
+
+            BlockEntityRenderers.register(
+                    ModBlockEntities.ERUDITE_WENCHANG_ALTAR.get(),
+                    EruditeWenchangAltarRenderer::new
             );
 
             EntityRenderers.register(

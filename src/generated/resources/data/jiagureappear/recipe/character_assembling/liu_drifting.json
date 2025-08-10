@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "川"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "子"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "㐬"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "㐬"
+}

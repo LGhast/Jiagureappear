@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "erudite_wenchang_altar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:erudite_wenchang_altar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/bamboo_block.png",
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:infinite_papyrus"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "erudite_wenchang_altar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

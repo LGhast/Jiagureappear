@@ -12,6 +12,9 @@
     "minecraft:kelp",
     "minecraft:seagrass",
     "minecraft:glow_lichen",
+    "minecraft:cactus",
+    "minecraft:sugar_cane",
+    "minecraft:lily_pad",
     "#c:foods/berry"
   ]
 }

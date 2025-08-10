@@ -82,7 +82,12 @@ public class GuParasiteAmethystItem extends Item {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeCharged) {
-        if (!(entity instanceof Player player)) return;
+        if(entity.level().isClientSide){
+            return;
+        }
+        if (!(entity instanceof Player player)) {
+            return;
+        }
 
         ItemStack offHandItem = player.getOffhandItem();
         if (offHandItem.is(ModItems.PRESCRIPTION)) {

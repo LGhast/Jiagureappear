@@ -1,0 +1,41 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "鬲"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虫"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "虫"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "鬲"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LMR",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "融"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "融"
+}

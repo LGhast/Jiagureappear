@@ -66,6 +66,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.JIAGU_LUCKY_BLOCK_ITEMS)
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK.asItem())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_IRON.asItem())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD.asItem())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER.asItem())
         ;
 
         tag(ModTags.AMETHYST_INSCRIPTIONS)
@@ -97,6 +99,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.KELP)
                 .add(Items.SEAGRASS)
                 .add(Items.GLOW_LICHEN)
+                .add(Items.CACTUS)
+                .add(Items.SUGAR_CANE)
+                .add(Items.LILY_PAD)
                 .addTag(ModTags.FOODS_BERRY)
         ;
 

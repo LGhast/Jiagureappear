@@ -222,6 +222,17 @@ public class ModRecipeProvider extends RecipeProvider {
                         has(Items.EMERALD))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.ERUDITE_WENCHANG_ALTAR.get(), 1)
+                .pattern(" D ")
+                .pattern(" L ")
+                .pattern(" W ")
+                .define('D', Items.DIAMOND)
+                .define('L', Items.LECTERN)
+                .define('W', ModBlocks.WENCHANG_ALTAR)
+                .unlockedBy("has_wenchang_altar",
+                        has(ModBlocks.WENCHANG_ALTAR))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.YAOWANG_GOURD.get(), 1)
                 .pattern("RS ")
                 .pattern("WGW")

@@ -1,0 +1,30 @@
+{
+  "parent": "jiagureappear:idiom/root",
+  "criteria": {
+    "formed_idiom": {
+      "conditions": {
+        "idiom": "九牛一毛"
+      },
+      "trigger": "jiagureappear:idiom_formed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.jiuniuyimao.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:leather"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.jiuniuyimao.title"
+    }
+  },
+  "requirements": [
+    [
+      "formed_idiom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

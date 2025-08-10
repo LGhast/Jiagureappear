@@ -46,6 +46,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.RUBBING_TABLE);
                         output.accept(ModBlocks.RUBBING_MACHINE);
                         output.accept(ModBlocks.WENCHANG_ALTAR);
+                        output.accept(ModBlocks.ERUDITE_WENCHANG_ALTAR);
                         output.accept(ModBlocks.YAOWANG_GOURD);
                         output.accept(ModBlocks.GOLDEN_BRICKS);
                         output.accept(ModItems.CANGJIE_JADE_BURIN);

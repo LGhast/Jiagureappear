@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "L": {
+      "item": "minecraft:lectern"
+    },
+    "W": {
+      "item": "jiagureappear:wenchang_altar"
+    }
+  },
+  "pattern": [
+    " D ",
+    " L ",
+    " W "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:erudite_wenchang_altar"
+  }
+}

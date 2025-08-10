@@ -1,8 +1,9 @@
-// 1.21.1	2025-07-18T12:34:49.9209651	Loot Tables
+// 1.21.1	2025-08-05T17:32:48.0905612	Loot Tables
 c02175451c2a2b97bf30369ad40ac9b279b2d3f1 data/jiagureappear/loot_table/blocks/auto_disassembler.json
 ccf8fe23190b3edef6706f06d47685b13519c945 data/jiagureappear/loot_table/blocks/cangjie_ding_tripod.json
 2bd0c1abb55d7c187944e3481b1396f7f3e05623 data/jiagureappear/loot_table/blocks/cangjie_morpher.json
 d3f92d75f4c2f875cf6306fe6d188a3c23456615 data/jiagureappear/loot_table/blocks/character_disassembler.json
+8604e1bc3f3b3ca747e6d6b433c3c68bff6f1103 data/jiagureappear/loot_table/blocks/erudite_wenchang_altar.json
 c02afced444a13809888fb00b5cfb7bb35aa029f data/jiagureappear/loot_table/blocks/golden_bricks.json
 3e5893804fbb2000cba8366fef37974f5a20c3f7 data/jiagureappear/loot_table/blocks/rubbing_machine.json
 e555f7331da9d795a09fec5be3b68e5abeb96f2f data/jiagureappear/loot_table/blocks/rubbing_table.json

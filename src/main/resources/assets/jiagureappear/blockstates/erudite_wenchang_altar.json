@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jiagureappear:block/erudite_wenchang_altar"
+    },
+    "facing=east": {
+      "model": "jiagureappear:block/erudite_wenchang_altar",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jiagureappear:block/erudite_wenchang_altar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jiagureappear:block/erudite_wenchang_altar",
+      "y": 270
+    }
+  }
+}

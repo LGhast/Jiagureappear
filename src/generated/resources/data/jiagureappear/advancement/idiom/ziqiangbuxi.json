@@ -1,0 +1,30 @@
+{
+  "parent": "jiagureappear:idiom/root",
+  "criteria": {
+    "formed_idiom": {
+      "conditions": {
+        "idiom": "自強不息"
+      },
+      "trigger": "jiagureappear:idiom_formed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.ziqiangbuxi.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:blaze_powder"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.ziqiangbuxi.title"
+    }
+  },
+  "requirements": [
+    [
+      "formed_idiom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -157,6 +157,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 }
                 spawnParticles(level, pos);
                 content.shrink(count);
+                blockEntity.setChanged();
 
                 if(!material.is(ModItems.INFINITE_PAPYRUS)) {
                     if(material.isDamageableItem()){
@@ -164,6 +165,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                     }else {
                         material.shrink(count);
                     }
+                    blockEntity.setChanged();
                 }
             }
         }
@@ -186,6 +188,9 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
             if (player.isShiftKeyDown()) {
                 if(contentSlotItem.isEmpty() && materialSlotItem.isEmpty()){
                     return InteractionResult.PASS;
+                }
+                if (level.isClientSide) {
+                    return InteractionResult.SUCCESS;
                 }
                 if (!contentSlotItem.isEmpty()) {
                     popOutItem(level, pos, state, contentSlotItem);

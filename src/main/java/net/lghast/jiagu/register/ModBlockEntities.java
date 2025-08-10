@@ -2,11 +2,9 @@ package net.lghast.jiagu.register;
 
 import com.mojang.datafixers.types.Type;
 import net.lghast.jiagu.JiaguReappear;
+import net.lghast.jiagu.block.EruditeWenchangAltarBlock;
 import net.lghast.jiagu.block.WenchangAltarBlock;
-import net.lghast.jiagu.block.entity.AutoDisassemblerBlockEntity;
-import net.lghast.jiagu.block.entity.CangjieMorpherBlockEntity;
-import net.lghast.jiagu.block.entity.RubbingMachineBlockEntity;
-import net.lghast.jiagu.block.entity.WenchangAltarBlockEntity;
+import net.lghast.jiagu.block.entity.*;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -59,6 +57,15 @@ public class ModBlockEntities {
             () -> BlockEntityType.Builder.of(
                             WenchangAltarBlockEntity::new,
                             ModBlocks.WENCHANG_ALTAR.get()
+                    )
+                    .build(null)
+    );
+
+    public static final Supplier<BlockEntityType<EruditeWenchangAltarBlockEntity>> ERUDITE_WENCHANG_ALTAR = BLOCK_ENTITY_TYPES.register(
+            "erudite_wenchang_altar",
+            () -> BlockEntityType.Builder.of(
+                            EruditeWenchangAltarBlockEntity::new,
+                            ModBlocks.ERUDITE_WENCHANG_ALTAR.get()
                     )
                     .build(null)
     );

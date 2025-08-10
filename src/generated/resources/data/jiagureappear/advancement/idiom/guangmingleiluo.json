@@ -1,0 +1,30 @@
+{
+  "parent": "jiagureappear:idiom/root",
+  "criteria": {
+    "formed_idiom": {
+      "conditions": {
+        "idiom": "光明磊落"
+      },
+      "trigger": "jiagureappear:idiom_formed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.idiom.guangmingleiluo.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:lantern"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.idiom.guangmingleiluo.title"
+    }
+  },
+  "requirements": [
+    [
+      "formed_idiom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

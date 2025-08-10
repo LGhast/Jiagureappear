@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:erudite_wenchang_altar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wenchang_altar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:wenchang_altar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wenchang_altar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:erudite_wenchang_altar"
+    ]
+  }
+}

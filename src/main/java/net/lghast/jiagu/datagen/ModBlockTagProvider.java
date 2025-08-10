@@ -6,6 +6,7 @@ import net.lghast.jiagu.register.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -30,6 +31,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.AUTO_DISASSEMBLER.get())
                 .add(ModBlocks.CANGJIE_MORPHER.get())
                 .add(ModBlocks.WENCHANG_ALTAR.get())
+                .add(ModBlocks.WENCHANG_ALTAR.get())
                 .add(ModBlocks.RUBBING_MACHINE.get())
         ;
 
@@ -47,6 +49,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(ModTags.JIAGU_LUCKY_BLOCKS)
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK.get())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_IRON.get())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD.get())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER.get())
+        ;
+
+        tag(ModTags.WENCHANG_ALTARS)
+                .add(ModBlocks.WENCHANG_ALTAR.get())
+                .add(ModBlocks.ERUDITE_WENCHANG_ALTAR.get())
         ;
 
         tag(BlockTags.GUARDED_BY_PIGLINS).add(ModBlocks.GOLDEN_BRICKS.get());

@@ -144,6 +144,7 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                 }
 
                 blockEntity.setItem(0, ItemStack.EMPTY);
+                blockEntity.setChanged();;
             }
         }
     }
@@ -162,9 +163,11 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
 
             if (player.isShiftKeyDown()) {
                 if (!slotItem.isEmpty()) {
-                    popOutItem(level, pos, state, slotItem);
-                    blockEntity.setItem(0, ItemStack.EMPTY);
-                    return InteractionResult.SUCCESS;
+                    if(!level.isClientSide) {
+                        popOutItem(level, pos, state, slotItem);
+                        blockEntity.setItem(0, ItemStack.EMPTY);
+                    }
+                    return InteractionResult.sidedSuccess(level.isClientSide);
                 }
                 return InteractionResult.PASS;
             }

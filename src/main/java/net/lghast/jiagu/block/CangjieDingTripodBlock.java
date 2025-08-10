@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -51,7 +52,10 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+        if (player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();
 
@@ -144,8 +148,10 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
         }
         if(!player.isCreative()){
             offHandItem.shrink(1);
-            mainHandItem.set(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
-            player.containerMenu.sendAllDataToRemote();
+            ItemStack modifiedItem = mainHandItem.copy();
+            modifiedItem.set(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+            player.setItemInHand(InteractionHand.MAIN_HAND, modifiedItem);
+            player.containerMenu.setRemoteSlot(player.getInventory().selected, modifiedItem);
         }
         ModUtils.spawnItemWithMotion(serverLevel, pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, talisman, false);
         spawnParticles(serverLevel, pos);

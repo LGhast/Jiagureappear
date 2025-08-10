@@ -161,8 +161,10 @@ public class RubbingMachineBlock extends BaseEntityBlock {
                     spawnParticles(level, pos);
 
                     ink.shrink(count);
+                    blockEntity.setChanged();
                     for (ItemStack c : characters) {
                         c.shrink(count);
+                        chestEntity.setChanged();
                     }
                 }else{
                     rubbingFailure(level, pos);
@@ -189,7 +191,9 @@ public class RubbingMachineBlock extends BaseEntityBlock {
                 if(referenceSlotItem.isEmpty() && inkSlotItem.isEmpty()){
                     return InteractionResult.PASS;
                 }
-
+                if (level.isClientSide) {
+                    return InteractionResult.SUCCESS;
+                }
                 if (!referenceSlotItem.isEmpty()) {
                     popOutItem(level, pos, state, referenceSlotItem);
                     blockEntity.setItem(0, ItemStack.EMPTY);
