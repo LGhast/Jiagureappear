@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-08T11:46:09.4349541	Tags for minecraft:item mod id jiagureappear
+// 1.21.1	2025-08-21T18:22:27.8375278	Tags for minecraft:item mod id jiagureappear
 29948f5b8f0df3f500ee34694cc3bd40a67c84b9 data/c/tags/item/foods/berry.json
 6780e8a5174321dcb0d5c80642a6321d167f5dc1 data/c/tags/item/foods/bread.json
 446105e20cfb614cadde010c8f1af8505a2e8067 data/jiagureappear/tags/item/amethyst_inscriptions.json
@@ -11,7 +11,7 @@ a1f353d66628deae53b1930ee8c2c679c02582a1 data/jiagureappear/tags/item/hippocrate
 e4f43c9d45f087d0ed3d7e96942e5db2c3885771 data/jiagureappear/tags/item/inquisitiveness_enchantable.json
 2a095cd46df5ebd1abbf4c4b810b215cf2381c41 data/jiagureappear/tags/item/invalid_to_be_rubbed.json
 c63574cc5b257a1ae3e6d8b744d2a2eec9b62801 data/jiagureappear/tags/item/invalid_to_characters.json
-df3945ecbcff4e5a0cfac8210ab6781c5aa3cf1b data/jiagureappear/tags/item/jiagu_lucky_blocks.json
+c228291ad6426c77e035c1f45ec2bf1cd1cc0534 data/jiagureappear/tags/item/jiagu_lucky_blocks.json
 b256b48d8f7227f7f830624a33654e32fb87a989 data/jiagureappear/tags/item/jiagu_materials.json
 529599725686c43ead5d94e0542fd9120ae0cd0d data/jiagureappear/tags/item/malady_enchantable.json
 0eaac8a02ad82c53d940489f71860ae138eb95d2 data/jiagureappear/tags/item/panacea_enchantable.json

@@ -1,9 +1,9 @@
 package net.lghast.jiagu.datagen.recipebuilders;
 
-import net.lghast.jiagu.ingredient.CharacterIngredient;
+import net.lghast.jiagu.common.ingredient.CharacterIngredient;
 import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.item.CharacterItem;
-import net.lghast.jiagu.recipe.CharacterAssembling;
+import net.lghast.jiagu.common.item.CharacterItem;
+import net.lghast.jiagu.common.recipe.CharacterAssembling;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;

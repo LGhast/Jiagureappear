@@ -1,6 +1,6 @@
 package net.lghast.jiagu.datagen;
 
-import net.lghast.jiagu.advancement.IdiomFormedTrigger;
+import net.lghast.jiagu.common.advancement.IdiomFormedTrigger;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.lghast.jiagu.utils.CharacterStructure;
 import net.minecraft.advancements.Advancement;

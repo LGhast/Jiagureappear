@@ -19,6 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.LUCKY_JIAGU_BLOCK_IRON);
         blockWithItem(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER);
         blockWithItem(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD);
+        blockWithItem(ModBlocks.LUCKY_JIAGU_BLOCK_DIAMOND);
         blockItem(ModBlocks.RUBBING_TABLE);
     }
 

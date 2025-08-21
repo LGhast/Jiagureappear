@@ -1,16 +1,16 @@
 package net.lghast.jiagu;
 
-import net.lghast.jiagu.advancement.IdiomFormedTrigger;
-import net.lghast.jiagu.block.renderer.EruditeWenchangAltarRenderer;
-import net.lghast.jiagu.block.renderer.WenchangAltarRenderer;
-import net.lghast.jiagu.data_component.Prescription;
-import net.lghast.jiagu.item.CharacterItem;
-import net.lghast.jiagu.item.PrescriptionItem;
-import net.lghast.jiagu.particle.JiaguFloatingParticles;
-import net.lghast.jiagu.particle.JiaguParticles;
+import net.lghast.jiagu.common.advancement.IdiomFormedTrigger;
+import net.lghast.jiagu.common.block.renderer.EruditeWenchangAltarRenderer;
+import net.lghast.jiagu.common.block.renderer.WenchangAltarRenderer;
+import net.lghast.jiagu.common.item.CharacterItem;
+import net.lghast.jiagu.common.item.PrescriptionItem;
+import net.lghast.jiagu.common.particle.JiaguFloatingParticles;
+import net.lghast.jiagu.common.particle.JiaguParticles;
+import net.lghast.jiagu.config.ClientConfig;
+import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.*;
 import net.lghast.jiagu.utils.CharacterInfo;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -22,13 +22,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
@@ -70,6 +66,7 @@ public class JiaguReappear
         ModSerializers.register(modEventBus);
         ModParticles.register(modEventBus);
         ModPotions.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         IdiomFormedTrigger.TRIGGER_TYPES.register(modEventBus);
 
@@ -77,8 +74,9 @@ public class JiaguReappear
         modEventBus.addListener(this::onClientSetup);
         modEventBus.addListener(this::commonSetup);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
+        modContainer.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

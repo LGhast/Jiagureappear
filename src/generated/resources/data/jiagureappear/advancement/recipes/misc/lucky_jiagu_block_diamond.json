@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lucky_jiagu_block_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:lucky_jiagu_block_gold"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:lucky_jiagu_block_diamond"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lucky_jiagu_block_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:lucky_jiagu_block_diamond"
+    ]
+  }
+}

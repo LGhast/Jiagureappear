@@ -1,7 +1,7 @@
 package net.lghast.jiagu.register;
 
-import net.lghast.jiagu.block.renderer.EruditeWenchangAltarRenderer;
-import net.lghast.jiagu.block.renderer.WenchangAltarRenderer;
+import net.lghast.jiagu.common.block.renderer.EruditeWenchangAltarRenderer;
+import net.lghast.jiagu.common.block.renderer.WenchangAltarRenderer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 

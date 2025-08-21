@@ -2,9 +2,9 @@ package net.lghast.jiagu.register;
 
 import com.mojang.datafixers.types.Type;
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.block.EruditeWenchangAltarBlock;
-import net.lghast.jiagu.block.WenchangAltarBlock;
-import net.lghast.jiagu.block.entity.*;
+import net.lghast.jiagu.common.block.EruditeWenchangAltarBlock;
+import net.lghast.jiagu.common.block.WenchangAltarBlock;
+import net.lghast.jiagu.common.block.entity.*;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

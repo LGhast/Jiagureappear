@@ -54,6 +54,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.LUCKY_JIAGU_BLOCK_IRON);
                         output.accept(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER);
                         output.accept(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD);
+                        output.accept(ModBlocks.LUCKY_JIAGU_BLOCK_DIAMOND);
                     }).build());
 
     public static void register(IEventBus eventBus){

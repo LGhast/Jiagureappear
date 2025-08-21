@@ -1,6 +1,6 @@
 package net.lghast.jiagu.utils;
 
-import net.lghast.jiagu.item.CharacterItem;
+import net.lghast.jiagu.common.item.CharacterItem;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
@@ -821,6 +821,9 @@ public class CharacterInfo {
             Map.entry("熔", new CharacterData(1108.0f, "rong_melt")),
             Map.entry("旱", new CharacterData(1109.0f, "han_dry")),
             Map.entry("洋", new CharacterData(1110.0f, "yang_ocean")),
+
+            //斷
+
             Map.entry("黯", new CharacterData(1121.0f, "an_dark")),
             Map.entry("雕", new CharacterData(1122.0f, "diao_carve")),
             Map.entry("奪", new CharacterData(1123.0f, "duo_rob")),
@@ -1165,9 +1168,4 @@ public class CharacterInfo {
     public static float getFloatValue(Holder<MobEffect> effectHolder) {
         return PRESCRIPTION_MAP.getOrDefault(effectHolder, 0.0f);
     }
-
-    public static final List<String> IDIOMS = List.of(
-            "小心翼翼","一石二鳥","九牛一毛","水乳交融","如魚得水","從善如流","孤芳自賞","光明磊落",
-            "自強不息"
-    );
 }

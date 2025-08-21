@@ -1,7 +1,7 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.block.*;
+import net.lghast.jiagu.common.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -72,6 +72,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> LUCKY_JIAGU_BLOCK_GOLD = registerBlock("lucky_jiagu_block_gold",
             ()-> new LuckyJiaguBlockGold(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD)
                     .sound(SoundType.METAL).noLootTable()));
+
+    public static final DeferredBlock<Block> LUCKY_JIAGU_BLOCK_DIAMOND = registerBlock("lucky_jiagu_block_diamond",
+            ()-> new LuckyJiaguBlockDiamond(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND)
+                    .sound(SoundType.STONE).noLootTable()));
 
     public static final DeferredBlock<Block> AUTO_DISASSEMBLER = registerBlock("auto_disassembler",
             ()-> new AutoDisassemblerBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)

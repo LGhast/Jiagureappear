@@ -1,6 +1,6 @@
 package net.lghast.jiagu.register;
 
-import net.lghast.jiagu.ingredient.CharacterIngredient;
+import net.lghast.jiagu.common.ingredient.CharacterIngredient;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.crafting.IngredientType;
 import net.neoforged.neoforge.registries.DeferredRegister;

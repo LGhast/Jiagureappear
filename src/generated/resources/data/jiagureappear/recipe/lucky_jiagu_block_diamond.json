@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "jiagureappear:lucky_jiagu_block_gold"
+    }
+  },
+  "pattern": [
+    "   ",
+    "ANA",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:lucky_jiagu_block_diamond"
+  }
+}

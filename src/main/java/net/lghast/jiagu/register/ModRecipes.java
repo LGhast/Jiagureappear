@@ -1,8 +1,8 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.recipe.CharacterAssembling;
-import net.lghast.jiagu.recipe.CharacterAssemblingNonMirrored;
+import net.lghast.jiagu.common.recipe.CharacterAssembling;
+import net.lghast.jiagu.common.recipe.CharacterAssemblingNonMirrored;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.bus.api.IEventBus;

@@ -1,9 +1,8 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.data_component.Prescription;
-import net.lghast.jiagu.item.*;
-import net.minecraft.world.effect.MobEffects;
+import net.lghast.jiagu.common.data_component.Prescription;
+import net.lghast.jiagu.common.item.*;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;

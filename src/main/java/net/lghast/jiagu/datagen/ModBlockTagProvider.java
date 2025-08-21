@@ -51,6 +51,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_IRON.get())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD.get())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER.get())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_DIAMOND.get())
         ;
 
         tag(ModTags.WENCHANG_ALTARS)

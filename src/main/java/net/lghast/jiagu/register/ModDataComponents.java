@@ -3,7 +3,7 @@ package net.lghast.jiagu.register;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.data_component.Prescription;
+import net.lghast.jiagu.common.data_component.Prescription;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;

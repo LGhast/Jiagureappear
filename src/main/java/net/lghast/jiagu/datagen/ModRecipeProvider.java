@@ -5,7 +5,7 @@ import net.lghast.jiagu.register.ModBlocks;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingBuilder;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingNonMirroredBuilder;
 import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.item.CharacterItem;
+import net.lghast.jiagu.common.item.CharacterItem;
 import net.lghast.jiagu.register.ModTags;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.lghast.jiagu.utils.CharacterStructure;
@@ -163,6 +163,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('N', ModBlocks.LUCKY_JIAGU_BLOCK_IRON)
                 .unlockedBy("has_lucky_jiagu_block_iron",
                         has(ModBlocks.LUCKY_JIAGU_BLOCK_IRON.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.LUCKY_JIAGU_BLOCK_DIAMOND.get(), 1)
+                .pattern("   ")
+                .pattern("ANA")
+                .pattern("   ")
+                .define('A', Items.DIAMOND)
+                .define('N', ModBlocks.LUCKY_JIAGU_BLOCK_GOLD)
+                .unlockedBy("has_lucky_jiagu_block_iron",
+                        has(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.RUBBING_TABLE.get())

@@ -1,7 +1,7 @@
 package net.lghast.jiagu.register;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.entity.ParasiteSporeEntity;
+import net.lghast.jiagu.common.entity.ParasiteSporeEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;

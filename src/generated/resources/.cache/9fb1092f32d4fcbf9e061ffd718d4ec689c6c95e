@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-10T12:04:06.0016663	Recipes
+// 1.21.1	2025-08-21T18:22:27.8287154	Recipes
 19c385d18dfb5f90243b7092cdf4876c7b03b09f data/jiagureappear/advancement/recipes/food/yolime_bread.json
 c6922ab067095a549a0d4a29a90a5110d43358be data/jiagureappear/advancement/recipes/misc/amethyst_upgrade_smithing_template.json
 4d9b3f3ae959499a4c3f099fd63b95192c6b5531 data/jiagureappear/advancement/recipes/misc/biao_gale_amethyst.json
@@ -402,6 +402,7 @@ fa4394a778c669059f7348c6f7af1ebb2bfdc047 data/jiagureappear/advancement/recipes/
 edcc20785fc960689582e4ddfb5ebdff14ed71c9 data/jiagureappear/advancement/recipes/misc/golden_bricks.json
 03052a536ff0dfe79600eb9ccc8a572dfc869941 data/jiagureappear/advancement/recipes/misc/jian_sword_amethyst.json
 2a845ea8da0a149b0c694c1c3b02003067072b6c data/jiagureappear/advancement/recipes/misc/lucky_jiagu_block_copper.json
+ac74bc706c495761c2c6029c8fd051d7944bda45 data/jiagureappear/advancement/recipes/misc/lucky_jiagu_block_diamond.json
 e25389c2fe5d6449155f4b4d2aca616641862c54 data/jiagureappear/advancement/recipes/misc/lucky_jiagu_block_gold.json
 77e43b1b4d2f8ffed7ea92a9207ef0cb964e2c9b data/jiagureappear/advancement/recipes/misc/lucky_jiagu_block_iron.json
 790a4e0aeee5d66bf402041566957e72d37e6a17 data/jiagureappear/advancement/recipes/misc/ni_converse_amethyst.json
@@ -821,6 +822,7 @@ f05d0b8eb6a119f37108eec275487a226e581ea8 data/jiagureappear/recipe/erudite_wench
 9090d1b6e995548191db48f62245c15a55b20cc6 data/jiagureappear/recipe/golden_bricks.json
 4d2a0967da8326624d2a597e2a597e5156708a3b data/jiagureappear/recipe/jian_sword_amethyst.json
 3493df87290fd48b9f20ac088f06555a5af04f4c data/jiagureappear/recipe/lucky_jiagu_block_copper.json
+af927e973d8acd3669cc7df951c42f2087c3985d data/jiagureappear/recipe/lucky_jiagu_block_diamond.json
 1d9f36ecf29333283d9454c526eb175aa63defba data/jiagureappear/recipe/lucky_jiagu_block_gold.json
 1122cb982e4b2059b5f452910c734c88127776d8 data/jiagureappear/recipe/lucky_jiagu_block_iron.json
 00e5ed84d890ec928d7c48489652ec7a11dc3a94 data/jiagureappear/recipe/ni_converse_amethyst.json

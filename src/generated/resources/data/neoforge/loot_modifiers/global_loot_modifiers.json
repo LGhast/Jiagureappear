@@ -1,0 +1,10 @@
+{
+  "entries": [
+    "jiagureappear:bone_lamella_from_skeleton",
+    "jiagureappear:bone_lamella_from_stray",
+    "jiagureappear:bone_lamella_from_skeleton_horse",
+    "jiagureappear:bone_lamella_from_bogged",
+    "jiagureappear:turtle_plastron_from_turtle"
+  ],
+  "replace": false
+}

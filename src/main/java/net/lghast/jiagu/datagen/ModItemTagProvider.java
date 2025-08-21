@@ -68,6 +68,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_IRON.asItem())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_GOLD.asItem())
                 .add(ModBlocks.LUCKY_JIAGU_BLOCK_COPPER.asItem())
+                .add(ModBlocks.LUCKY_JIAGU_BLOCK_DIAMOND.asItem())
         ;
 
         tag(ModTags.AMETHYST_INSCRIPTIONS)
