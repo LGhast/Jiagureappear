@@ -38,9 +38,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class YaowangGourdBlock extends HorizontalDirectionalBlock{
     public static final MapCodec<YaowangGourdBlock> CODEC = simpleCodec(YaowangGourdBlock::new);
@@ -59,68 +57,117 @@ public class YaowangGourdBlock extends HorizontalDirectionalBlock{
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if(!level.isClientSide() && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel){
-            if(!serverPlayer.getLanguage().equals("lzh")){
-                player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
-                return InteractionResult.SUCCESS;
-            }
-
-            ItemStack heldItem = player.getMainHandItem();
-            if(!heldItem.is(ModItems.EMPTY_PRESCRIPTION)) {
-                player.displayClientMessage(Component.translatable("block.jiagureappear.yaowang_gourd.wrong_item"),true);
-                return InteractionResult.SUCCESS;
-            }
-
-            List<MobEffectInstance> effects = new ArrayList<>(player.getActiveEffects());
-            if(effects.isEmpty()){
-                player.displayClientMessage(Component.translatable("block.jiagureappear.yaowang_gourd.no_effect"),true);
-                return InteractionResult.SUCCESS;
-            }
-
-            prescribe(serverLevel, pos, player, heldItem, effects);
+        if(level.isClientSide){
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.PASS;
+        if (!(player instanceof ServerPlayer serverPlayer) || !(level instanceof ServerLevel serverLevel)) {
+            return InteractionResult.FAIL;
+        }
+        if(!serverPlayer.getLanguage().equals("lzh")){
+            player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        ItemStack heldItem = player.getMainHandItem();
+        if(!heldItem.is(ModItems.EMPTY_PRESCRIPTION)) {
+            player.displayClientMessage(Component.translatable("block.jiagureappear.yaowang_gourd.wrong_item"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        List<MobEffectInstance> effects = new ArrayList<>(player.getActiveEffects());
+        if(effects.isEmpty()){
+            player.displayClientMessage(Component.translatable("block.jiagureappear.yaowang_gourd.no_effect"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        prescribe(serverLevel, pos, player, heldItem, effects);
+        return InteractionResult.SUCCESS;
     }
 
     private void prescribe(ServerLevel serverLevel,  BlockPos pos, Player player, ItemStack heldItem, List<MobEffectInstance> effects){
         Holder<MobEffect> effectHolder = serverLevel.registryAccess().registryOrThrow(Registries.MOB_EFFECT)
                 .getHolderOrThrow(Objects.requireNonNull(effects.getFirst().getEffect().getKey()));
-
-        List<ItemStack> characters = new ArrayList<>();
         String prescribingName = ModUtils.getCharacters(effectHolder.value());
-        int targetSize = prescribingName.length();
-        for(int i=0; i<player.getInventory().getContainerSize(); i++){
-            ItemStack checkedItem = player.getInventory().getItem(i);
-            if(checkedItem.is(ModItems.CHARACTER_ITEM)) {
-                String inscription = CharacterItem.getInscription(checkedItem);
-                if(inscription.length()!=1) continue;
-                if(prescribingName.contains(inscription)) {
-                    characters.add(player.getInventory().getItem(i));
-                    prescribingName=prescribingName.replace(inscription, "");
-                }
-            }
-        }
-        if(targetSize==characters.size()){
-            if(!player.isCreative()) {
-                for (ItemStack c : characters) {
-                    c.shrink(1);
-                }
-                heldItem.shrink(1);
-            }
+
+        Map<Character, Integer> requiredChars = countCharacters(prescribingName);
+        Map<Character, Integer> availableChars = findAvailableCharacters(player, requiredChars.keySet());
+
+        if (hasEnoughCharacters(requiredChars, availableChars)) {
             ItemStack prescription = new ItemStack(ModItems.PRESCRIPTION.asItem());
             PrescriptionItem.setEffect(prescription, effectHolder);
-            ModUtils.spawnItem(serverLevel, pos.getX()+0.5, pos.getY()+1.1, pos.getZ()+0.5, prescription, false);
 
+            if (!player.isCreative()) {
+                consumeCharacters(player, requiredChars);
+                heldItem.shrink(1);
+            }
+
+            ModUtils.spawnItem(serverLevel, pos.getX() + 0.5, pos.getY() + 1.1, pos.getZ() + 0.5, prescription, false);
             player.removeEffect(effectHolder);
-
             spawnParticles(serverLevel, pos);
-            serverLevel.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
-        }else{
-            player.displayClientMessage(Component.translatable("block.jiagureappear.rubbing_table.lack_characters"),true);
+            serverLevel.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+        } else {
+            player.displayClientMessage(Component.translatable("block.jiagureappear.rubbing_table.lack_characters"), true);
         }
     }
 
+    private Map<Character, Integer> countCharacters(String text) {
+        Map<Character, Integer> charCount = new HashMap<>();
+        for (char c : text.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+        return charCount;
+    }
+
+    private Map<Character, Integer> findAvailableCharacters(Player player, Set<Character> requiredChars) {
+        Map<Character, Integer> availableChars = new HashMap<>();
+
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack item = player.getInventory().getItem(i);
+            if (item.is(ModItems.CHARACTER_ITEM)) {
+                String inscription = CharacterItem.getInscription(item);
+                if (inscription.length() == 1) {
+                    char c = inscription.charAt(0);
+                    if (requiredChars.contains(c)) {
+                        availableChars.put(c, availableChars.getOrDefault(c, 0) + item.getCount());
+                    }
+                }
+            }
+        }
+
+        return availableChars;
+    }
+
+    private boolean hasEnoughCharacters(Map<Character, Integer> required, Map<Character, Integer> available) {
+        for (Map.Entry<Character, Integer> entry : required.entrySet()) {
+            char c = entry.getKey();
+            int requiredCount = entry.getValue();
+            int availableCount = available.getOrDefault(c, 0);
+
+            if (availableCount < requiredCount) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void consumeCharacters(Player player, Map<Character, Integer> requiredChars) {
+        for (Map.Entry<Character, Integer> entry : requiredChars.entrySet()) {
+            char c = entry.getKey();
+            int count = entry.getValue();
+
+            for (int i = 0; i < player.getInventory().getContainerSize() && count > 0; i++) {
+                ItemStack item = player.getInventory().getItem(i);
+                if (item.is(ModItems.CHARACTER_ITEM)) {
+                    String inscription = CharacterItem.getInscription(item);
+                    if (inscription.length() == 1 && inscription.charAt(0) == c) {
+                        int consumeAmount = Math.min(count, item.getCount());
+                        item.shrink(consumeAmount);
+                        count -= consumeAmount;
+                    }
+                }
+            }
+        }
+    }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
         ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.HAPPY_VILLAGER,
@@ -156,6 +203,5 @@ public class YaowangGourdBlock extends HorizontalDirectionalBlock{
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
-
     }
 }

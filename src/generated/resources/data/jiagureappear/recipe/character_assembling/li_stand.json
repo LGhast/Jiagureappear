@@ -6,6 +6,14 @@
       "type": "jiagureappear:character_ingredient",
       "inscription": "simple"
     },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
     "U": {
       "type": "jiagureappear:character_ingredient",
       "inscription": "大"
@@ -13,7 +21,7 @@
   },
   "pattern": [
     " U ",
-    " L ",
+    "LMR",
     "   "
   ],
   "result": {

@@ -18,6 +18,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
@@ -56,6 +58,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(Items.AMETHYST_CLUSTER).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE)
                 .unlockedBy("has_netherite_upgrade_smithing_template", has(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
                 .save(recipeOutput,"amethyst_upgrade_smithing_template_from_netherite_one");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.ZUCCHINI_SOUP.get(), 1)
+                .requires(ModItems.COOKED_ZUCCHINI).requires(Items.EGG).requires(Items.BOWL)
+                .unlockedBy("has_cooked_zucchini", has(ModItems.COOKED_ZUCCHINI))
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModItems.BONE_LAMELLA.get())
                 .pattern(" BB")
@@ -256,7 +263,17 @@ public class ModRecipeProvider extends RecipeProvider {
                         has(Items.GHAST_TEAR))
                 .save(recipeOutput);
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.ZUCCHINI.get()), RecipeCategory.FOOD, ModItems.COOKED_ZUCCHINI.get(), 0.35f, 200)
+                .unlockedBy("has_zucchini", has(ModItems.ZUCCHINI.get()))
+                .save(recipeOutput);
 
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ModItems.ZUCCHINI.get()), RecipeCategory.FOOD, ModItems.COOKED_ZUCCHINI.get(), 0.35f, 100)
+                .unlockedBy("has_zucchini", has(ModItems.ZUCCHINI.get()))
+                .save(recipeOutput, MOD_ID + ":cooked_zucchini_from_smoking");
+
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItems.ZUCCHINI.get()), RecipeCategory.FOOD, ModItems.COOKED_ZUCCHINI.get(), 0.35f, 600)
+                .unlockedBy("has_zucchini", has(ModItems.ZUCCHINI.get()))
+                .save(recipeOutput, MOD_ID + ":cooked_zucchini_from_campfire");
 
         converseRecipe(recipeOutput, Items.SWEET_BERRIES, ModItems.SOUR_BERRIES, "sweet_berries", "sour_berries");
         converseRecipe(recipeOutput, Items.GLOW_BERRIES, ModItems.SHADOW_BERRIES, "glow_berries", "shadow_berries");
@@ -264,13 +281,17 @@ public class ModRecipeProvider extends RecipeProvider {
         converseRecipe(recipeOutput, Items.SNOWBALL, Items.FIRE_CHARGE, "snowball", "fire_charge");
         converseRecipe(recipeOutput, Items.WHITE_DYE, Items.BLACK_DYE, "white_dye", "black_dye");
         converseRecipe(recipeOutput, Items.MAGMA_BLOCK, Items.SNOW_BLOCK, "magma_block", "snow_block");
+        converseRecipe(recipeOutput, Items.DEAD_BUSH, Items.OAK_SAPLING, "dead_bush", "oak_sapling");
         converseRecipe(recipeOutput, Items.SLIME_BLOCK, ModBlocks.YOLIME_BLOCK, "slime_block", "yolime_block");
+        converseRecipe(recipeOutput, Items.PUMPKIN, ModItems.ZUCCHINI, "pumpkin", "zucchini");
 
         amethystSmithing(recipeOutput, "逆", ModItems.NI_CONVERSE_AMETHYST.asItem(), "ni_converse_amethyst_from_smithing");
         amethystSmithing(recipeOutput, "劍", ModItems.JIAN_SWORD_AMETHYST.asItem(), "jian_sword_amethyst");
         amethystSmithing(recipeOutput, "燚", ModItems.YI_CONFLAGRANT_AMETHYST.asItem(), "yi_conflagrant_amethyst");
         amethystSmithing(recipeOutput, "飆", ModItems.BIAO_GALE_AMETHYST.asItem(), "biao_gale_amethyst");
         amethystSmithing(recipeOutput, "醫", ModItems.YI_CURE_AMETHYST.asItem(), "yi_cure_amethyst");
+        amethystSmithing(recipeOutput, "蠱", ModItems.GU_PARASITE_AMETHYST.asItem(), "gu_parasite_amethyst");
+        amethystSmithing(recipeOutput, "磊", ModItems.LEI_STONES_AMETHYST.asItem(), "lei_stones_amethyst");
 
         for (String s : CharacterInfo.CHARACTER_COMPONENTS.keySet()){
             generateFor(recipeOutput, s);
@@ -346,6 +367,7 @@ public class ModRecipeProvider extends RecipeProvider {
             case ARROW -> characterArrow(output, characterResult, components);
             case ARROW_INVERT -> characterArrowInvert(output, characterResult, components);
             case L_SHAPE -> characterLShape(output, characterResult, components);
+            case X_SHAPE -> characterXShape(output, characterResult, components);
             case BIAS -> characterBias(output, characterResult, components);
             case SQUARE -> characterSquare(output, characterResult, components);
             case RECTANGLE -> characterRectangle(output, characterResult, components);
@@ -492,6 +514,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('L', ingredients.get(1))
                 .define('M', ingredients.get(2))
                 .define('R', ingredients.get(3))
+                .define('D', ingredients.get(4))
+                .unlockedBy("has_character_item",has(ModItems.CHARACTER_ITEM)));
+    }
+
+    private void characterXShape(RecipeOutput output, String characterResult, List<String> ingredients){
+        if(ingredients==null || characterResult==null) return;
+        if(ingredients.size()<5) return;
+        generateCharacterRecipe(output, characterResult, builder -> builder
+                .pattern("A B")
+                .pattern(" M ")
+                .pattern("C D")
+                .define('A', ingredients.getFirst())
+                .define('B', ingredients.get(1))
+                .define('M', ingredients.get(2))
+                .define('C', ingredients.get(3))
                 .define('D', ingredients.get(4))
                 .unlockedBy("has_character_item",has(ModItems.CHARACTER_ITEM)));
     }

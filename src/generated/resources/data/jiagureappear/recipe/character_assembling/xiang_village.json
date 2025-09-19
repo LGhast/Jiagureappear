@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "卩"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "皀"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "卩"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "鄉"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "鄉"
+}

@@ -6,19 +6,15 @@
       "type": "jiagureappear:character_ingredient",
       "inscription": "卩"
     },
-    "M": {
-      "type": "jiagureappear:character_ingredient",
-      "inscription": "complex"
-    },
     "U": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
+      "inscription": "首"
     }
   },
   "pattern": [
     " U ",
-    " M ",
-    " L "
+    " L ",
+    "   "
   ],
   "result": {
     "components": {

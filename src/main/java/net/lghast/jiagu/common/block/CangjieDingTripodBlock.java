@@ -29,6 +29,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -56,80 +57,92 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
-        if (player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offHandItem = player.getOffhandItem();
 
-            if(!serverPlayer.getLanguage().equals("lzh")){
-                player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
-                return InteractionResult.SUCCESS;
-            }
+        if (!(player instanceof ServerPlayer serverPlayer) || !(level instanceof ServerLevel serverLevel)) {
+            return InteractionResult.FAIL;
+        }
 
-            if(mainHandItem.isEmpty() || mainHandItem.is(ModTags.INVALID_TO_CHARACTERS)){
+        if(!serverPlayer.getLanguage().equals("lzh")){
+            player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        ItemStack mainHandItem = player.getMainHandItem();
+        ItemStack offHandItem = player.getOffhandItem();
+
+        if(mainHandItem.isEmpty() || mainHandItem.is(ModTags.INVALID_TO_CHARACTERS)){
+            player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.wrong_item"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        if(offHandItem.isEmpty()){
+            player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.lack_materials"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        if(!offHandItem.is(ModTags.JIAGU_MATERIALS)){
+            player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.lack_materials"),true);
+            return InteractionResult.SUCCESS;
+        }
+
+        if(offHandItem.is(ModItems.YELLOW_PAPER)){
+            if(mainHandItem.is(ModItems.TAOIST_TALISMAN)){
                 player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.wrong_item"),true);
                 return InteractionResult.SUCCESS;
             }
 
-            if(offHandItem.isEmpty()){
-                player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.lack_materials"),true);
-                return InteractionResult.SUCCESS;
-            }
-
-            if(!offHandItem.is(ModTags.JIAGU_MATERIALS)){
-                player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.lack_materials"),true);
-                return InteractionResult.SUCCESS;
-            }
-
-            if(offHandItem.is(ModItems.YELLOW_PAPER)){
-                if(mainHandItem.is(ModItems.TAOIST_TALISMAN)){
-                    player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.wrong_item"),true);
-                    return InteractionResult.SUCCESS;
-                }
-
-                enchantmentTransfer(serverLevel, pos, player, mainHandItem, offHandItem);
-                return InteractionResult.SUCCESS;
-            }
-
-            if(ServerConfig.CANGJIE_TRIPOD_CUSTOM_NAME_CHECK.get()) {
-                boolean hasCustomName = mainHandItem.has(DataComponents.CUSTOM_NAME);
-                if (hasCustomName) {
-                    player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.named_item"), true);
-                    return InteractionResult.SUCCESS;
-                }
-            }
-            normalTransfer(serverLevel, pos, player, mainHandItem, offHandItem);
-
+            enchantmentTransfer(serverLevel, pos, player, mainHandItem, offHandItem);
+            return InteractionResult.SUCCESS;
         }
+
+        if(ServerConfig.CANGJIE_TRIPOD_CUSTOM_NAME_CHECK.get()) {
+            boolean hasCustomName = mainHandItem.has(DataComponents.CUSTOM_NAME);
+            if (hasCustomName) {
+                player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.named_item"), true);
+                return InteractionResult.SUCCESS;
+            }
+        }
+        normalTransfer(serverLevel, pos, player, mainHandItem, offHandItem);
+
         return InteractionResult.SUCCESS;
     }
 
     private void normalTransfer(ServerLevel serverLevel, BlockPos pos, Player player,ItemStack mainHandItem,ItemStack offHandItem){
-        String morpherResult;
-        if(mainHandItem.is(ModItems.TAOIST_TALISMAN)){
-            String spell = TaoistTalismanItem.getSpell(mainHandItem);
-            morpherResult = Objects.equals(spell, null) ? ModUtils.getCharacters(mainHandItem) : ModUtils.getCharacters(spell);
-        }else if(mainHandItem.is(ModItems.PRESCRIPTION)){
-            MobEffect effect = PrescriptionItem.getEffect(mainHandItem);
-            morpherResult = effect==null ? ModUtils.getCharacters(mainHandItem) : ModUtils.getCharacters(effect);
-        }else{
-            morpherResult = ModUtils.getCharacters(mainHandItem);
-        }
-
+        String morpherResult = getMorpherResult(mainHandItem);
         spawnCharacters(morpherResult, serverLevel, pos);
+
         if(!player.isCreative()) {
-            mainHandItem.shrink(1);
-            if (offHandItem.isDamageableItem()) {
-                offHandItem.hurtAndBreak(5, player, EquipmentSlot.OFFHAND);
-            } else if(!offHandItem.is(ModItems.INFINITE_PAPYRUS)){
-                offHandItem.shrink(1);
-            }
+            consumeItems(player, mainHandItem, offHandItem);
         }
         spawnParticles(serverLevel, pos);
         serverLevel.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
     }
 
+    private String getMorpherResult(ItemStack mainHandItem) {
+        if (mainHandItem.is(ModItems.TAOIST_TALISMAN)) {
+            String spell = TaoistTalismanItem.getSpell(mainHandItem);
+            return spell != null ? ModUtils.getCharacters(spell) : ModUtils.getCharacters(mainHandItem);
+        } else if (mainHandItem.is(ModItems.PRESCRIPTION)) {
+            MobEffect effect = PrescriptionItem.getEffect(mainHandItem);
+            return effect != null ? ModUtils.getCharacters(effect) : ModUtils.getCharacters(mainHandItem);
+        } else {
+            return ModUtils.getCharacters(mainHandItem);
+        }
+    }
+
+    private void consumeItems(Player player, ItemStack mainHandItem, ItemStack offHandItem) {
+        mainHandItem.shrink(1);
+
+        if (offHandItem.isDamageableItem()) {
+            offHandItem.hurtAndBreak(5, player, EquipmentSlot.OFFHAND);
+        } else if (!offHandItem.is(ModItems.INFINITE_PAPYRUS)) {
+            offHandItem.shrink(1);
+        }
+    }
+
     private void enchantmentTransfer(ServerLevel serverLevel, BlockPos pos, Player player, ItemStack mainHandItem, ItemStack offHandItem){
-        ItemEnchantments enchantments = mainHandItem.getTagEnchantments();
+        var componentType = EnchantmentHelper.getComponentType(mainHandItem);
+        ItemEnchantments enchantments = mainHandItem.getOrDefault(componentType, ItemEnchantments.EMPTY);
 
         if(enchantments.isEmpty()){
             player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.no_enchantment"),true);
@@ -150,16 +163,27 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
             }
         }
         if(!player.isCreative()){
-            offHandItem.shrink(1);
-            ItemStack modifiedItem = mainHandItem.copy();
-            modifiedItem.set(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
-            player.setItemInHand(InteractionHand.MAIN_HAND, modifiedItem);
-            player.containerMenu.setRemoteSlot(player.getInventory().selected, modifiedItem);
+            consumeItemsEnchantment(player, mainHandItem, offHandItem);
         }
         ModUtils.spawnItemWithMotion(serverLevel, pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, talisman, false);
         spawnParticles(serverLevel, pos);
         serverLevel.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
         serverLevel.playSound(null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS);
+    }
+
+    private void consumeItemsEnchantment(Player player, ItemStack mainHandItem, ItemStack offHandItem) {
+        offHandItem.shrink(1);
+
+        if(mainHandItem.is(Items.ENCHANTED_BOOK)){
+            ItemStack bookItem = new ItemStack(Items.BOOK);
+            player.setItemInHand(InteractionHand.MAIN_HAND, bookItem);
+            player.containerMenu.setRemoteSlot(player.getInventory().selected, bookItem);
+        }else {
+            ItemStack modifiedItem = mainHandItem.copy();
+            modifiedItem.set(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+            player.setItemInHand(InteractionHand.MAIN_HAND, modifiedItem);
+            player.containerMenu.setRemoteSlot(player.getInventory().selected, modifiedItem);
+        }
     }
 
     private void spawnCharacters(String characters,ServerLevel serverLevel,BlockPos pos){

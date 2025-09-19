@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.List;
@@ -37,4 +38,11 @@ public class ModFoodProperties {
 
     public static final FoodProperties YOLIME_BREAD = new FoodProperties.Builder().nutrition(6).saturationModifier(0.6F)
             .effect(RANDOM_EFFECT_SUPPLIER, 1.0F).build();
+
+    public static final FoodProperties ZUCCHINI = new FoodProperties.Builder().nutrition(4).saturationModifier(0.35f).build();
+
+    public static final FoodProperties COOKED_ZUCCHINI = new FoodProperties.Builder().nutrition(7).saturationModifier(0.7f).build();
+
+    public static final FoodProperties ZUCCHINI_SOUP = new FoodProperties.Builder().nutrition(9).saturationModifier(0.7f)
+            .usingConvertsTo(Items.BOWL).build();
 }

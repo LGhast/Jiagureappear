@@ -1,4 +1,5 @@
-// 1.21.1	2025-08-21T18:22:27.8272911	Tags for minecraft:block mod id jiagureappear
+// 1.21.1	2025-09-02T23:57:59.3441098	Tags for minecraft:block mod id jiagureappear
+a67ea79584c6bb8fc754eb74029f03742f15ef10 data/c/tags/block/villager_job_sites.json
 c228291ad6426c77e035c1f45ec2bf1cd1cc0534 data/jiagureappear/tags/block/jiagu_lucky_blocks.json
 9dc855b757c57c0b05ef8b1a6cabd2902d9cff9e data/jiagureappear/tags/block/wenchang_altars.json
 433940ebdcbdfb7e6346e20230db0de5a6e4f570 data/minecraft/tags/block/guarded_by_piglins.json

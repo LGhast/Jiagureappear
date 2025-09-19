@@ -40,6 +40,15 @@ public class ModItems {
             ()-> new ItemNameBlockItem(ModBlocks.SOUR_BERRY_BUSH.get(),
                     new Item.Properties().food(ModFoodProperties.SOUR_BERRIES)));
 
+    public static final DeferredItem<Item> ZUCCHINI = ITEMS.register("zucchini",
+            ()-> new Item(new Item.Properties().food(ModFoodProperties.ZUCCHINI)));
+
+    public static final DeferredItem<Item> COOKED_ZUCCHINI = ITEMS.register("cooked_zucchini",
+            ()-> new Item(new Item.Properties().food(ModFoodProperties.COOKED_ZUCCHINI)));
+
+    public static final DeferredItem<Item> ZUCCHINI_SOUP = ITEMS.register("zucchini_soup",
+            ()-> new Item(new Item.Properties().food(ModFoodProperties.ZUCCHINI_SOUP).stacksTo(1)));
+
     public static final DeferredItem<Item> TAOIST_TALISMAN = ITEMS.register("taoist_talisman",
             ()-> new TaoistTalismanItem(new Item.Properties()));
 
@@ -82,6 +91,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> GU_PARASITE_AMETHYST = ITEMS.register("gu_parasite_amethyst",
             ()-> new GuParasiteAmethystItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> LEI_STONES_AMETHYST = ITEMS.register("lei_stones_amethyst",
+            ()-> new LeiStonesAmethystItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

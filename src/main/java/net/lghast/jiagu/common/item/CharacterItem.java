@@ -1,7 +1,6 @@
 package net.lghast.jiagu.common.item;
 
 import net.lghast.jiagu.config.ClientConfig;
-import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -73,14 +72,14 @@ public class CharacterItem extends Item{
         }
         if(isNormalInscription) {
             if(ClientConfig.DISPLAY_DISASSEMBLY_INFO.get()) {
-                String from = CharacterInfo.getCharactersDisassemblable(inscription);
+                String from = CharacterInfo.getCharacterDisassembly(inscription);
                 if (from != null) {
                     components.add(Component.translatable("item.jiagureappear.character.from", from));
                 }
             }
 
             if(ClientConfig.DISPLAY_ASSEMBLY_INFO.get()) {
-                String to = CharacterInfo.getCharactersAssemblableContinuous(inscription);
+                String to = CharacterInfo.getCharacterAssemblySimple(inscription);
                 if (!to.isEmpty()) {
                     char[] toChars = to.toCharArray();
                     if (toChars.length <= 7) {

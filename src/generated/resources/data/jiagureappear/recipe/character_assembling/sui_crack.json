@@ -1,0 +1,29 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "石"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "卒"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "碎"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "碎"
+}

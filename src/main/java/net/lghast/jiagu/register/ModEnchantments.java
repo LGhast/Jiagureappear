@@ -37,6 +37,12 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> MALADY = ResourceKey.create(Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "malady"));
 
+    public static final ResourceKey<Enchantment> MASSIVENESS = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "massiveness"));
+
+    public static final ResourceKey<Enchantment> AFTERSHOCK = ResourceKey.create(Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "aftershock"));
+
     public static void bootstrap(BootstrapContext<Enchantment> context){
         var enchantments = context.lookup(Registries.ENCHANTMENT);
         var item = context.lookup(Registries.ITEM);
@@ -53,7 +59,7 @@ public class ModEnchantments {
 
         register(context, CREMATION, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.CREMATION_ENCHANTABLE),
-                3,
+                4,
                 3,
                 Enchantment.dynamicCost(15, 8),
                 Enchantment.dynamicCost(60, 8),
@@ -73,7 +79,7 @@ public class ModEnchantments {
 
         register(context, FLURRY, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.FLURRY_ENCHANTABLE),
-                3,
+                4,
                 3,
                 Enchantment.dynamicCost(16, 8),
                 Enchantment.dynamicCost(60, 8),
@@ -83,7 +89,7 @@ public class ModEnchantments {
 
         register(context, WUTHERING, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.WUTHERING_ENCHANTABLE),
-                3,
+                4,
                 3,
                 Enchantment.dynamicCost(16, 8),
                 Enchantment.dynamicCost(60, 8),
@@ -103,7 +109,7 @@ public class ModEnchantments {
 
         register(context, HIPPOCRATES, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.HIPPOCRATES_ENCHANTABLE),
-                4,
+                6,
                 3,
                 Enchantment.dynamicCost(16, 10),
                 Enchantment.dynamicCost(60, 10),
@@ -123,7 +129,27 @@ public class ModEnchantments {
 
         register(context, MALADY, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.MALADY_ENCHANTABLE),
+                6,
+                3,
+                Enchantment.dynamicCost(16, 10),
+                Enchantment.dynamicCost(60, 10),
                 4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, MASSIVENESS, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.MASSIVENESS_ENCHANTABLE),
+                6,
+                3,
+                Enchantment.dynamicCost(16, 10),
+                Enchantment.dynamicCost(60, 10),
+                4,
+                EquipmentSlotGroup.MAINHAND
+        )));
+
+        register(context, AFTERSHOCK, Enchantment.enchantment(Enchantment.definition(
+                item.getOrThrow(ModTags.AFTERSHOCK_ENCHANTABLE),
+                6,
                 3,
                 Enchantment.dynamicCost(16, 10),
                 Enchantment.dynamicCost(60, 10),

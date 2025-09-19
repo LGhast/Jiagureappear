@@ -4,9 +4,11 @@ import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.common.item.CharacterItem;
 import net.lghast.jiagu.register.ModParticles;
 import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.CharacterQuality;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -40,8 +42,9 @@ public class CharacterDisassemblerBlock extends Block {
 
     public CharacterDisassemblerBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
-        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVATED, false));
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(ACTIVATED, false));
     }
 
 
@@ -49,7 +52,7 @@ public class CharacterDisassemblerBlock extends Block {
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean isMoving) {
         if (level.isClientSide) return;
 
-        boolean hasRedstonePower = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above()) || level.hasNeighborSignal(pos.below());
+        boolean hasRedstonePower = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.below());
         boolean isActivated = state.getValue(ACTIVATED);
 
         if (hasRedstonePower && !isActivated) {
@@ -64,14 +67,13 @@ public class CharacterDisassemblerBlock extends Block {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
-            ItemStack itemToDisassemble=serverPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-            if(itemToDisassemble.is(ModItems.CHARACTER_ITEM)){
-                List<String> components = CharacterInfo.getComponents(CharacterItem.getInscription(itemToDisassemble));
-                int count = state.getValue(ACTIVATED) ? itemToDisassemble.getCount() : 1;
-                spawnDisassembledItems(player, count, components, itemToDisassemble, serverLevel, pos);
-                ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
-                        pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0.3, 0.4, 0.3, 10, 0.2);
+        if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
+            ItemStack heldItem = player.getItemInHand(InteractionHand.MAIN_HAND);
+            if(heldItem.is(ModItems.CHARACTER_ITEM)){
+                String inscription = CharacterItem.getInscription(heldItem);
+                List<String> components = CharacterInfo.getComponents(inscription);
+                int count = state.getValue(ACTIVATED) ? heldItem.getCount() : 1;
+                spawnDisassembledItems(player, count, components, heldItem, serverLevel, pos);
                 return InteractionResult.sidedSuccess(level.isClientSide());
             }
         }
@@ -79,7 +81,7 @@ public class CharacterDisassemblerBlock extends Block {
     }
 
     private void spawnDisassembledItems(Player player, int count, List<String> components, ItemStack itemToDisassemble, ServerLevel serverLevel, BlockPos pos){
-        if(components!=null) {
+        if(components != null && !components.isEmpty()) {
             for (String c : components) {
                 ItemStack characterItem = new ItemStack(ModItems.CHARACTER_ITEM.get());
                 characterItem.setCount(count);
@@ -89,15 +91,25 @@ public class CharacterDisassemblerBlock extends Block {
             if(!player.isCreative()) {
                 itemToDisassemble.shrink(count);
             }
-            float value = CharacterInfo.getFloatValue(CharacterItem.getInscription(itemToDisassemble));
-            serverLevel.playSound(null, pos, getSoundEvents(value), SoundSource.BLOCKS);
+            serverLevel.playSound(null, pos, getSoundEvents(CharacterItem.getInscription(itemToDisassemble)), SoundSource.BLOCKS);
+            ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
+                    pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0.3, 0.4, 0.3, 10, 0.2);
+        }else{
+            serverLevel.playSound(null, pos, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS);
+            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SMOKE,
+                    pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0.2, 0.4, 0.2, 8, 0.01);
         }
     }
 
-    private SoundEvent getSoundEvents(float value){
-        if(value>999 && value<3000) return SoundEvents.CHAIN_BREAK;
-        if(value>5999) return SoundEvents.COPPER_BREAK;
-        return SoundEvents.STONE_BREAK;
+    private SoundEvent getSoundEvents(String inscription){
+        CharacterQuality quality = CharacterInfo.getQuality(inscription);
+        return switch (quality){
+            case STONE -> SoundEvents.STONE_BREAK;
+            case IRON -> SoundEvents.CHAIN_BREAK;
+            case GOLD -> SoundEvents.METAL_BREAK;
+            case COPPER, RUST -> SoundEvents.COPPER_BREAK;
+            case DIAMOND -> SoundEvents.CALCITE_BREAK;
+        };
     }
 
     @Override

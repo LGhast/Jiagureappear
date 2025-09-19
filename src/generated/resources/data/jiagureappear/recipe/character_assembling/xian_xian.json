@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "絲"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "日"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "㬎"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "㬎"
+}

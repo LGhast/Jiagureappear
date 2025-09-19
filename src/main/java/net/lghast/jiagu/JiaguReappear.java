@@ -3,14 +3,17 @@ package net.lghast.jiagu;
 import net.lghast.jiagu.common.advancement.IdiomFormedTrigger;
 import net.lghast.jiagu.common.block.renderer.EruditeWenchangAltarRenderer;
 import net.lghast.jiagu.common.block.renderer.WenchangAltarRenderer;
+import net.lghast.jiagu.common.entity.renderer.StoneShotRenderer;
 import net.lghast.jiagu.common.item.CharacterItem;
 import net.lghast.jiagu.common.item.PrescriptionItem;
-import net.lghast.jiagu.common.particle.JiaguFloatingParticles;
-import net.lghast.jiagu.common.particle.JiaguParticles;
+import net.lghast.jiagu.client.particle.JiaguFloatingParticles;
+import net.lghast.jiagu.client.particle.JiaguParticles;
+import net.lghast.jiagu.client.screen.PrescriptionScreen;
 import net.lghast.jiagu.config.ClientConfig;
 import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.*;
 import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.PrescriptionInfo;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -22,10 +25,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.Potions;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.neoforged.api.distmarker.Dist;
@@ -53,8 +56,7 @@ public class JiaguReappear
 
         NeoForge.EVENT_BUS.register(this);
 
-        ModDataComponents.REGISTRAR.register(modEventBus);
-
+        ModDataComponents.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
@@ -67,8 +69,9 @@ public class JiaguReappear
         ModParticles.register(modEventBus);
         ModPotions.register(modEventBus);
         ModLootModifiers.register(modEventBus);
-
-        IdiomFormedTrigger.TRIGGER_TYPES.register(modEventBus);
+        ModMenus.register(modEventBus);
+        ModVillagers.register(modEventBus);
+             IdiomFormedTrigger.TRIGGER_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::onClientSetup);
@@ -108,8 +111,6 @@ public class JiaguReappear
 
     }
 
-
-
     @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
@@ -117,79 +118,121 @@ public class JiaguReappear
             event.registerSpriteSet(ModParticles.JIAGU_PARTICLES.get(), JiaguParticles.Provider::new);
             event.registerSpriteSet(ModParticles.JIAGU_FLOATING_PARTICLES.get(), JiaguFloatingParticles.Provider::new);
         }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenus.PRESCRIPTION_MENU.get(), PrescriptionScreen::new);
+        }
+
     }
 
     public void onClientSetup(FMLClientSetupEvent event){
         event.enqueueWork(()->{
-            ResourceLocation propertyIdInscription = ResourceLocation.parse("jiagureappear:inscription");
-            ItemProperties.register(ModItems.CHARACTER_ITEM.get(),
-                    propertyIdInscription,
-                    (stack, level, entity, seed) -> {
-                        String inscription = CharacterItem.getInscription(stack);
-                        return CharacterInfo.getFloatValue(inscription);
-                    });
-
-            ResourceLocation propertyIdUsing = ResourceLocation.parse("jiagureappear:using");
-            ItemProperties.register(ModItems.YI_CONFLAGRANT_AMETHYST.get(),
-                    propertyIdUsing,
-                    (stack, level, entity, seed) ->
-                       entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
-                    );
-            ItemProperties.register(ModItems.YI_CURE_AMETHYST.get(),
-                    propertyIdUsing,
-                    (stack, level, entity, seed) ->
-                            entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
-            );
-            ItemProperties.register(ModItems.GU_PARASITE_AMETHYST.get(),
-                    propertyIdUsing,
-                    (stack, level, entity, seed) ->
-                            entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
-            );
-
-            ResourceLocation propertyIdDormant = ResourceLocation.parse("jiagureappear:dormant");
-            ItemProperties.register(ModItems.YI_CURE_AMETHYST.get(),
-                    propertyIdDormant,
-                    (stack, level, entity, seed) ->
-                            entity instanceof Player player && player.getCooldowns().isOnCooldown(stack.getItem()) ? 1.0F : 0.0F
-            );
-
-            ResourceLocation propertyIdPrescription = ResourceLocation.parse("jiagureappear:prescription");
-            ItemProperties.register(ModItems.PRESCRIPTION.get(),
-                    propertyIdPrescription,
-                    (stack, level, entity, seed) -> {
-                        Holder<MobEffect> holder = PrescriptionItem.getEffectHolder(stack);
-                        return CharacterInfo.getFloatValue(holder);
-                    });
-
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHARACTER_DISASSEMBLER.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.WENCHANG_ALTAR.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ERUDITE_WENCHANG_ALTAR.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.YAOWANG_GOURD.get(), RenderType.cutout());
-
-            BlockEntityRenderers.register(
-                    ModBlockEntities.WENCHANG_ALTAR.get(),
-                    WenchangAltarRenderer::new
-            );
-
-            BlockEntityRenderers.register(
-                    ModBlockEntities.ERUDITE_WENCHANG_ALTAR.get(),
-                    EruditeWenchangAltarRenderer::new
-            );
-
-            EntityRenderers.register(
-                    ModEntityTypes.PARASITE_SPORE.get(),
-                    ThrownItemRenderer::new
-            );
+            registerItemProperties();
+            setItemBlockRenders();
+            registerEntityRenders();
         });
     }
 
-    @SubscribeEvent
-    public void onBrewingRecipeRegister(RegisterBrewingRecipesEvent event) {
-        PotionBrewing.Builder builder = event.getBuilder();
-        builder.addMix(Potions.AWKWARD, ModItems.SOUR_BERRIES.get(), ModPotions.APPETIZING);
-        builder.addMix(ModPotions.APPETIZING, Items.REDSTONE, ModPotions.LONG_APPETIZING);
-        builder.addMix(Potions.AWKWARD, ModItems.SHADOW_BERRIES.get(), ModPotions.DARKNESS);
-        builder.addMix(ModPotions.DARKNESS, Items.REDSTONE, ModPotions.LONG_DARKNESS);
+    private static void registerEntityRenders(){
+        BlockEntityRenderers.register(
+                ModBlockEntities.WENCHANG_ALTAR.get(),
+                WenchangAltarRenderer::new
+        );
+
+        BlockEntityRenderers.register(
+                ModBlockEntities.ERUDITE_WENCHANG_ALTAR.get(),
+                EruditeWenchangAltarRenderer::new
+        );
+
+        EntityRenderers.register(
+                ModEntityTypes.PARASITE_SPORE.get(),
+                ThrownItemRenderer::new
+        );
+
+        EntityRenderers.register(
+                ModEntityTypes.STONE_SHOT.get(),
+                StoneShotRenderer::new
+        );
     }
+
+    private static void setItemBlockRenders(){
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHARACTER_DISASSEMBLER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WENCHANG_ALTAR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ERUDITE_WENCHANG_ALTAR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.YAOWANG_GOURD.get(), RenderType.cutout());
+    }
+
+    private static void registerItemProperties(){
+        ResourceLocation propertyIdInscription = ResourceLocation.parse("jiagureappear:inscription");
+        ItemProperties.register(ModItems.CHARACTER_ITEM.get(),
+                propertyIdInscription,
+                (stack, level, entity, seed) -> {
+                    String inscription = CharacterItem.getInscription(stack);
+                    return CharacterInfo.getFloatValue(inscription);
+                });
+
+        PrescriptionInfo.reloadFromConfig();
+        ResourceLocation propertyIdPrescription = ResourceLocation.parse("jiagureappear:prescription");
+        ItemProperties.register(ModItems.PRESCRIPTION.get(),
+                propertyIdPrescription,
+                (stack, level, entity, seed) -> {
+                    Holder<MobEffect> holder = PrescriptionItem.getEffectHolder(stack);
+                    return PrescriptionInfo.getFloatValue(holder);
+                });
+
+        ResourceLocation propertyIdUsing = ResourceLocation.parse("jiagureappear:using");
+        ItemProperties.register(ModItems.YI_CONFLAGRANT_AMETHYST.get(),
+                propertyIdUsing,
+                (stack, level, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+        ItemProperties.register(ModItems.YI_CURE_AMETHYST.get(),
+                propertyIdUsing,
+                (stack, level, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+        ItemProperties.register(ModItems.GU_PARASITE_AMETHYST.get(),
+                propertyIdUsing,
+                (stack, level, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+        ItemProperties.register(ModItems.LEI_STONES_AMETHYST.get(),
+                propertyIdUsing,
+                (stack, level, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+
+        ResourceLocation propertyIdDormant = ResourceLocation.parse("jiagureappear:dormant");
+        ItemProperties.register(ModItems.YI_CURE_AMETHYST.get(),
+                propertyIdDormant,
+                (stack, level, entity, seed) ->
+                        entity instanceof Player player && player.getCooldowns().isOnCooldown(stack.getItem()) ? 1.0F : 0.0F
+        );
+    }
+
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    public static class ConfigEventHandler {
+        @SubscribeEvent
+        public static void onLoadConfig(ModConfigEvent.Loading event) {
+            if (event.getConfig().getSpec() == ClientConfig.SPEC) {
+                PrescriptionInfo.reloadFromConfig();
+            }
+            if (event.getConfig().getSpec() == ServerConfig.SPEC) {
+                CharacterInfo.reloadFromConfig();
+            }
+        }
+
+        @SubscribeEvent
+        public static void onReloadConfig(ModConfigEvent.Reloading event) {
+            if (event.getConfig().getSpec() == ClientConfig.SPEC) {
+                PrescriptionInfo.reloadFromConfig();
+            }
+            if (event.getConfig().getSpec() == ServerConfig.SPEC) {
+                CharacterInfo.reloadFromConfig();
+            }
+        }
+    }
+
 
 }

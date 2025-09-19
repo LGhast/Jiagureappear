@@ -34,11 +34,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BIAO_GALE_AMETHYST);
                         output.accept(ModItems.YI_CURE_AMETHYST);
                         output.accept(ModItems.GU_PARASITE_AMETHYST);
+                        output.accept(ModItems.LEI_STONES_AMETHYST);
                         output.accept(ModItems.YOLIME);
                         output.accept(ModItems.YOLIME_BREAD);
                         output.accept(ModBlocks.YOLIME_BLOCK);
                         output.accept(ModItems.SHADOW_BERRIES);
                         output.accept(ModItems.SOUR_BERRIES);
+                        output.accept(ModItems.ZUCCHINI);
+                        output.accept(ModItems.COOKED_ZUCCHINI);
+                        output.accept(ModItems.ZUCCHINI_SOUP);
                         output.accept(ModBlocks.CHARACTER_DISASSEMBLER);
                         output.accept(ModBlocks.AUTO_DISASSEMBLER);
                         output.accept(ModBlocks.CANGJIE_DING_TRIPOD);

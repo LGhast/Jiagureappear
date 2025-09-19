@@ -75,7 +75,7 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
 
         if(level instanceof ServerLevel serverLevel && ServerConfig.IDIOM_LIST.get().contains(getInscriptions())){
             ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
-                    pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 0.4, 0.2, 0.4, 15, 0.005);
+                    pos.getX()+0.5, pos.getY()+0.4, pos.getZ()+0.5, 0.3, 0.2, 0.3, 12, 0.005);
         }
     }
 

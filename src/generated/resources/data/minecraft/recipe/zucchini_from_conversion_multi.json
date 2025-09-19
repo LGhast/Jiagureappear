@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:pumpkin"
+    },
+    "N": {
+      "item": "jiagureappear:ni_converse_amethyst"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "MNM",
+    "MMM"
+  ],
+  "result": {
+    "count": 8,
+    "id": "jiagureappear:zucchini"
+  }
+}

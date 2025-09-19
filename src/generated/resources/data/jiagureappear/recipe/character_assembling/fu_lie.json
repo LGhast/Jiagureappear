@@ -1,0 +1,29 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "犬"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    }
+  },
+  "pattern": [
+    "   ",
+    "U  ",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "伏"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "伏"
+}

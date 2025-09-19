@@ -1,10 +1,14 @@
 package net.lghast.jiagu.utils;
 
+import net.lghast.jiagu.register.ModTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -64,16 +68,20 @@ public class ModUtils {
         return characters.replace(" ", "").replace("“", "").replace("”", "");
     }
     public static String getCharacters(ItemStack stack){
-        return stack.getHoverName().getString().replace(" ", "").replace("“", "").replace("”", "");
+        return getCharacters(stack.getHoverName().getString());
     }
     public static String getCharacters(Holder<Enchantment> holder, int level){
-        return Enchantment.getFullname(holder, level).getString().replace(" ", "").replace("“", "").replace("”", "");
+        return getCharacters(Enchantment.getFullname(holder, level).getString());
     }
     public static String getCharacters(Entity entity){
-        return Objects.requireNonNull(entity.getDisplayName()).getString().replace(" ", "").replace("“", "").replace("”", "");
+        String base = Objects.requireNonNull(entity.getDisplayName()).getString();
+        if(entity.getType().is(ModTags.OVIS) && entity instanceof AgeableMob mob && mob.isBaby()){
+            base = base.replace("羊", "羔");
+        }
+        return getCharacters(base);
     }
     public static String getCharacters(MobEffect effect){
-        return effect.getDisplayName().getString().replace(" ", "").replace("“", "").replace("”", "");
+        return getCharacters(effect.getDisplayName().getString());
     }
 
     public static String insertLineBreaks(String input, int interval) {

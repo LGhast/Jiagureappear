@@ -2,6 +2,7 @@ package net.lghast.jiagu.common.block.entity;
 
 import net.lghast.jiagu.common.block.AutoDisassemblerBlock;
 import net.lghast.jiagu.common.block.CangjieMorpherBlock;
+import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModTags;
@@ -40,6 +41,7 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
             if (blockEntity.morphingTicks == 0) {
                 level.setBlock(pos, state.setValue(CangjieMorpherBlock.CRAFTING, false), 3);
             }
+            blockEntity.setChanged();
         }
     }
 
@@ -76,8 +78,17 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return (slot == 0 && !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.has(DataComponents.CUSTOM_NAME))
-                || (slot == 1 && stack.is(ModTags.JIAGU_MATERIALS) && !stack.is(ModItems.YELLOW_PAPER));
+        if (slot == 0) {
+            boolean valid = !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.is(ModTags.JIAGU_MATERIALS);
+
+            if (ServerConfig.CANGJIE_TRIPOD_CUSTOM_NAME_CHECK.get()) {
+                valid = valid && !stack.has(DataComponents.CUSTOM_NAME);
+            }
+            return valid;
+        } else if (slot == 1) {
+            return stack.is(ModTags.JIAGU_MATERIALS);
+        }
+        return false;
     }
 
     @Override

@@ -10,6 +10,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.effect.MobEffect;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -35,5 +36,9 @@ public class ModDataComponents {
                     builder.persistent(PRESCRIPTION_CODEC)
                             .networkSynchronized(PRESCRIPTION_STREAM_CODEC)
             );
+
+    public static void register(IEventBus eventBus){
+        REGISTRAR.register(eventBus);
+    }
 }
 

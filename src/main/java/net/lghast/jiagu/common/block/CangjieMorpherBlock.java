@@ -119,64 +119,74 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
             ItemStack content = blockEntity.getItem(0);
             ItemStack material = blockEntity.getItem(1);
 
-            if (!content.is(ModTags.INVALID_TO_CHARACTERS) && material.is(ModTags.JIAGU_MATERIALS)
-                    && !material.is(ModItems.YELLOW_PAPER)  && !state.getValue(CRAFTING)) {
-                level.setBlock(pos, state.setValue(CRAFTING, true), 3);
-                blockEntity.startMorphing();
-
-                Direction direction = state.getValue(ORIENTATION).front();
-                Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
-
-                if(ServerConfig.CANGJIE_MORPHER_CUSTOM_NAME_CHECK.get() && content.has(DataComponents.CUSTOM_NAME)){
-                    morphingFailure(level, pos);
-                    return;
-                }
-
-                String morpherResult;
-                if (content.is(ModItems.TAOIST_TALISMAN)) {
-                    String spell = TaoistTalismanItem.getSpell(content);
-                    morpherResult = Objects.equals(spell, null) ? ModUtils.getCharacters(content) : ModUtils.getCharacters(spell);
-                }else{
-                    morpherResult = ModUtils.getCharacters(content);
-                }
-
-                char[] components = morpherResult.toCharArray();
-                int count;
-                if(material.is(ModItems.INFINITE_PAPYRUS)){
-                    count = content.getCount();
-                }else {
-                    count = Math.min(content.getCount(), material.getCount());
-                }
-
-                level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
-
-                for (char c : components) {
-                    ItemStack result = new ItemStack(ModItems.CHARACTER_ITEM.get());
-                    result.setCount(count);
-                    CharacterItem.setInscription(result, c);
-                    DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
-                }
-                spawnParticles(level, pos);
-                content.shrink(count);
-                blockEntity.setChanged();
-
-                if(!material.is(ModItems.INFINITE_PAPYRUS)) {
-                    if(material.isDamageableItem()){
-                        ModUtils.damage(material, 5);
-                    }else {
-                        material.shrink(count);
-                    }
-                    blockEntity.setChanged();
-                }
+            if (content.is(ModTags.INVALID_TO_CHARACTERS) || !material.is(ModTags.JIAGU_MATERIALS)
+                    || material.is(ModItems.YELLOW_PAPER) || state.getValue(CRAFTING)) {
+                morphingFailure(level, pos);
+                return;
             }
+
+            if(ServerConfig.CANGJIE_MORPHER_CUSTOM_NAME_CHECK.get() && content.has(DataComponents.CUSTOM_NAME)){
+                morphingFailure(level, pos);
+                return;
+            }
+
+            level.setBlock(pos, state.setValue(CRAFTING, true), 3);
+            blockEntity.startMorphing();
+
+            int count;
+            if(material.is(ModItems.INFINITE_PAPYRUS)){
+                count = content.getCount();
+            }else {
+                count = Math.min(content.getCount(), material.getCount());
+            }
+
+            spawnCharacters(level, count, content, state, pos);
+
+            spawnParticles(level, pos);
+            level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
+            consumeMaterials(content, material, count);
+            blockEntity.setChanged();
         }
     }
 
     private void morphingFailure(ServerLevel level, BlockPos pos){
-        level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS);
+        level.playSound(null, pos, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS);
         ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
                 pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
                 0.3, 0.4, 0.3, 10, 0.05);
+    }
+
+    private String getMorpherResult(ItemStack content){
+        if (content.is(ModItems.TAOIST_TALISMAN)) {
+            String spell = TaoistTalismanItem.getSpell(content);
+            return Objects.equals(spell, null) ? ModUtils.getCharacters(content) : ModUtils.getCharacters(spell);
+        }else{
+            return ModUtils.getCharacters(content);
+        }
+    }
+
+    private void spawnCharacters(ServerLevel level, int count, ItemStack content, BlockState state, BlockPos pos){
+        String morpherResult = getMorpherResult(content);
+        char[] components = morpherResult.toCharArray();
+        Direction direction = state.getValue(ORIENTATION).front();
+        Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
+
+        for (char c : components) {
+            ItemStack result = new ItemStack(ModItems.CHARACTER_ITEM.get());
+            result.setCount(count);
+            CharacterItem.setInscription(result, c);
+            DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
+        }
+    }
+
+    private void consumeMaterials(ItemStack content, ItemStack material, int count) {
+        content.shrink(count);
+
+        if (material.isDamageableItem()) {
+            ModUtils.damage(material, 5);
+        } else if (!material.is(ModItems.INFINITE_PAPYRUS)) {
+            material.shrink(count);
+        }
     }
 
     @Override

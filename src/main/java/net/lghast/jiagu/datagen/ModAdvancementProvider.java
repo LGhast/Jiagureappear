@@ -40,6 +40,16 @@ public class ModAdvancementProvider extends AdvancementProvider {
             createIdiomAdvancement(saver, existingFileHelper, "gufangzishang", "孤芳自賞", new ItemStack(Items.POPPY));
             createIdiomAdvancement(saver, existingFileHelper, "guangmingleiluo", "光明磊落", new ItemStack(Items.LANTERN));
             createIdiomAdvancement(saver, existingFileHelper, "ziqiangbuxi", "自強不息", new ItemStack(Items.BLAZE_POWDER));
+            createIdiomAdvancement(saver, existingFileHelper, "yipiandanxin", "一片丹心", new ItemStack(Items.RED_DYE));
+            createIdiomAdvancement(saver, existingFileHelper, "xinlingshouqiao", "心靈手巧", new ItemStack(Items.PAINTING));
+            createIdiomAdvancement(saver, existingFileHelper, "danibudao", "大逆不道", new ItemStack(Items.WITHER_ROSE));
+            createIdiomAdvancement(saver, existingFileHelper, "hushuobadao", "胡說八道", new ItemStack(Items.ENCHANTED_BOOK));
+            createIdiomAdvancement(saver, existingFileHelper, "nangyingyingxue", "囊螢映雪", new ItemStack(Items.BUNDLE));
+            createIdiomAdvancement(saver, existingFileHelper, "beijinglixiang", "背井離鄉", new ItemStack(Items.VILLAGER_SPAWN_EGG));
+            createIdiomAdvancement(saver, existingFileHelper, "fenmodengchang", "粉墨登場", new ItemStack(Items.PINK_DYE));
+            createIdiomAdvancement(saver, existingFileHelper, "qiuzhiruoke", "求知若渴", new ItemStack(Items.WATER_BUCKET));
+            createIdiomAdvancement(saver, existingFileHelper, "bigengbuchuo", "筆耕不輟", new ItemStack(Items.STONE_HOE));
+            createIdiomAdvancement(saver, existingFileHelper, "minglieqianmao", "名列前茅", new ItemStack(Items.TALL_GRASS));
         }
 
         private void createIdiomAdvancement(

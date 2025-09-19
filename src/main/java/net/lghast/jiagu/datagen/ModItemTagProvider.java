@@ -24,13 +24,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         tag(ItemTags.PIGLIN_LOVED).add(ModBlocks.GOLDEN_BRICKS.asItem());
-
         tag(ItemTags.FOX_FOOD).add(ModItems.SOUR_BERRIES.asItem(),ModItems.SHADOW_BERRIES.asItem());
-
+        tag(ModTags.VILLAGER_JOB_SITES).add(ModBlocks.RUBBING_TABLE.asItem());
 
         tag(ModTags.FOODS_BREAD).add(ModItems.YOLIME_BREAD.asItem());
-
+        tag(ModTags.FOODS_SOUP).add(ModItems.ZUCCHINI_SOUP.asItem());
         tag(ModTags.FOODS_BERRY).add(ModItems.SOUR_BERRIES.asItem(),ModItems.SHADOW_BERRIES.asItem());
+        tag(ModTags.FOODS_VEGETABLE).add(ModItems.ZUCCHINI.asItem());
+        tag(ModTags.FOODS).add(ModItems.COOKED_ZUCCHINI.asItem());
+
+        tag(ModTags.CROPS_ZUCCHINI).add(ModItems.ZUCCHINI.asItem());
+        tag(ModTags.CROPS).addTag(ModTags.CROPS_ZUCCHINI);
 
         tag(ModTags.INVALID_TO_CHARACTERS)
                 .add(ModItems.CHARACTER_ITEM.asItem())
@@ -78,6 +82,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem())
                 .add(ModItems.BIAO_GALE_AMETHYST.asItem())
                 .add(ModItems.YI_CURE_AMETHYST.asItem())
+                .add(ModItems.GU_PARASITE_AMETHYST.asItem())
+                .add(ModItems.LEI_STONES_AMETHYST.asItem())
         ;
 
         tag(ModTags.WENCHANG_ALTAR_DISPLAYABLE)
@@ -106,6 +112,68 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .addTag(ModTags.FOODS_BERRY)
         ;
 
+        tag(ModTags.SHOOTABLE_STONES)
+                .addTag(ItemTags.STONE_CRAFTING_MATERIALS)
+                .addTag(ItemTags.COAL_ORES)
+                .addTag(ItemTags.IRON_ORES)
+                .addTag(ItemTags.GOLD_ORES)
+                .addTag(ItemTags.COPPER_ORES)
+                .addTag(ItemTags.DIAMOND_ORES)
+                .addTag(ItemTags.EMERALD_ORES)
+                .addTag(ItemTags.REDSTONE_ORES)
+                .addTag(ItemTags.LAPIS_ORES)
+                .addTag(ItemTags.TERRACOTTA)
+                .addTag(ModTags.CONCRETES)
+                .add(Items.STONE)
+                .add(Items.SMOOTH_STONE)
+                .add(Items.GRAVEL)
+                .add(Items.SUSPICIOUS_GRAVEL)
+                .add(Items.SANDSTONE)
+                .add(Items.SMOOTH_SANDSTONE)
+                .add(Items.RED_SANDSTONE)
+                .add(Items.SMOOTH_RED_SANDSTONE)
+                .add(Items.DEEPSLATE)
+                .add(Items.POLISHED_DEEPSLATE)
+                .add(Items.ANDESITE)
+                .add(Items.GRANITE)
+                .add(Items.DIORITE)
+                .add(Items.TUFF)
+                .add(Items.POLISHED_ANDESITE)
+                .add(Items.POLISHED_GRANITE)
+                .add(Items.POLISHED_DIORITE)
+                .add(Items.POLISHED_TUFF)
+                .add(Items.BASALT)
+                .add(Items.POLISHED_BASALT)
+                .add(Items.SMOOTH_BASALT)
+                .add(Items.CALCITE)
+                .add(Items.GLOWSTONE)
+                .add(Items.NETHERRACK)
+                .add(Items.NETHER_QUARTZ_ORE)
+                .add(Items.ANCIENT_DEBRIS)
+                .add(Items.CRIMSON_NYLIUM)
+                .add(Items.WARPED_NYLIUM)
+                .add(Items.END_STONE)
+                .add(Items.OBSIDIAN)
+                .add(Items.CRYING_OBSIDIAN)
+                .add(Items.DRIPSTONE_BLOCK)
+                .add(Items.RAW_IRON_BLOCK)
+                .add(Items.RAW_COPPER_BLOCK)
+                .add(Items.RAW_GOLD_BLOCK)
+                .add(Items.REDSTONE_BLOCK)
+                .add(Items.DIAMOND_BLOCK)
+                .add(Items.LAPIS_BLOCK)
+                .add(Items.EMERALD_BLOCK)
+                .add(Items.AMETHYST_BLOCK)
+                .add(Items.BUDDING_AMETHYST)
+                .add(Items.QUARTZ_BLOCK)
+                .add(Items.SMOOTH_QUARTZ)
+                .add(Items.MOSSY_COBBLESTONE)
+                .add(Items.PRISMARINE)
+                .add(Items.DARK_PRISMARINE)
+                .add(Items.LODESTONE)
+                .add(Items.BEDROCK)
+        ;
+
         tag(ModTags.IGNITING_ENCHANTABLE).add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem());
         tag(ModTags.CREMATION_ENCHANTABLE).add(ModItems.YI_CONFLAGRANT_AMETHYST.asItem());
         tag(ModTags.INQUISITIVENESS_ENCHANTABLE).add(ModItems.JIAN_SWORD_AMETHYST.asItem());
@@ -117,5 +185,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.YI_CURE_AMETHYST.asItem())
                 .add(ModItems.GU_PARASITE_AMETHYST.asItem());
         tag(ModTags.MALADY_ENCHANTABLE).add(ModItems.GU_PARASITE_AMETHYST.asItem());
+        tag(ModTags.MASSIVENESS_ENCHANTABLE).add(ModItems.LEI_STONES_AMETHYST.asItem());
+        tag(ModTags.AFTERSHOCK_ENCHANTABLE).add(ModItems.LEI_STONES_AMETHYST.asItem());
     }
 }

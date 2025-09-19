@@ -15,6 +15,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#jiagureappear:panacea_enchantable",
+  "supported_items": "#jiagureappear:enchantable/panacea",
   "weight": 10
 }

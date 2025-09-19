@@ -3,7 +3,6 @@ package net.lghast.jiagu.common.block;
 import com.mojang.serialization.MapCodec;
 import net.lghast.jiagu.common.block.entity.RubbingMachineBlockEntity;
 import net.lghast.jiagu.common.item.CharacterItem;
-import net.lghast.jiagu.common.item.TaoistTalismanItem;
 import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
@@ -20,17 +19,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.ContainerEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,9 +38,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class RubbingMachineBlock extends BaseEntityBlock {
     public static final MapCodec<RubbingMachineBlock> CODEC = simpleCodec(RubbingMachineBlock::new);
@@ -117,64 +111,58 @@ public class RubbingMachineBlock extends BaseEntityBlock {
 
             if (!reference.is(ModTags.INVALID_TO_BE_RUBBED) && ink.is(ModTags.RUBBING_INKS)
                     && !state.getValue(CRAFTING)) {
+
                 level.setBlock(pos, state.setValue(CRAFTING, true), 3);
                 blockEntity.startMorphing();
-
                 Direction direction = state.getValue(ORIENTATION).front();
-                Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
 
-                BlockEntity backEntity = switch (direction){
-                    case DOWN -> level.getBlockEntity(pos.above());
-                    case UP -> level.getBlockEntity(pos.below());
-                    case EAST -> level.getBlockEntity(pos.west());
-                    case WEST -> level.getBlockEntity(pos.east());
-                    case SOUTH -> level.getBlockEntity(pos.north());
-                    case NORTH -> level.getBlockEntity(pos.south());
-                };
-
-                boolean customNameFailure = ServerConfig.RUBBING_MACHINE_CUSTOM_NAME_CHECK.get()
-                        && reference.has(DataComponents.CUSTOM_NAME);
-
-                if(customNameFailure || !(backEntity instanceof RandomizableContainerBlockEntity chestEntity)){
+                if (ServerConfig.RUBBING_MACHINE_CUSTOM_NAME_CHECK.get() && reference.has(DataComponents.CUSTOM_NAME)) {
                     rubbingFailure(level, pos);
                     return;
                 }
 
-                List<ItemStack> characters = new ArrayList<>();
-                String rubbingName = reference.getHoverName().getString();
-                int targetSize = rubbingName.length();
-                int count = ink.getCount();
-
-                for(int i=0; i<chestEntity.getContainerSize(); i++){
-                    ItemStack checkedItem = chestEntity.getItem(i);
-                    if(checkedItem.is(ModItems.CHARACTER_ITEM)) {
-                        String inscription = CharacterItem.getInscription(checkedItem);
-                        if(inscription.length()!=1) continue;
-                        if(rubbingName.contains(inscription)) {
-                            characters.add(chestEntity.getItem(i));
-                            rubbingName=rubbingName.replace(inscription, "");
-                            count = Math.min(count, checkedItem.getCount());
-                        }
-                    }
+                BlockEntity backEntity = getBackBlockEntity(level, pos, direction);
+                if(!(backEntity instanceof RandomizableContainerBlockEntity chestEntity)){
+                    rubbingFailure(level, pos);
+                    return;
                 }
 
-                if(targetSize==characters.size()){
-                    ItemStack result = new ItemStack(reference.getItem(),count);
+                String rubbingName = reference.getHoverName().getString();
+                Map<Character, Integer> requiredChars = countCharacters(rubbingName);
+                if (requiredChars.isEmpty()) {
+                    rubbingFailure(level, pos);
+                    return;
+                }
+
+                Map<Character, Integer> availableChars = findAvailableCharacters(chestEntity, requiredChars.keySet());
+                int maxCount = getMaxCount(requiredChars, availableChars, ink.getCount());
+
+                if (maxCount > 0) {
+                    ItemStack result = new ItemStack(reference.getItem(), maxCount);
+                    Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
+
                     DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
-                    level.playSound(null, pos, SoundEvents.CHISELED_BOOKSHELF_PICKUP, SoundSource.BLOCKS);
+                    level.playSound(null, pos, SoundEvents.CHISELED_BOOKSHELF_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
                     spawnParticles(level, pos);
 
-                    ink.shrink(count);
-                    blockEntity.setChanged();
-                    for (ItemStack c : characters) {
-                        c.shrink(count);
-                        chestEntity.setChanged();
-                    }
-                }else{
+                    consumeMaterials(ink, chestEntity, requiredChars, maxCount);
+                    chestEntity.setChanged();
+                } else {
                     rubbingFailure(level, pos);
                 }
             }
         }
+    }
+
+    private BlockEntity getBackBlockEntity(ServerLevel level, BlockPos pos, Direction direction) {
+        return switch (direction) {
+            case DOWN -> level.getBlockEntity(pos.above());
+            case UP -> level.getBlockEntity(pos.below());
+            case EAST -> level.getBlockEntity(pos.west());
+            case WEST -> level.getBlockEntity(pos.east());
+            case SOUTH -> level.getBlockEntity(pos.north());
+            case NORTH -> level.getBlockEntity(pos.south());
+        };
     }
 
     private void rubbingFailure(ServerLevel level, BlockPos pos){
@@ -182,6 +170,69 @@ public class RubbingMachineBlock extends BaseEntityBlock {
         ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
                 pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
                 0.3, 0.4, 0.3, 10, 0.05);
+    }
+
+    private Map<Character, Integer> countCharacters(String text) {
+        Map<Character, Integer> charCount = new HashMap<>();
+        for (char c : text.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+        return charCount;
+    }
+
+    private Map<Character, Integer> findAvailableCharacters(RandomizableContainerBlockEntity chest, Set<Character> requiredChars) {
+        Map<Character, Integer> availableChars = new HashMap<>();
+
+        for (int i = 0; i < chest.getContainerSize(); i++) {
+            ItemStack item = chest.getItem(i);
+            if (item.is(ModItems.CHARACTER_ITEM)) {
+                String inscription = CharacterItem.getInscription(item);
+                if (inscription.length() == 1) {
+                    char c = inscription.charAt(0);
+                    if (requiredChars.contains(c)) {
+                        availableChars.put(c, availableChars.getOrDefault(c, 0) + item.getCount());
+                    }
+                }
+            }
+        }
+
+        return availableChars;
+    }
+
+    private int getMaxCount(Map<Character, Integer> required, Map<Character, Integer> available, int inkCount) {
+        if (required.isEmpty() || available.isEmpty()) {
+            return 0;
+        }
+        int finalCount = inkCount;
+        for (Map.Entry<Character, Integer> entry : required.entrySet()) {
+            char c = entry.getKey();
+            int requiredCountPerItem = entry.getValue();
+            int availableCount = available.getOrDefault(c, 0);
+            int maxCount = availableCount / requiredCountPerItem;
+            finalCount = Math.min(finalCount, maxCount);
+        }
+        return finalCount;
+    }
+
+    private void consumeMaterials(ItemStack ink, RandomizableContainerBlockEntity chest, Map<Character, Integer> requiredChars, int count) {
+        ink.shrink(count);
+
+        for (Map.Entry<Character, Integer> entry : requiredChars.entrySet()) {
+            char c = entry.getKey();
+            int consumption = entry.getValue() * count;
+
+            for (int i = 0; i < chest.getContainerSize() && consumption > 0; i++) {
+                ItemStack item = chest.getItem(i);
+                if (item.is(ModItems.CHARACTER_ITEM)) {
+                    String inscription = CharacterItem.getInscription(item);
+                    if (inscription.length() == 1 && inscription.charAt(0) == c) {
+                        int consumeAmount = Math.min(consumption, item.getCount());
+                        item.shrink(consumeAmount);
+                        consumption -= consumeAmount;
+                    }
+                }
+            }
+        }
     }
 
     @Override

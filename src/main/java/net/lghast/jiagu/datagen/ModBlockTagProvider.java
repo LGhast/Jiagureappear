@@ -60,5 +60,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         ;
 
         tag(BlockTags.GUARDED_BY_PIGLINS).add(ModBlocks.GOLDEN_BRICKS.get());
+
+        tag(ModTags.VILLAGER_JOB_SITES_BLOCK).add(ModBlocks.RUBBING_TABLE.get());
     }
 }

@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "至"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "高"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "臺"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "臺"
+}

@@ -15,6 +15,7 @@ public enum CharacterStructure {
     T_SHAPE_INVERT,
     T_SHAPE_HORIZONTAL,
     L_SHAPE,
+    X_SHAPE,
     RECTANGLE,
     ARROW,
     ARROW_INVERT,

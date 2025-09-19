@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "jiagureappear:item/lei_stones_amethyst_normal",
+      "predicate": {
+        "jiagureappear:using": 0.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/lei_stones_amethyst_using",
+      "predicate": {
+        "jiagureappear:using": 1.0
+      }
+    }
+  ]
+}

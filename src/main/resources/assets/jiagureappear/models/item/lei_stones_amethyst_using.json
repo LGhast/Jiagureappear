@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jiagureappear:item/lei_stones_amethyst_using"
+  }
+}

@@ -15,6 +15,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#jiagureappear:inquisitiveness_enchantable",
+  "supported_items": "#jiagureappear:enchantable/inquisitiveness",
   "weight": 8
 }

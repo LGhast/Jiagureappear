@@ -15,6 +15,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#jiagureappear:benevolence_enchantable",
+  "supported_items": "#jiagureappear:enchantable/benevolence",
   "weight": 4
 }

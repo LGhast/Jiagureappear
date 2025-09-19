@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "口"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "東"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "東"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "曹"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "曹"
+}

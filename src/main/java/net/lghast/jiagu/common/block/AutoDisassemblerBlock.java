@@ -7,6 +7,7 @@ import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModParticles;
 import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.CharacterQuality;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -110,23 +111,23 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
 
     private void disassembleItem(BlockState state, ServerLevel level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
-            ItemStack content = blockEntity.getItem(0);
+            ItemStack content = blockEntity.getItem(0).copy();
 
             if (content.is(ModItems.CHARACTER_ITEM) && !state.getValue(CRAFTING)) {
                 level.setBlock(pos, state.setValue(CRAFTING, true), 3);
                 blockEntity.startDisassembling();
 
-                List<String> components = CharacterInfo.getComponents(CharacterItem.getInscription(content));
                 int count = content.getCount();
+                String inscription = CharacterItem.getInscription(content);
+                List<String> components = CharacterInfo.getComponents(inscription);
 
-                float value = CharacterInfo.getFloatValue(CharacterItem.getInscription(content));
-                SoundEvent sound = getSoundEvents(value);
+                SoundEvent sound = getSoundEvents(inscription);
                 level.playSound(null, pos, sound, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                 Direction direction = state.getValue(ORIENTATION).front();
                 Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
 
-                if(components!=null) {
+                if(components != null && !components.isEmpty()) {
                     for (String c : components) {
                         ItemStack result = new ItemStack(ModItems.CHARACTER_ITEM.get());
                         result.setCount(count);
@@ -139,8 +140,8 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                 }else{
                     DefaultDispenseItemBehavior.spawnItem(level, content, 6, direction, spawnPos);
                     ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
-                            pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
-                            0.3, 0.4, 0.3, 10, 0.05);
+                            pos.getX() + 0.5, pos.getY() + 0.6, pos.getZ() + 0.5,
+                            0.2, 0.4, 0.2, 10, 0.01);
                 }
 
                 blockEntity.setItem(0, ItemStack.EMPTY);
@@ -149,10 +150,15 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
         }
     }
 
-    private SoundEvent getSoundEvents(float value) {
-        if (value > 999 && value < 3000) return SoundEvents.CHAIN_BREAK;
-        if (value > 5999) return SoundEvents.COPPER_BREAK;
-        return SoundEvents.STONE_BREAK;
+    private SoundEvent getSoundEvents(String inscription){
+        CharacterQuality quality = CharacterInfo.getQuality(inscription);
+        return switch (quality){
+            case STONE -> SoundEvents.STONE_BREAK;
+            case IRON -> SoundEvents.CHAIN_BREAK;
+            case GOLD -> SoundEvents.METAL_BREAK;
+            case COPPER, RUST -> SoundEvents.COPPER_BREAK;
+            case DIAMOND -> SoundEvents.CALCITE_BREAK;
+        };
     }
 
     @Override

@@ -1,0 +1,29 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "日"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "央"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "映"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "映"
+}

@@ -1,0 +1,37 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "A": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple"
+    },
+    "B": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "幺"
+    },
+    "C": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "木"
+    },
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "目"
+    }
+  },
+  "pattern": [
+    "AB ",
+    "CD ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "縣"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "縣"
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cooked_zucchini": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:cooked_zucchini"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jiagureappear:zucchini_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cooked_zucchini"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jiagureappear:zucchini_soup"
+    ]
+  }
+}

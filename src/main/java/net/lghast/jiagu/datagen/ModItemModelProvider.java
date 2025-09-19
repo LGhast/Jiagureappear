@@ -40,6 +40,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.YOLIME_BREAD.get());
         basicItem(ModItems.SHADOW_BERRIES.get());
         basicItem(ModItems.SOUR_BERRIES.get());
+        basicItem(ModItems.ZUCCHINI.get());
+        basicItem(ModItems.COOKED_ZUCCHINI.get());
+        basicItem(ModItems.ZUCCHINI_SOUP.get());
         basicItem(ModItems.PARASITE_SPORE.get());
         basicItem(ModItems.NI_CONVERSE_AMETHYST.get());
         basicItem(ModItems.NI_CONVERSE_AMETHYST_DORMANT.get());

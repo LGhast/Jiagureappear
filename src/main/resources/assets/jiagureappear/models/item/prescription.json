@@ -84,6 +84,66 @@
       "predicate": {
         "jiagureappear:prescription": 14.0
       }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/jump_boost",
+      "predicate": {
+        "jiagureappear:prescription": 15.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/slow_falling",
+      "predicate": {
+        "jiagureappear:prescription": 16.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/luck",
+      "predicate": {
+        "jiagureappear:prescription": 17.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/unluck",
+      "predicate": {
+        "jiagureappear:prescription": 18.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/bad_omen",
+      "predicate": {
+        "jiagureappear:prescription": 19.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/blindness",
+      "predicate": {
+        "jiagureappear:prescription": 20.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/mining_fatigue",
+      "predicate": {
+        "jiagureappear:prescription": 21.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/glowing",
+      "predicate": {
+        "jiagureappear:prescription": 22.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/levitation",
+      "predicate": {
+        "jiagureappear:prescription": 23.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/nausea",
+      "predicate": {
+        "jiagureappear:prescription": 24.0
+      }
     }
   ],
   "textures": {

@@ -1,5 +1,6 @@
 package net.lghast.jiagu.common.item;
 
+import net.lghast.jiagu.common.menu.PrescriptionMenu;
 import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.ModEnchantments;
 import net.lghast.jiagu.register.ModItems;
@@ -7,26 +8,32 @@ import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class YiCureAmethystItem extends Item {
+public class YiCureAmethystItem extends Item{
 
     public YiCureAmethystItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(50));

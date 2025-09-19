@@ -26,7 +26,7 @@ public class JiaguInfoCommand {
 
                             if(!CharacterInfo.CHARACTER_DATA.containsKey(input)){
                                 source.sendFailure(
-                                        Component.literal("§c“" + input + "”未為所錄")
+                                        Component.literal("§c“" + input + "”"+ Component.translatable("commands.jiaguinfo.not_found").getString())
                                 );
                                 return 1;
                             }
@@ -34,29 +34,38 @@ public class JiaguInfoCommand {
                             source.sendSuccess(() ->
                                             Component.literal("“"+input+"”:"), false
                             );
+                            source.sendSuccess(() ->
+                                    Component.literal(Component.translatable("commands.jiaguinfo.recorded_name").getString()
+                                            + "§7" + CharacterInfo.getIdentifier(input)), false
+                            );
                             List<String> list = CharacterInfo.getComponents(input);
                             if(list == null || list.isEmpty()){
                                 source.sendSuccess(() ->
-                                                Component.literal("解為：§7無"), false
+                                                Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                                        + "§7" + Component.translatable("commands.jiaguinfo.nothing").getString()), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
-                                                Component.literal("解為：§3" + CharacterInfo.getCharactersDisassemblable(input)), false
+                                                Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                                        + "§7" + CharacterInfo.getCharacterDisassembly(input)), false
                                 );
                             }
 
-                            String assemblable = CharacterInfo.getCharactersAssemblable(input);
+                            String assemblable = CharacterInfo.getCharacterAssembly(input);
                             if(assemblable.isEmpty()){
                                 source.sendSuccess(() ->
-                                                Component.literal("合為：§7無\n"), false
+                                        Component.literal(Component.translatable("commands.jiaguinfo.assembly").getString()
+                                                + "§7" + Component.translatable("commands.jiaguinfo.nothing").getString()), false
                                 );
                             }else if(assemblable.length()>12){
                                 source.sendSuccess(() ->
-                                                Component.literal("合為：\n§3" + assemblable + "\n"), false
+                                                Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                                        + "\n§7" + assemblable + "\n"), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
-                                        Component.literal("合為：§3" + assemblable + "\n"), false
+                                        Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                                + "§7" + assemblable + "\n"), false
                                 );
                             }
 

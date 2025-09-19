@@ -15,6 +15,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#jiagureappear:igniting_enchantable",
+  "supported_items": "#jiagureappear:enchantable/igniting",
   "weight": 4
 }

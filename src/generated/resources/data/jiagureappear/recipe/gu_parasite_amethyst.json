@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "base": {
+    "type": "jiagureappear:character_ingredient",
+    "inscription": "蠱"
+  },
+  "result": {
+    "count": 1,
+    "id": "jiagureappear:gu_parasite_amethyst"
+  },
+  "template": {
+    "item": "jiagureappear:amethyst_upgrade_smithing_template"
+  }
+}

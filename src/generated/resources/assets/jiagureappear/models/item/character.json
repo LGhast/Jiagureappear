@@ -1232,7 +1232,7 @@
       }
     },
     {
-      "model": "jiagureappear:item/characters/ye_head",
+      "model": "jiagureappear:item/characters/shou_head",
       "predicate": {
         "jiagureappear:inscription": 206.0
       }
@@ -1313,6 +1313,216 @@
       "model": "jiagureappear:item/characters/bu_no",
       "predicate": {
         "jiagureappear:inscription": 219.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jiao_horn",
+      "predicate": {
+        "jiagureappear:inscription": 220.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_family",
+      "predicate": {
+        "jiagureappear:inscription": 221.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/wei_surround",
+      "predicate": {
+        "jiagureappear:inscription": 222.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xuan_round",
+      "predicate": {
+        "jiagureappear:inscription": 223.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yin_pull",
+      "predicate": {
+        "jiagureappear:inscription": 224.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhuan_spindle",
+      "predicate": {
+        "jiagureappear:inscription": 225.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ying_flash",
+      "predicate": {
+        "jiagureappear:inscription": 226.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kang_high",
+      "predicate": {
+        "jiagureappear:inscription": 227.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/min_civil",
+      "predicate": {
+        "jiagureappear:inscription": 228.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qin_net",
+      "predicate": {
+        "jiagureappear:inscription": 229.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/bei_inferior",
+      "predicate": {
+        "jiagureappear:inscription": 230.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/hai_damage",
+      "predicate": {
+        "jiagureappear:inscription": 231.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shao_spoon",
+      "predicate": {
+        "jiagureappear:inscription": 232.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/wo_me",
+      "predicate": {
+        "jiagureappear:inscription": 233.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhou_boat",
+      "predicate": {
+        "jiagureappear:inscription": 234.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/chou_chou",
+      "predicate": {
+        "jiagureappear:inscription": 235.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ci_thorn",
+      "predicate": {
+        "jiagureappear:inscription": 236.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xi_moon",
+      "predicate": {
+        "jiagureappear:inscription": 237.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tian_sky",
+      "predicate": {
+        "jiagureappear:inscription": 238.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tai_too",
+      "predicate": {
+        "jiagureappear:inscription": 239.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lei_thunderclap",
+      "predicate": {
+        "jiagureappear:inscription": 240.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lei_thunder",
+      "predicate": {
+        "jiagureappear:inscription": 241.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/dan_single",
+      "predicate": {
+        "jiagureappear:inscription": 242.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yi_use",
+      "predicate": {
+        "jiagureappear:inscription": 243.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhuo_associate",
+      "predicate": {
+        "jiagureappear:inscription": 244.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ren_blade",
+      "predicate": {
+        "jiagureappear:inscription": 245.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mi_hat",
+      "predicate": {
+        "jiagureappear:inscription": 246.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mao_hat",
+      "predicate": {
+        "jiagureappear:inscription": 247.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mei_beauty",
+      "predicate": {
+        "jiagureappear:inscription": 248.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/wu_noise",
+      "predicate": {
+        "jiagureappear:inscription": 249.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xi_how",
+      "predicate": {
+        "jiagureappear:inscription": 250.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/you_because",
+      "predicate": {
+        "jiagureappear:inscription": 251.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhi_arrive",
+      "predicate": {
+        "jiagureappear:inscription": 252.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ju_giant",
+      "predicate": {
+        "jiagureappear:inscription": 253.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mo_end",
+      "predicate": {
+        "jiagureappear:inscription": 254.0
       }
     },
     {
@@ -1982,6 +2192,66 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/ye_head",
+      "predicate": {
+        "jiagureappear:inscription": 1111.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qiao_ingenious",
+      "predicate": {
+        "jiagureappear:inscription": 1112.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/dao_road",
+      "predicate": {
+        "jiagureappear:inscription": 1113.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhi_paper",
+      "predicate": {
+        "jiagureappear:inscription": 1114.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zi_this",
+      "predicate": {
+        "jiagureappear:inscription": 1115.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_erode",
+      "predicate": {
+        "jiagureappear:inscription": 1116.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yuan_wall",
+      "predicate": {
+        "jiagureappear:inscription": 1117.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhuan_specially",
+      "predicate": {
+        "jiagureappear:inscription": 1118.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/fu_lie",
+      "predicate": {
+        "jiagureappear:inscription": 1119.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ying_reflect",
+      "predicate": {
+        "jiagureappear:inscription": 1120.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/an_dark",
       "predicate": {
         "jiagureappear:inscription": 1121.0
@@ -2330,7 +2600,7 @@
       }
     },
     {
-      "model": "jiagureappear:item/characters/song_extol",
+      "model": "jiagureappear:item/characters/lian_smelt",
       "predicate": {
         "jiagureappear:inscription": 1179.0
       }
@@ -2468,9 +2738,465 @@
       }
     },
     {
-      "model": "jiagureappear:item/characters/lian_smelt",
+      "model": "jiagureappear:item/characters/ying_firefly",
       "predicate": {
         "jiagureappear:inscription": 1202.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/bei_north",
+      "predicate": {
+        "jiagureappear:inscription": 1203.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kang_resist",
+      "predicate": {
+        "jiagureappear:inscription": 1204.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ke_carve",
+      "predicate": {
+        "jiagureappear:inscription": 1205.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/li_part",
+      "predicate": {
+        "jiagureappear:inscription": 1206.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiang_village",
+      "predicate": {
+        "jiagureappear:inscription": 1207.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/fen_part",
+      "predicate": {
+        "jiagureappear:inscription": 1208.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gao_tell",
+      "predicate": {
+        "jiagureappear:inscription": 1209.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ge_cut",
+      "predicate": {
+        "jiagureappear:inscription": 1210.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gong_palace",
+      "predicate": {
+        "jiagureappear:inscription": 1211.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/pai_card",
+      "predicate": {
+        "jiagureappear:inscription": 1212.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/po_amber",
+      "predicate": {
+        "jiagureappear:inscription": 1213.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qian_inlay",
+      "predicate": {
+        "jiagureappear:inscription": 1214.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ta_crowd",
+      "predicate": {
+        "jiagureappear:inscription": 1215.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xue_boot",
+      "predicate": {
+        "jiagureappear:inscription": 1216.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yang_sunlight",
+      "predicate": {
+        "jiagureappear:inscription": 1217.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yin_silverfish",
+      "predicate": {
+        "jiagureappear:inscription": 1218.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/de_of",
+      "predicate": {
+        "jiagureappear:inscription": 1219.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ju_frightened",
+      "predicate": {
+        "jiagureappear:inscription": 1220.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lin_fire",
+      "predicate": {
+        "jiagureappear:inscription": 1221.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/si_silk",
+      "predicate": {
+        "jiagureappear:inscription": 1222.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xian_county",
+      "predicate": {
+        "jiagureappear:inscription": 1223.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yu_boat",
+      "predicate": {
+        "jiagureappear:inscription": 1224.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhi_place",
+      "predicate": {
+        "jiagureappear:inscription": 1225.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ci_thorns",
+      "predicate": {
+        "jiagureappear:inscription": 1226.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ze_blame",
+      "predicate": {
+        "jiagureappear:inscription": 1227.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhi_know",
+      "predicate": {
+        "jiagureappear:inscription": 1228.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/cao_peer",
+      "predicate": {
+        "jiagureappear:inscription": 1229.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/he_combine",
+      "predicate": {
+        "jiagureappear:inscription": 1230.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ming_name",
+      "predicate": {
+        "jiagureappear:inscription": 1231.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xi_tide",
+      "predicate": {
+        "jiagureappear:inscription": 1232.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhan_divine",
+      "predicate": {
+        "jiagureappear:inscription": 1233.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhi_juice",
+      "predicate": {
+        "jiagureappear:inscription": 1234.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/hu_fox",
+      "predicate": {
+        "jiagureappear:inscription": 1235.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kui_puppet",
+      "predicate": {
+        "jiagureappear:inscription": 1236.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lei_puppet",
+      "predicate": {
+        "jiagureappear:inscription": 1237.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiao_school",
+      "predicate": {
+        "jiagureappear:inscription": 1238.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/bi_pen",
+      "predicate": {
+        "jiagureappear:inscription": 1239.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/chuo_stop",
+      "predicate": {
+        "jiagureappear:inscription": 1240.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/dan_shot",
+      "predicate": {
+        "jiagureappear:inscription": 1241.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/geng_plough",
+      "predicate": {
+        "jiagureappear:inscription": 1242.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jia_add",
+      "predicate": {
+        "jiagureappear:inscription": 1243.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jiao_compare",
+      "predicate": {
+        "jiagureappear:inscription": 1244.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lei_lib",
+      "predicate": {
+        "jiagureappear:inscription": 1245.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shou_beast",
+      "predicate": {
+        "jiagureappear:inscription": 1246.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shou_defend",
+      "predicate": {
+        "jiagureappear:inscription": 1247.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tai_tai",
+      "predicate": {
+        "jiagureappear:inscription": 1248.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xi_cut",
+      "predicate": {
+        "jiagureappear:inscription": 1249.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yu_fishing",
+      "predicate": {
+        "jiagureappear:inscription": 1250.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhui_sew",
+      "predicate": {
+        "jiagureappear:inscription": 1251.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/chou_hate",
+      "predicate": {
+        "jiagureappear:inscription": 1252.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gui_rail",
+      "predicate": {
+        "jiagureappear:inscription": 1253.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/hui_favour",
+      "predicate": {
+        "jiagureappear:inscription": 1254.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lie_column",
+      "predicate": {
+        "jiagureappear:inscription": 1255.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lv_donkey",
+      "predicate": {
+        "jiagureappear:inscription": 1256.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mang_blind",
+      "predicate": {
+        "jiagureappear:inscription": 1257.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mu_herd",
+      "predicate": {
+        "jiagureappear:inscription": 1258.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qi_machine",
+      "predicate": {
+        "jiagureappear:inscription": 1259.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ze_rule",
+      "predicate": {
+        "jiagureappear:inscription": 1260.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qian_front",
+      "predicate": {
+        "jiagureappear:inscription": 1261.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/su_strict",
+      "predicate": {
+        "jiagureappear:inscription": 1262.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shu_citizen",
+      "predicate": {
+        "jiagureappear:inscription": 1263.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/cai_pick",
+      "predicate": {
+        "jiagureappear:inscription": 1264.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/di_bird",
+      "predicate": {
+        "jiagureappear:inscription": 1265.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qun_granary",
+      "predicate": {
+        "jiagureappear:inscription": 1266.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_market",
+      "predicate": {
+        "jiagureappear:inscription": 1267.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tai_platform",
+      "predicate": {
+        "jiagureappear:inscription": 1268.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/wu_error",
+      "predicate": {
+        "jiagureappear:inscription": 1269.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yu_worry",
+      "predicate": {
+        "jiagureappear:inscription": 1270.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhou_helmet",
+      "predicate": {
+        "jiagureappear:inscription": 1271.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zu_ethnic",
+      "predicate": {
+        "jiagureappear:inscription": 1272.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/di_land",
+      "predicate": {
+        "jiagureappear:inscription": 1273.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/fang_visit",
+      "predicate": {
+        "jiagureappear:inscription": 1274.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gao_cream",
+      "predicate": {
+        "jiagureappear:inscription": 1275.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ju_torch",
+      "predicate": {
+        "jiagureappear:inscription": 1276.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qi_how",
+      "predicate": {
+        "jiagureappear:inscription": 1277.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yan_extend",
+      "predicate": {
+        "jiagureappear:inscription": 1278.0
       }
     },
     {
@@ -3242,6 +3968,444 @@
       }
     },
     {
+      "model": "jiagureappear:item/characters/song_extol",
+      "predicate": {
+        "jiagureappear:inscription": 2128.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/dao_guide",
+      "predicate": {
+        "jiagureappear:inscription": 2129.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shuo_speak",
+      "predicate": {
+        "jiagureappear:inscription": 2130.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ci_kind",
+      "predicate": {
+        "jiagureappear:inscription": 2131.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ku_skeleton",
+      "predicate": {
+        "jiagureappear:inscription": 2132.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/you_dim",
+      "predicate": {
+        "jiagureappear:inscription": 2133.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zi_spawn",
+      "predicate": {
+        "jiagureappear:inscription": 2134.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tuan_ball",
+      "predicate": {
+        "jiagureappear:inscription": 2135.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhuan_brick",
+      "predicate": {
+        "jiagureappear:inscription": 2136.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ying_polish",
+      "predicate": {
+        "jiagureappear:inscription": 2137.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/bei_back",
+      "predicate": {
+        "jiagureappear:inscription": 2138.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/li_leave",
+      "predicate": {
+        "jiagureappear:inscription": 2139.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tong_concrete",
+      "predicate": {
+        "jiagureappear:inscription": 2140.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/chang_ground",
+      "predicate": {
+        "jiagureappear:inscription": 2141.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/fen_powder",
+      "predicate": {
+        "jiagureappear:inscription": 2142.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jiao_cellar",
+      "predicate": {
+        "jiagureappear:inscription": 2143.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/sui_crack",
+      "predicate": {
+        "jiagureappear:inscription": 2144.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ta_step",
+      "predicate": {
+        "jiagureappear:inscription": 2145.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ying_camp",
+      "predicate": {
+        "jiagureappear:inscription": 2146.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/diao_fish",
+      "predicate": {
+        "jiagureappear:inscription": 2147.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lin_phosphorus",
+      "predicate": {
+        "jiagureappear:inscription": 2148.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lin_scute",
+      "predicate": {
+        "jiagureappear:inscription": 2149.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/qu_carpet",
+      "predicate": {
+        "jiagureappear:inscription": 2150.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shu_carpet",
+      "predicate": {
+        "jiagureappear:inscription": 2151.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xian_xian",
+      "predicate": {
+        "jiagureappear:inscription": 2152.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xuan_hang",
+      "predicate": {
+        "jiagureappear:inscription": 2153.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ji_heap",
+      "predicate": {
+        "jiagureappear:inscription": 2154.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/niu_button",
+      "predicate": {
+        "jiagureappear:inscription": 2155.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/cao_boat",
+      "predicate": {
+        "jiagureappear:inscription": 2156.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/nian_stick",
+      "predicate": {
+        "jiagureappear:inscription": 2157.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_pick",
+      "predicate": {
+        "jiagureappear:inscription": 2158.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhen_anvil",
+      "predicate": {
+        "jiagureappear:inscription": 2159.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jian_unlucky",
+      "predicate": {
+        "jiagureappear:inscription": 2160.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yue_happy",
+      "predicate": {
+        "jiagureappear:inscription": 2161.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/an_bank",
+      "predicate": {
+        "jiagureappear:inscription": 2162.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/an_saddle",
+      "predicate": {
+        "jiagureappear:inscription": 2163.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/heng_truss",
+      "predicate": {
+        "jiagureappear:inscription": 2164.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/jia_shelf",
+      "predicate": {
+        "jiagureappear:inscription": 2165.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tai_moss",
+      "predicate": {
+        "jiagureappear:inscription": 2166.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ce_test",
+      "predicate": {
+        "jiagureappear:inscription": 2167.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/li_gravel",
+      "predicate": {
+        "jiagureappear:inscription": 2168.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lie_crack",
+      "predicate": {
+        "jiagureappear:inscription": 2169.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lin_luster",
+      "predicate": {
+        "jiagureappear:inscription": 2170.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/long_cage",
+      "predicate": {
+        "jiagureappear:inscription": 2171.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lu_head",
+      "predicate": {
+        "jiagureappear:inscription": 2172.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mo_bat",
+      "predicate": {
+        "jiagureappear:inscription": 2173.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/pen_basin",
+      "predicate": {
+        "jiagureappear:inscription": 2174.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiang_guide",
+      "predicate": {
+        "jiagureappear:inscription": 2175.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zei_squid",
+      "predicate": {
+        "jiagureappear:inscription": 2176.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhan_inn",
+      "predicate": {
+        "jiagureappear:inscription": 2177.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/du_spend",
+      "predicate": {
+        "jiagureappear:inscription": 2178.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiao_howl",
+      "predicate": {
+        "jiagureappear:inscription": 2179.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xiu_rust",
+      "predicate": {
+        "jiagureappear:inscription": 2180.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zhe_sugarcane",
+      "predicate": {
+        "jiagureappear:inscription": 2181.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mao_thatch",
+      "predicate": {
+        "jiagureappear:inscription": 2182.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/cu_cluster",
+      "predicate": {
+        "jiagureappear:inscription": 2183.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/dai_danger",
+      "predicate": {
+        "jiagureappear:inscription": 2184.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/gu_sturdy",
+      "predicate": {
+        "jiagureappear:inscription": 2185.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lian_link",
+      "predicate": {
+        "jiagureappear:inscription": 2186.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shang_hurt",
+      "predicate": {
+        "jiagureappear:inscription": 2187.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_persimmon",
+      "predicate": {
+        "jiagureappear:inscription": 2188.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/tai_table",
+      "predicate": {
+        "jiagureappear:inscription": 2189.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yao_flash",
+      "predicate": {
+        "jiagureappear:inscription": 2190.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yao_obsidian",
+      "predicate": {
+        "jiagureappear:inscription": 2191.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ye_smelt",
+      "predicate": {
+        "jiagureappear:inscription": 2192.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/you_glaze",
+      "predicate": {
+        "jiagureappear:inscription": 2193.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/yue_jump",
+      "predicate": {
+        "jiagureappear:inscription": 2194.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/zha_switch",
+      "predicate": {
+        "jiagureappear:inscription": 2195.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/bei_sad",
+      "predicate": {
+        "jiagureappear:inscription": 2196.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/guang_rude",
+      "predicate": {
+        "jiagureappear:inscription": 2197.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/kai_armour",
+      "predicate": {
+        "jiagureappear:inscription": 2198.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/run_leapyear",
+      "predicate": {
+        "jiagureappear:inscription": 2199.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/xian_saliva",
+      "predicate": {
+        "jiagureappear:inscription": 2200.0
+      }
+    },
+    {
       "model": "jiagureappear:item/characters/yan_rock",
       "predicate": {
         "jiagureappear:inscription": 3000.0
@@ -3347,6 +4511,60 @@
       "model": "jiagureappear:item/characters/luo_fall",
       "predicate": {
         "jiagureappear:inscription": 3017.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/ci_magnet",
+      "predicate": {
+        "jiagureappear:inscription": 3018.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/li_glass",
+      "predicate": {
+        "jiagureappear:inscription": 3019.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/shi_wet",
+      "predicate": {
+        "jiagureappear:inscription": 3020.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mo_membrane",
+      "predicate": {
+        "jiagureappear:inscription": 3021.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/mao_anchor",
+      "predicate": {
+        "jiagureappear:inscription": 3022.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/du_ferry",
+      "predicate": {
+        "jiagureappear:inscription": 3023.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lian_lotus",
+      "predicate": {
+        "jiagureappear:inscription": 3024.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/run_moist",
+      "predicate": {
+        "jiagureappear:inscription": 3025.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/characters/lian_chain",
+      "predicate": {
+        "jiagureappear:inscription": 3026.0
       }
     },
     {

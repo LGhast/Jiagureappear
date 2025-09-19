@@ -2,6 +2,7 @@ package net.lghast.jiagu.common.block.entity;
 
 import net.lghast.jiagu.common.block.CangjieMorpherBlock;
 import net.lghast.jiagu.common.block.RubbingMachineBlock;
+import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModTags;
@@ -39,6 +40,7 @@ public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity 
             if (blockEntity.rubbingTicks == 0) {
                 level.setBlock(pos, state.setValue(RubbingMachineBlock.CRAFTING, false), 3);
             }
+            blockEntity.setChanged();
         }
     }
 
@@ -75,8 +77,14 @@ public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity 
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return (slot == 0 && !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.has(DataComponents.CUSTOM_NAME))
-                || (slot == 1 && stack.is(ModTags.RUBBING_INKS));
+        if (slot == 0) {
+            return !stack.is(ModTags.INVALID_TO_CHARACTERS) &&
+                    (!ServerConfig.RUBBING_MACHINE_CUSTOM_NAME_CHECK.get() ||
+                            !stack.has(DataComponents.CUSTOM_NAME));
+        } else if (slot == 1) {
+            return stack.is(ModTags.RUBBING_INKS);
+        }
+        return false;
     }
 
     @Override

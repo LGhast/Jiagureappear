@@ -9,6 +9,7 @@ import net.lghast.jiagu.register.ModBlockEntities;
 import net.lghast.jiagu.register.ModItems;
 import net.lghast.jiagu.register.ModTags;
 import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.CharacterQuality;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -139,32 +140,24 @@ public class WenchangAltarBlock extends BaseEntityBlock {
 
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        if (level.getBlockEntity(pos) instanceof WenchangAltarBlockEntity blockEntity) {
-            ItemStack content = blockEntity.getItem();
-            if(content.is(ItemStack.EMPTY.getItem())){
-                return 0;
-            }
-            if(content.is(ModItems.CHARACTER_ITEM)) {
-                float value = CharacterInfo.getFloatValue(CharacterItem.getInscription(content));
-                if (value < 1000) {
-                    return 2;
-                }
-                if (value < 2000) {
-                    return 5;
-                }
-                if (value < 3000) {
-                    return 10;
-                }
-                if (value < 4000) {
-                    return 15;
-                }
-                if (value < 6000) {
-                    return 2;
-                }
-                return 15;
-            }
+        if (!(level.getBlockEntity(pos) instanceof WenchangAltarBlockEntity blockEntity)) {
+            return 0;
+        }
+        ItemStack content = blockEntity.getItem();
+        if(content.is(ItemStack.EMPTY.getItem())){
+            return 0;
+        }
+        if(!content.is(ModItems.CHARACTER_ITEM)) {
             return 15;
         }
-        return 0;
+        String inscription = CharacterItem.getInscription(content);
+        CharacterQuality quality = CharacterInfo.getQuality(inscription);
+
+        return switch (quality){
+            case STONE,COPPER -> 2;
+            case IRON -> 5;
+            case GOLD -> 10;
+            case DIAMOND,RUST -> 15;
+        };
     }
 }
