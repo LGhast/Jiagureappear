@@ -50,6 +50,8 @@ public class ModAdvancementProvider extends AdvancementProvider {
             createIdiomAdvancement(saver, existingFileHelper, "qiuzhiruoke", "求知若渴", new ItemStack(Items.WATER_BUCKET));
             createIdiomAdvancement(saver, existingFileHelper, "bigengbuchuo", "筆耕不輟", new ItemStack(Items.STONE_HOE));
             createIdiomAdvancement(saver, existingFileHelper, "minglieqianmao", "名列前茅", new ItemStack(Items.TALL_GRASS));
+            createIdiomAdvancement(saver, existingFileHelper, "meizhongbuzu", "美中不足", new ItemStack(Items.CRACKED_STONE_BRICKS));
+            createIdiomAdvancement(saver, existingFileHelper, "maiduhuanzhu", "買櫝還珠", new ItemStack(Items.ENDER_CHEST));
         }
 
         private void createIdiomAdvancement(

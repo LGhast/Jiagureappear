@@ -1,0 +1,25 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "simple2"
+    }
+  },
+  "pattern": [
+    "   ",
+    " M ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "simple"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "simple"
+}

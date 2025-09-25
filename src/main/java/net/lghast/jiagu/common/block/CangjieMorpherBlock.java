@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.lghast.jiagu.common.block.entity.AutoDisassemblerBlockEntity;
 import net.lghast.jiagu.common.block.entity.CangjieMorpherBlockEntity;
 import net.lghast.jiagu.common.item.CharacterItem;
+import net.lghast.jiagu.common.item.PrescriptionItem;
 import net.lghast.jiagu.common.item.TaoistTalismanItem;
 import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.ModBlockEntities;
@@ -25,6 +26,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -159,8 +161,11 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     private String getMorpherResult(ItemStack content){
         if (content.is(ModItems.TAOIST_TALISMAN)) {
             String spell = TaoistTalismanItem.getSpell(content);
-            return Objects.equals(spell, null) ? ModUtils.getCharacters(content) : ModUtils.getCharacters(spell);
-        }else{
+            return spell != null ? ModUtils.getCharacters(spell) : ModUtils.getCharacters(content);
+        } else if (content.is(ModItems.PRESCRIPTION)) {
+            MobEffect effect = PrescriptionItem.getEffect(content);
+            return effect != null ? ModUtils.getCharacters(effect) : ModUtils.getCharacters(content);
+        } else {
             return ModUtils.getCharacters(content);
         }
     }

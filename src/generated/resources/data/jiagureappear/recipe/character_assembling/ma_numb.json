@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "木"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "木"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "厂"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "麻"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "麻"
+}

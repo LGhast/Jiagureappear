@@ -2,23 +2,19 @@
   "type": "jiagureappear:character_assembling",
   "category": "misc",
   "key": {
-    "D": {
+    "L": {
       "type": "jiagureappear:character_ingredient",
       "inscription": "木"
     },
-    "L": {
+    "U": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
-    },
-    "R": {
-      "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
+      "inscription": "simple2"
     }
   },
   "pattern": [
-    "   ",
-    "L R",
-    " D "
+    " U ",
+    " L ",
+    "   "
   ],
   "result": {
     "components": {

@@ -18,6 +18,7 @@ public class CharacterItem extends Item{
 
     public static final String DEFAULT_INSCRIPTION = "default";
     public static final String SIMPLE_INSCRIPTION = "simple";
+    public static final String SIMPLE_INSCRIPTION_2 = "simple2";
     public static final String REVERSAL_INSCRIPTION = "reversal";
     public static final String COMPLEX_INSCRIPTION = "complex";
 
@@ -59,6 +60,9 @@ public class CharacterItem extends Item{
             case SIMPLE_INSCRIPTION:
                 components.add(Component.translatable("tooltip.jiagureappear.character_item_simple", inscription));
                 break;
+            case SIMPLE_INSCRIPTION_2:
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_simple2", inscription));
+                break;
             case REVERSAL_INSCRIPTION:
                 components.add(Component.translatable("tooltip.jiagureappear.character_item_reversal", inscription));
                 break;
@@ -82,7 +86,7 @@ public class CharacterItem extends Item{
                 String to = CharacterInfo.getCharacterAssemblySimple(inscription);
                 if (!to.isEmpty()) {
                     char[] toChars = to.toCharArray();
-                    if (toChars.length <= 7) {
+                    if (toChars.length <= 9) {
                         StringBuilder stringBuilder = new StringBuilder();
                         for (char c : toChars) {
                             stringBuilder.append(c).append(" ");
@@ -91,12 +95,12 @@ public class CharacterItem extends Item{
                                 stringBuilder.toString().trim()));
                     } else {
                         components.add(Component.translatable("item.jiagureappear.character.to_long"));
-                        int groupCount = (toChars.length + 6) / 7;
+                        int groupCount = (toChars.length + 8) / 9;
 
                         for (int i = 0; i < groupCount; i++) {
                             StringBuilder stringBuilder = new StringBuilder();
-                            int start = i * 7;
-                            int end = Math.min(start + 7, toChars.length);
+                            int start = i * 9;
+                            int end = Math.min(start + 9, toChars.length);
                             for (int j = start; j < end; j++) {
                                 stringBuilder.append(toChars[j]).append(" ");
                             }

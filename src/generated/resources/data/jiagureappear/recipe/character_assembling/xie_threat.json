@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "肉"
+    },
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "力"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "力"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "脅"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "脅"
+}

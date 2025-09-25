@@ -4,15 +4,7 @@
   "key": {
     "L": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
-    },
-    "M": {
-      "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
-    },
-    "R": {
-      "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
+      "inscription": "simple2"
     },
     "U": {
       "type": "jiagureappear:character_ingredient",
@@ -21,7 +13,7 @@
   },
   "pattern": [
     " U ",
-    "LMR",
+    " L ",
     "   "
   ],
   "result": {

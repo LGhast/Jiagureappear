@@ -57,7 +57,7 @@ public class CharacterInfo {
             Map.entry("君", newData(CharacterStructure.VERTICAL,"尹", "口")),
             Map.entry("青", newData(CharacterStructure.VERTICAL,"生", "井")),
             Map.entry("群", newData(CharacterStructure.VERTICAL,"君", "羊")),
-            Map.entry("央", newData(CharacterStructure.VERTICAL_LONG,"simple", "simple", "大")),
+            Map.entry("央", newData(CharacterStructure.VERTICAL,"simple", "大")),
             Map.entry("戔", newData(CharacterStructure.HORIZONTAL_LONG,"戈", "reversal", "戈")),
             Map.entry("此", newData(CharacterStructure.HORIZONTAL_LONG,"止", "reversal", "人")),
             Map.entry("秧", newData(CharacterStructure.HORIZONTAL,"禾", "央")),
@@ -86,12 +86,12 @@ public class CharacterInfo {
             Map.entry("眇", newData(CharacterStructure.HORIZONTAL,"目", "少")),
             Map.entry("星", newData(CharacterStructure.VERTICAL,"晶", "生")),
             Map.entry("紫", newData(CharacterStructure.VERTICAL,"此", "糸")),
-            Map.entry("立", newData(CharacterStructure.T_SHAPE_INVERT,"大", "simple", "simple", "simple")),
+            Map.entry("立", newData(CharacterStructure.VERTICAL,"大", "simple2")),
             Map.entry("二", newData(CharacterStructure.VERTICAL,"simple", "一")),
             Map.entry("三", newData(CharacterStructure.VERTICAL,"simple", "二")),
             Map.entry("骨", newData(CharacterStructure.VERTICAL,"冎", "肉")),
             Map.entry("祖", newData(CharacterStructure.HORIZONTAL,"示", "且")),
-            Map.entry("黑", newData(CharacterStructure.ARROW_INVERT,"simple", "simple", "大")),
+            Map.entry("黑", newData(CharacterStructure.VERTICAL,"simple2", "大")),
             Map.entry("母", newData(CharacterStructure.HORIZONTAL_LONG,"simple", "女", "simple")),
             Map.entry("斧", newData(CharacterStructure.HORIZONTAL_LONG,"父", "reversal", "斤")),
             Map.entry("鋤", newData(CharacterStructure.HORIZONTAL,"金", "助")),
@@ -556,7 +556,7 @@ public class CharacterInfo {
             Map.entry("檯", newData(CharacterStructure.HORIZONTAL,"木", "臺")),
             Map.entry("誤", newData(CharacterStructure.HORIZONTAL,"言", "吳")),
             Map.entry("兮", newData(CharacterStructure.ARROW_INVERT, "simple", "simple", "丂")),
-            Map.entry("不", newData(CharacterStructure.ARROW_INVERT, "simple", "simple", "木")),
+            Map.entry("不", newData(CharacterStructure.VERTICAL, "simple2", "木")),
             Map.entry("耀", newData(CharacterStructure.HORIZONTAL,"光", "翟")),
             Map.entry("曜", newData(CharacterStructure.HORIZONTAL,"日", "翟")),
             Map.entry("冶", newData(CharacterStructure.HORIZONTAL,"仌", "台")),
@@ -580,8 +580,51 @@ public class CharacterInfo {
             Map.entry("潤", newData(CharacterStructure.HORIZONTAL,"水", "閏")),
             Map.entry("涎", newData(CharacterStructure.HORIZONTAL,"水", "延")),
             Map.entry("延", newData(CharacterStructure.HORIZONTAL,"彳", "止")),
+            Map.entry("出", newData(CharacterStructure.VERTICAL,"止", "simple2")),
+            Map.entry("櫝", newData(CharacterStructure.HORIZONTAL,"木", "賣")),
+            Map.entry("環", newData(CharacterStructure.HORIZONTAL,"玉", "睘")),
+            Map.entry("還", newData(CharacterStructure.HORIZONTAL,"辵", "睘")),
+            Map.entry("絡", newData(CharacterStructure.HORIZONTAL,"糸", "各")),
+            Map.entry("買", newData(CharacterStructure.VERTICAL,"网", "貝")),
+            Map.entry("賣", newData(CharacterStructure.VERTICAL,"出", "買")),
+            Map.entry("睘", newData(CharacterStructure.VERTICAL_LONG,"目", "衣", "simple")),
+            Map.entry("昷", newData(CharacterStructure.RECTANGLE, "simple", "人", "simple", "simple", "皿", "simple")),
+            Map.entry("溫", newData(CharacterStructure.HORIZONTAL,"水", "昷")),
+            Map.entry("續", newData(CharacterStructure.HORIZONTAL,"糸", "賣")),
+            Map.entry("縕", newData(CharacterStructure.HORIZONTAL,"糸", "昷")),
+            Map.entry("赭", newData(CharacterStructure.HORIZONTAL,"赤", "者")),
+            Map.entry("蘊", newData(CharacterStructure.VERTICAL,"艸", "縕")),
+            Map.entry("珠", newData(CharacterStructure.HORIZONTAL,"玉", "朱")),
+            Map.entry("伐", newData(CharacterStructure.HORIZONTAL,"人", "戈")),
+            Map.entry("筏", newData(CharacterStructure.VERTICAL,"竹", "伐")),
+            Map.entry("嚎", newData(CharacterStructure.HORIZONTAL,"口", "豪")),
+            Map.entry("豪", newData(CharacterStructure.VERTICAL,"高", "豕")),
+            Map.entry("虎", newData(CharacterStructure.VERTICAL,"虍", "complex")),
+            Map.entry("幻", newData(CharacterStructure.HORIZONTAL,"幺", "simple")),
+            Map.entry("葵", newData(CharacterStructure.VERTICAL,"艸", "癸")),
+            Map.entry("箓", newData(CharacterStructure.VERTICAL,"竹", "彔")),
+            Map.entry("麻", newData(CharacterStructure.TRIANGLE,"厂", "木", "木")),
+            Map.entry("魔", newData(CharacterStructure.VERTICAL,"麻", "鬼")),
+            Map.entry("脾", newData(CharacterStructure.HORIZONTAL,"肉", "卑")),
+            Map.entry("錄", newData(CharacterStructure.HORIZONTAL,"金", "彔")),
+            Map.entry("聖", newData(CharacterStructure.TRIANGLE_RIGHT,"耳", "口", "人")),
+            Map.entry("朔", newData(CharacterStructure.HORIZONTAL,"屰", "月")),
+            Map.entry("溯", newData(CharacterStructure.HORIZONTAL,"水", "朔")),
+            Map.entry("荅", newData(CharacterStructure.VERTICAL,"艸", "合")),
+            Map.entry("塔", newData(CharacterStructure.HORIZONTAL,"土", "荅")),
+            Map.entry("衛", newData(CharacterStructure.HORIZONTAL_LONG,"彳", "韋", "亍")),
+            Map.entry("韋", newData(CharacterStructure.CROSS,"止", "止", "囗", "止", "止")),
+            Map.entry("脅", newData(CharacterStructure.ARROW_INVERT,"力", "力", "肉")),
+            Map.entry("衍", newData(CharacterStructure.HORIZONTAL_LONG,"彳", "水", "亍")),
+            Map.entry("益", newData(CharacterStructure.VERTICAL,"complex", "皿")),
+            Map.entry("義", newData(CharacterStructure.VERTICAL,"羊", "我")),
+            Map.entry("儀", newData(CharacterStructure.HORIZONTAL,"人", "義")),
+            Map.entry("幼", newData(CharacterStructure.VERTICAL,"力", "幺")),
+            Map.entry("質", newData(CharacterStructure.ARROW_INVERT,"complex", "斤", "貝")),
             Map.entry("粦", newData(CharacterStructure.SAME,"炎")),
             Map.entry("夕", newData(CharacterStructure.SAME,"月")),
+            Map.entry("simple", newData(CharacterStructure.SAME,"simple2")),
+            Map.entry("simple2", newData(CharacterStructure.SAME,"simple")),
             Map.entry("玄", newData(CharacterStructure.SAME,"幺"))
     ));
 
@@ -683,27 +726,47 @@ public class CharacterInfo {
         return result.toString();
     }
 
-    public static String getCharacterDisassembly(String searchValue){
+    public static String getCharacterDisassembly(String searchValue) {
         List<String> list = CharacterInfo.getComponents(searchValue);
-        if(list == null || list.isEmpty()) return null;
-        StringBuilder stringBuilder = new StringBuilder();
-        for(String component : list){
-            if(component.length()==1){
-                stringBuilder.append(component).append("+");
+        if (list == null || list.isEmpty()) return null;
+        List<String> convertedComponents = new ArrayList<>();
+        for (String component : list) {
+            if (component.length() == 1) {
+                convertedComponents.add(component);
                 continue;
             }
             String finalComponent = switch (component) {
                 case CharacterItem.SIMPLE_INSCRIPTION ->
                         Component.translatable("tooltip.jiagureappear.character_item_simple_simplified").getString();
+                case CharacterItem.SIMPLE_INSCRIPTION_2 ->
+                        Component.translatable("tooltip.jiagureappear.character_item_simple2_simplified").getString();
                 case CharacterItem.COMPLEX_INSCRIPTION ->
                         Component.translatable("tooltip.jiagureappear.character_item_complex_simplified").getString();
                 case CharacterItem.REVERSAL_INSCRIPTION ->
                         Component.translatable("tooltip.jiagureappear.character_item_reversal_simplified").getString();
                 default -> component;
             };
-            stringBuilder.append(finalComponent).append("+");
+            convertedComponents.add(finalComponent);
         }
-        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+
+        Map<String, Integer> componentCount = new LinkedHashMap<>();
+        for (String component : convertedComponents) {
+            componentCount.put(component, componentCount.getOrDefault(component, 0) + 1);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<String, Integer> entry : componentCount.entrySet()) {
+            String component = entry.getKey();
+            int count = entry.getValue();
+            if (!stringBuilder.isEmpty()) {
+                stringBuilder.append("+");
+            }
+            stringBuilder.append(component);
+            if (count > 1) {
+                stringBuilder.append("×").append(count);
+            }
+        }
+
         return stringBuilder.toString();
     }
 
@@ -963,6 +1026,10 @@ public class CharacterInfo {
             Map.entry("至", new CharacterData(252.0f, "zhi_arrive")),
             Map.entry("巨", new CharacterData(253.0f, "ju_giant")),
             Map.entry("末", new CharacterData(254.0f, "mo_end")),
+            Map.entry("出", new CharacterData(255.0f, "chu_out")),
+            Map.entry("癸", new CharacterData(256.0f, "gui_tenth")),
+            Map.entry("幻", new CharacterData(257.0f, "huan_magic")),
+            Map.entry("虎", new CharacterData(258.0f, "hu_tigers")),
 
 
             //Iron Level
@@ -1245,6 +1312,24 @@ public class CharacterInfo {
             Map.entry("炬", new CharacterData(1276.0f, "ju_torch")),
             Map.entry("豈", new CharacterData(1277.0f, "qi_how")),
             Map.entry("延", new CharacterData(1278.0f, "yan_extend")),
+            Map.entry("買", new CharacterData(1279.0f, "mai_buy")),
+            Map.entry("睘", new CharacterData(1280.0f, "qiong_stare")),
+            Map.entry("昷", new CharacterData(1281.0f, "wen_warm")),
+            Map.entry("珠", new CharacterData(1282.0f, "zhu_pearl")),
+            Map.entry("伐", new CharacterData(1283.0f, "fa_hack")),
+            Map.entry("豪", new CharacterData(1284.0f, "hao_porcupine")),
+            Map.entry("箓", new CharacterData(1285.0f, "lu_talisman")),
+            Map.entry("麻", new CharacterData(1286.0f, "ma_numb")),
+            Map.entry("脾", new CharacterData(1287.0f, "pi_spleen")),
+            Map.entry("聖", new CharacterData(1288.0f, "sheng_sage")),
+            Map.entry("朔", new CharacterData(1289.0f, "shuo_newmoon")),
+            Map.entry("韋", new CharacterData(1290.0f, "wei_leather")),
+            Map.entry("脅", new CharacterData(1291.0f, "xie_threat")),
+            Map.entry("衍", new CharacterData(1292.0f, "yan_overflow")),
+            Map.entry("益", new CharacterData(1293.0f, "yi_benefit")),
+            Map.entry("義", new CharacterData(1294.0f, "yi_justice")),
+            Map.entry("幼", new CharacterData(1295.0f, "you_child")),
+            Map.entry("質", new CharacterData(1296.0f, "zhi_quality")),
 
 
             //Gold Level
@@ -1449,6 +1534,22 @@ public class CharacterInfo {
             Map.entry("鎧", new CharacterData(2198.0f, "kai_armour")),
             Map.entry("閏", new CharacterData(2199.0f, "run_leapyear")),
             Map.entry("涎", new CharacterData(2200.0f, "xian_saliva")),
+            Map.entry("還", new CharacterData(2201.0f, "huan_return")),
+            Map.entry("環", new CharacterData(2202.0f, "huan_ring")),
+            Map.entry("絡", new CharacterData(2203.0f, "luo_bind")),
+            Map.entry("賣", new CharacterData(2204.0f, "mai_sell")),
+            Map.entry("溫", new CharacterData(2205.0f, "wen_warmth")),
+            Map.entry("縕", new CharacterData(2206.0f, "yun_linen")),
+            Map.entry("赭", new CharacterData(2207.0f, "zhe_brown")),
+            Map.entry("筏", new CharacterData(2208.0f, "fa_raft")),
+            Map.entry("嚎", new CharacterData(2209.0f, "hao_howl")),
+            Map.entry("葵", new CharacterData(2210.0f, "kui_mallow")),
+            Map.entry("錄", new CharacterData(2211.0f, "lu_record")),
+            Map.entry("魔", new CharacterData(2212.0f, "mo_demon")),
+            Map.entry("溯", new CharacterData(2213.0f, "su_recall")),
+            Map.entry("荅", new CharacterData(2214.0f, "ta_bean")),
+            Map.entry("衛", new CharacterData(2215.0f, "wei_guard")),
+            Map.entry("儀", new CharacterData(2216.0f, "yi_rite")),
 
 
             //Diamond Level
@@ -1479,6 +1580,10 @@ public class CharacterInfo {
             Map.entry("蓮", new CharacterData(3024.0f, "lian_lotus")),
             Map.entry("潤", new CharacterData(3025.0f, "run_moist")),
             Map.entry("鏈", new CharacterData(3026.0f, "lian_chain")),
+            Map.entry("櫝", new CharacterData(3027.0f, "du_box")),
+            Map.entry("續", new CharacterData(3028.0f, "xu_continue")),
+            Map.entry("蘊", new CharacterData(3029.0f, "yun_contain")),
+            Map.entry("塔", new CharacterData(3030.0f, "ta_tower")),
 
 
             //Special Level
@@ -1496,7 +1601,8 @@ public class CharacterInfo {
             //Copper Level
             Map.entry(CharacterItem.SIMPLE_INSCRIPTION, new CharacterData(6000.0f, "simple_noncharacter_component")),
             Map.entry(CharacterItem.REVERSAL_INSCRIPTION, new CharacterData(6001.0f, "character_reversal")),
-            Map.entry(CharacterItem.COMPLEX_INSCRIPTION, new CharacterData(6002.0f, "complex_character_component"))
+            Map.entry(CharacterItem.COMPLEX_INSCRIPTION, new CharacterData(6002.0f, "complex_character_component")),
+            Map.entry(CharacterItem.SIMPLE_INSCRIPTION_2, new CharacterData(6003.0f, "simple_character_component2"))
     ));
 
     public static float getFloatValue(String character) {

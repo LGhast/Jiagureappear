@@ -36,7 +36,7 @@ import java.util.Objects;
 public class YiCureAmethystItem extends Item{
 
     public YiCureAmethystItem(Properties properties) {
-        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(50));
+        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
     }
 
     @Override
@@ -169,7 +169,7 @@ public class YiCureAmethystItem extends Item{
         int duration = ServerConfig.YI_CURE_BASE_DURATION.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
-        return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder)*0.25));
+        return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder)*0.35));
     }
 
     @Override

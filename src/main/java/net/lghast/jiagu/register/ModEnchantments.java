@@ -120,7 +120,7 @@ public class ModEnchantments {
         register(context, PANACEA, Enchantment.enchantment(Enchantment.definition(
                 item.getOrThrow(ModTags.PANACEA_ENCHANTABLE),
                 10,
-                6,
+                7,
                 Enchantment.dynamicCost(1, 11),
                 Enchantment.dynamicCost(20, 11),
                 4,

@@ -27,7 +27,7 @@ public class GuParasiteAmethystItem extends Item {
     private int usingTicks = 0;
 
     public GuParasiteAmethystItem(Properties properties) {
-        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(50));
+        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
     }
 
     @Override
@@ -138,7 +138,7 @@ public class GuParasiteAmethystItem extends Item {
         int duration = ServerConfig.GU_PARASITE_BASE_DURATION.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
-        return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder) * 0.25));
+        return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder) * 0.35));
     }
 
     private float getVelocityMin() {

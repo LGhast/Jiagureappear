@@ -12,7 +12,9 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
@@ -20,9 +22,15 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PotionItem;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.HashSet;
 import java.util.List;
@@ -74,6 +82,11 @@ public class JiaguLackCommand {
                     .map(ResourceLocation::getNamespace)
                     .forEach(namespacesCache::add);
 
+
+            BuiltInRegistries.POTION.keySet().stream()
+                    .map(ResourceLocation::getNamespace)
+                    .forEach(namespacesCache::add);
+
             lastCacheUpdate = currentTime;
         }
     }
@@ -91,6 +104,10 @@ public class JiaguLackCommand {
                 .toList();
 
         List<Holder.Reference<EntityType<?>>> entityLists = BuiltInRegistries.ENTITY_TYPE.holders()
+                .filter(holder -> filterByNamespace(holder, namespace))
+                .toList();
+
+        List<Holder.Reference<Potion>> potionLists = BuiltInRegistries.POTION.holders()
                 .filter(holder -> filterByNamespace(holder, namespace))
                 .toList();
 
@@ -115,6 +132,13 @@ public class JiaguLackCommand {
                 continue;
             }
             char[] chars = entity.getDescription().getString().toCharArray();
+            lackFilter(chars, lacks);
+        }
+
+        for (Holder.Reference<Potion> potionList : potionLists) {
+            ItemStack stack = new ItemStack(Items.POTION);
+            stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potionList));
+            char[] chars = stack.getHoverName().getString().toCharArray();
             lackFilter(chars, lacks);
         }
 

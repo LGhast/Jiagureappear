@@ -59,12 +59,12 @@ public class JiaguInfoCommand {
                                 );
                             }else if(assemblable.length()>12){
                                 source.sendSuccess(() ->
-                                                Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                                Component.literal(Component.translatable("commands.jiaguinfo.assembly").getString()
                                                         + "\n§7" + assemblable + "\n"), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
-                                        Component.literal(Component.translatable("commands.jiaguinfo.disassembly").getString()
+                                        Component.literal(Component.translatable("commands.jiaguinfo.assembly").getString()
                                                 + "§7" + assemblable + "\n"), false
                                 );
                             }

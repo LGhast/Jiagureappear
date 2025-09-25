@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling_non_mirrored",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "彳"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "韋"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "亍"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "衛"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "衛"
+}
