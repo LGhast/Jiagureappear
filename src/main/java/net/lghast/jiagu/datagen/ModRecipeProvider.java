@@ -1,12 +1,12 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.datagen.recipebuilders.AmethystSmithingBuilder;
-import net.lghast.jiagu.register.ModBlocks;
+import net.lghast.jiagu.register.content.ModBlocks;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingBuilder;
 import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingNonMirroredBuilder;
-import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.common.item.CharacterItem;
-import net.lghast.jiagu.register.ModTags;
+import net.lghast.jiagu.register.content.ModItems;
+import net.lghast.jiagu.common.content.item.CharacterItem;
+import net.lghast.jiagu.register.system.ModTags;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.lghast.jiagu.utils.CharacterStructure;
 import net.minecraft.core.HolderLookup;
@@ -18,8 +18,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 

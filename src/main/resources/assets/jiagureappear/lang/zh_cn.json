@@ -152,7 +152,8 @@
   "tooltip.jiagureappear.taoist_talisman": "§7当前符图：%s",
   "tooltip.jiagureappear.prescription": "§7当前药效: %s",
   "tooltip.jiagureappear.prescription_no": "§7无药效",
-  "key.jiagureappear.disassemble": "汉字拆解",
+  "tooltip.jiagureappear.shot": "§7当前弹药: %s",
+  "tooltip.jiagureappear.shot_no": "§7无弹药",
   "key.categories.jiagureappear": "岁在甲骨",
   "tips.jiagureappear.wrong_language": "请使用文言文作为游戏语言。",
   "commands.jiaguinfo.disassembly": "可分解为：",
@@ -161,5 +162,7 @@
   "commands.jiaguinfo.recorded_name": "文件名：",
   "commands.jiaguinfo.nothing": "无",
   "commands.givecharacter.success.single": "成功给予%3$s <%2$s>×%1$d",
-  "commands.givecharacter.success.multiple": "成功给予%1$d名玩家每人 <%3$s>×%2$d"
+  "commands.givecharacter.success.multiple": "成功给予%1$d名玩家每人 <%3$s>×%2$d",
+  "key.jiagureappear.open_prescription_gui": "开启药方GUI",
+  "gui.jiagureappear.prescription": "药方"
 }

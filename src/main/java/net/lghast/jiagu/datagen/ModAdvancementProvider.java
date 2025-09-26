@@ -1,8 +1,6 @@
 package net.lghast.jiagu.datagen;
 
-import net.lghast.jiagu.common.advancement.IdiomFormedTrigger;
-import net.lghast.jiagu.utils.CharacterInfo;
-import net.lghast.jiagu.utils.CharacterStructure;
+import net.lghast.jiagu.common.system.advancement.IdiomFormedTrigger;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
@@ -16,10 +14,7 @@ import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 

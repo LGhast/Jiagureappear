@@ -1,7 +1,7 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.register.ModEnchantments;
+import net.lghast.jiagu.register.content.ModEnchantments;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

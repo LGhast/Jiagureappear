@@ -1,7 +1,7 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.register.ModBlocks;
+import net.lghast.jiagu.register.content.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;

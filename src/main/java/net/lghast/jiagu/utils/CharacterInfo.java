@@ -1,6 +1,6 @@
 package net.lghast.jiagu.utils;
 
-import net.lghast.jiagu.common.item.CharacterItem;
+import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.config.ServerConfig;
 import net.minecraft.network.chat.Component;
 

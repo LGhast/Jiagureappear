@@ -1,9 +1,9 @@
 package net.lghast.jiagu.datagen.recipebuilders;
 
-import net.lghast.jiagu.common.ingredient.CharacterIngredient;
-import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.common.item.CharacterItem;
-import net.lghast.jiagu.common.recipe.CharacterAssembling;
+import net.lghast.jiagu.common.system.ingredient.CharacterIngredient;
+import net.lghast.jiagu.register.content.ModItems;
+import net.lghast.jiagu.common.content.item.CharacterItem;
+import net.lghast.jiagu.common.system.recipe.CharacterAssembling;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
-import net.neoforged.neoforge.common.crafting.ICustomIngredient;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;

@@ -152,7 +152,8 @@
   "tooltip.jiagureappear.taoist_talisman": "§7符圖: %s",
   "tooltip.jiagureappear.prescription": "§7效: %s",
   "tooltip.jiagureappear.prescription_no": "§7無效",
-  "key.jiagureappear.disassemble": "解字",
+  "tooltip.jiagureappear.shot": "§7彈: %s",
+  "tooltip.jiagureappear.shot_no": "§7彈盡",
   "key.categories.jiagureappear": "歲在甲骨",
   "tips.jiagureappear.wrong_language": "請以文言為戲之語",
   "commands.jiaguinfo.disassembly": "解為：",
@@ -161,5 +162,7 @@
   "commands.jiaguinfo.recorded_name": "錄名：",
   "commands.jiaguinfo.nothing": "無",
   "commands.givecharacter.success.single": "既予<%2$s>×%1$d至%3$s",
-  "commands.givecharacter.success.multiple": "既予%1$d戲者<%3$s>×%2$d"
+  "commands.givecharacter.success.multiple": "既予%1$d戲者<%3$s>×%2$d",
+  "key.jiagureappear.open_prescription_gui": "啟藥方之槽",
+  "gui.jiagureappear.prescription": "藥方"
 }

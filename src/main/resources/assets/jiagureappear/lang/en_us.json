@@ -145,7 +145,6 @@
   "item.minecraft.lingering_potion.effect.long_darkness": "Darkness Lingering Potion",
   "item.minecraft.tipped_arrow.effect.long_darkness": "Arrow of Darkness",
 
-
   "creativetab.jiagureappear.jiagu_items": "Jiagu Reappearance",
   "tooltip.jiagureappear.character_item_default": "§8No Inscription",
   "tooltip.jiagureappear.character_item_simple": "Simple Non-character Component",
@@ -160,10 +159,15 @@
   "tooltip.jiagureappear.taoist_talisman": "§7Current Symbol: %s",
   "tooltip.jiagureappear.prescription": "§7Current Effect: %s",
   "tooltip.jiagureappear.prescription_no": "§7No Effect",
-  "key.jiagureappear.disassemble": "Character Disassembling",
+  "tooltip.jiagureappear.shot": "§7Current Shot: %s",
+  "tooltip.jiagureappear.shot_no": "§7No Shot",
+
   "key.categories.jiagureappear": "Jiagu Reappearance",
+  "key.jiagureappear.open_prescription_gui":"Open Prescription GUI",
 
   "tips.jiagureappear.wrong_language": "Please use Language lzh (文言-華夏) as the game language.",
+
+  "gui.jiagureappear.prescription":"Prescriptions",
 
   "commands.jiaguinfo.disassembly": "Made From: ",
   "commands.jiaguinfo.not_found": "is not found.",

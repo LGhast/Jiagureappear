@@ -1,7 +1,7 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.register.ModItems;
+import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.utils.CharacterInfo;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

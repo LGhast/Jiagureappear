@@ -1,8 +1,8 @@
 package net.lghast.jiagu.datagen.recipebuilders;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.common.ingredient.CharacterIngredient;
-import net.lghast.jiagu.register.ModItems;
+import net.lghast.jiagu.common.system.ingredient.CharacterIngredient;
+import net.lghast.jiagu.register.content.ModItems;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;

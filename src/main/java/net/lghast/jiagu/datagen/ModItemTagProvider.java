@@ -1,9 +1,9 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.register.ModBlocks;
-import net.lghast.jiagu.register.ModItems;
-import net.lghast.jiagu.register.ModTags;
+import net.lghast.jiagu.register.content.ModBlocks;
+import net.lghast.jiagu.register.content.ModItems;
+import net.lghast.jiagu.register.system.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

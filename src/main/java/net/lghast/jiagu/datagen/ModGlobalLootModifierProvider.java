@@ -1,8 +1,8 @@
 package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.common.loot.AddItemModifier;
-import net.lghast.jiagu.register.ModItems;
+import net.lghast.jiagu.common.system.loot.AddItemModifier;
+import net.lghast.jiagu.register.content.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

@@ -1,12 +1,11 @@
 package net.lghast.jiagu.datagen;
 
-import net.lghast.jiagu.register.ModBlocks;
+import net.lghast.jiagu.register.content.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.fml.common.Mod;
 
 import java.util.Set;
 
