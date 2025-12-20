@@ -1,0 +1,26 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_jiagu",
+  "criteria": {
+    "disassemble": {
+      "trigger": "jiagureappear:disassemble"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.disassemble.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:character_disassembler"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.disassemble.title"
+    }
+  },
+  "requirements": [
+    [
+      "disassemble"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

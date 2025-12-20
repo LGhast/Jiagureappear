@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/root",
+  "criteria": {
+    "get_cangjie_ding_tripod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:cangjie_ding_tripod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_cangjie_ding.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:cangjie_ding_tripod"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_cangjie_ding.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_cangjie_ding_tripod"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

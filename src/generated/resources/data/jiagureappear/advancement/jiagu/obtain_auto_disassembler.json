@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/disassemble",
+  "criteria": {
+    "get_auto_disassembler": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:auto_disassembler"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_auto_disassembler.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:auto_disassembler"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_auto_disassembler.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_auto_disassembler"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

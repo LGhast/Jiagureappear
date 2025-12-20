@@ -1,0 +1,34 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_jiagu",
+  "criteria": {
+    "get_amethyst_inscription": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#jiagureappear:amethyst_inscriptions"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_amethyst_upgrade.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:amethyst_upgrade_smithing_template"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_amethyst_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_amethyst_inscription"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

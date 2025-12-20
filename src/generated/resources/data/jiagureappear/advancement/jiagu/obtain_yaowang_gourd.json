@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/root",
+  "criteria": {
+    "get_yaowang_gourd": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:yaowang_gourd"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_yaowang_gourd.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:yaowang_gourd"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_yaowang_gourd.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_yaowang_gourd"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

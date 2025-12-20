@@ -1,0 +1,26 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_yaowang_gourd",
+  "criteria": {
+    "yaowang": {
+      "trigger": "jiagureappear:yaowang"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_prescription.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:prescription"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_prescription.title"
+    }
+  },
+  "requirements": [
+    [
+      "yaowang"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

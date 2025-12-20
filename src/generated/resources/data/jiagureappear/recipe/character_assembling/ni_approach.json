@@ -1,0 +1,33 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "L": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "R": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "人"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "尸"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "尼"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "尼"
+}

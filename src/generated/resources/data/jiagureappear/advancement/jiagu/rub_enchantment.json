@@ -1,0 +1,27 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_taoist_talisman",
+  "criteria": {
+    "rub_enchantment": {
+      "trigger": "jiagureappear:rub_enchantment"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.rub_enchantment.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:taoist_talisman"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.rub_enchantment.title"
+    }
+  },
+  "requirements": [
+    [
+      "rub_enchantment"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

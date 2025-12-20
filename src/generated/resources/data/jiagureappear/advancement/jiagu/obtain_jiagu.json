@@ -1,0 +1,38 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_cangjie_ding",
+  "criteria": {
+    "get_character": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:character"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_jiagu.description"
+    },
+    "icon": {
+      "components": {
+        "minecraft:custom_data": {
+          "inscription": "文"
+        }
+      },
+      "count": 1,
+      "id": "jiagureappear:character"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_jiagu.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_character"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

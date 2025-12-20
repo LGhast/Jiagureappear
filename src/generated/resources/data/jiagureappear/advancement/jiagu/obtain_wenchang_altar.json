@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_dictionary",
+  "criteria": {
+    "get_wenchang_altar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:wenchang_altar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_wenchang_altar.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:wenchang_altar"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_wenchang_altar.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_wenchang_altar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

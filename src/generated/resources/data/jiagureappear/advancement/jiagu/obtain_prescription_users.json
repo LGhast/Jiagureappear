@@ -1,0 +1,34 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_prescription",
+  "criteria": {
+    "get_prescription_user": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#jiagureappear:prescription_users"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_prescription_users.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:fermented_spider_eye"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_prescription_users.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_prescription_user"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

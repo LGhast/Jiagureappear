@@ -1,0 +1,62 @@
+{
+  "parent": "jiagureappear:jiagu/disassemble",
+  "criteria": {
+    "complex": {
+      "conditions": {
+        "inscription": "complex"
+      },
+      "trigger": "jiagureappear:disassemble"
+    },
+    "reversal": {
+      "conditions": {
+        "inscription": "reversal"
+      },
+      "trigger": "jiagureappear:disassemble"
+    },
+    "simple": {
+      "conditions": {
+        "inscription": "simple"
+      },
+      "trigger": "jiagureappear:disassemble"
+    },
+    "simple2": {
+      "conditions": {
+        "inscription": "simple2"
+      },
+      "trigger": "jiagureappear:disassemble"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_all_copper_characters.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "components": {
+        "minecraft:custom_data": {
+          "inscription": "reversal"
+        }
+      },
+      "count": 1,
+      "id": "jiagureappear:character"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_all_copper_characters.title"
+    }
+  },
+  "requirements": [
+    [
+      "simple"
+    ],
+    [
+      "simple2"
+    ],
+    [
+      "reversal"
+    ],
+    [
+      "complex"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

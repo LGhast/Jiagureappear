@@ -1,0 +1,26 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_jiagu",
+  "criteria": {
+    "rub": {
+      "trigger": "jiagureappear:rub"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.rub.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:rubbing_table"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.rub.title"
+    }
+  },
+  "requirements": [
+    [
+      "rub"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

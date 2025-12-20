@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_cangjie_ding",
+  "criteria": {
+    "get_taoist_talisman": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:taoist_talisman"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_taoist_talisman.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:yellow_paper"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_taoist_talisman.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_taoist_talisman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

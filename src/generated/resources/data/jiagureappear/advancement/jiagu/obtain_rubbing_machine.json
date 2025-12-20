@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/rub",
+  "criteria": {
+    "get_rubbing_machine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:rubbing_machine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_rubbing_machine.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:rubbing_machine"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_rubbing_machine.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_rubbing_machine"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

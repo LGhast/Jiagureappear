@@ -1,0 +1,34 @@
+{
+  "parent": "jiagureappear:jiagu/root",
+  "criteria": {
+    "get_dictionary": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:dictionary"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_dictionary.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:dictionary"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_dictionary.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_dictionary"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

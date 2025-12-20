@@ -1,0 +1,33 @@
+{
+  "parent": "jiagureappear:jiagu/obtain_cangjie_ding",
+  "criteria": {
+    "get_cangjie_morpher": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jiagureappear:cangjie_morpher"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.jiagureappear.obtain_cangjie_morpher.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "jiagureappear:cangjie_morpher"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.obtain_cangjie_morpher.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_cangjie_morpher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
