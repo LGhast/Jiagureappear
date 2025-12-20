@@ -19,11 +19,11 @@
   "result": {
     "components": {
       "minecraft:custom_data": {
-        "inscription": "箓"
+        "inscription": "籙"
       }
     },
     "count": 1,
     "id": "jiagureappear:character"
   },
-  "result_inscription": "箓"
+  "result_inscription": "籙"
 }

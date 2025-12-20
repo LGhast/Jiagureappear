@@ -6,8 +6,8 @@ import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.client.particle.ModParticles;
-import net.lghast.jiagu.utils.CharacterInfo;
-import net.lghast.jiagu.utils.CharacterQuality;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterQuality;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,10 +39,13 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class AutoDisassemblerBlock extends BaseEntityBlock {
     public static final MapCodec<AutoDisassemblerBlock> CODEC = simpleCodec(AutoDisassemblerBlock::new);
     public static final BooleanProperty TRIGGERED = BlockStateProperties.TRIGGERED;
@@ -60,12 +63,12 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -132,18 +135,18 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                         CharacterItem.setInscription(result, c);
                         DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
                     }
-                    ModUtils.spawnParticlesForAll(level, ModParticles.JIAGU_PARTICLES.get(),
+                    ModUtils.spawnParticles(level, ModParticles.JIAGU_PARTICLES.get(),
                             pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5,
                             0.3, 0.4, 0.3, 10, 0.2);
                 }else{
                     DefaultDispenseItemBehavior.spawnItem(level, content, 6, direction, spawnPos);
-                    ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
+                    ModUtils.spawnParticles(level, ParticleTypes.SMOKE,
                             pos.getX() + 0.5, pos.getY() + 0.6, pos.getZ() + 0.5,
                             0.2, 0.4, 0.2, 10, 0.01);
                 }
 
                 blockEntity.setItem(0, ItemStack.EMPTY);
-                blockEntity.setChanged();;
+                blockEntity.setChanged();
             }
         }
     }
@@ -160,7 +163,7 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
             ItemStack heldItem = player.getMainHandItem();
             ItemStack slotItem = blockEntity.getItem(0);

@@ -9,8 +9,10 @@ import net.minecraft.world.level.block.SlimeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
+@ParametersAreNonnullByDefault
 public class YolimeBlock extends SlimeBlock {
     public YolimeBlock(Properties properties) {
         super(properties);

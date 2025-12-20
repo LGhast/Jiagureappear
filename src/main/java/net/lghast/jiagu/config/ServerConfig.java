@@ -38,15 +38,19 @@ public class ServerConfig {
     public static ModConfigSpec.DoubleValue LEI_STONES_PROJECTILE_VELOCITY_MIN;
 
     public static ModConfigSpec.DoubleValue YOLIME_BLOCK_BOUNCE_VELOCITY_CAP;
-    public static ModConfigSpec.BooleanValue CANGJIE_TRIPOD_CUSTOM_NAME_CHECK;
-    public static ModConfigSpec.BooleanValue CANGJIE_MORPHER_CUSTOM_NAME_CHECK;
-    public static ModConfigSpec.BooleanValue RUBBING_TABLE_CUSTOM_NAME_CHECK;
-    public static ModConfigSpec.BooleanValue RUBBING_MACHINE_CUSTOM_NAME_CHECK;
     public static ModConfigSpec.BooleanValue GOLD_BRICKS_EFFECT;
 
     public static ModConfigSpec.ConfigValue<List<? extends String>> IDIOM_LIST;
     public static ModConfigSpec.ConfigValue<List<? extends String>> CHARACTER_DISASSEMBLING_MAPPINGS;
     public static ModConfigSpec.ConfigValue<List<? extends String>> CHARACTER_MAPPINGS;
+
+    public static ModConfigSpec.ConfigValue<List<? extends String>> ITEM_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> BLOCK_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> ENTITY_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> ENCHANTMENT_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> EFFECT_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> POTION_LZH;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> RECEIVER_MAPPINGS;
 
     static {
         BUILDER.push("核心内容 Core Content");
@@ -59,19 +63,18 @@ public class ServerConfig {
                         () -> Arrays.asList("小心翼翼", "一石二鳥", "九牛一毛", "水乳交融", "如魚得水",
                                 "從善如流", "孤芳自賞", "光明磊落", "自強不息", "一片丹心", "心靈手巧",
                                 "大逆不道", "胡說八道", "囊螢映雪", "背井離鄉", "粉墨登場", "求知若渴",
-                                "筆耕不輟", "名列前茅", "美中不足", "買櫝還珠"),
+                                "筆耕不輟", "名列前茅", "美中不足", "買櫝還珠", "父慈子孝", "堅如磐石",
+                                "目中無人"),
                         () -> "成语",
                         o -> o instanceof String);
 
         CHARACTER_DISASSEMBLING_MAPPINGS = BUILDER
-                .comment("汉字拆解配方，例：塊=土,鬼。可覆盖原版配方。",
-                        "Character Disassembling Recipe, e.g. 塊=土,鬼. Vanilla recipes can be override.")
+                .comment("汉字拆解配方,可覆盖原版配方。",
+                        "Character Disassembling Recipe. Vanilla recipes can be override.",
+                        "e.g. [\"塊=土,鬼\", \"焱=火,火,火\"]")
                 .defineListAllowEmpty(
                         List.of("character_disassembling_mappings"),
-                        () -> Arrays.asList(
-                                "哈=口,合",
-                                "Minecraft=我,的,世,界"
-                        ),
+                        Arrays::asList,
                         null,
                         it -> it instanceof String
                 );
@@ -81,16 +84,91 @@ public class ServerConfig {
                         "Extra Jiagu item texture mapping, used to customize the texture of Jiagu Item. In addition to modifying this configuration, the corresponding item model JSON files must also be added or modified.",
                         "格式为 字符,小数,纹理图片文件名",
                         "Format: character, decimal, texture image filename",
-                        "e.g. 舌,139.0,she_tongue",
+                        "e.g. [\"舌,139.0,she_tongue\", \"言,140.0,yan_speak\"]",
                         "此处小数也表示物品品质，1~999为石质，1000~1999为铁质，2000~2999为金质，3000~3999为钻石质，6000~6999为铜质",
                         "The decimal value also represents the item's quality: 1-999 corresponds to Stone, 1000-1999 to Iron, 2000-2999 to Gold, 3000-3999 to Diamond, and 6000-6999 to Copper.")
                 .defineListAllowEmpty(
                         List.of("character_mappings"),
-                        () -> Arrays.asList(
-                                "舌,139.0,she_tongue"
-                        ),
+                        Arrays::asList,
                         null,
                         it -> it instanceof String && ((String) it).matches("^[^,]+,-?\\d*(?:\\.\\d+)?,[a-z_]+$")
+                );
+
+        ITEM_LZH = BUILDER
+                .comment("物品文言名称映射，为缺少文言名称的物品添加文言名称，或覆盖已有名称",
+                        "Item LZH name mapping, assigns LZH names to items lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:apple,林檎\", \"minecraft:iron_axe,鐵斧\"]")
+                .defineListAllowEmpty(
+                        List.of("item_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                );
+
+        BLOCK_LZH = BUILDER
+                .comment("方块文言名称映射，为缺少文言名称的物品添加文言名称，或覆盖已有名称",
+                        "Block LZH name mapping, assigns LZH names to blocks lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:oak_log,柞樁\", \"minecraft:granite,花崗石\"]")
+                .defineListAllowEmpty(
+                        List.of("block_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                );
+
+        ENTITY_LZH = BUILDER
+                .comment("实体文言名称映射，为缺少文言名称的实体添加文言名称，或覆盖已有名称",
+                        "Entity LZH name mapping, assigns LZH names to entities lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:zombie,殭屍\", \"minecraft:pig,豕\"]")
+                .defineListAllowEmpty(
+                        List.of("entity_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                );
+
+        ENCHANTMENT_LZH = BUILDER
+                .comment("附魔文言名称映射，为缺少文言名称的附魔添加文言名称，或覆盖已有名称",
+                        "Enchantment LZH name mapping, assigns LZH names to enchantments lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:protection,護\", \"minecraft:channeling,通雷術\"]")
+                .defineListAllowEmpty(
+                        List.of("enchantment_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                );
+
+        RECEIVER_MAPPINGS = BUILDER
+                .comment("附魔接受者映射，为附魔添加对应物品，用于在字典中显示。若已在配置中添加新的附魔文言名称，必须在此处添加对应物品",
+                        "Enchantment receiver mapping, adds corresponding items for enchantments to display in the dictionary. If you have added new LZH names for an enchantment in the configuration, you must add corresponding items here",
+                        "e.g. [\"minecraft:sharpness,minecraft:iron_axe\", \"minecraft:power,minecraft:bow\"]")
+                .defineListAllowEmpty(
+                        List.of("receiver_mappings"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+$")
+                );
+
+        EFFECT_LZH = BUILDER
+                .comment("状态效果文言名称映射，为缺少文言名称的状态效果添加文言名称，或覆盖已有名称",
+                        "Status effect LZH name mapping, assigns LZH names to effects lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:regeneration,復甦\", \"minecraft:health_boost,益壽\"]")
+                .defineListAllowEmpty(
+                        List.of("effect_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                );
+
+        POTION_LZH = BUILDER
+                .comment("药水文言名称映射，为缺少文言名称的药水添加文言名称，或覆盖已有名称",
+                        "Potion LZH name mapping, assigns LZH names to potions lacking them, or overrides existing names",
+                        "e.g. [\"minecraft:long_night_vision,久效夜視劑\", \"minecraft:awkward,粗劑\"]")
+                .defineListAllowEmpty(
+                        List.of("potion_lzh"),
+                        Arrays::asList,
+                        null,
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
                 );
 
         BUILDER.pop();
@@ -178,13 +256,13 @@ public class ServerConfig {
         BUILDER.push(" 磊 Lei-Stones");
         LEI_STONES_COOLDOWN_TIME = BUILDER
                 .comment("冷却时间（刻） Cooldown (in ticks)")
-                .defineInRange("lei_stones_cooldown", 40, 0, 72000);
+                .defineInRange("lei_stones_cooldown", 20, 0, 72000);
         LEI_STONES_BASE_DAMAGE = BUILDER
                 .comment("基础伤害 Base damage")
-                .defineInRange("lei_stones_base_damage", 5.0f, 0, 999.0f);
+                .defineInRange("lei_stones_base_damage", 4.0f, 0, 999.0f);
         LEI_STONES_BASE_RADIUS = BUILDER
                 .comment("基础范围伤害半径 Base AOE radius")
-                .defineInRange("lei_stones_base_radius", 1.2f, 0, 15.0f);
+                .defineInRange("lei_stones_base_radius", 2f, 0, 15.0f);
         LEI_STONES_PROJECTILE_VELOCITY_MAX = BUILDER
                 .comment("弹射物最大蓄力速度加成 Maximum projectile charge velocity bonus",
                         "此配置控制玩家通过蓄力最多能使弹射物发射速度增加多少。",
@@ -204,20 +282,6 @@ public class ServerConfig {
         YOLIME_BLOCK_BOUNCE_VELOCITY_CAP = BUILDER
                 .comment("悠酱块弹跳速度上限 Bounce velocity cap of yolime block")
                 .defineInRange("yolime_block_bounce_velocity_cap", 66.6, 0.0, 999.0);
-        CANGJIE_TRIPOD_CUSTOM_NAME_CHECK = BUILDER
-                .comment("仓颉鼎自定义名称检测 Cangjie Ding-tripod custom name detection",
-                        "使用仓颉鼎时是否检测玩家手持物品有无自定义命名",
-                        "Determines whether to check if the player's held item has a custom name when using the Cangjie Ding-tripod")
-                .define("cangjie_tripod_custom_name_check", true);
-        CANGJIE_MORPHER_CUSTOM_NAME_CHECK = BUILDER
-                .comment("仓颉造字器自定义名称检测 Cangjie morpher custom name detection")
-                .define("cangjie_morpher_custom_name_check", true);
-        RUBBING_TABLE_CUSTOM_NAME_CHECK = BUILDER
-                .comment("拓印台自定义名称检测 Rubbing table custom name detection")
-                .define("rubbing_table_custom_name_check", true);
-        RUBBING_MACHINE_CUSTOM_NAME_CHECK = BUILDER
-                .comment("拓印器自定义名称检测 Rubbing machine custom name detection")
-                .define("rubbing_machine_custom_name_check", true);
         GOLD_BRICKS_EFFECT = BUILDER
                 .comment("金砖实际效果 Effect of gold bricks")
                 .define("gold_bricks_effect", true);

@@ -18,26 +18,29 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class ShadowCaveVinesBlock extends CaveVinesBlock {
     public ShadowCaveVinesBlock(Properties p_152959_) {
         super(p_152959_);
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader p_304444_, BlockPos p_153008_, BlockState p_153009_) {
+    public @NotNull ItemStack getCloneItemStack(LevelReader p_304444_, BlockPos p_153008_, BlockState p_153009_) {
         return new ItemStack(ModItems.SHADOW_BERRIES.get());
     }
 
     @Override
-    protected Block getBodyBlock() {
+    protected @NotNull Block getBodyBlock() {
         return ModBlocks.SHADOW_CAVE_VINES_PLANT.get();
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState p_153021_, Level p_153022_, BlockPos p_153023_, Player p_153024_, BlockHitResult p_153026_) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState p_153021_, Level p_153022_, BlockPos p_153023_, Player p_153024_, BlockHitResult p_153026_) {
         return ShadowCaveVinesBlock.use(p_153024_, p_153021_, p_153022_, p_153023_);
     }
 
@@ -47,7 +50,7 @@ public class ShadowCaveVinesBlock extends CaveVinesBlock {
             float f = Mth.randomBetween(level.random, 0.8F, 1.2F);
             level.playSound(null, pos, SoundEvents.CAVE_VINES_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, f);
 
-            BlockState blockstate = state.setValue(BlockStateProperties.BERRIES, Boolean.valueOf(false));
+            BlockState blockstate = state.setValue(BlockStateProperties.BERRIES, Boolean.FALSE);
             level.setBlock(pos, blockstate, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(entity, blockstate));
             return InteractionResult.sidedSuccess(level.isClientSide);

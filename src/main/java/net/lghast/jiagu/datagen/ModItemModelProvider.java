@@ -2,7 +2,7 @@ package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.register.content.ModItems;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -49,6 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.JIAN_SWORD_AMETHYST.get());
         basicItem(ModItems.BIAO_GALE_AMETHYST.get());
         basicItem(ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE.get());
+        basicItem(ModItems.DICTIONARY.get());
 
         withExistingParent("item/characters/default", "minecraft:item/generated")
                 .texture("layer0", modLoc("item/characters/default"));

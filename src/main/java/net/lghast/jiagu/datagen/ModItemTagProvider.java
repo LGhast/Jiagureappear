@@ -47,6 +47,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PRESCRIPTION.asItem())
                 .addTag(ModTags.AMETHYST_INSCRIPTIONS)
                 .add(Items.POTION)
+                .add(Items.SPLASH_POTION)
+                .add(Items.LINGERING_POTION)
                 .add(Items.TIPPED_ARROW)
                 .add(Items.ENCHANTED_BOOK)
                 .add(Items.OMINOUS_BOTTLE)
@@ -84,6 +86,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.YI_CURE_AMETHYST.asItem())
                 .add(ModItems.GU_PARASITE_AMETHYST.asItem())
                 .add(ModItems.LEI_STONES_AMETHYST.asItem())
+        ;
+
+        tag(ModTags.PRESCRIPTION_USERS)
+                .add(ModItems.YI_CURE_AMETHYST.asItem())
+                .add(ModItems.GU_PARASITE_AMETHYST.asItem())
         ;
 
         tag(ModTags.WENCHANG_ALTAR_DISPLAYABLE)

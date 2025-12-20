@@ -11,7 +11,11 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class StoneShotRenderer extends EntityRenderer<StoneShotEntity> {
     private final ItemRenderer itemRenderer;
 
@@ -21,7 +25,7 @@ public class StoneShotRenderer extends EntityRenderer<StoneShotEntity> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(StoneShotEntity entity) {
+    public @NotNull ResourceLocation getTextureLocation(StoneShotEntity entity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
 

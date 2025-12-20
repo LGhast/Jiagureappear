@@ -16,11 +16,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@ParametersAreNonnullByDefault
 public class YiCureAmethystItem extends PrescriptionUserItem{
 
     public YiCureAmethystItem(Properties properties) {
@@ -99,10 +102,10 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
 
     private void spawnParticles(ServerLevel serverLevel, Holder<MobEffect> holder, Player player){
         if(holder.value().isBeneficial()){
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.HEART,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.HEART,
                     player.getX(), player.getY() + 0.9, player.getZ(), 0.35, 0.3, 0.35, 8, 0.01);
         }else{
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.WITCH,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.WITCH,
                     player.getX(), player.getY() + 0.9, player.getZ(), 0.35, 0.3, 0.35, 8, 0.01);
         }
     }
@@ -122,7 +125,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
     }
 
     @Override
-    protected int getCooldownTicks(ItemStack stack, Level level){
+    protected int getCooldownTicks(@NotNull ItemStack stack, @NotNull Level level){
         int cooldown = ServerConfig.YI_CURE_COOLDOWN_TIME.get();
         Holder<Enchantment> hippocratesHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.HIPPOCRATES);
@@ -130,7 +133,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
     }
 
     @Override
-    protected int getAmplifier(ItemStack stack, Level level){
+    protected int getAmplifier(@NotNull ItemStack stack, @NotNull Level level){
         int amplifier = ServerConfig.YI_CURE_BASE_AMPLIFIER.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
@@ -138,7 +141,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
     }
 
     @Override
-    protected int getDuration(ItemStack stack, Level level){
+    protected int getDuration(@NotNull ItemStack stack, @NotNull Level level){
         int duration = ServerConfig.YI_CURE_BASE_DURATION.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);

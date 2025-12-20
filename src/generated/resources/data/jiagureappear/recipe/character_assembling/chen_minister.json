@@ -1,0 +1,29 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "reversal"
+    },
+    "U": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "目"
+    }
+  },
+  "pattern": [
+    "   ",
+    "U  ",
+    " D "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "臣"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "臣"
+}

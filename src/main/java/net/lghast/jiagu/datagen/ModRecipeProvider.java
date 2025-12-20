@@ -7,8 +7,8 @@ import net.lghast.jiagu.datagen.recipebuilders.CharacterAssemblingNonMirroredBui
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.system.ModTags;
-import net.lghast.jiagu.utils.CharacterInfo;
-import net.lghast.jiagu.utils.CharacterStructure;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterStructure;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -21,12 +21,14 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static net.lghast.jiagu.JiaguReappear.MOD_ID;
 
+@ParametersAreNonnullByDefault
 public class ModRecipeProvider extends RecipeProvider {
     private static final String CONVERSE_MULTI = "_from_conversion_multi";
     private static final String CONVERSE_SINGLE = "_from_conversion_single";
@@ -40,6 +42,12 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.YELLOW_PAPER.get(), 1)
                 .requires(Items.YELLOW_DYE).requires(Items.PAPER)
                 .unlockedBy("has_paper", has(Items.PAPER))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.DICTIONARY.get(), 1)
+                .requires(Items.BLUE_DYE).requires(Items.INK_SAC).requires(Items.BOOK)
+                .unlockedBy("has_bone_lamella", has(ModItems.BONE_LAMELLA))
+                .unlockedBy("has_turtle_plastron", has(ModItems.TURTLE_PLASTRON))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.EMPTY_PRESCRIPTION.get(), 1)
@@ -207,7 +215,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("III")
                 .pattern("IDI")
                 .pattern("RPR")
-                .define('D', ModBlocks.CANGJIE_MORPHER)
+                .define('D', ModBlocks.CANGJIE_DING_TRIPOD)
                 .define('I',Items.IRON_INGOT)
                 .define('R', Items.REDSTONE)
                 .define('P', Items.DROPPER)
@@ -219,7 +227,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("III")
                 .pattern("IDI")
                 .pattern("RPR")
-                .define('D', ModBlocks.RUBBING_MACHINE)
+                .define('D', ModBlocks.RUBBING_TABLE)
                 .define('I',Items.IRON_INGOT)
                 .define('R', Items.REDSTONE)
                 .define('P', Items.DROPPER)
@@ -228,13 +236,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.WENCHANG_ALTAR.get(), 1)
-                .pattern("EQE")
+                .pattern("EDE")
                 .pattern(" Q ")
                 .pattern("EEE")
                 .define('Q', Items.QUARTZ)
                 .define('E', Items.EMERALD)
-                .unlockedBy("has_emerald",
-                        has(Items.EMERALD))
+                .define('D', ModItems.DICTIONARY)
+                .unlockedBy("has_dictionary",
+                        has(ModItems.DICTIONARY))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,ModBlocks.ERUDITE_WENCHANG_ALTAR.get(), 1)
@@ -376,7 +385,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
     private void characterSame(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         generateCharacterRecipeNonMirrored(output, characterResult, builder -> builder
                 .pattern("   ")
                 .pattern(" M ")
@@ -386,7 +394,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterHorizontal(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<2) return;
         generateCharacterRecipeNonMirrored(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -398,7 +405,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterVertical(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<2) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -410,7 +416,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterHorizontalLong(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipeNonMirrored(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -423,7 +428,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterVerticalLong(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -436,7 +440,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTriangle(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("U  ")
@@ -449,7 +452,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTriangleRight(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -462,7 +464,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTriangleInvert(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -475,7 +476,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTriangleRightInvert(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -488,7 +488,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterRhombus(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -502,7 +501,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterCross(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<5) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -517,7 +515,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterXShape(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<5) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("A B")
@@ -532,7 +529,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTShape(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -546,7 +542,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTShapeInvert(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -560,7 +555,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTShapeHorizontal(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -574,7 +568,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterSquare(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("AB ")
@@ -588,7 +581,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterRectangle(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<6) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("ABC")
@@ -604,7 +596,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterArrow(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -617,7 +608,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterArrowInvert(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<3) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -630,7 +620,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterBias(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<2) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("   ")
@@ -642,7 +631,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterLShape(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<4) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern(" U ")
@@ -656,7 +644,6 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void characterTShapeLong(RecipeOutput output, String characterResult, List<String> ingredients){
-        if(ingredients==null || characterResult==null) return;
         if(ingredients.size()<5) return;
         generateCharacterRecipe(output, characterResult, builder -> builder
                 .pattern("LUR")

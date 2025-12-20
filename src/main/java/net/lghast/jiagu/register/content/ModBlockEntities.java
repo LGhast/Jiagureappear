@@ -57,6 +57,15 @@ public class ModBlockEntities {
                     .build(null)
     );
 
+    public static final Supplier<BlockEntityType<YaowangGourdBlockEntity>> YAOWANG_GOURD = BLOCK_ENTITY_TYPES.register(
+            "yaowang_gourd",
+            () -> BlockEntityType.Builder.of(
+                            YaowangGourdBlockEntity::new,
+                            ModBlocks.YAOWANG_GOURD.get()
+                    )
+                    .build(null)
+    );
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPES.register(eventBus);
     }

@@ -1,13 +1,11 @@
 package net.lghast.jiagu.common.content.blockentity;
 
 import net.lghast.jiagu.common.content.block.CangjieMorpherBlock;
-import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.system.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -17,8 +15,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
     private int morphingTicks = 0;
@@ -44,12 +45,12 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
 
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    protected @NotNull NonNullList<ItemStack> getItems() {
         return items;
     }
 
     @Override
-    public ItemStack getItem(int slot) {
+    public @NotNull ItemStack getItem(int slot) {
         return this.getItems().get(slot);
     }
 
@@ -64,7 +65,7 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected @NotNull Component getDefaultName() {
         return Component.translatable("container.cangjie_morpher");
     }
 
@@ -76,12 +77,7 @@ public class CangjieMorpherBlockEntity extends RandomizableContainerBlockEntity 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
         if (slot == 0) {
-            boolean valid = !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.is(ModTags.JIAGU_MATERIALS);
-
-            if (ServerConfig.CANGJIE_TRIPOD_CUSTOM_NAME_CHECK.get()) {
-                valid = valid && !stack.has(DataComponents.CUSTOM_NAME);
-            }
-            return valid;
+            return !stack.is(ModTags.INVALID_TO_CHARACTERS) && !stack.is(ModTags.JIAGU_MATERIALS);
         } else if (slot == 1) {
             return stack.is(ModTags.JIAGU_MATERIALS);
         }

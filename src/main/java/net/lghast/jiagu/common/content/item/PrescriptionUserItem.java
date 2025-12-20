@@ -1,6 +1,8 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.register.content.ModItems;
+import net.lghast.jiagu.utils.ModUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -14,10 +16,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public abstract class PrescriptionUserItem extends Item {
     int usingTicks = 0;
 
@@ -26,12 +31,12 @@ public abstract class PrescriptionUserItem extends Item {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
         if (player.getCooldowns().isOnCooldown(this)) {
@@ -148,9 +153,11 @@ public abstract class PrescriptionUserItem extends Item {
         ItemStack prescriptionStack = getFirstPrescriptionFromItemStack(stack);
         MobEffect effect = PrescriptionItem.getEffect(prescriptionStack);
         if(effect!= null) {
-            components.add(Component.translatable("tooltip.jiagureappear.prescription", effect.getDisplayName()));
+            components.add(Component.translatable("tooltip.jiagureappear.prescription", ModUtils.modifyName(effect), effect.getDisplayName())
+                    .withStyle(ChatFormatting.GRAY));
         }else{
-            components.add(Component.translatable("tooltip.jiagureappear.prescription_no"));
+            components.add(Component.translatable("tooltip.jiagureappear.prescription_no")
+                    .withStyle(ChatFormatting.DARK_GRAY));
         }
     }
 }

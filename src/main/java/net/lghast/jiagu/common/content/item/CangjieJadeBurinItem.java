@@ -15,7 +15,11 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class CangjieJadeBurinItem extends Item {
 
     public CangjieJadeBurinItem(Properties properties) {
@@ -23,7 +27,7 @@ public class CangjieJadeBurinItem extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
 
@@ -43,7 +47,7 @@ public class CangjieJadeBurinItem extends Item {
                 level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 
                 level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
+                ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                         pos.getX()+0.5, pos.getY()+0.2, pos.getZ()+0.5, 0.4, 0.3, 0.4, 12, 0.03);
             }
         }

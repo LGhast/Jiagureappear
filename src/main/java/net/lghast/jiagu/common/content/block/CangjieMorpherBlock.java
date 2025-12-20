@@ -5,7 +5,7 @@ import net.lghast.jiagu.common.content.blockentity.CangjieMorpherBlockEntity;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.common.content.item.TaoistTalismanItem;
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.common.system.datacomponent.Spell;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.client.particle.ModParticles;
@@ -41,9 +41,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class CangjieMorpherBlock extends BaseEntityBlock {
     public static final MapCodec<CangjieMorpherBlock> CODEC = simpleCodec(CangjieMorpherBlock::new);
     public static final BooleanProperty TRIGGERED = BlockStateProperties.TRIGGERED;
@@ -61,12 +64,12 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -119,11 +122,6 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
                 return;
             }
 
-            if(ServerConfig.CANGJIE_MORPHER_CUSTOM_NAME_CHECK.get() && content.has(DataComponents.CUSTOM_NAME)){
-                morphingFailure(level, pos);
-                return;
-            }
-
             level.setBlock(pos, state.setValue(CRAFTING, true), 3);
             blockEntity.startMorphing();
 
@@ -145,25 +143,30 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
 
     private void morphingFailure(ServerLevel level, BlockPos pos){
         level.playSound(null, pos, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS);
-        ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
+        ModUtils.spawnParticles(level, ParticleTypes.SMOKE,
                 pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
                 0.3, 0.4, 0.3, 10, 0.05);
     }
 
     private String getMorpherResult(ItemStack content){
         if (content.is(ModItems.TAOIST_TALISMAN)) {
-            String spell = TaoistTalismanItem.getSpell(content);
-            return spell != null ? ModUtils.getCharacters(spell) : ModUtils.getCharacters(content);
+            Spell spell = TaoistTalismanItem.getSpell(content);
+            return spell.isEmpty() ? ModUtils.modifyName(content) : spell.spellName();
         } else if (content.is(ModItems.PRESCRIPTION)) {
             MobEffect effect = PrescriptionItem.getEffect(content);
-            return effect != null ? ModUtils.getCharacters(effect) : ModUtils.getCharacters(content);
+            return effect != null ? ModUtils.modifyName(effect) : ModUtils.modifyName(content);
         } else {
-            return ModUtils.getCharacters(content);
+            return ModUtils.modifyName(content);
         }
     }
 
     private void spawnCharacters(ServerLevel level, int count, ItemStack content, BlockState state, BlockPos pos){
         String morpherResult = getMorpherResult(content);
+        if(morpherResult == null){
+            morphingFailure(level, pos);
+            return;
+        }
+
         char[] components = morpherResult.toCharArray();
         Direction direction = state.getValue(ORIENTATION).front();
         Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
@@ -177,7 +180,11 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     }
 
     private void consumeMaterials(ItemStack content, ItemStack material, int count) {
-        content.shrink(count);
+        if(content.is(ModItems.PRESCRIPTION) || content.is(ModItems.TAOIST_TALISMAN)){
+            ModUtils.damage(content, 1);
+        }else {
+            content.shrink(count);
+        }
 
         if (material.isDamageableItem()) {
             ModUtils.damage(material, 5);
@@ -187,7 +194,7 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
             ItemStack heldItem = player.getMainHandItem();
             ItemStack contentSlotItem = blockEntity.getItem(0);
@@ -255,9 +262,9 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
-        ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
+        ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
                 pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.4, 0.3, 5, 0.1);
-        ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.LAVA,
+        ModUtils.spawnParticles(serverLevel, ParticleTypes.LAVA,
                 pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.2, 0.3, 0.2, 3, 0.1);
     }
 

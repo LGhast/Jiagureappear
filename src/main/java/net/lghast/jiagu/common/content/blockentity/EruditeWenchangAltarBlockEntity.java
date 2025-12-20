@@ -24,10 +24,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
 
+@ParametersAreNonnullByDefault
 public class EruditeWenchangAltarBlockEntity extends BlockEntity {
     private final ItemStack[] items = new ItemStack[4];
 
@@ -71,7 +74,7 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
         updateBlockState();
 
         if(level instanceof ServerLevel serverLevel && ServerConfig.IDIOM_LIST.get().contains(getInscriptions())){
-            ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
+            ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                     pos.getX()+0.5, pos.getY()+0.4, pos.getZ()+0.5, 0.3, 0.2, 0.3, 12, 0.005);
         }
     }
@@ -164,7 +167,7 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         CompoundTag tag = super.getUpdateTag(registries);
         saveAdditional(tag, registries);
         return tag;

@@ -5,8 +5,8 @@ import net.lghast.jiagu.common.content.blockentity.WenchangAltarBlockEntity;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.register.system.ModTags;
-import net.lghast.jiagu.utils.CharacterInfo;
-import net.lghast.jiagu.utils.CharacterQuality;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterQuality;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -29,9 +29,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class WenchangAltarBlock extends BaseEntityBlock {
     public static final MapCodec<WenchangAltarBlock> CODEC = simpleCodec(WenchangAltarBlock::new);
     public static final BooleanProperty HAS_ITEM = BooleanProperty.create("has_item");
@@ -43,12 +46,12 @@ public class WenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
 
@@ -58,7 +61,7 @@ public class WenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -72,7 +75,7 @@ public class WenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
         if (level.getBlockEntity(pos) instanceof WenchangAltarBlockEntity blockEntity) {
             ItemStack heldItem = player.getMainHandItem();
 

@@ -3,7 +3,7 @@ package net.lghast.jiagu.client.misc;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.register.content.ModItems;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.lghast.jiagu.utils.PrescriptionInfo;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;

@@ -3,7 +3,7 @@ package net.lghast.jiagu.common.content.block;
 import com.mojang.serialization.MapCodec;
 import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.common.content.item.TaoistTalismanItem;
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.common.system.datacomponent.Spell;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.client.particle.ModParticles;
@@ -37,8 +37,12 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<CangjieDingTripodBlock> CODEC = simpleCodec(CangjieDingTripodBlock::new);
     private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 9, 14);
@@ -49,18 +53,13 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
-        if (!(player instanceof ServerPlayer serverPlayer) || !(level instanceof ServerLevel serverLevel)) {
+        if (!(player instanceof ServerPlayer) || !(level instanceof ServerLevel serverLevel)) {
             return InteractionResult.FAIL;
-        }
-
-        if(!serverPlayer.getLanguage().equals("lzh")){
-            player.displayClientMessage(Component.translatable("tips.jiagureappear.wrong_language"),true);
-            return InteractionResult.SUCCESS;
         }
 
         ItemStack mainHandItem = player.getMainHandItem();
@@ -91,13 +90,6 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
             return InteractionResult.SUCCESS;
         }
 
-        if(ServerConfig.CANGJIE_TRIPOD_CUSTOM_NAME_CHECK.get()) {
-            boolean hasCustomName = mainHandItem.has(DataComponents.CUSTOM_NAME);
-            if (hasCustomName) {
-                player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.named_item"), true);
-                return InteractionResult.SUCCESS;
-            }
-        }
         normalTransfer(serverLevel, pos, player, mainHandItem, offHandItem);
 
         return InteractionResult.SUCCESS;
@@ -105,6 +97,11 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
 
     private void normalTransfer(ServerLevel serverLevel, BlockPos pos, Player player,ItemStack mainHandItem,ItemStack offHandItem){
         String morpherResult = getMorpherResult(mainHandItem);
+        if(morpherResult == null) {
+            player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.wrong_item"),true);
+            return;
+        }
+
         spawnCharacters(morpherResult, serverLevel, pos);
 
         if(!player.isCreative()) {
@@ -116,18 +113,22 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
 
     private String getMorpherResult(ItemStack mainHandItem) {
         if (mainHandItem.is(ModItems.TAOIST_TALISMAN)) {
-            String spell = TaoistTalismanItem.getSpell(mainHandItem);
-            return spell != null ? ModUtils.getCharacters(spell) : ModUtils.getCharacters(mainHandItem);
+            Spell spell = TaoistTalismanItem.getSpell(mainHandItem);
+            return spell.isEmpty() ? ModUtils.modifyName(mainHandItem) : spell.spellName();
         } else if (mainHandItem.is(ModItems.PRESCRIPTION)) {
             MobEffect effect = PrescriptionItem.getEffect(mainHandItem);
-            return effect != null ? ModUtils.getCharacters(effect) : ModUtils.getCharacters(mainHandItem);
+            return effect != null ? ModUtils.modifyName(effect) : ModUtils.modifyName(mainHandItem);
         } else {
-            return ModUtils.getCharacters(mainHandItem);
+            return ModUtils.modifyName(mainHandItem);
         }
     }
 
     private void consumeItems(Player player, ItemStack mainHandItem, ItemStack offHandItem) {
-        mainHandItem.shrink(1);
+        if(mainHandItem.is(ModItems.TAOIST_TALISMAN) || mainHandItem.is(ModItems.PRESCRIPTION)) {
+            mainHandItem.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+        }else {
+            mainHandItem.shrink(1);
+        }
 
         if (offHandItem.isDamageableItem()) {
             offHandItem.hurtAndBreak(5, player, EquipmentSlot.OFFHAND);
@@ -144,15 +145,24 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
             player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.no_enchantment"),true);
             return;
         }
+
         ItemStack talisman = new ItemStack(ModItems.TAOIST_TALISMAN.get());
         boolean isFirst = true;
         for (var entry : enchantments.entrySet()) {
             Holder<Enchantment> holder = entry.getKey();
             int level = enchantments.getLevel(holder);
-            String enchantName = ModUtils.getCharacters(holder, level);
+
+            String enchantName = ModUtils.modifyName(holder, level);
+            if(enchantName == null) {
+                if(isFirst){
+                    player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.wrong_item"),true);
+                    return;
+                }
+                continue;
+            }
+
             if(isFirst){
-                TaoistTalismanItem.setSpell(talisman, enchantName);
-                talisman.enchant(holder, level);
+                TaoistTalismanItem.setSpell(talisman, holder, level);
                 isFirst = false;
             }else {
                 spawnCharacters(enchantName, serverLevel, pos);
@@ -192,19 +202,19 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
-        ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
+        ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
                 pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 0.3, 0.4, 0.3, 5, 0.1);
-        ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.LAVA,
+        ModUtils.spawnParticles(serverLevel, ParticleTypes.LAVA,
                 pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 0.2, 0.3, 0.2, 3, 0.1);
     }
 
     @Override
-    protected VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    protected @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
 
     @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 

@@ -1,11 +1,14 @@
 package net.lghast.jiagu.common.content.entity;
 
 import net.lghast.jiagu.register.content.ModEntityTypes;
+import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
@@ -16,14 +19,19 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class StoneShotEntity extends ThrowableItemProjectile {
     private final float explosion_radius;
     private final float damage;
 
     public StoneShotEntity(EntityType<? extends StoneShotEntity> type, Level level) {
         super(type, level);
-        this.explosion_radius = 1.5f;
+        this.explosion_radius = 1.3f;
         this.damage = 4.0f;
     }
 
@@ -40,16 +48,26 @@ public class StoneShotEntity extends ThrowableItemProjectile {
     private float getDamage() {
         if(getItem().getItem() instanceof BlockItem blockItem){
             float destroyTime = blockItem.getBlock().defaultDestroyTime();
-            if(destroyTime<0){
-                return damage * 15;
-            }
-            return damage * (float) Math.log(1+destroyTime);
+            return damage * getMultiplier(destroyTime);
         }
         return damage;
     }
 
+    private float getMultiplier(float destroyTime){
+        if(destroyTime < 0 ) {
+            return 20f;
+        }
+        double multiplier;
+        if(destroyTime <= 10) {
+            multiplier = -0.0174*destroyTime*destroyTime+0.534*destroyTime+0.4;
+        }else{
+            multiplier = 1.864 * Math.log(destroyTime) - 0.29;
+        }
+        return (float) Math.round(multiplier);
+    }
+
     @Override
-    protected Item getDefaultItem() {
+    protected @NotNull Item getDefaultItem() {
         return Blocks.STONE.asItem();
     }
 
@@ -58,24 +76,54 @@ public class StoneShotEntity extends ThrowableItemProjectile {
         super.onHit(result);
 
         if (!this.level().isClientSide) {
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(),
-                    getRadius(), false, Level.ExplosionInteraction.NONE);
-
-            AABB area = new AABB(
-                    this.getX() - getRadius(), this.getY() - getRadius(), this.getZ() - getRadius(),
-                    this.getX() + getRadius(), this.getY() + getRadius(), this.getZ() + getRadius()
-            );
-
-            for (LivingEntity entity : this.level().getEntitiesOfClass(LivingEntity.class, area)) {
-                if (entity != this.getOwner()) {
-                    entity.hurt(this.damageSources().thrown(this, this.getOwner()), getDamage());
-                }
-            }
-
-            spawnParticles();
-
+            shotExplosionEffect(result.getLocation());
             this.discard();
         }
+    }
+
+    private void shotExplosionEffect(Vec3 explosionPos) {
+        AABB area = new AABB(
+                explosionPos.x - getRadius(), explosionPos.y - getRadius(), explosionPos.z - getRadius(),
+                explosionPos.x + getRadius(), explosionPos.y + getRadius(), explosionPos.z + getRadius()
+        );
+        playExplosionEffects(explosionPos);
+
+        for (LivingEntity entity : this.level().getEntitiesOfClass(LivingEntity.class, area)) {
+            if (entity != this.getOwner()) {
+                double distance = entity.distanceToSqr(explosionPos);
+                double maxDistanceSqr = getRadius() * getRadius();
+
+                if (distance <= maxDistanceSqr) {
+                    entity.hurt(this.damageSources().thrown(this, this.getOwner()), getDamage());
+                    shotKnockback(entity, explosionPos, distance, maxDistanceSqr);
+                }
+            }
+        }
+    }
+
+    private void shotKnockback(LivingEntity entity, Vec3 explosionPos, double distanceSqr, double maxDistanceSqr) {
+        Vec3 direction = entity.position().subtract(explosionPos).normalize();
+        float distanceFactor = 1.0f - (float)(distanceSqr / maxDistanceSqr);
+        float knockbackStrength = 2.0f * distanceFactor;
+
+        entity.setDeltaMovement(
+                entity.getDeltaMovement().add(
+                        direction.x * knockbackStrength,
+                        direction.y * knockbackStrength,
+                        direction.z * knockbackStrength
+                )
+        );
+        entity.hurtMarked = true;
+    }
+
+    private void playExplosionEffects(Vec3 pos) {
+        this.level().playSound(null, pos.x, pos.y, pos.z,
+                SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, 1.0f, 1.0f);
+        if (this.level() instanceof ServerLevel serverLevel) {
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.EXPLOSION, pos.x, pos.y, pos.z,
+                    getRadius()/2, getRadius()/2, getRadius()/2, 3, 0.03);
+        }
+        spawnParticles();
     }
 
     private void spawnParticles() {

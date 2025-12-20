@@ -28,9 +28,12 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class EruditeWenchangAltarBlock extends BaseEntityBlock {
     public static final MapCodec<EruditeWenchangAltarBlock> CODEC = simpleCodec(EruditeWenchangAltarBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -43,12 +46,12 @@ public class EruditeWenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
 
@@ -58,7 +61,7 @@ public class EruditeWenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -72,7 +75,7 @@ public class EruditeWenchangAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
         if (level.getBlockEntity(pos) instanceof EruditeWenchangAltarBlockEntity blockEntity) {
             ItemStack heldItem = player.getMainHandItem();
             int itemCount = state.getValue(ITEM_COUNT);
@@ -152,7 +155,7 @@ public class EruditeWenchangAltarBlock extends BaseEntityBlock {
 
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        if (level.getBlockEntity(pos) instanceof EruditeWenchangAltarBlockEntity blockEntity) {
+        if (level.getBlockEntity(pos) instanceof EruditeWenchangAltarBlockEntity) {
             int itemCount = state.getValue(ITEM_COUNT);
             return switch (itemCount){
                 case 0 -> 0;

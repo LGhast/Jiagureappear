@@ -2,7 +2,7 @@ package net.lghast.jiagu.common.system.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -60,12 +60,12 @@ public class JiaguInfoCommand {
                             }else if(assemblable.length()>12){
                                 source.sendSuccess(() ->
                                                 Component.literal(Component.translatable("commands.jiaguinfo.assembly").getString()
-                                                        + "\n§7" + assemblable + "\n"), false
+                                                        + "\n§7" + assemblable), false
                                 );
                             }else{
                                 source.sendSuccess(() ->
                                         Component.literal(Component.translatable("commands.jiaguinfo.assembly").getString()
-                                                + "§7" + assemblable + "\n"), false
+                                                + "§7" + assemblable), false
                                 );
                             }
 

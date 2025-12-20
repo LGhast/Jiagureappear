@@ -1,7 +1,8 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.config.ClientConfig;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -10,8 +11,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class CharacterItem extends Item{
 
     public static final String INSCRIPTION = "inscription";
@@ -49,28 +52,49 @@ public class CharacterItem extends Item{
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
     }
 
+    public static String getConvertedInscription(ItemStack stack){
+        String inscription = getInscription(stack);
+        if(inscription == null) return null;
+
+        Component component = switch (inscription){
+            case DEFAULT_INSCRIPTION -> Component.translatable("tooltip.jiagureappear.character_item_default");
+            case SIMPLE_INSCRIPTION -> Component.translatable("tooltip.jiagureappear.character_item_simple");
+            case SIMPLE_INSCRIPTION_2 -> Component.translatable("tooltip.jiagureappear.character_item_simple2");
+            case REVERSAL_INSCRIPTION -> Component.translatable("tooltip.jiagureappear.character_item_reversal");
+            case COMPLEX_INSCRIPTION -> Component.translatable("tooltip.jiagureappear.character_item_complex");
+            default ->  Component.literal(inscription);
+        };
+        return component.getString();
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         String inscription = getInscription(stack);
         boolean isNormalInscription = false;
         switch (inscription) {
             case DEFAULT_INSCRIPTION:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item_default", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_default")
+                        .withStyle(ChatFormatting.DARK_GRAY));
                 break;
             case SIMPLE_INSCRIPTION:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item_simple", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_simple")
+                        .withStyle(ChatFormatting.GRAY));
                 break;
             case SIMPLE_INSCRIPTION_2:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item_simple2", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_simple2")
+                        .withStyle(ChatFormatting.GRAY));
                 break;
             case REVERSAL_INSCRIPTION:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item_reversal", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_reversal")
+                        .withStyle(ChatFormatting.GRAY));
                 break;
             case COMPLEX_INSCRIPTION:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item_complex", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item_complex")
+                        .withStyle(ChatFormatting.GRAY));
                 break;
             default:
-                components.add(Component.translatable("tooltip.jiagureappear.character_item", inscription));
+                components.add(Component.translatable("tooltip.jiagureappear.character_item", inscription)
+                        .withStyle(ChatFormatting.GRAY));
                 isNormalInscription = true;
                 break;
         }
@@ -78,7 +102,8 @@ public class CharacterItem extends Item{
             if(ClientConfig.DISPLAY_DISASSEMBLY_INFO.get()) {
                 String from = CharacterInfo.getCharacterDisassembly(inscription);
                 if (from != null) {
-                    components.add(Component.translatable("item.jiagureappear.character.from", from));
+                    components.add(Component.translatable("item.jiagureappear.character.from", from)
+                            .withStyle(ChatFormatting.GRAY));
                 }
             }
 
@@ -91,9 +116,11 @@ public class CharacterItem extends Item{
                         for (char c : toChars) {
                             stringBuilder.append(c).append(" ");
                         }
-                        components.add(Component.translatable("item.jiagureappear.character.to", stringBuilder.toString().trim()));
+                        components.add(Component.translatable("item.jiagureappear.character.to", stringBuilder.toString().trim())
+                                .withStyle(ChatFormatting.GRAY));
                     } else {
-                        components.add(Component.translatable("item.jiagureappear.character.to_long"));
+                        components.add(Component.translatable("item.jiagureappear.character.to_long")
+                                .withStyle(ChatFormatting.GRAY));
                         int groupCount = (toChars.length + 8) / 9;
 
                         for (int i = 0; i < groupCount; i++) {
@@ -103,7 +130,8 @@ public class CharacterItem extends Item{
                             for (int j = start; j < end; j++) {
                                 stringBuilder.append(toChars[j]).append(" ");
                             }
-                            components.add(Component.literal(stringBuilder.toString().trim()));
+                            components.add(Component.literal(stringBuilder.toString().trim())
+                                    .withStyle(ChatFormatting.GRAY));
                         }
                     }
                 }

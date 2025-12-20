@@ -144,6 +144,36 @@
       "predicate": {
         "jiagureappear:prescription": 24.0
       }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/conduit_power",
+      "predicate": {
+        "jiagureappear:prescription": 25.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/weaving",
+      "predicate": {
+        "jiagureappear:prescription": 26.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/oozing",
+      "predicate": {
+        "jiagureappear:prescription": 27.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/infested",
+      "predicate": {
+        "jiagureappear:prescription": 28.0
+      }
+    },
+    {
+      "model": "jiagureappear:item/prescriptions/saturation",
+      "predicate": {
+        "jiagureappear:prescription": 29.0
+      }
     }
   ],
   "textures": {

@@ -25,9 +25,12 @@ import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class BiaoGaleAmethystItem extends Item {
     private int usingTicks = 0;
 
@@ -46,12 +49,12 @@ public class BiaoGaleAmethystItem extends Item {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
@@ -172,11 +175,11 @@ public class BiaoGaleAmethystItem extends Item {
 
     private void spawnParticles(ServerLevel serverLevel, Player player){
         if (usingTicks % 10 == 0) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_SMALL,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.GUST_EMITTER_SMALL,
                     player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
         }
         if (usingTicks % 15 == 0) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.GUST_EMITTER_LARGE,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.GUST_EMITTER_LARGE,
                     player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
         }
     }

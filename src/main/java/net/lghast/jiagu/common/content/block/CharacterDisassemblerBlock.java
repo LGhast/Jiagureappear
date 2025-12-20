@@ -1,15 +1,17 @@
 package net.lghast.jiagu.common.content.block;
 
+import net.lghast.jiagu.common.system.advancement.DisassembleTrigger;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.client.particle.ModParticles;
-import net.lghast.jiagu.utils.CharacterInfo;
-import net.lghast.jiagu.utils.CharacterQuality;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterQuality;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -25,15 +27,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class CharacterDisassemblerBlock extends Block {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
@@ -65,37 +68,41 @@ public class CharacterDisassemblerBlock extends Block {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
+        if (!level.isClientSide() && level instanceof ServerLevel serverLevel && player instanceof ServerPlayer serverPlayer) {
             ItemStack heldItem = player.getItemInHand(InteractionHand.MAIN_HAND);
             if(heldItem.is(ModItems.CHARACTER_ITEM)){
                 String inscription = CharacterItem.getInscription(heldItem);
                 List<String> components = CharacterInfo.getComponents(inscription);
                 int count = state.getValue(ACTIVATED) ? heldItem.getCount() : 1;
-                spawnDisassembledItems(player, count, components, heldItem, serverLevel, pos);
+                if (components != null) {
+                    spawnDisassembledItems(serverPlayer, count, components, heldItem, serverLevel, pos);
+                }
                 return InteractionResult.sidedSuccess(level.isClientSide());
             }
         }
         return InteractionResult.PASS;
     }
 
-    private void spawnDisassembledItems(Player player, int count, List<String> components, ItemStack itemToDisassemble, ServerLevel serverLevel, BlockPos pos){
-        if(components != null && !components.isEmpty()) {
+    private void spawnDisassembledItems(ServerPlayer player, int count, List<String> components, ItemStack itemToDisassemble, ServerLevel serverLevel, BlockPos pos){
+        if(!components.isEmpty()) {
             for (String c : components) {
                 ItemStack characterItem = new ItemStack(ModItems.CHARACTER_ITEM.get());
                 characterItem.setCount(count);
                 CharacterItem.setInscription(characterItem, c);
                 ModUtils.spawnItemWithMotion(serverLevel, pos.getX()+0.5, pos.getY()+0.6, pos.getZ()+0.5, characterItem, false);
+
+                DisassembleTrigger.TRIGGER.get().trigger(player, c);
             }
             if(!player.isCreative()) {
                 itemToDisassemble.shrink(count);
             }
             serverLevel.playSound(null, pos, getSoundEvents(CharacterItem.getInscription(itemToDisassemble)), SoundSource.BLOCKS);
-            ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
+            ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_PARTICLES.get(),
                     pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0.3, 0.4, 0.3, 10, 0.2);
         }else{
             serverLevel.playSound(null, pos, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS);
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SMOKE,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.SMOKE,
                     pos.getX()+0.5, pos.getY()+0.7, pos.getZ()+0.5, 0.2, 0.4, 0.2, 8, 0.01);
         }
     }
@@ -144,11 +151,5 @@ public class CharacterDisassemblerBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING).add(ACTIVATED);
-
-    }
-
-    @Override
-    protected boolean isPathfindable(@NotNull BlockState pState, @NotNull PathComputationType pPathComputationType) {
-        return false;
     }
 }

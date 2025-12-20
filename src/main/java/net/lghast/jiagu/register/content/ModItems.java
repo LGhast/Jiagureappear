@@ -55,10 +55,7 @@ public class ModItems {
             ()-> new TaoistTalismanItem(new Item.Properties()));
 
     public static final DeferredItem<PrescriptionItem> PRESCRIPTION =
-            ITEMS.register("prescription", () ->
-                    new PrescriptionItem(new Item.Properties()
-                            .component(ModDataComponents.PRESCRIPTION.value(), new Prescription())
-                    ));
+            ITEMS.register("prescription", () -> new PrescriptionItem(new Item.Properties()));
 
     public static final DeferredItem<Item> BONE_LAMELLA = ITEMS.register("bone_lamella",
             ()-> new Item(new Item.Properties()));
@@ -96,6 +93,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> LEI_STONES_AMETHYST = ITEMS.register("lei_stones_amethyst",
             ()-> new LeiStonesAmethystItem(new Item.Properties()));
+
+    public static final DeferredItem<Item> DICTIONARY = ITEMS.register("dictionary",
+            ()-> new DictionaryItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

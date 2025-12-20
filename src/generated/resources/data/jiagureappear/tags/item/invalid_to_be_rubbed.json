@@ -5,6 +5,8 @@
     "jiagureappear:prescription",
     "#jiagureappear:amethyst_inscriptions",
     "minecraft:potion",
+    "minecraft:splash_potion",
+    "minecraft:lingering_potion",
     "minecraft:tipped_arrow",
     "minecraft:enchanted_book",
     "minecraft:ominous_bottle"

@@ -14,7 +14,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class ParasiteSporeEntity extends ThrowableItemProjectile {
     private MobEffectInstance effectInstance;
 
@@ -35,13 +39,13 @@ public class ParasiteSporeEntity extends ThrowableItemProjectile {
         super.tick();
         Level level = level();
         if(level instanceof ServerLevel serverLevel){
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.WITCH,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.WITCH,
                     getX(), getY(), getZ(), 0.2, 0.2, 0.2, 1, 0.01);
         }
     }
 
     @Override
-    protected Item getDefaultItem() {
+    protected @NotNull Item getDefaultItem() {
         return ModItems.PARASITE_SPORE.get();
     }
 
@@ -60,12 +64,12 @@ public class ParasiteSporeEntity extends ThrowableItemProjectile {
         super.onHit(result);
         if(level() instanceof ServerLevel serverLevel){
             if(effectInstance.getEffect().value().isBeneficial()){
-                ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.HAPPY_VILLAGER,
+                ModUtils.spawnParticles(serverLevel, ParticleTypes.HAPPY_VILLAGER,
                         getX(), getY(), getZ(), 0.5, 0.5, 0.5, 11, 0.01);
             }else{
-                ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.WITCH,
+                ModUtils.spawnParticles(serverLevel, ParticleTypes.WITCH,
                         getX(), getY(), getZ(), 0.5, 0.5, 0.5, 6, 0.01);
-                ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SCULK_SOUL,
+                ModUtils.spawnParticles(serverLevel, ParticleTypes.SCULK_SOUL,
                         getX(), getY(), getZ(), 0.5, 0.5, 0.5, 5, 0.01);
             }
         }

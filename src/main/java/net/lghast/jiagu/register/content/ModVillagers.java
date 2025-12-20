@@ -24,7 +24,9 @@ public class ModVillagers {
     public static final Holder<VillagerProfession> SCHOLAR = VILLAGER_PROFESSIONS.register("scholar",
             ()->new VillagerProfession("scholar", holder->holder.value() == SCHOLAR_POI.value(),
                     poiTypeHolder -> poiTypeHolder.value() == SCHOLAR_POI.value(),
-                    ImmutableSet.of(Items.BOOK, Items.ENCHANTED_BOOK, Items.BOOKSHELF, Items.WRITABLE_BOOK, Items.WRITTEN_BOOK, Items.KNOWLEDGE_BOOK),
+                    ImmutableSet.of(Items.BOOK, Items.ENCHANTED_BOOK, Items.BOOKSHELF,
+                            Items.WRITABLE_BOOK, Items.WRITTEN_BOOK, Items.KNOWLEDGE_BOOK,
+                            ModItems.DICTIONARY.asItem()),
                     ImmutableSet.of(),
                     SoundEvents.CHISELED_BOOKSHELF_PICKUP));
 

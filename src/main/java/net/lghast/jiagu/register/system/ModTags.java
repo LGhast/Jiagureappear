@@ -89,6 +89,11 @@ public class ModTags {
             ResourceLocation.parse("jiagureappear:amethyst_inscriptions")
     );
 
+    public static final TagKey<Item> PRESCRIPTION_USERS = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.parse("jiagureappear:prescription_users")
+    );
+
     public static final TagKey<Item> IGNITING_ENCHANTABLE = TagKey.create(
             Registries.ITEM,
             ResourceLocation.parse("jiagureappear:enchantable/igniting")

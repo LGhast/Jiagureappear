@@ -22,7 +22,11 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class YiConflagrantAmethystItem extends Item {
     private int cooldownTicks = 0;
 
@@ -42,12 +46,12 @@ public class YiConflagrantAmethystItem extends Item {
 
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
@@ -106,7 +110,7 @@ public class YiConflagrantAmethystItem extends Item {
 
     private void burnVisualEffect(Level level, LivingEntity target){
         if (level instanceof ServerLevel serverLevel) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.FLAME,
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.FLAME,
                     target.getX(), target.getY() + 1.0, target.getZ(), 0.5, 0.5, 0.5, 20, 0.02);
             serverLevel.playSound(null, target.getOnPos(), SoundEvents.GENERIC_BURN, SoundSource.NEUTRAL);
         }

@@ -5,7 +5,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 
 import java.util.*;
 
@@ -37,9 +36,5 @@ public class PrescriptionInfo {
 
     public static float getFloatValue(Holder<MobEffect> effectHolder) {
         return prescriptionMap.getOrDefault(effectHolder, 0.0f);
-    }
-
-    public static Set<Holder<MobEffect>> getConfiguredEffects() {
-        return Collections.unmodifiableSet(prescriptionMap.keySet());
     }
 }

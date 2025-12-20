@@ -17,6 +17,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class EruditeWenchangAltarRenderer implements BlockEntityRenderer<EruditeWenchangAltarBlockEntity> {
     private static final float[] ITEM_POSITIONS = {1.0f, 1.5f, 2.0f, 2.5f};
 

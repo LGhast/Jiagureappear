@@ -4,12 +4,14 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.common.system.datacomponent.Prescription;
+import net.lghast.jiagu.common.system.datacomponent.Spell;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -35,6 +37,31 @@ public class ModDataComponents {
             REGISTRAR.registerComponentType("prescription", builder ->
                     builder.persistent(PRESCRIPTION_CODEC)
                             .networkSynchronized(PRESCRIPTION_STREAM_CODEC)
+            );
+
+    public static final Codec<Spell> SPELL_CODEC = RecordCodecBuilder.create(instance ->
+            instance.group(
+                    Enchantment.CODEC.optionalFieldOf("enchantment").forGetter(Spell::enchantment),
+                    Codec.INT.optionalFieldOf("level", 0).forGetter(Spell::level),
+                    Codec.STRING.optionalFieldOf("spell_name", "").forGetter(Spell::spellName)
+            ).apply(instance, Spell::new)
+    );
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, Spell> SPELL_STREAM_CODEC =
+            StreamCodec.composite(
+                    Enchantment.STREAM_CODEC.apply(ByteBufCodecs::optional),
+                    Spell::enchantment,
+                    ByteBufCodecs.INT,
+                    Spell::level,
+                    ByteBufCodecs.STRING_UTF8,
+                    Spell::spellName,
+                    Spell::new
+            );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Spell>> SPELL =
+            REGISTRAR.registerComponentType("spell", builder ->
+                    builder.persistent(SPELL_CODEC)
+                            .networkSynchronized(SPELL_STREAM_CODEC)
             );
 
     public static void register(IEventBus eventBus){

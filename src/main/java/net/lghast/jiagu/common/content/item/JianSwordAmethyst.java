@@ -20,6 +20,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class JianSwordAmethyst extends SwordItem {
     public JianSwordAmethyst(Tier tier, Properties properties) {
         super(tier, properties);
@@ -56,14 +59,14 @@ public class JianSwordAmethyst extends SwordItem {
                     float baseChance = ServerConfig.JIAN_SWORD_CHARACTER_CHANCE.get().floatValue();
                     float chance = baseChance * (1 + enchantments.getLevel(inquisitivenessHolder) * 0.5f);
                     if(Math.random() < chance){
-                        String entityName = entityKilled instanceof Player? "戲者" : ModUtils.getCharacters(entityKilled);
+                        String entityName = entityKilled instanceof Player? "戲者" : ModUtils.modifyName(entityKilled);
                         for (int i = 0; i < entityName.length(); i++) {
                             char c = entityName.charAt(i);
                             ItemStack characterItem = new ItemStack(ModItems.CHARACTER_ITEM.get());
                             CharacterItem.setInscription(characterItem, c);
                             ModUtils.spawnItemWithMotion(serverLevel, entityKilled.getX(), entityKilled.getY(), entityKilled.getZ(), characterItem, false);
                         }
-                        ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
+                        ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                                 entityKilled.getX(), entityKilled.getY()+0.2, entityKilled.getZ(), 0.6, 0.5, 0.6, 15, 0.04);
                     }
                 }

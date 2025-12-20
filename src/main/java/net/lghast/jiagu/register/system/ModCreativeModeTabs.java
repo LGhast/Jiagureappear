@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
             ()-> CreativeModeTab.builder().icon(()->new ItemStack(ModItems.INFINITE_PAPYRUS.get()))
                     .title(Component.translatable("creativetab.jiagureappear.jiagu_items"))
                     .displayItems((itemDisplayParameters,output)->{
+                        output.accept(ModItems.DICTIONARY);
                         output.accept(ModItems.BONE_LAMELLA);
                         output.accept(ModItems.TURTLE_PLASTRON);
                         output.accept(ModItems.INFINITE_PAPYRUS);

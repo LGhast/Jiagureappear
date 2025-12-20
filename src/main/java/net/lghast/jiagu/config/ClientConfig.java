@@ -67,7 +67,12 @@ public class ClientConfig {
                                 "minecraft:mining_fatigue=21.0",
                                 "minecraft:glowing=22.0",
                                 "minecraft:levitation=23.0",
-                                "minecraft:nausea=24.0"
+                                "minecraft:nausea=24.0",
+                                "minecraft:conduit_power=25.0",
+                                "minecraft:weaving=26.0",
+                                "minecraft:oozing=27.0",
+                                "minecraft:infested=28.0",
+                                "minecraft:saturation=29.0"
                         ),
                         null,
                         it -> it instanceof String && ((String) it).matches("[a-z0-9_.]+:[a-z0-9_.]+=[0-9]+(\\.[0-9]+)?")

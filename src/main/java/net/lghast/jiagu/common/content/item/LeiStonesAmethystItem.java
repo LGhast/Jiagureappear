@@ -5,6 +5,7 @@ import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.register.system.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,9 +23,12 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class LeiStonesAmethystItem extends Item {
     private int usingTicks = 0;
 
@@ -43,7 +47,7 @@ public class LeiStonesAmethystItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
 
         if (player.getCooldowns().isOnCooldown(this)) {
@@ -112,7 +116,7 @@ public class LeiStonesAmethystItem extends Item {
         player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
                 SoundEvents.DISPENSER_FAIL, SoundSource.NEUTRAL);
         if(player.level() instanceof ServerLevel serverLevel) {
-            ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SMOKE, player.getX(), player.getY()+1, player.getZ(),
+            ModUtils.spawnParticles(serverLevel, ParticleTypes.SMOKE, player.getX(), player.getY()+1, player.getZ(),
                     0.5, 0.5, 0.5, 15, 0.01);
         }
     }
@@ -169,17 +173,19 @@ public class LeiStonesAmethystItem extends Item {
         if (player != null) {
             ItemStack stoneStack = getStoneStack(player);
             if(stoneStack.isEmpty()){
-                components.add(Component.translatable("tooltip.jiagureappear.shot_no"));
+                components.add(Component.translatable("tooltip.jiagureappear.shot_no")
+                        .withStyle(ChatFormatting.DARK_GRAY));
             }else {
                 String shotName = stoneStack.getHoverName().getString();
-                components.add(Component.translatable("tooltip.jiagureappear.shot", shotName));
+                components.add(Component.translatable("tooltip.jiagureappear.shot", shotName)
+                        .withStyle(ChatFormatting.GRAY));
             }
         }
         super.appendHoverText(stack, context, components, tooltipFlag);
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
     }
 

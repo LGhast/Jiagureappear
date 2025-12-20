@@ -17,5 +17,17 @@ public class NetworkRegistry {
                 OpenPrescriptionGuiPayload.STREAM_CODEC,
                 OpenPrescriptionGuiPayload::handle
         );
+
+        registrar.playToServer(
+                JiaguInfoSearchPayload.TYPE,
+                JiaguInfoSearchPayload.STREAM_CODEC,
+                JiaguInfoSearchPayload::handle
+        );
+
+        registrar.playToServer(
+                CraftPrescriptionPayload.TYPE,
+                CraftPrescriptionPayload.STREAM_CODEC,
+                CraftPrescriptionPayload::handle
+        );
     }
 }

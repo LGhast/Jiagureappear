@@ -4,7 +4,7 @@
   "key": {
     "D": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "又"
+      "inscription": "simple"
     },
     "L": {
       "type": "jiagureappear:character_ingredient",
@@ -12,7 +12,7 @@
     },
     "R": {
       "type": "jiagureappear:character_ingredient",
-      "inscription": "simple"
+      "inscription": "又"
     }
   },
   "pattern": [

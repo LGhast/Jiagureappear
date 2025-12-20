@@ -7,7 +7,7 @@ import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.register.content.ModPotions;
 import net.lghast.jiagu.register.content.ModVillagers;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;

@@ -1,0 +1,41 @@
+{
+  "type": "jiagureappear:character_assembling",
+  "category": "misc",
+  "key": {
+    "A": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "爪"
+    },
+    "B": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "爪"
+    },
+    "C": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    },
+    "D": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "又"
+    },
+    "M": {
+      "type": "jiagureappear:character_ingredient",
+      "inscription": "牙"
+    }
+  },
+  "pattern": [
+    "A B",
+    " M ",
+    "C D"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "與"
+      }
+    },
+    "count": 1,
+    "id": "jiagureappear:character"
+  },
+  "result_inscription": "與"
+}

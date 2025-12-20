@@ -14,6 +14,9 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class WenchangAltarRenderer implements BlockEntityRenderer<WenchangAltarBlockEntity> {
     public WenchangAltarRenderer(BlockEntityRendererProvider.Context context) {}
 

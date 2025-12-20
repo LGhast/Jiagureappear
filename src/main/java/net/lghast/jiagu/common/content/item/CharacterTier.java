@@ -6,7 +6,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public enum CharacterTier implements Tier {
     AMETHYST(3.0f, 1234, 8.0F, 18, Ingredient.of(Items.AMETHYST_SHARD), BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
 
@@ -42,7 +46,7 @@ public enum CharacterTier implements Tier {
     }
 
     @Override
-    public TagKey<Block> getIncorrectBlocksForDrops() {
+    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
         return incorrectBlocksForDrops;
     }
 
@@ -52,7 +56,7 @@ public enum CharacterTier implements Tier {
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return repairIngredient;
     }
 }

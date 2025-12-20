@@ -15,10 +15,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
 public class GoldBricksBlock extends Block {
-
     private static final int EFFECT_DURATION = 100;
     private static final int CHECK_INTERVAL = 20;
 

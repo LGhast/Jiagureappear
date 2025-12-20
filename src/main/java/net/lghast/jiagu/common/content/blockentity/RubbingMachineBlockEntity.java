@@ -17,8 +17,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
     private int rubbingTicks = 0;
@@ -44,7 +47,7 @@ public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity 
 
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    protected @NotNull NonNullList<ItemStack> getItems() {
         return items;
     }
 
@@ -64,7 +67,7 @@ public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity 
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected @NotNull Component getDefaultName() {
         return Component.translatable("container.rubbing_machine");
     }
 
@@ -76,9 +79,7 @@ public class RubbingMachineBlockEntity extends RandomizableContainerBlockEntity 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
         if (slot == 0) {
-            return !stack.is(ModTags.INVALID_TO_CHARACTERS) &&
-                    (!ServerConfig.RUBBING_MACHINE_CUSTOM_NAME_CHECK.get() ||
-                            !stack.has(DataComponents.CUSTOM_NAME));
+            return !stack.is(ModTags.INVALID_TO_CHARACTERS);
         } else if (slot == 1) {
             return stack.is(ModTags.RUBBING_INKS);
         }

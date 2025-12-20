@@ -1,8 +1,9 @@
 package net.lghast.jiagu.config;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.utils.CharacterInfo;
+import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.lghast.jiagu.utils.PrescriptionInfo;
+import net.lghast.jiagu.utils.lzh.LzhMappings;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -17,6 +18,7 @@ public class ConfigEventHandler {
         }
         if (event.getConfig().getSpec() == ServerConfig.SPEC) {
             CharacterInfo.reloadFromConfig();
+            LzhMappings.initialize();
         }
     }
 
@@ -27,6 +29,7 @@ public class ConfigEventHandler {
         }
         if (event.getConfig().getSpec() == ServerConfig.SPEC) {
             CharacterInfo.reloadFromConfig();
+            LzhMappings.reloadFromConfig();
         }
     }
 }

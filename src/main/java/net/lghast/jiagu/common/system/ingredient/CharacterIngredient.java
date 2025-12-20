@@ -65,13 +65,11 @@ public class CharacterIngredient implements ICustomIngredient {
     );
 
     @Override
-    public IngredientType<?> getType() {
+    public @NotNull IngredientType<?> getType() {
         return ModIngredientTypes.CHARACTER_INGREDIENT.get();
     }
 
     public String getInscription() {
         return this.INSCRIPTION;
     }
-
-
 }

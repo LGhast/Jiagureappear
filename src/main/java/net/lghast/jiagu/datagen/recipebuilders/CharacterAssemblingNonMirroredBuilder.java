@@ -19,13 +19,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@ParametersAreNonnullByDefault
 public class CharacterAssemblingNonMirroredBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final ItemStack result;
@@ -35,7 +38,6 @@ public class CharacterAssemblingNonMirroredBuilder implements RecipeBuilder {
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
     @Nullable
     private String group;
-    private boolean showNotification = true;
     private final String identifier;
 
     public CharacterAssemblingNonMirroredBuilder(RecipeCategory category, ItemStack result,
@@ -64,7 +66,7 @@ public class CharacterAssemblingNonMirroredBuilder implements RecipeBuilder {
     }
 
     public CharacterAssemblingNonMirroredBuilder pattern(String pattern) {
-        if (!this.rows.isEmpty() && pattern.length() != this.rows.get(0).length()) {
+        if (!this.rows.isEmpty() && pattern.length() != this.rows.getFirst().length()) {
             throw new IllegalArgumentException("Pattern must be the same width on every line!");
         } else {
             this.rows.add(pattern);
@@ -73,24 +75,19 @@ public class CharacterAssemblingNonMirroredBuilder implements RecipeBuilder {
     }
 
     @Override
-    public CharacterAssemblingNonMirroredBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public @NotNull CharacterAssemblingNonMirroredBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
         return this;
     }
 
     @Override
-    public CharacterAssemblingNonMirroredBuilder group(@Nullable String groupName) {
+    public @NotNull CharacterAssemblingNonMirroredBuilder group(@Nullable String groupName) {
         this.group = groupName;
         return this;
     }
 
-    public CharacterAssemblingNonMirroredBuilder showNotification(boolean show) {
-        this.showNotification = show;
-        return this;
-    }
-
     @Override
-    public Item getResult() {
+    public @NotNull Item getResult() {
         return this.result.getItem();
     }
 
@@ -110,13 +107,14 @@ public class CharacterAssemblingNonMirroredBuilder implements RecipeBuilder {
         ResourceLocation recipeId = ResourceLocation.parse(
                 id.getNamespace() + ":character_assembling/" + this.identifier
         );
+        boolean showNotification = true;
         CharacterAssemblingNonMirrored recipe = new CharacterAssemblingNonMirrored(
                 Objects.requireNonNullElse(this.group, ""),
                 RecipeBuilder.determineBookCategory(this.category),
                 pattern,
                 this.result.copy(),
                 this.resultInscription,
-                this.showNotification
+                showNotification
         );
         if(recipe.result.is(ModItems.CHARACTER_ITEM.get())) {
             CharacterItem.setInscription(recipe.result, this.resultInscription);

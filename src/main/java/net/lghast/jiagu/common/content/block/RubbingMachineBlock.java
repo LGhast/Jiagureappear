@@ -3,7 +3,6 @@ package net.lghast.jiagu.common.content.block;
 import com.mojang.serialization.MapCodec;
 import net.lghast.jiagu.common.content.blockentity.RubbingMachineBlockEntity;
 import net.lghast.jiagu.common.content.item.CharacterItem;
-import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.client.particle.ModParticles;
@@ -36,10 +35,13 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.*;
 
+@ParametersAreNonnullByDefault
 public class RubbingMachineBlock extends BaseEntityBlock {
     public static final MapCodec<RubbingMachineBlock> CODEC = simpleCodec(RubbingMachineBlock::new);
     public static final BooleanProperty TRIGGERED = BlockStateProperties.TRIGGERED;
@@ -57,12 +59,12 @@ public class RubbingMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -116,18 +118,18 @@ public class RubbingMachineBlock extends BaseEntityBlock {
                 blockEntity.startMorphing();
                 Direction direction = state.getValue(ORIENTATION).front();
 
-                if (ServerConfig.RUBBING_MACHINE_CUSTOM_NAME_CHECK.get() && reference.has(DataComponents.CUSTOM_NAME)) {
-                    rubbingFailure(level, pos);
-                    return;
-                }
-
                 BlockEntity backEntity = getBackBlockEntity(level, pos, direction);
                 if(!(backEntity instanceof RandomizableContainerBlockEntity chestEntity)){
                     rubbingFailure(level, pos);
                     return;
                 }
 
-                String rubbingName = reference.getHoverName().getString();
+                String rubbingName = ModUtils.modifyName(reference);
+                if(rubbingName == null){
+                    rubbingFailure(level, pos);
+                    return;
+                }
+
                 Map<Character, Integer> requiredChars = countCharacters(rubbingName);
                 if (requiredChars.isEmpty()) {
                     rubbingFailure(level, pos);
@@ -167,7 +169,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
 
     private void rubbingFailure(ServerLevel level, BlockPos pos){
         level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS);
-        ModUtils.spawnParticlesForAll(level, ParticleTypes.SMOKE,
+        ModUtils.spawnParticles(level, ParticleTypes.SMOKE,
                 pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
                 0.3, 0.4, 0.3, 10, 0.05);
     }
@@ -236,7 +238,7 @@ public class RubbingMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof RubbingMachineBlockEntity blockEntity) {
             ItemStack heldItem = player.getMainHandItem();
             ItemStack referenceSlotItem = blockEntity.getItem(0);
@@ -306,9 +308,9 @@ public class RubbingMachineBlock extends BaseEntityBlock {
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
-        ModUtils.spawnParticlesForAll(serverLevel, ParticleTypes.SQUID_INK,
+        ModUtils.spawnParticles(serverLevel, ParticleTypes.SQUID_INK,
                 pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.3, 0.3, 3, 0.1);
-        ModUtils.spawnParticlesForAll(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
+        ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                 pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.3, 0.3, 0.3, 5, 0.2);
     }
 

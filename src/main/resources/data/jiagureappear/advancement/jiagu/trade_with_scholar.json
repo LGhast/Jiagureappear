@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:writable_book"
+    },
+    "title": {
+      "translate": "advancements.jiagureappear.trade_with_scholar.title"
+    },
+    "description": {
+      "translate": "advancements.jiagureappear.trade_with_scholar.description"
+    },
+    "announce_to_chat": true,
+    "frame": "goal"
+  },
+  "parent": "jiagureappear:jiagu/rub",
+  "criteria": {
+    "trade": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{profession:\"jiagureappear:scholar\"}}"
+        }
+      }
+    }
+  }
+}

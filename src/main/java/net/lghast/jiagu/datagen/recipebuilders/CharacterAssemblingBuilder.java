@@ -17,14 +17,18 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
+@ParametersAreNonnullByDefault
 public class CharacterAssemblingBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final ItemStack result;
@@ -34,7 +38,6 @@ public class CharacterAssemblingBuilder implements RecipeBuilder {
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
     @Nullable
     private String group;
-    private boolean showNotification = true;
     private final String identifier;
 
     public CharacterAssemblingBuilder(RecipeCategory category, ItemStack result,
@@ -63,7 +66,7 @@ public class CharacterAssemblingBuilder implements RecipeBuilder {
     }
 
     public CharacterAssemblingBuilder pattern(String pattern) {
-        if (!this.rows.isEmpty() && pattern.length() != this.rows.get(0).length()) {
+        if (!this.rows.isEmpty() && pattern.length() != this.rows.getFirst().length()) {
             throw new IllegalArgumentException("Pattern must be the same width on every line!");
         } else {
             this.rows.add(pattern);
@@ -72,24 +75,19 @@ public class CharacterAssemblingBuilder implements RecipeBuilder {
     }
 
     @Override
-    public CharacterAssemblingBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public @NotNull CharacterAssemblingBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
         return this;
     }
 
     @Override
-    public CharacterAssemblingBuilder group(@Nullable String groupName) {
+    public @NotNull CharacterAssemblingBuilder group(@Nullable String groupName) {
         this.group = groupName;
         return this;
     }
 
-    public CharacterAssemblingBuilder showNotification(boolean show) {
-        this.showNotification = show;
-        return this;
-    }
-
     @Override
-    public Item getResult() {
+    public @NotNull Item getResult() {
         return this.result.getItem();
     }
 
@@ -109,13 +107,14 @@ public class CharacterAssemblingBuilder implements RecipeBuilder {
         ResourceLocation recipeId = ResourceLocation.parse(
                 id.getNamespace() + ":character_assembling/" + this.identifier
         );
+        boolean showNotification = true;
         CharacterAssembling recipe = new CharacterAssembling(
                 Objects.requireNonNullElse(this.group, ""),
                 RecipeBuilder.determineBookCategory(this.category),
                 pattern,
                 this.result.copy(),
                 this.resultInscription,
-                this.showNotification
+                showNotification
         );
         if(recipe.result.is(ModItems.CHARACTER_ITEM.get())) {
             CharacterItem.setInscription(recipe.result, this.resultInscription);
