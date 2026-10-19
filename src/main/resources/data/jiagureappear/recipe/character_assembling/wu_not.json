@@ -1,0 +1,37 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "勿"
+      }
+    }
+  },
+  "result_inscription": "勿",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "刀",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " MR",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

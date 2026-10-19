@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "刺"
+      }
+    }
+  },
+  "result_inscription": "刺",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "朿",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "刀",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

@@ -4,7 +4,7 @@ import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.common.system.menu.YaowangGourdMenu;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.content.ModItems;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
+import net.lghast.jiagu.lzh.LzhMappings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;

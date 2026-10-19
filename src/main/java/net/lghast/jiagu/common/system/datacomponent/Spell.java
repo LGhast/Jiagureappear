@@ -1,7 +1,6 @@
 package net.lghast.jiagu.common.system.datacomponent;
 
 import net.lghast.jiagu.utils.ModUtils;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.enchantment.Enchantment;
 

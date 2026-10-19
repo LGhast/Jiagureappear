@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "種"
+      }
+    }
+  },
+  "result_inscription": "種",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "禾",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "重",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

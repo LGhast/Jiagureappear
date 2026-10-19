@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "莽"
+      }
+    }
+  },
+  "result_inscription": "莽",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "艸",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "犬",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "艸",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

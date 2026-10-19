@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "疲"
+      }
+    }
+  },
+  "result_inscription": "疲",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "疒",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "皮",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.item;
 
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
@@ -126,7 +126,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
 
     @Override
     protected int getCooldownTicks(@NotNull ItemStack stack, @NotNull Level level){
-        int cooldown = ServerConfig.YI_CURE_COOLDOWN_TIME.get();
+        int cooldown = CommonConfig.YI_CURE_COOLDOWN_TIME.get();
         Holder<Enchantment> hippocratesHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.HIPPOCRATES);
         return (int) Math.max(20, cooldown * (1 - stack.getEnchantmentLevel(hippocratesHolder)*0.12));
@@ -134,7 +134,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
 
     @Override
     protected int getAmplifier(@NotNull ItemStack stack, @NotNull Level level){
-        int amplifier = ServerConfig.YI_CURE_BASE_AMPLIFIER.get();
+        int amplifier = CommonConfig.YI_CURE_BASE_AMPLIFIER.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
         return amplifier + stack.getEnchantmentLevel(panaceaHolder)/3;
@@ -142,7 +142,7 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
 
     @Override
     protected int getDuration(@NotNull ItemStack stack, @NotNull Level level){
-        int duration = ServerConfig.YI_CURE_BASE_DURATION.get();
+        int duration = CommonConfig.YI_CURE_BASE_DURATION.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
         return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder)*0.35));

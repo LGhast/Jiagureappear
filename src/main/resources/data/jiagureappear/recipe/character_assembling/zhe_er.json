@@ -1,0 +1,41 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "者"
+      }
+    }
+  },
+  "result_inscription": "者",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "木",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "口",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LMR",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

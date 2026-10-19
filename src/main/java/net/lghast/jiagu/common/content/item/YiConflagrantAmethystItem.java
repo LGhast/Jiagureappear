@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.item;
 
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.register.system.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
@@ -120,13 +120,13 @@ public class YiConflagrantAmethystItem extends Item {
         Holder<Enchantment> cremationHolder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.CREMATION);
-        int baseInterval = ServerConfig.YI_CONFLAGRANT_ATTACK_INTERVAL.get();
+        int baseInterval = CommonConfig.YI_CONFLAGRANT_ATTACK_INTERVAL.get();
         return Math.max(1, baseInterval * (1.0f - (stack.getEnchantmentLevel(cremationHolder) * 0.17f)));
     }
 
     private float getDamage(LivingEntity target) {
-        float baseDamage = ServerConfig.YI_CONFLAGRANT_BASE_DAMAGE.get().floatValue();
-        boolean extraDamageToFur = ServerConfig.YI_CONFLAGRANT_EXTRA_DAMAGE_TO_FUR.get();
+        float baseDamage = CommonConfig.YI_CONFLAGRANT_BASE_DAMAGE.get().floatValue();
+        boolean extraDamageToFur = CommonConfig.YI_CONFLAGRANT_EXTRA_DAMAGE_TO_FUR.get();
 
         if (extraDamageToFur && target.getType().is(ModTags.MOBS_WITH_FUR)) {
             return Math.random() < 0.4 ? baseDamage * 2 : baseDamage;

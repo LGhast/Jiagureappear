@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "譎"
+      }
+    }
+  },
+  "result_inscription": "譎",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "言",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "矞",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

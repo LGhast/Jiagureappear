@@ -12,7 +12,7 @@ import net.lghast.jiagu.network.OpenPrescriptionGuiPayload;
 import net.lghast.jiagu.register.system.ModMenus;
 import net.lghast.jiagu.register.system.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
+import net.lghast.jiagu.lzh.LzhMappings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;

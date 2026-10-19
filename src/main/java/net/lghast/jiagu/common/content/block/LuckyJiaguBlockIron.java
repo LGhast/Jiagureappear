@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.block;
 
-import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.character.CharacterInfo;
 
 public class LuckyJiaguBlockIron extends LuckyJiaguBlock {
 

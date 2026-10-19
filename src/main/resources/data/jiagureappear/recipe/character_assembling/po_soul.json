@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "魄"
+      }
+    }
+  },
+  "result_inscription": "魄",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "白",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "鬼",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

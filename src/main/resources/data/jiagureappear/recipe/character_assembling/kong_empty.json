@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "空"
+      }
+    }
+  },
+  "result_inscription": "空",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "穴",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "工",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

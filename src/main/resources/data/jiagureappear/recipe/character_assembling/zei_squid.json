@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "鰂"
+      }
+    }
+  },
+  "result_inscription": "鰂",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "魚",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "則",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

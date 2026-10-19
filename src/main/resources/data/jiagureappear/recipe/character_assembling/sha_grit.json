@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "砂"
+      }
+    }
+  },
+  "result_inscription": "砂",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "石",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "少",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

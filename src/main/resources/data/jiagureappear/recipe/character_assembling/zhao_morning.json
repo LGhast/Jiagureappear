@@ -1,0 +1,37 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "朝"
+      }
+    }
+  },
+  "result_inscription": "朝",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "屮",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "日",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "月",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "屮",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " MR",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

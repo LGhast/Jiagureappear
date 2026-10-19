@@ -1,7 +1,7 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.client.particle.ModParticles;
@@ -43,7 +43,7 @@ public class JianSwordAmethyst extends SwordItem {
             if (entityKilled.level().isClientSide) return;
             if(!(entityKilled.level() instanceof ServerLevel serverLevel)) return;
 
-            if(ServerConfig.JIAN_SWORD_CUSTOM_NAME_CHECK.get() && !(entityKilled instanceof Player)) {
+            if(CommonConfig.JIAN_SWORD_CUSTOM_NAME_CHECK.get() && !(entityKilled instanceof Player)) {
                 if (entityKilled.hasCustomName()) return;
             }
 
@@ -56,7 +56,7 @@ public class JianSwordAmethyst extends SwordItem {
                             .getHolderOrThrow(ModEnchantments.INQUISITIVENESS);
                     ItemEnchantments enchantments = mainHandItem.getTagEnchantments();
 
-                    float baseChance = ServerConfig.JIAN_SWORD_CHARACTER_CHANCE.get().floatValue();
+                    float baseChance = CommonConfig.JIAN_SWORD_CHARACTER_CHANCE.get().floatValue();
                     float chance = baseChance * (1 + enchantments.getLevel(inquisitivenessHolder) * 0.5f);
                     if(Math.random() < chance){
                         String entityName = entityKilled instanceof Player? "戲者" : ModUtils.modifyName(entityKilled);

@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "令"
+      }
+    }
+  },
+  "result_inscription": "令",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "亼",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "卩",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

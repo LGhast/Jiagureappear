@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "拓"
+      }
+    }
+  },
+  "result_inscription": "拓",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "手",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "石",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

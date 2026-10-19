@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "僉"
+      }
+    }
+  },
+  "result_inscription": "僉",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "亼",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "兄",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "兄",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    "L R",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

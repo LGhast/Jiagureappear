@@ -1,7 +1,7 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.common.content.entity.StoneShotEntity;
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.register.system.ModTags;
 import net.lghast.jiagu.utils.ModUtils;
@@ -122,14 +122,14 @@ public class LeiStonesAmethystItem extends Item {
     }
 
     private int getCooldownTicks() {
-        return ServerConfig.LEI_STONES_COOLDOWN_TIME.get();
+        return CommonConfig.LEI_STONES_COOLDOWN_TIME.get();
     }
 
     private float getDamage(Level level, ItemStack stack) {
         Holder<Enchantment> massivenessHolder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.MASSIVENESS);
-        float baseDamage = ServerConfig.LEI_STONES_BASE_DAMAGE.get().floatValue();
+        float baseDamage = CommonConfig.LEI_STONES_BASE_DAMAGE.get().floatValue();
         int massivenessLevel = stack.getEnchantmentLevel(massivenessHolder);
         return baseDamage * (1 + massivenessLevel * 0.3f);
     }
@@ -138,17 +138,17 @@ public class LeiStonesAmethystItem extends Item {
         Holder<Enchantment> aftershockHolder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.AFTERSHOCK);
-        float baseRadius = ServerConfig.LEI_STONES_BASE_RADIUS.get().floatValue();
+        float baseRadius = CommonConfig.LEI_STONES_BASE_RADIUS.get().floatValue();
         int aftershockLevel = stack.getEnchantmentLevel(aftershockHolder);
         return baseRadius + aftershockLevel * 0.4f;
     }
 
     private float getVelocityMin() {
-        return ServerConfig.LEI_STONES_PROJECTILE_VELOCITY_MIN.get().floatValue();
+        return CommonConfig.LEI_STONES_PROJECTILE_VELOCITY_MIN.get().floatValue();
     }
 
     private float getVelocityBonusMax() {
-        return ServerConfig.LEI_STONES_PROJECTILE_VELOCITY_MAX.get().floatValue();
+        return CommonConfig.LEI_STONES_PROJECTILE_VELOCITY_MAX.get().floatValue();
     }
 
     private ItemStack getStoneStack(Player player) {

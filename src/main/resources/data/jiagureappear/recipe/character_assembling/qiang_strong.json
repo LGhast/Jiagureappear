@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "強"
+      }
+    }
+  },
+  "result_inscription": "強",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "弘",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "虫",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

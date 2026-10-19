@@ -6,13 +6,19 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.system.ModSerializers;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class CharacterAssemblingNonMirrored extends NonMirroredRecipe {
     public final String result_inscription;
 
@@ -20,19 +26,20 @@ public class CharacterAssemblingNonMirrored extends NonMirroredRecipe {
         super(group, category, pattern, result, showNotification);
         this.result_inscription = result_inscription;
         if(result.is(ModItems.CHARACTER_ITEM.get())){
+            result.remove(DataComponents.CUSTOM_DATA);
             CharacterItem.setInscription(result, result_inscription);
         }
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return ModSerializers.CHARACTER_ASSEMBLING_NON_MIRRORED.get();
     }
 
     public static class Serializer implements RecipeSerializer<CharacterAssemblingNonMirrored> {
         public static final MapCodec<CharacterAssemblingNonMirrored> CODEC = RecordCodecBuilder.mapCodec(
                 instance -> instance.group(
-                        Codec.STRING.optionalFieldOf("group", "").forGetter(recipe -> recipe.getGroup()),
+                        Codec.STRING.optionalFieldOf("group", "").forGetter(Recipe::getGroup),
                         CraftingBookCategory.CODEC.fieldOf("category").orElse(CraftingBookCategory.MISC).forGetter(recipe -> recipe.category),
                         ShapedRecipePattern.MAP_CODEC.forGetter(recipe -> recipe.pattern),
                         ItemStack.STRICT_CODEC.fieldOf("result").forGetter(recipe -> recipe.result),
@@ -42,12 +49,12 @@ public class CharacterAssemblingNonMirrored extends NonMirroredRecipe {
         );
 
         @Override
-        public MapCodec<CharacterAssemblingNonMirrored> codec() {
+        public @NotNull MapCodec<CharacterAssemblingNonMirrored> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, CharacterAssemblingNonMirrored> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, CharacterAssemblingNonMirrored> streamCodec() {
             return STREAM_CODEC;
         }
 

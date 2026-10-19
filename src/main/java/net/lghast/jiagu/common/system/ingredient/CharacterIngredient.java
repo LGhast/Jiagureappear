@@ -6,10 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.lghast.jiagu.register.system.ModIngredientTypes;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 import net.neoforged.neoforge.common.crafting.ICustomIngredient;
 import net.neoforged.neoforge.common.crafting.IngredientType;
 import org.jetbrains.annotations.NotNull;
@@ -33,23 +30,13 @@ public class CharacterIngredient implements ICustomIngredient {
     public boolean test(ItemStack stack) {
         if(stack.isEmpty()) return false;
         if(!stack.is(ModItems.CHARACTER_ITEM.get())) return false;
-        CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
-        if (customData != null) {
-            CompoundTag tag = customData.copyTag();
-            if (tag.contains(CharacterItem.INSCRIPTION)) {
-                String itemInscription = tag.getString(CharacterItem.INSCRIPTION);
-                return itemInscription.equals(INSCRIPTION);
-            }
-        }
-        return false;
+        return INSCRIPTION.equals(CharacterItem.getInscription(stack));
     }
 
     @Override
     public @NotNull Stream<ItemStack> getItems() {
         ItemStack stack = new ItemStack(ModItems.CHARACTER_ITEM.get());
-        CompoundTag tag =new CompoundTag();
-        tag.putString(CharacterItem.INSCRIPTION, INSCRIPTION);
-        CharacterItem.setInscription(stack,INSCRIPTION);
+        CharacterItem.setInscription(stack, INSCRIPTION);
         return Stream.of(stack);
     }
 

@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "醫"
+      }
+    }
+  },
+  "result_inscription": "醫",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "医",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "殳",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "酉",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "D  "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

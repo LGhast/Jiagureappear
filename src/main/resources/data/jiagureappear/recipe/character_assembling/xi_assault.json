@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "襲"
+      }
+    }
+  },
+  "result_inscription": "襲",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "龍",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "龍",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "衣",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

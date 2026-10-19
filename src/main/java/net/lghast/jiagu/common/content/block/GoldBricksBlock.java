@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.block;
 
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -50,7 +50,7 @@ public class GoldBricksBlock extends Block {
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
         if (level.isClientSide) return;
-        if(!ServerConfig.GOLD_BRICKS_EFFECT.get()) return;
+        if(!CommonConfig.GOLD_BRICKS_EFFECT.get()) return;
 
         List<Entity> entities = level.getEntities(null, new AABB(pos));
         for (Entity entity : entities) {

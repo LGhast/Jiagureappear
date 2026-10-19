@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "英"
+      }
+    }
+  },
+  "result_inscription": "英",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "艸",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "央",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

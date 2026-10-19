@@ -2,31 +2,14 @@ package net.lghast.jiagu.datagen;
 
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.register.content.ModItems;
-import net.lghast.jiagu.utils.lzh.CharacterInfo;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-import java.util.Comparator;
-import java.util.List;
-
 public class ModItemModelProvider extends ItemModelProvider {
-
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, JiaguReappear.MOD_ID, existingFileHelper);
     }
-
-    private static final List<InscriptionModel> INSCRIPTIONS =
-            CharacterInfo.CHARACTER_DATA.entrySet().stream()
-                    .map(entry -> new InscriptionModel(
-                            entry.getKey(),
-                            entry.getValue().floatValue(),
-                            entry.getValue().identifier()
-                    ))
-                    .sorted(Comparator.comparingDouble(InscriptionModel::predicateValue))
-                    .toList();
 
     @Override
     protected void registerModels() {
@@ -50,27 +33,5 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BIAO_GALE_AMETHYST.get());
         basicItem(ModItems.AMETHYST_UPGRADE_SMITHING_TEMPLATE.get());
         basicItem(ModItems.DICTIONARY.get());
-
-        withExistingParent("item/characters/default", "minecraft:item/generated")
-                .texture("layer0", modLoc("item/characters/default"));
-
-        for (InscriptionModel model : INSCRIPTIONS) {
-            withExistingParent("item/characters/" + model.modelName(), "minecraft:item/generated")
-                    .texture("layer0", modLoc("item/characters/" + model.modelName()));
-        }
-
-        ItemModelBuilder characterBuilder = withExistingParent("item/character", "minecraft:item/generated")
-                .texture("layer0", modLoc("item/characters/default"));
-
-        ResourceLocation predicateId = ResourceLocation.parse("jiagureappear:inscription");
-
-        for (InscriptionModel model : INSCRIPTIONS) {
-            characterBuilder = characterBuilder.override()
-                    .predicate(predicateId, model.predicateValue())
-                    .model(getExistingFile(modLoc("item/characters/" + model.modelName())))
-                    .end();
-        }
     }
-
-    private record InscriptionModel(String character, float predicateValue, String modelName) {}
 }

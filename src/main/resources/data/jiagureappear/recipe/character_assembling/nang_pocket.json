@@ -1,0 +1,37 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "囊"
+      }
+    }
+  },
+  "result_inscription": "囊",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "橐",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "土",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "complex",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "又",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LMR",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

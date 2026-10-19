@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.block;
 
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
@@ -47,6 +47,6 @@ public class YolimeBlock extends SlimeBlock {
     }
 
     private double getBounceVelocityCap(){
-        return ServerConfig.YOLIME_BLOCK_BOUNCE_VELOCITY_CAP.get();
+        return CommonConfig.YOLIME_BLOCK_BOUNCE_VELOCITY_CAP.get();
     }
 }

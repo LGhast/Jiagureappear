@@ -6,6 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.system.ModSerializers;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
@@ -13,7 +14,11 @@ import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class CharacterAssembling extends ShapedRecipe {
     public final String result_inscription;
     public final ItemStack result;
@@ -27,12 +32,13 @@ public class CharacterAssembling extends ShapedRecipe {
         this.result=result;
         this.showNotification=showNotification;
         if(result.is(ModItems.CHARACTER_ITEM.get())){
+            result.remove(DataComponents.CUSTOM_DATA);
             CharacterItem.setInscription(result, result_inscription);
         }
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return ModSerializers.CHARACTER_ASSEMBLING.get();
     }
 
@@ -43,7 +49,7 @@ public class CharacterAssembling extends ShapedRecipe {
     public static class Serializer implements RecipeSerializer<CharacterAssembling> {
         public static final MapCodec<CharacterAssembling> CODEC = RecordCodecBuilder.mapCodec(
                 instance -> instance.group(
-                        Codec.STRING.optionalFieldOf("group", "").forGetter(recipe -> recipe.getGroup()),
+                        Codec.STRING.optionalFieldOf("group", "").forGetter(ShapedRecipe::getGroup),
                         CraftingBookCategory.CODEC.fieldOf("category").orElse(CraftingBookCategory.MISC).forGetter(recipe -> recipe.category),
                         ShapedRecipePattern.MAP_CODEC.forGetter(recipe -> recipe.pattern),
                         ItemStack.STRICT_CODEC.fieldOf("result").forGetter(recipe -> recipe.result),
@@ -53,12 +59,12 @@ public class CharacterAssembling extends ShapedRecipe {
         );
 
         @Override
-        public MapCodec<CharacterAssembling> codec() {
+        public @NotNull MapCodec<CharacterAssembling> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, CharacterAssembling> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, CharacterAssembling> streamCodec() {
             return STREAM_CODEC;
         }
 

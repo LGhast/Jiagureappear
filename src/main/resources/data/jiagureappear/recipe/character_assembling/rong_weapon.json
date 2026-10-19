@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "戎"
+      }
+    }
+  },
+  "result_inscription": "戎",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "甲",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "戈",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

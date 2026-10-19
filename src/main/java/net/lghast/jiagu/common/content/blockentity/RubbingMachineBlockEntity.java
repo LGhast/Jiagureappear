@@ -1,13 +1,11 @@
 package net.lghast.jiagu.common.content.blockentity;
 
 import net.lghast.jiagu.common.content.block.RubbingMachineBlock;
-import net.lghast.jiagu.config.ServerConfig;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.system.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;

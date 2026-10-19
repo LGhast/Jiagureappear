@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "眼"
+      }
+    }
+  },
+  "result_inscription": "眼",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "目",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "艮",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

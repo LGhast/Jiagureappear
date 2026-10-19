@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "奚"
+      }
+    }
+  },
+  "result_inscription": "奚",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "爪",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "糸",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "大",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

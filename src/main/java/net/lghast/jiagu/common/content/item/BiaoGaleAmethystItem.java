@@ -1,6 +1,6 @@
 package net.lghast.jiagu.common.content.item;
 
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.Holder;
@@ -152,25 +152,25 @@ public class BiaoGaleAmethystItem extends Item {
     }
 
     private double getWindDistance(Level level, ItemStack stack){
-        double baseDistance = ServerConfig.BIAO_GALE_BASE_DISTANCE.get();
+        double baseDistance = CommonConfig.BIAO_GALE_BASE_DISTANCE.get();
         Holder<Enchantment> wutheringHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.WUTHERING);
         return baseDistance * (stack.getEnchantmentLevel(wutheringHolder) * 0.2 + 1);
     }
 
     private double getWindSpeed(Level level, ItemStack stack){
-        double windSpeed = ServerConfig.BIAO_GALE_BASE_SPEED.get();
+        double windSpeed = CommonConfig.BIAO_GALE_BASE_SPEED.get();
         Holder<Enchantment> flurryHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.FLURRY);
         return windSpeed * (stack.getEnchantmentLevel(flurryHolder) * 0.25 + 1);
     }
 
     private int getWindAngle(){
-        return ServerConfig.BIAO_GALE_WIND_ANGLE.get();
+        return CommonConfig.BIAO_GALE_WIND_ANGLE.get();
     }
 
     private double getVolumeFactor(){
-        return ServerConfig.BIAO_GALE_VOLUME_FACTOR.get();
+        return CommonConfig.BIAO_GALE_VOLUME_FACTOR.get();
     }
 
     private void spawnParticles(ServerLevel serverLevel, Player player){

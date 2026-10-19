@@ -14,6 +14,9 @@ import net.minecraft.world.level.Level;
 
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class NonMirroredRecipe implements CraftingRecipe {
     public final ShapedRecipePattern pattern;
     public final ItemStack result;
@@ -82,12 +85,12 @@ public class NonMirroredRecipe implements CraftingRecipe {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return ModSerializers.NON_MIRRORED_SHAPED.get();
     }
 
     @Override
-    public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
+    public @NotNull ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         return result.copy();
     }
 
@@ -97,12 +100,12 @@ public class NonMirroredRecipe implements CraftingRecipe {
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider pRegistries) {
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider pRegistries) {
         return result;
     }
 
     @Override
-    public CraftingBookCategory category() {
+    public @NotNull CraftingBookCategory category() {
         return CraftingBookCategory.MISC;
     }
 
@@ -118,12 +121,12 @@ public class NonMirroredRecipe implements CraftingRecipe {
         );
 
         @Override
-        public MapCodec<NonMirroredRecipe> codec() {
+        public @NotNull MapCodec<NonMirroredRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, NonMirroredRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, NonMirroredRecipe> streamCodec() {
             return STREAM_CODEC;
         }
 

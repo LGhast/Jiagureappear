@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "欣"
+      }
+    }
+  },
+  "result_inscription": "欣",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "斤",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "欠",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

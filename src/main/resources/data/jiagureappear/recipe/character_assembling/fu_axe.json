@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "斧"
+      }
+    }
+  },
+  "result_inscription": "斧",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "父",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "reversal",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "斤",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

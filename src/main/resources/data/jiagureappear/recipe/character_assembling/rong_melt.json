@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "熔"
+      }
+    }
+  },
+  "result_inscription": "熔",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "火",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "容",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

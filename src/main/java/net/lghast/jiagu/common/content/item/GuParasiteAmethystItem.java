@@ -1,7 +1,7 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.common.content.entity.ParasiteSporeEntity;
-import net.lghast.jiagu.config.ServerConfig;
+import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModEnchantments;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -77,7 +77,7 @@ public class GuParasiteAmethystItem extends PrescriptionUserItem {
 
     @Override
     protected int getCooldownTicks(ItemStack stack, Level level) {
-        int cooldown = ServerConfig.GU_PARASITE_COOLDOWN_TIME.get();
+        int cooldown = CommonConfig.GU_PARASITE_COOLDOWN_TIME.get();
         Holder<Enchantment> maladyHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.MALADY);
         return (int) Math.max(15, cooldown * (1 - stack.getEnchantmentLevel(maladyHolder) * 0.12));
@@ -85,7 +85,7 @@ public class GuParasiteAmethystItem extends PrescriptionUserItem {
 
     @Override
     protected int getAmplifier(ItemStack stack, Level level) {
-        int amplifier = ServerConfig.GU_PARASITE_BASE_AMPLIFIER.get();
+        int amplifier = CommonConfig.GU_PARASITE_BASE_AMPLIFIER.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
         return amplifier + stack.getEnchantmentLevel(panaceaHolder) / 3;
@@ -93,17 +93,17 @@ public class GuParasiteAmethystItem extends PrescriptionUserItem {
 
     @Override
     protected int getDuration(ItemStack stack, Level level) {
-        int duration = ServerConfig.GU_PARASITE_BASE_DURATION.get();
+        int duration = CommonConfig.GU_PARASITE_BASE_DURATION.get();
         Holder<Enchantment> panaceaHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                 .getHolderOrThrow(ModEnchantments.PANACEA);
         return (int) (duration * (1 + stack.getEnchantmentLevel(panaceaHolder) * 0.35));
     }
 
     private float getVelocityMin() {
-        return ServerConfig.GU_PARASITE_PROJECTILE_VELOCITY_MIN.get().floatValue();
+        return CommonConfig.GU_PARASITE_PROJECTILE_VELOCITY_MIN.get().floatValue();
     }
 
     private float getVelocityBonusMax() {
-        return ServerConfig.GU_PARASITE_PROJECTILE_VELOCITY_MAX.get().floatValue();
+        return CommonConfig.GU_PARASITE_PROJECTILE_VELOCITY_MAX.get().floatValue();
     }
 }

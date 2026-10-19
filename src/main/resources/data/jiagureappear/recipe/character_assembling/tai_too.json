@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "太"
+      }
+    }
+  },
+  "result_inscription": "太",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "大",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

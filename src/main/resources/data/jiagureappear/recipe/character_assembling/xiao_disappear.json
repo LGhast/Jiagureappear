@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "消"
+      }
+    }
+  },
+  "result_inscription": "消",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "水",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "肖",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

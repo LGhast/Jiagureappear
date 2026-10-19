@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "卑"
+      }
+    }
+  },
+  "result_inscription": "卑",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "complex",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "reversal",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "又",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

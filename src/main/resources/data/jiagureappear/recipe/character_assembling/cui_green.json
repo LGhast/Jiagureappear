@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "翠"
+      }
+    }
+  },
+  "result_inscription": "翠",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "羽",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "卒",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

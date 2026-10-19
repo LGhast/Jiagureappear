@@ -1,0 +1,41 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "輿"
+      }
+    }
+  },
+  "result_inscription": "輿",
+  "category": "misc",
+  "key": {
+    "A": {
+      "inscription": "爪",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "B": {
+      "inscription": "爪",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "車",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "C": {
+      "inscription": "又",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "又",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "A B",
+    " M ",
+    "C D"
+  ],
+  "type": "jiagureappear:character_assembling"
+}

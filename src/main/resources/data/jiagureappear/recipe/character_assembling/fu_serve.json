@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "服"
+      }
+    }
+  },
+  "result_inscription": "服",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "凡",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "卩",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "又",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

@@ -1,0 +1,25 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "玄"
+      }
+    }
+  },
+  "result_inscription": "玄",
+  "category": "misc",
+  "key": {
+    "M": {
+      "inscription": "幺",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    " M ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

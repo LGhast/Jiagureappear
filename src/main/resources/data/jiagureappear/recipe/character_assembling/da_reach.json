@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "達"
+      }
+    }
+  },
+  "result_inscription": "達",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "辵",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "羍",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

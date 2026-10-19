@@ -1,7 +1,7 @@
 package net.lghast.jiagu.utils;
 
 import net.lghast.jiagu.register.system.ModTags;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
+import net.lghast.jiagu.lzh.LzhMappings;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
@@ -61,18 +61,23 @@ public class ModUtils {
         }
         return name.replace(" ", "").replace("“", "").replace("”", "").replace("·", "");
     }
+
     public static String modifyName(ItemStack stack){
         return modifyName(LzhMappings.getLzhName(stack));
     }
+
     public static String modifyName(Block block){
         return modifyName(LzhMappings.getLzhName(block));
     }
+
     public static String modifyName(MobEffect effect){
         return modifyName(LzhMappings.getLzhName(effect));
     }
+
     public static String modifyName(EntityType<?> entity){
         return modifyName(LzhMappings.getLzhName(entity));
     }
+
     public static String modifyName(Entity entity){
         String base = LzhMappings.getLzhName(entity);
         if(entity.getType().is(ModTags.OVIS) && entity instanceof AgeableMob mob && mob.isBaby()){
@@ -80,6 +85,7 @@ public class ModUtils {
         }
         return modifyName(base);
     }
+
     public static String modifyName(Holder<Enchantment> holder, int level){
         String base = LzhMappings.getLzhName(holder);
         if(base == null) return null;

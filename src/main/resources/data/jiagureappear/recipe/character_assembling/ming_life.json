@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "命"
+      }
+    }
+  },
+  "result_inscription": "命",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "口",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "令",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

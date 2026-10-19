@@ -1,0 +1,41 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "韋"
+      }
+    }
+  },
+  "result_inscription": "韋",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "止",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "止",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "囗",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "止",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "止",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LMR",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

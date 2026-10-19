@@ -2,6 +2,7 @@ package net.lghast.jiagu.register.system;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import io.netty.buffer.ByteBuf;
 import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.common.system.datacomponent.Prescription;
 import net.lghast.jiagu.common.system.datacomponent.Spell;
@@ -19,6 +20,17 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModDataComponents {
     public static final DeferredRegister.DataComponents REGISTRAR =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, JiaguReappear.MOD_ID);
+
+    public static final Codec<String> INSCRIPTION_CODEC = Codec.STRING;
+
+    public static final StreamCodec<ByteBuf, String> INSCRIPTION_STREAM_CODEC =
+            ByteBufCodecs.STRING_UTF8;
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> INSCRIPTION =
+            REGISTRAR.registerComponentType("inscription", builder ->
+                    builder.persistent(INSCRIPTION_CODEC)
+                            .networkSynchronized(INSCRIPTION_STREAM_CODEC)
+            );
 
     public static final Codec<Prescription> PRESCRIPTION_CODEC = RecordCodecBuilder.create(instance ->
             instance.group(

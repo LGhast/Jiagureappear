@@ -1,7 +1,8 @@
 package net.lghast.jiagu.common.content.item;
 
 import net.lghast.jiagu.config.ClientConfig;
-import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.character.CharacterInfo;
+import net.lghast.jiagu.register.system.ModDataComponents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -16,40 +17,38 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public class CharacterItem extends Item{
-
-    public static final String INSCRIPTION = "inscription";
-
     public static final String DEFAULT_INSCRIPTION = "default";
     public static final String SIMPLE_INSCRIPTION = "simple";
     public static final String SIMPLE_INSCRIPTION_2 = "simple2";
     public static final String REVERSAL_INSCRIPTION = "reversal";
     public static final String COMPLEX_INSCRIPTION = "complex";
+    private static final String LEGACY_INSCRIPTION_KEY = "inscription";
 
     public CharacterItem(Properties properties) {
-        super(properties.stacksTo(64));
+        super(properties.stacksTo(64).component(ModDataComponents.INSCRIPTION, DEFAULT_INSCRIPTION));
     }
 
     public static String getInscription(ItemStack stack){
+        String inscription = stack.get(ModDataComponents.INSCRIPTION.get());
+        if (inscription != null) {
+            return inscription;
+        }
         CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
         if (customData != null) {
             CompoundTag tag = customData.copyTag();
-            if (tag.contains(INSCRIPTION)) {
-                return tag.getString(INSCRIPTION);
+            if (tag.contains(LEGACY_INSCRIPTION_KEY)) {
+                return tag.getString(LEGACY_INSCRIPTION_KEY);
             }
         }
         return DEFAULT_INSCRIPTION;
     }
 
     public static void setInscription(ItemStack stack, String inscription){
-        CompoundTag tag =new CompoundTag();
-        tag.putString(INSCRIPTION, inscription);
-        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+        stack.set(ModDataComponents.INSCRIPTION.get(), inscription);
     }
 
     public static void setInscription(ItemStack stack, char inscription){
-        CompoundTag tag =new CompoundTag();
-        tag.putString(INSCRIPTION, String.valueOf(inscription));
-        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+        setInscription(stack, String.valueOf(inscription));
     }
 
     public static String getConvertedInscription(ItemStack stack){

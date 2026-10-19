@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "賣"
+      }
+    }
+  },
+  "result_inscription": "賣",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "出",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "買",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

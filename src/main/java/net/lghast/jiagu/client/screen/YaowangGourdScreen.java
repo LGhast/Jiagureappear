@@ -2,7 +2,7 @@ package net.lghast.jiagu.client.screen;
 
 import net.lghast.jiagu.common.system.menu.YaowangGourdMenu;
 import net.lghast.jiagu.network.CraftPrescriptionPayload;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
+import net.lghast.jiagu.lzh.LzhMappings;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;

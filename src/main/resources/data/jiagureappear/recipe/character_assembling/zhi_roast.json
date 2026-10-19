@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "炙"
+      }
+    }
+  },
+  "result_inscription": "炙",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "肉",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "火",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

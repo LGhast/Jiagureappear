@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "析"
+      }
+    }
+  },
+  "result_inscription": "析",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "木",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "斤",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

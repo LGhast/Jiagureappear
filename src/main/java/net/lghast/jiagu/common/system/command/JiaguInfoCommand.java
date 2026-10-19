@@ -2,7 +2,7 @@ package net.lghast.jiagu.common.system.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.lghast.jiagu.utils.lzh.CharacterInfo;
+import net.lghast.jiagu.character.CharacterInfo;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;

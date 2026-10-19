@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "朔"
+      }
+    }
+  },
+  "result_inscription": "朔",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "屰",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "月",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

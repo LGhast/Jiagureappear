@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "粗"
+      }
+    }
+  },
+  "result_inscription": "粗",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "米",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "且",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

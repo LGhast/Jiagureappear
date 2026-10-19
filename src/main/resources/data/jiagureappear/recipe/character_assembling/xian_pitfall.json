@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "陷"
+      }
+    }
+  },
+  "result_inscription": "陷",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "阜",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "臽",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

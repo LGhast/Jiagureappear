@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "前"
+      }
+    }
+  },
+  "result_inscription": "前",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "止",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "凡",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " L ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

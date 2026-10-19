@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "望"
+      }
+    }
+  },
+  "result_inscription": "望",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "臣",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "人",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "土",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    " M ",
+    " L "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

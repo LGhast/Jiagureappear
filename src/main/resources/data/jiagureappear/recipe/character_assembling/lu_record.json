@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "錄"
+      }
+    }
+  },
+  "result_inscription": "錄",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "金",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "彔",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

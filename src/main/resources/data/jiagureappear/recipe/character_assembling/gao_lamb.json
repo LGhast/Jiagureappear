@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "羔"
+      }
+    }
+  },
+  "result_inscription": "羔",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "M": {
+      "inscription": "羊",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "simple",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LMR",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

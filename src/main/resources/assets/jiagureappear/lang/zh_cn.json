@@ -87,6 +87,7 @@
   "advancements.jiagureappear.obtain_amethyst_upgrade.title": "怀金垂紫",
   "advancements.jiagureappear.obtain_prescription_users.description": "获取医之紫晶铭刻或蛊之紫晶铭刻，默认按下X键打开其药方槽位",
   "advancements.jiagureappear.obtain_prescription_users.title": "药毒之辩",
+
   "block.jiagureappear.golden_bricks": "金砖",
   "block.jiagureappear.cangjie_ding_tripod": "仓颉鼎",
   "block.jiagureappear.cangjie_ding_tripod.wrong_item": "请使用正确的物品",
@@ -117,10 +118,12 @@
   "block.jiagureappear.wenchang_altar": "文昌坛",
   "block.jiagureappear.erudite_wenchang_altar": "博知文昌坛",
   "block.jiagureappear.yaowang_gourd": "药王壶",
+
   "container.auto_disassembler": "汉字拆解器",
   "container.cangjie_morpher": "仓颉造字器",
   "container.rubbing_machine": "拓印器",
   "container.jiagureappear.yaowang_gourd": "药王壶",
+
   "enchantment.jiagureappear.cremation": "焚化",
   "enchantment.jiagureappear.igniting": "走水",
   "enchantment.jiagureappear.flurry": "疾风",
@@ -132,8 +135,10 @@
   "enchantment.jiagureappear.malady": "沉疴",
   "enchantment.jiagureappear.massiveness": "千钧",
   "enchantment.jiagureappear.aftershock": "磅礴",
+
   "entity.jiagureappear.parasite_spore": "蛊毒之瘴",
   "entity.minecraft.villager.jiagureappear.scholar": "墨客",
+
   "item.jiagureappear.dictionary": "字典",
   "item.jiagureappear.bone_lamella": "骨板",
   "item.jiagureappear.turtle_plastron": "龟腹甲",
@@ -182,7 +187,9 @@
   "item.minecraft.splash_potion.effect.long_darkness": "喷溅型黑暗药水",
   "item.minecraft.lingering_potion.effect.long_darkness": "滞留型黑暗药水",
   "item.minecraft.tipped_arrow.effect.long_darkness": "黑暗之箭",
+
   "creativetab.jiagureappear.jiagu_items": "岁在甲骨",
+
   "tooltip.jiagureappear.character_item_default": "未题字",
   "tooltip.jiagureappear.character_item_simple": "简单非成字部件",
   "tooltip.jiagureappear.character_item_simple2": "简单非成字部件二",
@@ -200,9 +207,12 @@
   "tooltip.jiagureappear.shot_no": "无弹药",
   "tooltip.jiagureappear.lzh": "文言: %s",
   "tooltip.jiagureappear.lzh_appended": "文言: %s (%s)",
+
   "key.categories.jiagureappear": "岁在甲骨",
   "key.jiagureappear.open_prescription_gui": "开启药方GUI",
+
   "tips.jiagureappear.wrong_language": "请使用文言文作为游戏语言",
+
   "gui.jiagureappear.prescription": "药方",
   "gui.jiagureappear.dictionary": "字典",
   "gui.jiagureappear.dictionary.search": "搜索汉字",
@@ -217,6 +227,7 @@
   "gui.jiagureappear.dictionary.unknown": "未知",
   "gui.jiagureappear.dictionary.recipe": "合文配方：",
   "gui.jiagureappear.dictionary.no_recipe": "未查询到合文配方",
+
   "commands.jiaguinfo.disassembly": "可分解为：",
   "commands.jiaguinfo.not_found": "未记录",
   "commands.jiaguinfo.assembly": "可合成为：",

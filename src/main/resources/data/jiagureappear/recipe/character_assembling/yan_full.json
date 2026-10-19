@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "猒"
+      }
+    }
+  },
+  "result_inscription": "猒",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "口",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "肉",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "犬",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "U  ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

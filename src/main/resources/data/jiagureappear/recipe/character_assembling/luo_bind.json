@@ -1,0 +1,29 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "絡"
+      }
+    }
+  },
+  "result_inscription": "絡",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "糸",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "各",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling_non_mirrored"
+}

@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "飾"
+      }
+    }
+  },
+  "result_inscription": "飾",
+  "category": "misc",
+  "key": {
+    "U": {
+      "inscription": "人",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "L": {
+      "inscription": "食",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "巾",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    " U ",
+    "LR ",
+    "   "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

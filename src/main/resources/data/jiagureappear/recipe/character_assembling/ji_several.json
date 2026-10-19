@@ -1,0 +1,33 @@
+{
+  "result": {
+    "id": "jiagureappear:character",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "inscription": "幾"
+      }
+    }
+  },
+  "result_inscription": "幾",
+  "category": "misc",
+  "key": {
+    "L": {
+      "inscription": "幺",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "R": {
+      "inscription": "幺",
+      "type": "jiagureappear:character_ingredient"
+    },
+    "D": {
+      "inscription": "戍",
+      "type": "jiagureappear:character_ingredient"
+    }
+  },
+  "pattern": [
+    "   ",
+    "L R",
+    " D "
+  ],
+  "type": "jiagureappear:character_assembling"
+}

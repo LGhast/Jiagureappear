@@ -3,7 +3,7 @@ package net.lghast.jiagu.client.screen;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.utils.ModUtils;
-import net.lghast.jiagu.utils.lzh.LzhMappings;
+import net.lghast.jiagu.lzh.LzhMappings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
