@@ -1,17 +1,19 @@
 package net.lghast.jiagu.common.content.block;
 
-public class LuckyJiaguBlockCopper extends LuckyJiaguBlock {
+import net.minecraft.util.RandomSource;
+import org.jetbrains.annotations.NotNull;
 
+public class LuckyJiaguBlockCopper extends LuckyJiaguBlock {
     public LuckyJiaguBlockCopper(Properties properties) {
         super(properties);
     }
 
     @Override
-    protected int getSpawnTimes() {
-        double random = Math.random();
-        if(random<0.5){
+    protected int getSpawnTimes(@NotNull RandomSource random) {
+        float roll = random.nextFloat();
+        if(roll < 0.5f){
             return 1;
-        }else if(random<0.8){
+        }else if(roll < 0.8f){
             return 2;
         }else{
             return 3;
@@ -19,15 +21,15 @@ public class LuckyJiaguBlockCopper extends LuckyJiaguBlock {
     }
 
     @Override
-    protected String getRandomInscription() {
-        double random = Math.random();
-        if(random<0.5){
+    protected String getRandomInscription(@NotNull RandomSource random) {
+        float roll = random.nextFloat();
+        if(roll < 0.5f){
             return "simple";
-        }else if(random<0.85){
+        }else if(roll < 0.85f){
             return "reversal";
-        }else if(random<0.99){
+        }else if(roll < 0.99f){
             return "complex";
-        }else if(random<0.995){
+        }else if(roll < 0.995f){
             return "LGhast";
         }else{
             return "Minecraft";

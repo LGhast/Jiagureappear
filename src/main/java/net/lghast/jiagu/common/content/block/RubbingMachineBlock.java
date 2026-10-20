@@ -11,7 +11,6 @@ import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -108,50 +107,54 @@ public class RubbingMachineBlock extends BaseEntityBlock {
 
     private void rubbing(BlockState state, ServerLevel level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof RubbingMachineBlockEntity blockEntity) {
-            ItemStack reference = blockEntity.getItem(0);
-            ItemStack ink = blockEntity.getItem(1);
+            ItemStack reference = blockEntity.getItem(RubbingMachineBlockEntity.TEMPLATE_SLOT);
+            ItemStack ink0 = blockEntity.getItem(0);
+            ItemStack ink1 = blockEntity.getItem(1);
 
-            if (!reference.is(ModTags.INVALID_TO_BE_RUBBED) && ink.is(ModTags.RUBBING_INKS)
-                    && !state.getValue(CRAFTING)) {
+            if (reference.isEmpty() || reference.is(ModTags.INVALID_TO_BE_RUBBED)) return;
+            if (isInkInvalid(ink0) || isInkInvalid(ink1)) return;
 
-                level.setBlock(pos, state.setValue(CRAFTING, true), 3);
-                blockEntity.startMorphing();
-                Direction direction = state.getValue(ORIENTATION).front();
+            int totalInk = ink0.getCount() + ink1.getCount();
+            if (totalInk <= 0 || state.getValue(CRAFTING)) return;
 
-                BlockEntity backEntity = getBackBlockEntity(level, pos, direction);
-                if(!(backEntity instanceof RandomizableContainerBlockEntity chestEntity)){
-                    rubbingFailure(level, pos);
-                    return;
-                }
+            level.setBlock(pos, state.setValue(CRAFTING, true), 3);
+            blockEntity.startMorphing();
+            Direction direction = state.getValue(ORIENTATION).front();
 
-                String rubbingName = ModUtils.modifyName(reference);
-                if(rubbingName == null){
-                    rubbingFailure(level, pos);
-                    return;
-                }
+            BlockEntity backEntity = getBackBlockEntity(level, pos, direction);
+            if(!(backEntity instanceof RandomizableContainerBlockEntity chestEntity)){
+                rubbingFailure(level, pos);
+                return;
+            }
 
-                Map<Character, Integer> requiredChars = countCharacters(rubbingName);
-                if (requiredChars.isEmpty()) {
-                    rubbingFailure(level, pos);
-                    return;
-                }
+            String rubbingName = ModUtils.modifyName(reference);
+            if(rubbingName == null){
+                rubbingFailure(level, pos);
+                return;
+            }
 
-                Map<Character, Integer> availableChars = findAvailableCharacters(chestEntity, requiredChars.keySet());
-                int maxCount = getMaxCount(requiredChars, availableChars, ink.getCount());
+            Map<Character, Integer> requiredChars = countCharacters(rubbingName);
+            if (requiredChars.isEmpty()) {
+                rubbingFailure(level, pos);
+                return;
+            }
 
-                if (maxCount > 0) {
-                    ItemStack result = new ItemStack(reference.getItem(), maxCount);
-                    Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
+            Map<Character, Integer> availableChars = findAvailableCharacters(chestEntity, requiredChars.keySet());
+            int maxCount = getMaxCount(requiredChars, availableChars, totalInk);
 
-                    DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
-                    level.playSound(null, pos, SoundEvents.CHISELED_BOOKSHELF_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    spawnParticles(level, pos);
+            if (maxCount > 0) {
+                ItemStack result = new ItemStack(reference.getItem(), maxCount);
+                Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
 
-                    consumeMaterials(ink, chestEntity, requiredChars, maxCount);
-                    chestEntity.setChanged();
-                } else {
-                    rubbingFailure(level, pos);
-                }
+                DefaultDispenseItemBehavior.spawnItem(level, result, 6, direction, spawnPos);
+                level.playSound(null, pos, SoundEvents.CHISELED_BOOKSHELF_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                spawnParticles(level, pos);
+
+                consumeInk(blockEntity, maxCount);
+                consumeCharacters(chestEntity, requiredChars, maxCount);
+                chestEntity.setChanged();
+            } else {
+                rubbingFailure(level, pos);
             }
         }
     }
@@ -216,13 +219,24 @@ public class RubbingMachineBlock extends BaseEntityBlock {
         return finalCount;
     }
 
-    private void consumeMaterials(ItemStack ink, RandomizableContainerBlockEntity chest, Map<Character, Integer> requiredChars, int count) {
-        ink.shrink(count);
+    private boolean isInkInvalid(ItemStack ink) {
+        return !ink.isEmpty() && !ink.is(ModTags.RUBBING_INKS);
+    }
 
+    private void consumeInk(RubbingMachineBlockEntity blockEntity, int count) {
+        for (int i = 0; i < RubbingMachineBlockEntity.INK_SLOTS && count > 0; i++) {
+            ItemStack ink = blockEntity.getItem(i);
+            if (ink.isEmpty()) continue;
+            int take = Math.min(count, ink.getCount());
+            ink.shrink(take);
+            count -= take;
+        }
+    }
+
+    private void consumeCharacters(RandomizableContainerBlockEntity chest, Map<Character, Integer> requiredChars, int count) {
         for (Map.Entry<Character, Integer> entry : requiredChars.entrySet()) {
             char c = entry.getKey();
             int consumption = entry.getValue() * count;
-
             for (int i = 0; i < chest.getContainerSize() && consumption > 0; i++) {
                 ItemStack item = chest.getItem(i);
                 if (item.is(ModItems.CHARACTER_ITEM)) {
@@ -239,72 +253,10 @@ public class RubbingMachineBlock extends BaseEntityBlock {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof RubbingMachineBlockEntity blockEntity) {
-            ItemStack heldItem = player.getMainHandItem();
-            ItemStack referenceSlotItem = blockEntity.getItem(0);
-            ItemStack inkSlotItem = blockEntity.getItem(1);
-
-            if (player.isShiftKeyDown()) {
-                if(referenceSlotItem.isEmpty() && inkSlotItem.isEmpty()){
-                    return InteractionResult.PASS;
-                }
-                if (level.isClientSide) {
-                    return InteractionResult.SUCCESS;
-                }
-                if (!referenceSlotItem.isEmpty()) {
-                    popOutItem(level, pos, state, referenceSlotItem);
-                    blockEntity.setItem(0, ItemStack.EMPTY);
-                }
-                if (!inkSlotItem.isEmpty()) {
-                    popOutItem(level, pos, state, inkSlotItem);
-                    blockEntity.setItem(1, ItemStack.EMPTY);
-                }
-                return InteractionResult.SUCCESS;
-            }
-
-            if (!level.isClientSide) {
-                if (inkSlotItem.isEmpty() || ModUtils.canSupplement(inkSlotItem, heldItem)) {
-
-                    boolean inkSuccess = ModUtils.tryPutOrSupplement(
-                            player,
-                            heldItem,
-                            inkSlotItem,
-                            itemStack -> itemStack.is(ModTags.RUBBING_INKS),
-                            newStack -> blockEntity.setItem(1, newStack)
-                    );
-
-                    if (inkSuccess) {
-                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-
-                if (referenceSlotItem.isEmpty() || ModUtils.canSupplement(referenceSlotItem, heldItem)) {
-                    boolean referenceSuccess = ModUtils.tryPutOrSupplement(
-                            player,
-                            heldItem,
-                            referenceSlotItem,
-                            itemStack -> !itemStack.is(ModTags.INVALID_TO_CHARACTERS) &&
-                                    !itemStack.has(DataComponents.CUSTOM_NAME),
-                            newStack -> blockEntity.setItem(0, newStack)
-                    );
-
-                    if (referenceSuccess) {
-                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide);
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RubbingMachineBlockEntity blockEntity) {
+            player.openMenu(blockEntity, buf -> buf.writeBlockPos(pos));
         }
-        return InteractionResult.PASS;
-    }
-
-    private void popOutItem(Level level, BlockPos pos, BlockState state, ItemStack stack) {
-        Direction direction = state.getValue(ORIENTATION).front();
-        Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
-        DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
-        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+        return InteractionResult.SUCCESS;
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
@@ -339,9 +291,13 @@ public class RubbingMachineBlock extends BaseEntityBlock {
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof RubbingMachineBlockEntity blockEntity) {
-            if(!blockEntity.getItem(0).isEmpty() && !blockEntity.getItem(1).isEmpty()){
-                return 15;
+            int filled = 0;
+            for (int i = 0; i < RubbingMachineBlockEntity.SLOT_COUNT; i++) {
+                if (!blockEntity.getItem(i).isEmpty()) {
+                    filled++;
+                }
             }
+            return filled * (15 / RubbingMachineBlockEntity.SLOT_COUNT);
         }
         return 0;
     }

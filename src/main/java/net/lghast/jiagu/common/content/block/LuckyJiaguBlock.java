@@ -5,6 +5,7 @@ import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -20,17 +21,18 @@ abstract public class LuckyJiaguBlock extends Block {
         super(properties);
     }
 
-    abstract protected int getSpawnTimes();
+    abstract protected int getSpawnTimes(RandomSource random);
 
-    abstract protected String getRandomInscription();
+    abstract protected String getRandomInscription(RandomSource random);
 
     @Override
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
         if(willHarvest && level instanceof ServerLevel serverLevel){
-            float times = getSpawnTimes();
+            RandomSource random = serverLevel.random;
+            int times = getSpawnTimes(random);
             for(int i = 0; i<times ;i++) {
                 ItemStack itemStack = new ItemStack(ModItems.CHARACTER_ITEM.asItem());
-                CharacterItem.setInscription(itemStack, getRandomInscription());
+                CharacterItem.setInscription(itemStack, getRandomInscription(random));
                 ModUtils.spawnItemWithMotion(serverLevel, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, itemStack, true);
             }
         }

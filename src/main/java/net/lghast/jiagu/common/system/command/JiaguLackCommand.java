@@ -31,13 +31,18 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("unused")
 @EventBusSubscriber
 public class JiaguLackCommand {
     private static Set<String> namespacesCache = null;
     private static long lastCacheUpdate = 0;
     private static final long CACHE_DURATION = 5000;
+
+    TreeSet<String> lacks = new TreeSet<>();
+    TreeSet<String> gross = new TreeSet<>();
 
     @SubscribeEvent
     public static void registerCommand(RegisterCommandsEvent event) {
@@ -158,12 +163,6 @@ public class JiaguLackCommand {
                 }
                 String output = ModUtils.insertLineBreaks(builder.toString(), 35);
                 source.sendSuccess(() -> Component.literal(output), false);
-
-                StringBuilder lackBuilder = new StringBuilder();
-                for(String s : lacks){
-                    lackBuilder.append(s);
-                }
-                System.out.println("缺失汉字列表：" + lackBuilder);
             }
 
             source.sendSuccess(() -> Component.literal("共缺失汉字：" + size + "/" + sum), false);
@@ -181,7 +180,7 @@ public class JiaguLackCommand {
         return holder.key().location().getNamespace().equals(namespace);
     }
 
-    private static void lackFilter(char[] chars, HashSet<String> lacks, HashSet<String> gross){
+    private static void lackFilter(char[] chars, Set<String> lacks, Set<String> gross){
         for (char c : chars) {
             String inscription = String.valueOf(c);
             if(inscription.matches("[a-zA-Z()\"“”（） ]")){

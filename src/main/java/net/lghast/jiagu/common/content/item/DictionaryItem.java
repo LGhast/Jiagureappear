@@ -16,7 +16,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class DictionaryItem extends Item {
-
     public DictionaryItem(Properties properties) {
         super(properties.stacksTo(1));
     }
@@ -32,7 +31,7 @@ public class DictionaryItem extends Item {
         if (player instanceof ServerPlayer serverPlayer) {
             serverPlayer.openMenu(new SimpleMenuProvider(
                     (windowId, playerInventory, playerEntity) ->
-                            new DictionaryMenu(windowId, playerInventory),
+                            new DictionaryMenu(windowId),
                     Component.translatable("gui.jiagureappear.dictionary")
             ));
         }

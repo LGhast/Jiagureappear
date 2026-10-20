@@ -62,6 +62,8 @@ public class ParasiteSporeEntity extends ThrowableItemProjectile {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
+        if (effectInstance == null) return;
+
         if(level() instanceof ServerLevel serverLevel){
             if(effectInstance.getEffect().value().isBeneficial()){
                 ModUtils.spawnParticles(serverLevel, ParticleTypes.HAPPY_VILLAGER,

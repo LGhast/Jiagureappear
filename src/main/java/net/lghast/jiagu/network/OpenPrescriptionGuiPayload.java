@@ -2,8 +2,6 @@ package net.lghast.jiagu.network;
 
 import net.lghast.jiagu.common.content.item.PrescriptionUserItem;
 import net.lghast.jiagu.common.system.menu.PrescriptionMenu;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
@@ -15,8 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("unused")
 public record OpenPrescriptionGuiPayload() implements CustomPacketPayload {
-
     public static final CustomPacketPayload.Type<OpenPrescriptionGuiPayload> TYPE =
             new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath("jiagureappear", "open_prescription_gui"));
 

@@ -30,8 +30,6 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public class LeiStonesAmethystItem extends Item {
-    private int usingTicks = 0;
-
     public LeiStonesAmethystItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(50));
     }
@@ -49,40 +47,26 @@ public class LeiStonesAmethystItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-
         if (player.getCooldowns().isOnCooldown(this)) {
             return InteractionResultHolder.fail(stack);
         }
-
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
             return InteractionResultHolder.fail(stack);
         }
-
-        usingTicks = 0;
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
     }
 
-    @Override
-    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
-        usingTicks++;
-        super.onUseTick(level, livingEntity, stack, remainingUseDuration);
-    }
-
-    private void shootProjectile(Player player, Level level, ItemStack stoneShot, ItemStack leiStones) {
+    private void shootProjectile(Player player, Level level, ItemStack stoneShot, ItemStack leiStones, int chargeTicks) {
         if (!level.isClientSide) {
             StoneShotEntity projectile = new StoneShotEntity(level, player, getRadius(level, leiStones), getDamage(level, leiStones));
             projectile.setItem(stoneShot);
-
             Vec3 look = player.getLookAngle();
-
-            float velocity = getVelocityMin() + Math.min(getVelocityBonusMax(), usingTicks/100f);
+            float velocity = getVelocityMin() + Math.min(getVelocityBonusMax(), chargeTicks/100f);
             projectile.shoot(look.x, look.y, look.z, velocity, 1.0f);
-
             level.addFreshEntity(projectile);
-
             if(!player.isCreative()){
-              stoneShot.shrink(1);
+                stoneShot.shrink(1);
             }
         }
     }
@@ -95,11 +79,12 @@ public class LeiStonesAmethystItem extends Item {
         if (!(entity instanceof Player player)) {
             return;
         }
+        int chargeTicks = getUseDuration(stack, entity) - timeCharged;
         ItemStack stoneShot = getStoneStack(player);
         if(stoneShot.isEmpty()){
             useFailure(player);
         }else{
-            shootProjectile(player, level, stoneShot, stack);
+            shootProjectile(player, level, stoneShot, stack, chargeTicks);
             useSuccess(player, stack);
         }
     }

@@ -5,12 +5,17 @@ import net.lghast.jiagu.config.CommonConfig;
 import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class CharacterInfo {
+    private static final Logger LOGGER = LogManager.getLogger();
+
     public record CharacterData(float floatValue, String identifier) {}
     public record StructureData(CharacterStructure structure, List<String> components) {}
 
@@ -128,24 +133,20 @@ public class CharacterInfo {
     public static void reloadFromConfig() {
         Map<String, String> newComponentMap = new HashMap<>();
         List<? extends String> componentMappings = CommonConfig.CHARACTER_DISASSEMBLING_MAPPINGS.get();
-
         for (String mapping : componentMappings) {
             try {
                 String[] parts = mapping.split("=");
                 if (parts.length != 2) continue;
-
                 if (parts[0] != null && parts[1] !=null) {
                     newComponentMap.put(parts[0], parts[1]);
                 }
             } catch (Exception e) {
-                System.err.println("Invalid component mapping: " + mapping);
+                LOGGER.warn("Invalid component mapping: {}", mapping);
             }
         }
         extraComponents = newComponentMap;
-
         Map<String, CharacterData> newDataMap = new HashMap<>();
         List<? extends String> dataMappings = CommonConfig.CHARACTER_MAPPINGS.get();
-
         for (String mapping : dataMappings) {
             try {
                 String[] parts = mapping.split(",");
@@ -155,7 +156,7 @@ public class CharacterInfo {
                     newDataMap.put(parts[0], new CharacterData(value, parts[2]));
                 }
             } catch (Exception e) {
-                System.err.println("Invalid character data mapping: " + mapping);
+                LOGGER.warn("Invalid character data mapping: {}", mapping);
             }
         }
         extraData = newDataMap;
@@ -262,29 +263,24 @@ public class CharacterInfo {
         }
     }
 
-    public static String getLuckyInscription(){
+    public static String getLuckyInscription(RandomSource random){
         if(inscriptionsLucky.isEmpty()){
             inscriptionsLuckyInitialize();
         }
-        Random random = new Random();
-        int randomIndex = random.nextInt(inscriptionsLucky.size());
-        return inscriptionsLucky.get(randomIndex);
+        return inscriptionsLucky.get(random.nextInt(inscriptionsLucky.size()));
     }
 
-    public static String getLuckyInscriptionAdvanced(){
+    public static String getLuckyInscriptionAdvanced(RandomSource random){
         if(inscriptionsLuckyAdvanced.isEmpty()){
             inscriptionsLuckyInitialize();
         }
-        Random random = new Random();
-        int randomIndex = random.nextInt(inscriptionsLuckyAdvanced.size());
-        return inscriptionsLuckyAdvanced.get(randomIndex);
+        return inscriptionsLuckyAdvanced.get(random.nextInt(inscriptionsLuckyAdvanced.size()));
     }
 
-    public static String getLuckyInscriptionAny(){
-        Random random = new Random();
-        int randomIndex = random.nextInt(CHARACTER_COMPONENTS.size());
+    public static String getLuckyInscriptionAny(RandomSource random){
         List<String> keys = new ArrayList<>(CHARACTER_COMPONENTS.keySet());
-        return keys.get(randomIndex);
+        if (keys.isEmpty()) return CharacterItem.DEFAULT_INSCRIPTION;
+        return keys.get(random.nextInt(keys.size()));
     }
 
     public static String counterpart(String inscription){

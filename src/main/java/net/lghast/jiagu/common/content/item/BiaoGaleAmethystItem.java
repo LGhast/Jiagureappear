@@ -32,8 +32,6 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public class BiaoGaleAmethystItem extends Item {
-    private int usingTicks = 0;
-
     public BiaoGaleAmethystItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
     }
@@ -56,12 +54,9 @@ public class BiaoGaleAmethystItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
             return InteractionResultHolder.fail(stack);
         }
-
-        usingTicks = 0;
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
     }
@@ -75,25 +70,21 @@ public class BiaoGaleAmethystItem extends Item {
     public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseDuration) {
         super.onUseTick(level, user, stack, remainingUseDuration);
         if(!(user instanceof Player player) || !(level instanceof ServerLevel serverLevel)) return;
-
-        usingTicks ++;
-        spawnParticles(serverLevel, player);
-        if (usingTicks % 15 == 0) {
+        int elapsed = getUseDuration(stack, user) - remainingUseDuration;
+        spawnParticles(serverLevel, player, elapsed);
+        if (elapsed % 15 == 0) {
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
                     SoundEvents.BREEZE_IDLE_GROUND, SoundSource.NEUTRAL);
         }
-
         Vec3 eyePos = player.getEyePosition();
         Vec3 lookVec = player.getLookAngle();
         Vec3 newEyePos = eyePos.add(lookVec.scale(0.5));
-
         double windDistance = getWindDistance(level, stack);
         double yCenter = player.getY();
         AABB area = new AABB(
                 player.getX()-windDistance, yCenter-0.5, player.getZ()-windDistance,
                 player.getX()+windDistance, yCenter+2, player.getZ()+windDistance
         );
-
         List<Entity> entities = level.getEntities(
                 EntityTypeTest.forClass(Entity.class),
                 area,
@@ -101,38 +92,31 @@ public class BiaoGaleAmethystItem extends Item {
                         && (e.isPushable() || e instanceof ArmorStand || e instanceof ItemEntity)
                         && isInSector(newEyePos, lookVec, e.position(), windDistance, getWindAngle())
         );
-
         if(entities.isEmpty()) return;
-
         for (Entity entity : entities) {
             Vec3 targetPos = entity.position();
             Vec3 pushDir = targetPos.subtract(eyePos).normalize();
-
             BlockHitResult hitResult = level.clip(new ClipContext(
                     eyePos, targetPos,
                     ClipContext.Block.COLLIDER,
                     ClipContext.Fluid.NONE,
                     player
             ));
-
             if (hitResult.getType() == BlockHitResult.Type.BLOCK) {
                 double blockDist = eyePos.distanceTo(hitResult.getLocation());
                 double entityDist = eyePos.distanceTo(targetPos);
                 if (blockDist < entityDist) continue;
             }
-
             AABB box = entity.getBoundingBox();
             double volume = entity instanceof ItemEntity itemEntity ?
                     itemEntity.getItem().getCount()/100.0+1 : box.getXsize() * box.getYsize() * box.getZsize();
             double speed = getWindSpeed(level, stack) / (1 + volume * getVolumeFactor());
-
             Vec3 velocity = entity.getDeltaMovement()
                     .add(pushDir.scale(speed))
                     .scale(0.9);
             entity.setDeltaMovement(velocity);
             entity.hurtMarked = true;
         }
-
         if (level.getRandom().nextFloat() < 0.04f) {
             stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
         }
@@ -173,12 +157,12 @@ public class BiaoGaleAmethystItem extends Item {
         return CommonConfig.BIAO_GALE_VOLUME_FACTOR.get();
     }
 
-    private void spawnParticles(ServerLevel serverLevel, Player player){
-        if (usingTicks % 10 == 0) {
+    private void spawnParticles(ServerLevel serverLevel, Player player, int elapsed){
+        if (elapsed % 10 == 0) {
             ModUtils.spawnParticles(serverLevel, ParticleTypes.GUST_EMITTER_SMALL,
                     player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
         }
-        if (usingTicks % 15 == 0) {
+        if (elapsed % 15 == 0) {
             ModUtils.spawnParticles(serverLevel, ParticleTypes.GUST_EMITTER_LARGE,
                     player.getX(), player.getY() + 0.5, player.getZ(), 0.25, 0.25, 0.25, 1, 0.25);
         }

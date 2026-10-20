@@ -14,7 +14,6 @@ import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -112,31 +111,73 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     }
 
     private void morphing(BlockState state, ServerLevel level, BlockPos pos) {
-        if (level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
-            ItemStack content = blockEntity.getItem(0);
-            ItemStack material = blockEntity.getItem(1);
+        if (state.getValue(CRAFTING)) return;
 
-            if (content.is(ModTags.INVALID_TO_CHARACTERS) || !material.is(ModTags.JIAGU_MATERIALS)
-                    || material.is(ModItems.YELLOW_PAPER) || state.getValue(CRAFTING)) {
+        if (level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
+            ItemStack material0 = blockEntity.getItem(0);
+            ItemStack material1 = blockEntity.getItem(1);
+            if (material0.isEmpty() && material1.isEmpty()) {
+                morphingFailure(level, pos);
+                return;
+            }
+
+            if (isMaterialInvalid(material0) || isMaterialInvalid(material1)) {
+                morphingFailure(level, pos);
+                return;
+            }
+
+            boolean hasContent = false;
+            boolean contentValid = true;
+            for (int i = CangjieMorpherBlockEntity.CONTENT_SLOT_OFFSET;
+                 i < CangjieMorpherBlockEntity.SLOT_COUNT; i++) {
+                ItemStack content = blockEntity.getItem(i);
+                if (content.isEmpty()) continue;
+                hasContent = true;
+                if (content.is(ModTags.INVALID_TO_CHARACTERS) || content.is(ModTags.JIAGU_MATERIALS)) {
+                    contentValid = false;
+                    break;
+                }
+            }
+
+            if (!hasContent || !contentValid) {
+                morphingFailure(level, pos);
+                return;
+            }
+
+            boolean hasInfinitePapyrus = material0.is(ModItems.INFINITE_PAPYRUS) || material1.is(ModItems.INFINITE_PAPYRUS);
+            int remainingMaterials = material0.getCount() + material1.getCount();
+            boolean processed = false;
+            for (int i = CangjieMorpherBlockEntity.CONTENT_SLOT_OFFSET;
+                 i < CangjieMorpherBlockEntity.SLOT_COUNT; i++) {
+                ItemStack content = blockEntity.getItem(i);
+                if (content.isEmpty()) continue;
+
+                String morpherResult = getMorpherResult(content);
+                if (morpherResult == null) continue;
+
+                int count = hasInfinitePapyrus ? content.getCount() : Math.min(content.getCount(), remainingMaterials);
+                if (count <= 0) continue;
+
+                spawnCharacters(level, count, morpherResult, state, pos);
+                if (content.is(ModItems.PRESCRIPTION) || content.is(ModItems.TAOIST_TALISMAN)) {
+                    content.hurtAndBreak(1, level, null, item -> {});
+                } else {
+                    content.shrink(count);
+                }
+                if (!hasInfinitePapyrus) {
+                    remainingMaterials -= consumeMaterials(blockEntity, count);
+                }
+                processed = true;
+            }
+            if (!processed) {
                 morphingFailure(level, pos);
                 return;
             }
 
             level.setBlock(pos, state.setValue(CRAFTING, true), 3);
             blockEntity.startMorphing();
-
-            int count;
-            if(material.is(ModItems.INFINITE_PAPYRUS)){
-                count = content.getCount();
-            }else {
-                count = Math.min(content.getCount(), material.getCount());
-            }
-
-            spawnCharacters(level, count, content, state, pos);
-
             spawnParticles(level, pos);
             level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS);
-            consumeMaterials(content, material, count);
             blockEntity.setChanged();
         }
     }
@@ -160,18 +201,11 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
         }
     }
 
-    private void spawnCharacters(ServerLevel level, int count, ItemStack content, BlockState state, BlockPos pos){
-        String morpherResult = getMorpherResult(content);
-        if(morpherResult == null){
-            morphingFailure(level, pos);
-            return;
-        }
-
-        char[] components = morpherResult.toCharArray();
+    private void spawnCharacters(ServerLevel level, int count, String morpherResult, BlockState state, BlockPos pos) {
         Direction direction = state.getValue(ORIENTATION).front();
         Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
 
-        for (char c : components) {
+        for (char c : morpherResult.toCharArray()) {
             ItemStack result = new ItemStack(ModItems.CHARACTER_ITEM.get());
             result.setCount(count);
             CharacterItem.setInscription(result, c);
@@ -179,86 +213,28 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
         }
     }
 
-    private void consumeMaterials(ItemStack content, ItemStack material, int count) {
-        if(content.is(ModItems.PRESCRIPTION) || content.is(ModItems.TAOIST_TALISMAN)){
-            ModUtils.damage(content, 1);
-        }else {
-            content.shrink(count);
-        }
+    private boolean isMaterialInvalid(ItemStack material) {
+        return !material.isEmpty() && (!material.is(ModTags.JIAGU_MATERIALS) || material.is(ModItems.YELLOW_PAPER));
+    }
 
-        if (material.isDamageableItem()) {
-            ModUtils.damage(material, 5);
-        } else if (!material.is(ModItems.INFINITE_PAPYRUS)) {
-            material.shrink(count);
+    private int consumeMaterials(CangjieMorpherBlockEntity blockEntity, int count) {
+        int toConsume = count;
+        for (int i = 0; i < CangjieMorpherBlockEntity.MATERIAL_SLOTS && toConsume > 0; i++) {
+            ItemStack material = blockEntity.getItem(i);
+            if (material.isEmpty() || material.is(ModItems.INFINITE_PAPYRUS)) continue;
+            int take = Math.min(toConsume, material.getCount());
+            material.shrink(take);
+            toConsume -= take;
         }
+        return count - toConsume;
     }
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
-            ItemStack heldItem = player.getMainHandItem();
-            ItemStack contentSlotItem = blockEntity.getItem(0);
-            ItemStack materialSlotItem = blockEntity.getItem(1);
-
-            if (player.isShiftKeyDown()) {
-                if(contentSlotItem.isEmpty() && materialSlotItem.isEmpty()){
-                    return InteractionResult.PASS;
-                }
-                if (level.isClientSide) {
-                    return InteractionResult.SUCCESS;
-                }
-                if (!contentSlotItem.isEmpty()) {
-                    popOutItem(level, pos, state, contentSlotItem);
-                    blockEntity.setItem(0, ItemStack.EMPTY);
-                }
-                if (!materialSlotItem.isEmpty()) {
-                    popOutItem(level, pos, state, materialSlotItem);
-                    blockEntity.setItem(1, ItemStack.EMPTY);
-                }
-                return InteractionResult.SUCCESS;
-            }
-
-            if (!level.isClientSide) {
-                if (materialSlotItem.isEmpty() || ModUtils.canSupplement(materialSlotItem, heldItem)) {
-                    boolean inkSuccess = ModUtils.tryPutOrSupplement(
-                            player,
-                            heldItem,
-                            materialSlotItem,
-                            itemStack -> itemStack.is(ModTags.JIAGU_MATERIALS) &&
-                                    !itemStack.is(ModItems.YELLOW_PAPER),
-                            newStack -> blockEntity.setItem(1, newStack)
-                    );
-                    if (inkSuccess) {
-                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-
-                if (contentSlotItem.isEmpty() || ModUtils.canSupplement(contentSlotItem, heldItem)) {
-                    boolean referenceSuccess = ModUtils.tryPutOrSupplement(
-                            player,
-                            heldItem,
-                            contentSlotItem,
-                            itemStack -> !itemStack.is(ModTags.INVALID_TO_CHARACTERS)
-                                    && !itemStack.has(DataComponents.CUSTOM_NAME),
-                            newStack -> blockEntity.setItem(0, newStack)
-                    );
-                    if (referenceSuccess) {
-                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide);
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
+            player.openMenu(blockEntity, buf -> buf.writeBlockPos(pos));
         }
-        return InteractionResult.PASS;
-    }
-
-    private void popOutItem(Level level, BlockPos pos, BlockState state, ItemStack stack) {
-        Direction direction = state.getValue(ORIENTATION).front();
-        Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
-        DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
-        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+        return InteractionResult.SUCCESS;
     }
 
     private void spawnParticles(ServerLevel serverLevel,BlockPos pos){
@@ -293,9 +269,13 @@ public class CangjieMorpherBlock extends BaseEntityBlock {
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof CangjieMorpherBlockEntity blockEntity) {
-            if(!blockEntity.getItem(0).isEmpty() && !blockEntity.getItem(1).isEmpty()){
-                return 15;
+            int filled = 0;
+            for (int i = 0; i < CangjieMorpherBlockEntity.SLOT_COUNT; i++) {
+                if (!blockEntity.getItem(i).isEmpty()) {
+                    filled++;
+                }
             }
+            return filled * (16 / CangjieMorpherBlockEntity.SLOT_COUNT);
         }
         return 0;
     }

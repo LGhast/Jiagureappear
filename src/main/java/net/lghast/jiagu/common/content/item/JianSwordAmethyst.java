@@ -22,6 +22,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 public class JianSwordAmethyst extends SwordItem {
     public JianSwordAmethyst(Tier tier, Properties properties) {
@@ -34,8 +35,7 @@ public class JianSwordAmethyst extends SwordItem {
     }
 
     @EventBusSubscriber(modid = JiaguReappear.MOD_ID)
-    public static class CharacterHuntingEvents
-    {
+    public static class CharacterHuntingEvents {
         @SubscribeEvent
         public static void onEntityKilled(LivingDeathEvent event) {
             LivingEntity entityKilled = event.getEntity();
@@ -58,7 +58,8 @@ public class JianSwordAmethyst extends SwordItem {
 
                     float baseChance = CommonConfig.JIAN_SWORD_CHARACTER_CHANCE.get().floatValue();
                     float chance = baseChance * (1 + enchantments.getLevel(inquisitivenessHolder) * 0.5f);
-                    if(Math.random() < chance){
+
+                    if(serverLevel.random.nextFloat() < chance){
                         String entityName = entityKilled instanceof Player? "戲者" : ModUtils.modifyName(entityKilled);
                         for (int i = 0; i < entityName.length(); i++) {
                             char c = entityName.charAt(i);

@@ -24,8 +24,6 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public abstract class PrescriptionUserItem extends Item {
-    int usingTicks = 0;
-
     public PrescriptionUserItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
     }
@@ -38,28 +36,14 @@ public abstract class PrescriptionUserItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-
         if (player.getCooldowns().isOnCooldown(this)) {
             return InteractionResultHolder.fail(stack);
         }
-
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
             return InteractionResultHolder.fail(stack);
         }
-
-        usingTicks = 0;
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
-    }
-
-    protected int getUsingTicks(){
-        return usingTicks;
-    }
-
-    @Override
-    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
-        usingTicks++;
-        super.onUseTick(level, livingEntity, stack, remainingUseDuration);
     }
 
     @Override
@@ -71,17 +55,18 @@ public abstract class PrescriptionUserItem extends Item {
             return;
         }
 
+        int chargeTicks = getUseDuration(userStack, entity) - chargedTime;
         ItemStack prescriptionStack = getFirstPrescriptionFromItemStack(userStack);
         if(!prescriptionStack.isEmpty() && prescriptionStack.is(ModItems.PRESCRIPTION)) {
-            prescriptionEffect(prescriptionStack, userStack, level, player);
+            prescriptionEffect(prescriptionStack, userStack, level, player, chargeTicks);
             return;
         }
-        normalEffect(userStack, level, player);
+        normalEffect(userStack, level, player, chargeTicks);
     }
 
-    abstract protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack userStack, Level level, Player player);
+    abstract protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack userStack, Level level, Player player, int chargeTicks);
 
-    abstract protected void normalEffect(ItemStack userStack, Level level, Player player);
+    abstract protected void normalEffect(ItemStack userStack, Level level, Player player, int chargeTicks);
 
     protected void useSuccess(int damage, Player player,ItemStack stack){
         stack.hurtAndBreak(damage, player, EquipmentSlot.MAINHAND);

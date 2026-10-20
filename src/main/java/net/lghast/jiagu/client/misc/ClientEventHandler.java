@@ -1,12 +1,8 @@
 package net.lghast.jiagu.client.misc;
 
 import net.lghast.jiagu.JiaguReappear;
-import net.lghast.jiagu.client.particle.JiaguFloatingParticles;
-import net.lghast.jiagu.client.particle.JiaguParticles;
-import net.lghast.jiagu.client.particle.ModParticles;
-import net.lghast.jiagu.client.screen.DictionaryScreen;
-import net.lghast.jiagu.client.screen.PrescriptionScreen;
-import net.lghast.jiagu.client.screen.YaowangGourdScreen;
+import net.lghast.jiagu.client.particle.*;
+import net.lghast.jiagu.client.screen.*;
 import net.lghast.jiagu.common.content.item.PrescriptionUserItem;
 import net.lghast.jiagu.network.OpenPrescriptionGuiPayload;
 import net.lghast.jiagu.register.system.ModMenus;
@@ -35,6 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 @OnlyIn(Dist.CLIENT)
+@SuppressWarnings("unused")
 @EventBusSubscriber(modid = JiaguReappear.MOD_ID)
 public class ClientEventHandler {
 
@@ -75,7 +72,7 @@ public class ClientEventHandler {
                         tooltip.add(insertIndex, Component.translatable("tooltip.jiagureappear.lzh", name)
                                 .withStyle(ChatFormatting.GRAY));
                         return;
-                    };
+                    }
 
                     tooltip.add(insertIndex, Component.translatable("tooltip.jiagureappear.lzh_appended", name, enchantName)
                             .withStyle(ChatFormatting.GRAY));
@@ -116,5 +113,8 @@ public class ClientEventHandler {
         event.register(ModMenus.PRESCRIPTION_MENU.get(), PrescriptionScreen::new);
         event.register(ModMenus.DICTIONARY_MENU.get(), DictionaryScreen::new);
         event.register(ModMenus.YAOWANG_GOURD_MENU.get(), YaowangGourdScreen::new);
+        event.register(ModMenus.AUTO_DISASSEMBLER_MENU.get(), AutoDisassemblerScreen::new);
+        event.register(ModMenus.CANGJIE_MORPHER_MENU.get(), CangjieMorpherScreen::new);
+        event.register(ModMenus.RUBBING_MACHINE_MENU.get(), RubbingMachineScreen::new);
     }
 }

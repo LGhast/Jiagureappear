@@ -111,10 +111,13 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
     }
 
     private void disassembleItem(BlockState state, ServerLevel level, BlockPos pos) {
-        if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
-            ItemStack content = blockEntity.getItem(0).copy();
+        if (state.getValue(CRAFTING)) return;
 
-            if (content.is(ModItems.CHARACTER_ITEM) && !state.getValue(CRAFTING)) {
+        if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
+            for (int i = 0; i < AutoDisassemblerBlockEntity.SLOT_COUNT; i++) {
+                ItemStack content = blockEntity.getItem(i).copy();
+                if (content.isEmpty() || !content.is(ModItems.CHARACTER_ITEM)) continue;
+
                 level.setBlock(pos, state.setValue(CRAFTING, true), 3);
                 blockEntity.startDisassembling();
 
@@ -145,8 +148,9 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
                             0.2, 0.4, 0.2, 10, 0.01);
                 }
 
-                blockEntity.setItem(0, ItemStack.EMPTY);
+                blockEntity.setItem(i, ItemStack.EMPTY);
                 blockEntity.setChanged();
+                return;
             }
         }
     }
@@ -164,42 +168,10 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
-            ItemStack heldItem = player.getMainHandItem();
-            ItemStack slotItem = blockEntity.getItem(0);
-
-            if (player.isShiftKeyDown()) {
-                if (!slotItem.isEmpty()) {
-                    if(!level.isClientSide) {
-                        popOutItem(level, pos, state, slotItem);
-                        blockEntity.setItem(0, ItemStack.EMPTY);
-                    }
-                    return InteractionResult.sidedSuccess(level.isClientSide);
-                }
-                return InteractionResult.PASS;
-            }
-
-            if(!level.isClientSide) {
-                boolean success = ModUtils.tryPutOrSupplement(player, heldItem, slotItem,
-                        itemStack -> itemStack.is(ModItems.CHARACTER_ITEM),
-                        newStack -> blockEntity.setItem(0, newStack)
-                );
-
-                if(success){
-                    level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
-                    return InteractionResult.SUCCESS;
-                }
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide);
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
+            player.openMenu(blockEntity, buf -> buf.writeBlockPos(pos));
         }
-        return InteractionResult.PASS;
-    }
-
-    private void popOutItem(Level level, BlockPos pos, BlockState state, ItemStack stack) {
-        Direction direction = state.getValue(ORIENTATION).front();
-        Vec3 spawnPos = Vec3.atCenterOf(pos).relative(direction, 0.7);
-        DefaultDispenseItemBehavior.spawnItem(level, stack, 6, direction, spawnPos);
-        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -227,8 +199,13 @@ public class AutoDisassemblerBlock extends BaseEntityBlock {
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof AutoDisassemblerBlockEntity blockEntity) {
-            ItemStack content = blockEntity.getItem(0);
-            return content.isEmpty() ? 0 : 15;
+            int filled = 0;
+            for (int i = 0; i < AutoDisassemblerBlockEntity.SLOT_COUNT; i++) {
+                if (!blockEntity.getItem(i).isEmpty()) {
+                    filled++;
+                }
+            }
+            return filled * (15 / AutoDisassemblerBlockEntity.SLOT_COUNT);
         }
         return 0;
     }

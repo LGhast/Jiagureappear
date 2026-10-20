@@ -35,43 +35,37 @@ public class GuParasiteAmethystItem extends PrescriptionUserItem {
         return 72000;
     }
 
-    private void shootProjectile(Player player, Level level, MobEffectInstance mobEffectInstance) {
+    private void shootProjectile(Player player, Level level, MobEffectInstance mobEffectInstance, int chargeTicks) {
         if (!level.isClientSide) {
             ParasiteSporeEntity projectile = new ParasiteSporeEntity(level, player);
             projectile.setEffect(mobEffectInstance);
-
             Vec3 look = player.getLookAngle();
-
-            float velocity = getVelocityMin() + Math.min(getVelocityBonusMax(), getUsingTicks()/100f);
+            float velocity = getVelocityMin() + Math.min(getVelocityBonusMax(), chargeTicks/100f);
             projectile.shoot(look.x, look.y, look.z, velocity, 1.0f);
-
             level.addFreshEntity(projectile);
         }
     }
 
     @Override
-    protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack stack, Level level, Player player) {
+    protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack stack, Level level, Player player, int chargeTicks) {
         Holder<MobEffect> effectHolder = PrescriptionItem.getEffectHolder(prescriptionStack);
         if(effectHolder != null){
             int amplifier = getAmplifier(stack, level);
             int duration = getDuration(stack, level);
-
-            shootProjectile(player, level, new MobEffectInstance(effectHolder, duration, amplifier));
+            shootProjectile(player, level, new MobEffectInstance(effectHolder, duration, amplifier), chargeTicks);
             prescriptionStack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-
             updatePrescriptionInItemStack(stack, prescriptionStack);
             useSuccess(2, player, stack);
         }
     }
 
     @Override
-    protected void normalEffect(ItemStack stack, Level level, Player player) {
+    protected void normalEffect(ItemStack stack, Level level, Player player, int chargeTicks) {
         Holder<MobEffect> poisonHolder = level.registryAccess().registryOrThrow(Registries.MOB_EFFECT)
                 .getHolderOrThrow(Objects.requireNonNull(MobEffects.POISON.getKey()));
-
         int amplifier = getAmplifier(stack, level);
         int duration = getDuration(stack, level);
-        shootProjectile(player, level, new MobEffectInstance(poisonHolder, duration, amplifier));
+        shootProjectile(player, level, new MobEffectInstance(poisonHolder, duration, amplifier), chargeTicks);
         useSuccess(1, player, stack);
     }
 

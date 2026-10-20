@@ -28,8 +28,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class YiConflagrantAmethystItem extends Item {
-    private int cooldownTicks = 0;
-
     public YiConflagrantAmethystItem(Properties properties) {
         super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
     }
@@ -44,7 +42,6 @@ public class YiConflagrantAmethystItem extends Item {
         return repairCandidate.is(Items.BLAZE_ROD);
     }
 
-
     @Override
     public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
@@ -53,13 +50,9 @@ public class YiConflagrantAmethystItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
             return InteractionResultHolder.fail(stack);
         }
-
-        cooldownTicks = 0;
-
         player.startUsingItem(usedHand);
         return InteractionResultHolder.success(stack);
     }
@@ -72,37 +65,30 @@ public class YiConflagrantAmethystItem extends Item {
     @Override
     public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseDuration) {
         super.onUseTick(level, user, stack, remainingUseDuration);
-        if (level.isClientSide)  return;
-
-        cooldownTicks++;
-        if (cooldownTicks < getInterval(level, stack))  return;
-        cooldownTicks = 0;
-
+        if (level.isClientSide) return;
+        float interval = getInterval(level, stack);
+        int elapsed = getUseDuration(stack, user) - remainingUseDuration;
+        if (elapsed <= 0 || interval <= 0 || elapsed % interval != 0) return;
         double rangeXZ = 4;
         double rangeY = 1.5;
         AABB area = new AABB(
                 user.getX() - rangeXZ, user.getY() - rangeY, user.getZ() - rangeXZ,
                 user.getX() + rangeXZ, user.getY() + rangeY, user.getZ() + rangeXZ
         );
-
         for (LivingEntity target : level.getEntitiesOfClass(LivingEntity.class, area, e -> e != user && e.isAlive())) {
-
             Holder<DamageType> damageTypeHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
                     .getHolderOrThrow(DamageTypes.IN_FIRE);
             DamageSource source = new DamageSource(damageTypeHolder, user);
-
-            if (target.hurt(source, getDamage(target))) {
+            if (target.hurt(source, getDamage(level, target))) {
                 Holder<Enchantment> ignitingHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                         .getHolderOrThrow(ModEnchantments.IGNITING);
                 if(stack.getEnchantmentLevel(ignitingHolder)>0){
                     target.igniteForSeconds(5);
                 }
-
                 if (level.getRandom().nextFloat() < 0.1f) {
                     stack.hurtAndBreak(1, user, EquipmentSlot.MAINHAND);
                     if (stack.isEmpty()) break;
                 }
-
                 burnVisualEffect(level, target);
             }
         }
@@ -124,12 +110,12 @@ public class YiConflagrantAmethystItem extends Item {
         return Math.max(1, baseInterval * (1.0f - (stack.getEnchantmentLevel(cremationHolder) * 0.17f)));
     }
 
-    private float getDamage(LivingEntity target) {
+    private float getDamage(Level level, LivingEntity target) {
         float baseDamage = CommonConfig.YI_CONFLAGRANT_BASE_DAMAGE.get().floatValue();
         boolean extraDamageToFur = CommonConfig.YI_CONFLAGRANT_EXTRA_DAMAGE_TO_FUR.get();
 
         if (extraDamageToFur && target.getType().is(ModTags.MOBS_WITH_FUR)) {
-            return Math.random() < 0.4 ? baseDamage * 2 : baseDamage;
+            return level.getRandom().nextFloat() < 0.4f ? baseDamage * 2 : baseDamage;
         }
         return baseDamage;
     }
@@ -148,5 +134,4 @@ public class YiConflagrantAmethystItem extends Item {
     public boolean isEnchantable(ItemStack stack) {
         return true;
     }
-
 }

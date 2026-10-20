@@ -10,6 +10,7 @@ import net.lghast.jiagu.register.content.ModVillagers;
 import net.lghast.jiagu.character.CharacterInfo;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -26,8 +27,8 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
+@SuppressWarnings("unused")
 @EventBusSubscriber(modid = JiaguReappear.MOD_ID)
 public class ModEvents {
     @SubscribeEvent
@@ -44,10 +45,9 @@ public class ModEvents {
                     .filter(holder -> !holder.value().isInstantenous())
                     .toList();
 
-    private static Holder<MobEffect> getRandomEffect(){
+    private static Holder<MobEffect> getRandomEffect(RandomSource random){
         if (EFFECT_HOLDERS.isEmpty()) return null;
-
-       return EFFECT_HOLDERS.get(ThreadLocalRandom.current().nextInt(EFFECT_HOLDERS.size()));
+        return EFFECT_HOLDERS.get(random.nextInt(EFFECT_HOLDERS.size()));
     }
 
     @SubscribeEvent
@@ -56,18 +56,18 @@ public class ModEvents {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
             trades.get(1).add((entity,randomSource) ->{
-                if(Math.random()<0.5){
+                if(randomSource.nextFloat()<0.5){
                     return new MerchantOffer(
                             new ItemCost(Items.PAPER, 24),
                             new ItemStack(Items.EMERALD, 1), 20, 3, 0.05f);
                 }
                 return new MerchantOffer(
-                    new ItemCost(Items.EMERALD, 5),
-                    new ItemStack(ModItems.BONE_LAMELLA.get(), 2), 20, 2, 0.05f);
+                        new ItemCost(Items.EMERALD, 5),
+                        new ItemStack(ModItems.BONE_LAMELLA.get(), 2), 20, 2, 0.05f);
             });
             trades.get(1).add((entity,randomSource) -> {
                 ItemStack itemStack = new ItemStack(ModItems.CHARACTER_ITEM.get(), 3);
-                CharacterItem.setInscription(itemStack, CharacterInfo.getLuckyInscription());
+                CharacterItem.setInscription(itemStack, CharacterInfo.getLuckyInscription(randomSource));
                 return new MerchantOffer(
                         new ItemCost(Items.EMERALD, 10),
                         Optional.of(new ItemCost(ModItems.BONE_LAMELLA, 1)),
@@ -80,7 +80,7 @@ public class ModEvents {
                     new ItemStack(ModItems.TURTLE_PLASTRON.get(), 1), 10, 10, 0.05f
             ));
             trades.get(2).add((entity,randomSource) -> new MerchantOffer(
-                    new ItemCost(Math.random()<0.5 ? Items.INK_SAC : Items.BLACK_DYE, 5),
+                    new ItemCost(randomSource.nextFloat()<0.5 ? Items.INK_SAC : Items.BLACK_DYE, 5),
                     new ItemStack(Items.EMERALD, 1), 12, 10, 0.05f
             ));
             trades.get(2).add((entity,randomSource) -> new MerchantOffer(
@@ -90,7 +90,7 @@ public class ModEvents {
 
             trades.get(3).add((entity,randomSource) -> {
                 ItemStack itemStack = new ItemStack(ModItems.CHARACTER_ITEM.get(), 3);
-                CharacterItem.setInscription(itemStack, CharacterInfo.getLuckyInscriptionAdvanced());
+                CharacterItem.setInscription(itemStack, CharacterInfo.getLuckyInscriptionAdvanced(randomSource));
                 return new MerchantOffer(
                         new ItemCost(Items.EMERALD, 10),
                         Optional.of(new ItemCost(ModItems.BONE_LAMELLA, 1)),
@@ -104,7 +104,10 @@ public class ModEvents {
 
             trades.get(4).add((entity,randomSource) -> {
                 ItemStack itemStack = new ItemStack(ModItems.PRESCRIPTION.get(), 1);
-                PrescriptionItem.setEffect(itemStack, getRandomEffect());
+                Holder<MobEffect> randomEffect = getRandomEffect(randomSource);
+                if (randomEffect != null) {
+                    PrescriptionItem.setEffect(itemStack, randomEffect);
+                }
                 return new MerchantOffer(
                         new ItemCost(Items.EMERALD, 25),
                         itemStack, 5, 16, 0.1f
@@ -117,7 +120,7 @@ public class ModEvents {
 
             trades.get(5).add((entity,randomSource) -> {
                 ItemStack itemStack = new ItemStack(ModItems.CHARACTER_ITEM.get(), 1);
-                String luckyInscription = CharacterInfo.getLuckyInscriptionAny();
+                String luckyInscription = CharacterInfo.getLuckyInscriptionAny(randomSource);
                 CharacterItem.setInscription(itemStack, luckyInscription);
                 int level = (int)(CharacterInfo.getFloatValue(luckyInscription)/1000);
                 int cost = switch (level) {

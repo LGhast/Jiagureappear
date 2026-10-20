@@ -240,9 +240,6 @@ public class CommonConfig {
         GU_PARASITE_BASE_AMPLIFIER = BUILDER
                 .comment("效果放大器 Effect amplifier")
                 .defineInRange("gu_parasite_amplifier", 0, 0, 254);
-        GU_PARASITE_BASE_AMPLIFIER = BUILDER
-                .comment("效果放大器 Effect amplifier")
-                .defineInRange("gu_parasite_amplifier", 0, 0, 254);
         GU_PARASITE_PROJECTILE_VELOCITY_MAX = BUILDER
                 .comment("弹射物最大蓄力速度加成 Maximum projectile charge velocity bonus",
                         "此配置控制玩家通过蓄力最多能使弹射物发射速度增加多少。",

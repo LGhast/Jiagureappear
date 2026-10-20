@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("unused")
 public record CraftPrescriptionPayload(BlockPos pos) implements CustomPacketPayload {
     public static final Type<CraftPrescriptionPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath("jiagureappear", "craft_prescription"));

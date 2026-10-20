@@ -12,7 +12,6 @@ import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
@@ -20,7 +19,6 @@ import net.neoforged.fml.ModList;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class ModUtils {
     public static void spawnItem(ServerLevel level, double x, double y, double z, ItemStack stack, boolean pickUpDelay) {
@@ -42,17 +40,6 @@ public class ModUtils {
     public static void spawnParticles(ServerLevel serverLevel, ParticleOptions particle, double x, double y, double z,
                                       double dx, double dy, double dz, int count, double speed) {
         serverLevel.sendParticles(particle, x, y, z, count, dx, dy, dz, speed);
-    }
-
-    public static void damage(ItemStack stack,int count){
-        if(stack.isDamageableItem()){
-            int damage = stack.getDamageValue()+count;
-            if(damage>=stack.getMaxDamage()){
-                stack.shrink(1);
-            }else{
-                stack.setDamageValue(damage);
-            }
-        }
     }
 
     public static String modifyName(String name){
@@ -123,53 +110,6 @@ public class ModUtils {
         }
 
         return result.toString();
-    }
-
-    public static boolean tryPutOrSupplement(Player player, ItemStack heldItem, ItemStack slotItem,
-                                                 Predicate<ItemStack> validator, SlotSetter setSlot) {
-
-        if (player.isSpectator() || heldItem.isEmpty() || !validator.test(heldItem)) {
-            return false;
-        }
-        if (slotItem.isEmpty()) {
-            setSlot.set(heldItem.copy());
-            if (!player.isCreative()) {
-                heldItem.setCount(0);
-            }
-            return true;
-        }
-
-        if (canSupplement(slotItem, heldItem, validator)) {
-            int spaceLeft = slotItem.getMaxStackSize() - slotItem.getCount();
-            int toTransfer = Math.min(spaceLeft, heldItem.getCount());
-
-            if (toTransfer > 0) {
-                ItemStack newSlotItem = slotItem.copy();
-                newSlotItem.grow(toTransfer);
-                setSlot.set(newSlotItem);
-
-                if (!player.isCreative()) {
-                    heldItem.shrink(toTransfer);
-                }
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean canSupplement(ItemStack slotItem, ItemStack heldItem, Predicate<ItemStack> validator) {
-        return !heldItem.isEmpty() &&
-                ItemStack.isSameItemSameComponents(slotItem, heldItem) &&
-                validator.test(heldItem);
-    }
-
-    public static boolean canSupplement(ItemStack slotItem, ItemStack heldItem) {
-        return !heldItem.isEmpty() && ItemStack.isSameItemSameComponents(slotItem, heldItem);
-    }
-
-    @FunctionalInterface
-    public interface SlotSetter {
-        void set(ItemStack stack);
     }
 
     public static String truncateToWidth(Font font, String text, int maxWidth) {

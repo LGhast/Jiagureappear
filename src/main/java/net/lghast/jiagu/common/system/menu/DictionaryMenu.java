@@ -5,17 +5,18 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class DictionaryMenu extends AbstractContainerMenu {
-    private final Player player;
-
-    public DictionaryMenu(int containerId, Inventory playerInventory) {
+    public DictionaryMenu(int containerId) {
         super(ModMenus.DICTIONARY_MENU.get(), containerId);
-        this.player = playerInventory.player;
     }
 
     @Override
-    public ItemStack quickMoveStack(Player player, int index) {
+    public @NotNull ItemStack quickMoveStack(Player player, int index) {
         return ItemStack.EMPTY;
     }
 

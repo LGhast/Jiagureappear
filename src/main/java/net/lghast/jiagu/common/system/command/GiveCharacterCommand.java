@@ -19,6 +19,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import java.util.Collection;
 import java.util.Collections;
 
+@SuppressWarnings("unused")
 @EventBusSubscriber
 public class GiveCharacterCommand {
     @SubscribeEvent

@@ -41,52 +41,46 @@ public class YiCureAmethystItem extends PrescriptionUserItem{
     }
 
     @Override
-    protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack stack, Level level, Player player) {
-        if(getUsingTicks() < 20){
+    protected void prescriptionEffect(ItemStack prescriptionStack, ItemStack stack, Level level, Player player, int chargeTicks) {
+        if(chargeTicks < 20){
             return;
         }
         Holder<MobEffect> effectHolder = PrescriptionItem.getEffectHolder(prescriptionStack);
         if(effectHolder == null){
-            normalEffect(stack, level, player);
+            normalEffect(stack, level, player, chargeTicks);
             return;
         }
         if(needEffect(getAmplifier(stack, level), getDuration(stack, level), effectHolder, player)) {
             int duration = (int)(getDuration(stack, level) * 1.2);
             int amplifier = getAmplifier(stack, level);
             MobEffectInstance effectInstance = new MobEffectInstance(effectHolder, duration, amplifier);
-
             player.addEffect(effectInstance);
             prescriptionStack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-
             updatePrescriptionInItemStack(stack, prescriptionStack);
             if(level instanceof ServerLevel serverLevel) {
-               spawnParticles(serverLevel, effectHolder, player);
+                spawnParticles(serverLevel, effectHolder, player);
             }
             useSuccess(2, player, stack);
         }
     }
 
     @Override
-    protected void normalEffect(ItemStack stack, Level level, Player player){
-        if(getUsingTicks() < 20){
+    protected void normalEffect(ItemStack stack, Level level, Player player, int chargeTicks){
+        if(chargeTicks < 20){
             return;
         }
         Holder<MobEffect> regenerationHolder = player.level().registryAccess().registryOrThrow(Registries.MOB_EFFECT)
                 .getHolderOrThrow(Objects.requireNonNull(MobEffects.REGENERATION.getKey()));
-
         if(needCure(getAmplifier(stack, level), getDuration(stack, level), regenerationHolder, player)) {
             player.addEffect(new MobEffectInstance(regenerationHolder, getDuration(stack, level), getAmplifier(stack, level)));
-
             Holder<Enchantment> benevolenceHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                     .getHolderOrThrow(ModEnchantments.BENEVOLENCE);
             int benevolenceLevel = stack.getEnchantmentLevel(benevolenceHolder);
             if(benevolenceLevel>0){
                 List<MobEffectInstance> effects = new ArrayList<>(player.getActiveEffects());
                 if(!effects.isEmpty()) {
-
                     for (MobEffectInstance e : effects) {
                         Holder<MobEffect> effectHolder = e.getEffect();
-
                         if (!effectHolder.value().isBeneficial() && e.getAmplifier() <= benevolenceLevel) {
                             player.removeEffect(effectHolder);
                         }

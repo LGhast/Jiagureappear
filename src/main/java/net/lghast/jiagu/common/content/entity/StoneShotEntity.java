@@ -28,6 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class StoneShotEntity extends ThrowableItemProjectile {
     private final float explosion_radius;
     private final float damage;
+    private boolean impacted;
 
     public StoneShotEntity(EntityType<? extends StoneShotEntity> type, Level level) {
         super(type, level);
@@ -63,7 +64,7 @@ public class StoneShotEntity extends ThrowableItemProjectile {
         }else{
             multiplier = 1.864 * Math.log(destroyTime) - 0.29;
         }
-        return (float) Math.round(multiplier);
+        return (float) (Math.round(multiplier * 10.0) / 10.0);
     }
 
     @Override
@@ -74,11 +75,12 @@ public class StoneShotEntity extends ThrowableItemProjectile {
     @Override
     protected void onHit(HitResult result) {
         super.onHit(result);
-
-        if (!this.level().isClientSide) {
-            shotExplosionEffect(result.getLocation());
-            this.discard();
+        if (this.level().isClientSide || this.impacted) {
+            return;
         }
+        this.impacted = true;
+        shotExplosionEffect(result.getLocation());
+        this.discard();
     }
 
     private void shotExplosionEffect(Vec3 explosionPos) {
