@@ -1249,6 +1249,14 @@
     "structure": "VERTICAL",
     "components": ["simple2", "又"]
   },
+  "西": {
+    "value": 277.0,
+    "identifier": "xi_west"
+  },
+  "瓦": {
+    "value": 278.0,
+    "identifier": "wa_tile"
+  },
   "林": {
     "value": 1000.0,
     "identifier": "lin_woods",
@@ -3331,6 +3339,12 @@
     "structure": "HORIZONTAL",
     "components": ["彳", "盾"]
   },
+  "䙲": {
+    "value": 1347.0,
+    "identifier": "qian_qian",
+    "structure": "X_SHAPE",
+    "components": ["爪", "爪", "西", "又", "又"]
+  },
   "嚴": {
     "value": 2000.0,
     "identifier": "yan_strict",
@@ -4853,6 +4867,24 @@
     "structure": "HORIZONTAL",
     "components": ["虫", "原"]
   },
+  "仙": {
+    "value": 2254.0,
+    "identifier": "xian_fairy",
+    "structure": "HORIZONTAL",
+    "components": ["人", "䙲"]
+  },
+  "遷": {
+    "value": 2255.0,
+    "identifier": "qian_move",
+    "structure": "HORIZONTAL",
+    "components": ["辵", "䙲"]
+  },
+  "硫": {
+    "value": 2256.0,
+    "identifier": "liu_sulfur",
+    "structure": "HORIZONTAL",
+    "components": ["石", "㐬"]
+  },
   "巖": {
     "value": 3000.0,
     "identifier": "yan_rock",
@@ -5074,6 +5106,12 @@
     "identifier": "wan_bowl",
     "structure": "HORIZONTAL",
     "components": ["木", "宛"]
+  },
+  "躚": {
+    "value": 3037.0,
+    "identifier": "xian_dance",
+    "structure": "HORIZONTAL",
+    "components": ["足", "遷"]
   },
   "1": {
     "value": 5000.0,

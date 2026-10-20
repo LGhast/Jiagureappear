@@ -19,14 +19,12 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
-import net.minecraft.world.level.block.Block;
 
 import java.util.*;
 
 public class LzhMappings {
     public static final Map<String, String> ITEM_MAP = new HashMap<>();
     public static final Map<String, String> ENTITY_MAP = new HashMap<>();
-    public static final Map<String, String> BLOCK_MAP = new HashMap<>();
     public static final Map<String, String> ENCHANTMENT_MAP = new HashMap<>();
     public static final Map<String, String> POTION_MAP = new HashMap<>();
     public static final Map<String, String> EFFECT_MAP = new HashMap<>();
@@ -34,7 +32,6 @@ public class LzhMappings {
 
     private static final Map<ResourceLocation, String> ITEM_CACHE = new HashMap<>();
     private static final Map<ResourceLocation, String> ENTITY_CACHE = new HashMap<>();
-    private static final Map<ResourceLocation, String> BLOCK_CACHE = new HashMap<>();
     private static final Map<ResourceLocation, String> ENCHANTMENT_CACHE = new HashMap<>();
     private static final Map<ResourceLocation, String> POTION_CACHE = new HashMap<>();
     private static final Map<ResourceLocation, String> EFFECT_CACHE = new HashMap<>();
@@ -56,7 +53,6 @@ public class LzhMappings {
     private static void loadJsonMappings() {
         Map<JsonLzhLoader.Category, Map<String, String>> loaded = JsonLzhLoader.loadAll();
         ITEM_MAP.putAll(loaded.get(JsonLzhLoader.Category.ITEM));
-        BLOCK_MAP.putAll(loaded.get(JsonLzhLoader.Category.BLOCK));
         ENTITY_MAP.putAll(loaded.get(JsonLzhLoader.Category.ENTITY));
         ENCHANTMENT_MAP.putAll(loaded.get(JsonLzhLoader.Category.ENCHANTMENT));
         EFFECT_MAP.putAll(loaded.get(JsonLzhLoader.Category.EFFECT));
@@ -68,7 +64,6 @@ public class LzhMappings {
     private static void precomputeCaches() {
         ITEM_CACHE.clear();
         ENTITY_CACHE.clear();
-        BLOCK_CACHE.clear();
         ENCHANTMENT_CACHE.clear();
         POTION_CACHE.clear();
         EFFECT_CACHE.clear();
@@ -88,12 +83,6 @@ public class LzhMappings {
             ResourceLocation key = ResourceLocation.tryParse(entry.getKey());
             if (key != null) {
                 ENTITY_CACHE.put(key, entry.getValue());
-            }
-        }
-        for (Map.Entry<String, String> entry : BLOCK_MAP.entrySet()) {
-            ResourceLocation key = ResourceLocation.tryParse(entry.getKey());
-            if (key != null) {
-                BLOCK_CACHE.put(key, entry.getValue());
             }
         }
         for (Map.Entry<String, String> entry : ENCHANTMENT_MAP.entrySet()) {
@@ -126,9 +115,6 @@ public class LzhMappings {
     private static void loadConfigMappings() {
         for (String mapping : CommonConfig.ITEM_LZH.get()) {
             parseAndPutMapping(mapping, ITEM_MAP);
-        }
-        for (String mapping : CommonConfig.BLOCK_LZH.get()) {
-            parseAndPutMapping(mapping, BLOCK_MAP);
         }
         for (String mapping : CommonConfig.ENTITY_LZH.get()) {
             parseAndPutMapping(mapping, ENTITY_MAP);
@@ -165,7 +151,6 @@ public class LzhMappings {
 
         ITEM_MAP.clear();
         ENTITY_MAP.clear();
-        BLOCK_MAP.clear();
         ENCHANTMENT_MAP.clear();
         POTION_MAP.clear();
         EFFECT_MAP.clear();
@@ -243,13 +228,6 @@ public class LzhMappings {
         ResourceLocation entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
 
         return ENTITY_CACHE.get(entityKey);
-    }
-
-    public static String getLzhName(Block block) {
-        ensureInitialized();
-        ResourceLocation blockKey = BuiltInRegistries.BLOCK.getKey(block);
-
-        return BLOCK_CACHE.get(blockKey);
     }
 
     public static String getLzhName(Holder<Enchantment> enchantment) {

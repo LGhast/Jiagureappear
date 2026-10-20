@@ -201,9 +201,9 @@
   "tooltip.jiagureappear.character_item_simple2_simplified": "SNCC2",
   "tooltip.jiagureappear.character_item_complex_simplified": "CNCC",
   "tooltip.jiagureappear.character_item_reversal_simplified": "CRV",
-  "tooltip.jiagureappear.character_item": "Current Inscription: %s",
-  "tooltip.jiagureappear.taoist_talisman": "Current Symbol: %s",
-  "tooltip.jiagureappear.prescription": "Current Effect: %s (%s)",
+  "tooltip.jiagureappear.character_item": "Inscription: %s",
+  "tooltip.jiagureappear.taoist_talisman": "Symbol: %s",
+  "tooltip.jiagureappear.prescription": "Effect: %s (%s)",
   "tooltip.jiagureappear.prescription_no": "No Effect",
   "tooltip.jiagureappear.shot": "Current Shot: %s",
   "tooltip.jiagureappear.shot_no": "No Shot",
@@ -212,8 +212,7 @@
 
   "key.categories.jiagureappear": "Jiagu Reappearance",
   "key.jiagureappear.open_prescription_gui": "Open Prescription GUI",
-
-  "tips.jiagureappear.wrong_language": "Please use Language lzh (文言-華夏) as the game language.",
+  "key.jiagureappear.open_character_crafter": "Open Jiagu Character Workbench",
 
   "gui.jiagureappear.prescription":"Prescriptions",
   "gui.jiagureappear.dictionary": "Dictionary",
@@ -229,6 +228,10 @@
   "gui.jiagureappear.dictionary.unknown": "UNKNOWN",
   "gui.jiagureappear.dictionary.recipe": "Assembly Recipe:",
   "gui.jiagureappear.dictionary.no_recipe": "No Assembly Recipe Found",
+  "gui.jiagureappear.character_crafter.title_assemble": "Jiagu Inscription Assembly",
+  "gui.jiagureappear.character_crafter.title_disassemble": "Jiagu Inscription Disassembly",
+  "gui.jiagureappear.character_crafter.to_assemble": "Switch to Assembly",
+  "gui.jiagureappear.character_crafter.to_disassemble": "Switch to Disassembly",
 
   "commands.jiaguinfo.disassembly": "Made From: ",
   "commands.jiaguinfo.not_found": "is not found.",

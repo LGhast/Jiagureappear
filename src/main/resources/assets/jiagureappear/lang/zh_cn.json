@@ -171,6 +171,7 @@
   "item.jiagureappear.yi_cure_amethyst": "医之紫晶铭刻",
   "item.jiagureappear.gu_parasite_amethyst": "蛊之紫晶铭刻",
   "item.jiagureappear.lei_stones_amethyst": "磊之紫晶铭刻",
+
   "item.minecraft.potion.effect.appetizing": "开胃药水",
   "item.minecraft.splash_potion.effect.appetizing": "喷溅型开胃药水",
   "item.minecraft.lingering_potion.effect.appetizing": "滞留型开胃药水",
@@ -199,9 +200,9 @@
   "tooltip.jiagureappear.character_item_simple2_simplified": "简非二",
   "tooltip.jiagureappear.character_item_complex_simplified": "复非",
   "tooltip.jiagureappear.character_item_reversal_simplified": "反转",
-  "tooltip.jiagureappear.character_item": "当前题字: %s",
-  "tooltip.jiagureappear.taoist_talisman": "当前符图：%s",
-  "tooltip.jiagureappear.prescription": "当前药效: %s (%s)",
+  "tooltip.jiagureappear.character_item": "题字: %s",
+  "tooltip.jiagureappear.taoist_talisman": "符图：%s",
+  "tooltip.jiagureappear.prescription": "药效: %s (%s)",
   "tooltip.jiagureappear.prescription_no": "无药效",
   "tooltip.jiagureappear.shot": "当前弹药: %s",
   "tooltip.jiagureappear.shot_no": "无弹药",
@@ -209,9 +210,8 @@
   "tooltip.jiagureappear.lzh_appended": "文言: %s (%s)",
 
   "key.categories.jiagureappear": "岁在甲骨",
-  "key.jiagureappear.open_prescription_gui": "开启药方GUI",
-
-  "tips.jiagureappear.wrong_language": "请使用文言文作为游戏语言",
+  "key.jiagureappear.open_prescription_gui": "打开紫晶铭刻药方页面",
+  "key.jiagureappear.open_character_crafter": "打开甲骨文操作页面",
 
   "gui.jiagureappear.prescription": "药方",
   "gui.jiagureappear.dictionary": "字典",
@@ -227,6 +227,10 @@
   "gui.jiagureappear.dictionary.unknown": "未知",
   "gui.jiagureappear.dictionary.recipe": "合文配方：",
   "gui.jiagureappear.dictionary.no_recipe": "未查询到合文配方",
+  "gui.jiagureappear.character_crafter.title_assemble": "甲骨文组合",
+  "gui.jiagureappear.character_crafter.title_disassemble": "甲骨文拆解",
+  "gui.jiagureappear.character_crafter.to_assemble": "切换到组合模式",
+  "gui.jiagureappear.character_crafter.to_disassemble": "切换到拆解模式",
 
   "commands.jiaguinfo.disassembly": "可分解为：",
   "commands.jiaguinfo.not_found": "未记录",

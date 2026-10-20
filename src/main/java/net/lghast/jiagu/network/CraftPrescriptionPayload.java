@@ -31,8 +31,11 @@ public record CraftPrescriptionPayload(BlockPos pos) implements CustomPacketPayl
         context.enqueueWork(() -> {
             if (context.player() instanceof ServerPlayer player) {
                 if (player.containerMenu instanceof YaowangGourdMenu menu) {
+                    if (!player.containerMenu.getCarried().isEmpty()) {
+                        return;
+                    }
                     ItemStack result = menu.getBlockEntity().craftPrescription();
-                    if (!result.isEmpty() && player.containerMenu.getCarried().isEmpty()) {
+                    if (!result.isEmpty()) {
                         player.containerMenu.setCarried(result);
                         YaowangTrigger.TRIGGER.get().trigger(player);
                     }

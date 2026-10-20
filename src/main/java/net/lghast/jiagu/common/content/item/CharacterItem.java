@@ -4,6 +4,7 @@ import net.lghast.jiagu.config.ClientConfig;
 import net.lghast.jiagu.character.CharacterInfo;
 import net.lghast.jiagu.register.system.ModDataComponents;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -11,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
@@ -97,8 +100,8 @@ public class CharacterItem extends Item{
                 isNormalInscription = true;
                 break;
         }
-        if(isNormalInscription) {
-            if(ClientConfig.DISPLAY_DISASSEMBLY_INFO.get()) {
+        if (isNormalInscription && shouldShowStructureInfo()) {
+            if (ClientConfig.DISPLAY_DISASSEMBLY_INFO.get()) {
                 String from = CharacterInfo.getCharacterDisassembly(inscription);
                 if (from != null) {
                     components.add(Component.translatable("item.jiagureappear.character.from", from)
@@ -106,7 +109,7 @@ public class CharacterItem extends Item{
                 }
             }
 
-            if(ClientConfig.DISPLAY_ASSEMBLY_INFO.get()) {
+            if (ClientConfig.DISPLAY_ASSEMBLY_INFO.get()) {
                 String to = CharacterInfo.getCharacterAssemblySimple(inscription);
                 if (!to.isEmpty()) {
                     char[] toChars = to.toCharArray();
@@ -136,6 +139,13 @@ public class CharacterItem extends Item{
                 }
             }
         }
-        super.appendHoverText(stack,context,components,tooltipFlag);
+        super.appendHoverText(stack, context, components, tooltipFlag);
+    }
+
+    private static boolean shouldShowStructureInfo() {
+        if (!ClientConfig.DISPLAY_STRUCTURE_INFO_WHEN_SHIFT.get()) {
+            return true;
+        }
+        return FMLEnvironment.dist == Dist.CLIENT && Screen.hasShiftDown();
     }
 }

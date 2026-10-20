@@ -20,6 +20,7 @@ public class YaowangGourdMenu extends AbstractContainerMenu {
         super(ModMenus.YAOWANG_GOURD_MENU.get(), containerId);
         this.blockEntity = blockEntity;
 
+        checkContainerSize(blockEntity, 7);
         addSlots(playerInventory);
     }
 
@@ -65,14 +66,21 @@ public class YaowangGourdMenu extends AbstractContainerMenu {
                     return ItemStack.EMPTY;
                 }
             } else {
+                boolean moved = false;
                 if (slotStack.getItem() == ModItems.EMPTY_PRESCRIPTION.get()) {
-                    if (!this.moveItemStackTo(slotStack, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
+                    moved = this.moveItemStackTo(slotStack, 0, 1, false);
                 } else if (slotStack.getItem() == ModItems.CHARACTER_ITEM.get()) {
-                    if (!this.moveItemStackTo(slotStack, 1, 7, false)) {
-                        return ItemStack.EMPTY;
+                    moved = this.moveItemStackTo(slotStack, 1, 7, false);
+                }
+                if (!moved) {
+                    if (index < 34) {
+                        moved = this.moveItemStackTo(slotStack, 34, 43, false);
+                    } else {
+                        moved = this.moveItemStackTo(slotStack, 7, 34, false);
                     }
+                }
+                if (!moved) {
+                    return ItemStack.EMPTY;
                 }
             }
 

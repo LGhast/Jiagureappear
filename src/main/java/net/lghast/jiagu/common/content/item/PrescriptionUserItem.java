@@ -30,7 +30,7 @@ public abstract class PrescriptionUserItem extends Item {
 
     @Override
     public @NotNull UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.BOW;
+        return UseAnim.NONE;
     }
 
     @Override

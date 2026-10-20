@@ -14,7 +14,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.fml.ModList;
 
 import java.util.Comparator;
@@ -51,10 +50,6 @@ public class ModUtils {
 
     public static String modifyName(ItemStack stack){
         return modifyName(LzhMappings.getLzhName(stack));
-    }
-
-    public static String modifyName(Block block){
-        return modifyName(LzhMappings.getLzhName(block));
     }
 
     public static String modifyName(MobEffect effect){

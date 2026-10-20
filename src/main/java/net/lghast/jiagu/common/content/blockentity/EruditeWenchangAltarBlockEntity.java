@@ -10,14 +10,14 @@ import net.lghast.jiagu.client.particle.ModParticles;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -146,24 +146,14 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        ListTag itemsTag = tag.getList("Items", Tag.TAG_COMPOUND);
-        for (int i = 0; i < Math.min(itemsTag.size(), 4); i++) {
-            items[i] = ItemStack.parse(registries, itemsTag.getCompound(i)).orElse(ItemStack.EMPTY);
-        }
-    }
-
-    @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        ListTag itemsTag = new ListTag();
-        for (ItemStack stack : items) {
-            if (!stack.isEmpty()) {
-                itemsTag.add(stack.save(registries));
-            }
-        }
-        tag.put("Items", itemsTag);
+        ContainerHelper.saveAllItems(tag, NonNullList.of(ItemStack.EMPTY, items), registries);
+    }
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        ContainerHelper.loadAllItems(tag, NonNullList.of(ItemStack.EMPTY, items), registries);
     }
 
     @Override
@@ -172,7 +162,6 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
         saveAdditional(tag, registries);
         return tag;
     }
-
 
     @Nullable
     @Override

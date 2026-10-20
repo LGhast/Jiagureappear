@@ -143,7 +143,7 @@ public class WenchangAltarBlock extends BaseEntityBlock {
             return 0;
         }
         ItemStack content = blockEntity.getItem();
-        if(content.is(ItemStack.EMPTY.getItem())){
+        if(content.isEmpty()){
             return 0;
         }
         if(!content.is(ModItems.CHARACTER_ITEM)) {

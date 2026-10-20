@@ -49,6 +49,7 @@
   "advancements.jiagureappear.idiom.jianrupanshi.title": "堅如磐石",
   "advancements.jiagureappear.idiom.muzhongwuren.description": "指眼中沒有別人，形容驕傲自大，看不起人",
   "advancements.jiagureappear.idiom.muzhongwuren.title": "目中無人",
+
   "advancements.jiagureappear.root.description": "龜甲獸骨之上，逝者與今人對晤",
   "advancements.jiagureappear.root.title": "歲在甲骨",
   "advancements.jiagureappear.obtain_dictionary.description": "製字典以識甲骨之文",
@@ -87,6 +88,7 @@
   "advancements.jiagureappear.obtain_amethyst_upgrade.title": "懷金垂紫",
   "advancements.jiagureappear.obtain_prescription_users.description": "得醫之紫玉銘或蠱之紫玉銘，押X可啟其藥方之槽",
   "advancements.jiagureappear.obtain_prescription_users.title": "藥毒之辯",
+
   "block.jiagureappear.golden_bricks": "金磚",
   "block.jiagureappear.cangjie_ding_tripod": "倉頡鼎",
   "block.jiagureappear.cangjie_ding_tripod.wrong_item": "宜用相合之物",
@@ -117,10 +119,12 @@
   "block.jiagureappear.wenchang_altar": "文昌壇",
   "block.jiagureappear.erudite_wenchang_altar": "博知文昌壇",
   "block.jiagureappear.yaowang_gourd": "藥王壺",
+
   "container.auto_disassembler": "析字械",
   "container.cangjie_morpher": "倉頡作書械",
   "container.rubbing_machine": "拓械",
   "container.jiagureappear.yaowang_gourd": "藥王壺",
+
   "enchantment.jiagureappear.cremation": "焚",
   "enchantment.jiagureappear.igniting": "走水",
   "enchantment.jiagureappear.flurry": "疾風",
@@ -132,8 +136,10 @@
   "enchantment.jiagureappear.malady": "沉疴",
   "enchantment.jiagureappear.massiveness": "千鈞",
   "enchantment.jiagureappear.aftershock": "磅礴",
+
   "entity.jiagureappear.parasite_spore": "蠱瘴",
   "entity.minecraft.villager.jiagureappear.scholar": "墨客",
+
   "item.jiagureappear.dictionary": "字典",
   "item.jiagureappear.bone_lamella": "骨板",
   "item.jiagureappear.turtle_plastron": "龜腹甲",
@@ -166,6 +172,7 @@
   "item.jiagureappear.yi_cure_amethyst": "醫之紫玉銘",
   "item.jiagureappear.gu_parasite_amethyst": "蠱之紫玉銘",
   "item.jiagureappear.lei_stones_amethyst": "磊之紫玉銘",
+
   "item.minecraft.potion.effect.appetizing": "開胃劑",
   "item.minecraft.splash_potion.effect.appetizing": "開胃噴劑",
   "item.minecraft.lingering_potion.effect.appetizing": "開胃滯劑",
@@ -182,7 +189,9 @@
   "item.minecraft.splash_potion.effect.long_darkness": "黯噴劑",
   "item.minecraft.lingering_potion.effect.long_darkness": "黯滯劑",
   "item.minecraft.tipped_arrow.effect.long_darkness": "黯矢",
+
   "creativetab.jiagureappear.jiagu_items": "歲在甲骨",
+
   "tooltip.jiagureappear.character_item_default": "未題字",
   "tooltip.jiagureappear.character_item_simple": "六書殘形",
   "tooltip.jiagureappear.character_item_simple2": "六書殘形二",
@@ -200,16 +209,18 @@
   "tooltip.jiagureappear.shot_no": "彈盡",
   "tooltip.jiagureappear.lzh": "文言: %s",
   "tooltip.jiagureappear.lzh_appended": "文言: %s (%s)",
+
   "key.categories.jiagureappear": "歲在甲骨",
-  "key.jiagureappear.open_prescription_gui": "啟藥方之槽",
-  "tips.jiagureappear.wrong_language": "請以文言為戲之語",
+  "key.jiagureappear.open_prescription_gui": "啟藥方之頁",
+  "key.jiagureappear.open_character_crafter": "啟甲骨之頁",
+
   "gui.jiagureappear.prescription": "藥方",
   "gui.jiagureappear.dictionary": "字典",
   "gui.jiagureappear.dictionary.search": "覓文",
   "gui.jiagureappear.dictionary.search_hint": "尋...",
   "gui.jiagureappear.dictionary.no_items": "未尋得",
-  "gui.jiagureappear.dictionary.assembly_recipe": "合文之方",
-  "gui.jiagureappear.dictionary.assembly_list": "可合之字",
+  "gui.jiagureappear.dictionary.assembly_recipe": "解文",
+  "gui.jiagureappear.dictionary.assembly_list": "合文",
   "gui.jiagureappear.dictionary.related_items": "物",
   "gui.jiagureappear.related_enchantments": "淬靈",
   "gui.jiagureappear.dictionary.related_effects": "效",
@@ -217,6 +228,11 @@
   "gui.jiagureappear.dictionary.unknown": "未知",
   "gui.jiagureappear.dictionary.recipe": "合文之方：",
   "gui.jiagureappear.dictionary.no_recipe": "方未得尋",
+  "gui.jiagureappear.character_crafter.title_assemble": "合文",
+  "gui.jiagureappear.character_crafter.title_disassemble": "解文",
+  "gui.jiagureappear.character_crafter.to_assemble": "易至合文之式",
+  "gui.jiagureappear.character_crafter.to_disassemble": "易至解文之式",
+
   "commands.jiaguinfo.disassembly": "解為：",
   "commands.jiaguinfo.not_found": "未為所錄",
   "commands.jiaguinfo.assembly": "合為：",

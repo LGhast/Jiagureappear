@@ -16,6 +16,11 @@ public class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(Registries.MENU, JiaguReappear.MOD_ID);
 
+    public static final Supplier<MenuType<CharacterCrafterMenu>> CHARACTER_CRAFTER_MENU =
+            MENUS.register("character_crafter_menu", () ->
+                    IMenuTypeExtension.create((windowId, inv, data) ->
+                            new CharacterCrafterMenu(windowId, inv)));
+
     public static final Supplier<MenuType<PrescriptionMenu>> PRESCRIPTION_MENU =
             MENUS.register("prescription_menu", () ->
                     IMenuTypeExtension.create((windowId, inv, data) ->

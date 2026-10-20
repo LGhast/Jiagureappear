@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -36,20 +37,28 @@ public class CangjieJadeBurinItem extends Item {
             if(state.isAir()){
                 return InteractionResult.FAIL;
             }
-            String blockName = state.getBlock().getName().getString();
-            if(!blockName.isEmpty()){
-                char[] chars = blockName.toCharArray();
-                for(char inscription : chars){
-                    ItemStack stack = new ItemStack(ModItems.CHARACTER_ITEM.get());
-                    CharacterItem.setInscription(stack, inscription);
-                    ModUtils.spawnItemWithMotion(serverLevel, pos.getX()+0.5, pos.getY()+0.2, pos.getZ()+0.5, stack, true);
-                }
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 
-                level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
-                        pos.getX()+0.5, pos.getY()+0.2, pos.getZ()+0.5, 0.4, 0.3, 0.4, 12, 0.03);
+            Item blockItem = state.getBlock().asItem();
+            if(blockItem == Items.AIR){
+                return InteractionResult.PASS;
             }
+
+            String blockName = ModUtils.modifyName(new ItemStack(blockItem));
+            if(blockName == null || blockName.isEmpty()){
+                return InteractionResult.PASS;
+            }
+
+            char[] chars = blockName.toCharArray();
+            for(char inscription : chars){
+                ItemStack stack = new ItemStack(ModItems.CHARACTER_ITEM.get());
+                CharacterItem.setInscription(stack, inscription);
+                ModUtils.spawnItemWithMotion(serverLevel, pos.getX()+0.5, pos.getY()+0.2, pos.getZ()+0.5, stack, true);
+            }
+            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+
+            level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
+                    pos.getX()+0.5, pos.getY()+0.2, pos.getZ()+0.5, 0.4, 0.3, 0.4, 12, 0.03);
         }
 
         return InteractionResult.sidedSuccess(level.isClientSide);

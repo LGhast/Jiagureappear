@@ -4,6 +4,7 @@ import net.lghast.jiagu.JiaguReappear;
 import net.lghast.jiagu.client.particle.*;
 import net.lghast.jiagu.client.screen.*;
 import net.lghast.jiagu.common.content.item.PrescriptionUserItem;
+import net.lghast.jiagu.network.OpenCharacterCrafterPayload;
 import net.lghast.jiagu.network.OpenPrescriptionGuiPayload;
 import net.lghast.jiagu.register.system.ModMenus;
 import net.lghast.jiagu.register.system.ModTags;
@@ -27,11 +28,13 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Objects;
 
 @OnlyIn(Dist.CLIENT)
 @SuppressWarnings("unused")
+@ParametersAreNonnullByDefault
 @EventBusSubscriber(modid = JiaguReappear.MOD_ID)
 public class ClientEventHandler {
 
@@ -39,6 +42,12 @@ public class ClientEventHandler {
     public static void onClientTick(ClientTickEvent.Post event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null || minecraft.level == null) return;
+
+        while (ModKeyBindings.OPEN_CHARACTER_CRAFTER.consumeClick()) {
+            if (minecraft.screen == null) {
+                Objects.requireNonNull(minecraft.getConnection()).send(new OpenCharacterCrafterPayload());
+            }
+        }
 
         while (ModKeyBindings.OPEN_PRESCRIPTION_GUI.consumeClick()) {
             if (minecraft.player.getMainHandItem().getItem() instanceof PrescriptionUserItem) {
@@ -116,5 +125,6 @@ public class ClientEventHandler {
         event.register(ModMenus.AUTO_DISASSEMBLER_MENU.get(), AutoDisassemblerScreen::new);
         event.register(ModMenus.CANGJIE_MORPHER_MENU.get(), CangjieMorpherScreen::new);
         event.register(ModMenus.RUBBING_MACHINE_MENU.get(), RubbingMachineScreen::new);
+        event.register(ModMenus.CHARACTER_CRAFTER_MENU.get(), CharacterCrafterScreen::new);
     }
 }

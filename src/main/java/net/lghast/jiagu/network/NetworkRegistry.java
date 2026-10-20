@@ -5,9 +5,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
+@SuppressWarnings("unused")
 @EventBusSubscriber()
 public class NetworkRegistry {
-
     @SubscribeEvent
     public static void registerPayloadHandlers(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1.0");
@@ -28,6 +28,12 @@ public class NetworkRegistry {
                 CraftPrescriptionPayload.TYPE,
                 CraftPrescriptionPayload.STREAM_CODEC,
                 CraftPrescriptionPayload::handle
+        );
+
+        registrar.playToServer(
+                OpenCharacterCrafterPayload.TYPE,
+                OpenCharacterCrafterPayload.STREAM_CODEC,
+                OpenCharacterCrafterPayload::handle
         );
     }
 }

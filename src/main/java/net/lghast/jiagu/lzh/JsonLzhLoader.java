@@ -27,7 +27,6 @@ public class JsonLzhLoader {
 
     public enum Category {
         ITEM,
-        BLOCK,
         ENTITY,
         ENCHANTMENT,
         EFFECT,

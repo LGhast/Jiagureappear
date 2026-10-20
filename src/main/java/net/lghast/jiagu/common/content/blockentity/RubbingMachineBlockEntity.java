@@ -78,7 +78,7 @@ public class RubbingMachineBlockEntity extends BaseContainerBlockEntity implemen
         if (slot < INK_SLOTS) {
             return stack.is(ModTags.RUBBING_INKS);
         }
-        return !stack.is(ModTags.INVALID_TO_CHARACTERS) && stack.getCount() <= 1;
+        return !stack.is(ModTags.INVALID_TO_CHARACTERS);
     }
 
     @Override

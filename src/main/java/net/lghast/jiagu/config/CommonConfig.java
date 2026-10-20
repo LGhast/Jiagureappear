@@ -45,7 +45,6 @@ public class CommonConfig {
     public static ModConfigSpec.ConfigValue<List<? extends String>> CHARACTER_MAPPINGS;
 
     public static ModConfigSpec.ConfigValue<List<? extends String>> ITEM_LZH;
-    public static ModConfigSpec.ConfigValue<List<? extends String>> BLOCK_LZH;
     public static ModConfigSpec.ConfigValue<List<? extends String>> ENTITY_LZH;
     public static ModConfigSpec.ConfigValue<List<? extends String>> ENCHANTMENT_LZH;
     public static ModConfigSpec.ConfigValue<List<? extends String>> EFFECT_LZH;
@@ -72,11 +71,12 @@ public class CommonConfig {
                 .comment("汉字拆解配方,可覆盖原版配方。",
                         "Character Disassembling Recipe. Vanilla recipes can be override.",
                         "e.g. [\"塊=土,鬼\", \"焱=火,火,火\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("character_disassembling_mappings"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String
+                        it -> it instanceof String,
+                        null
                 );
 
         CHARACTER_MAPPINGS = BUILDER
@@ -87,88 +87,84 @@ public class CommonConfig {
                         "e.g. [\"舌,139.0,she_tongue\", \"言,140.0,yan_speak\"]",
                         "此处小数也表示物品品质，1~999为石质，1000~1999为铁质，2000~2999为金质，3000~3999为钻石质，6000~6999为铜质",
                         "The decimal value also represents the item's quality: 1-999 corresponds to Stone, 1000-1999 to Iron, 2000-2999 to Gold, 3000-3999 to Diamond, and 6000-6999 to Copper.")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("character_mappings"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[^,]+,-?\\d*(?:\\.\\d+)?,[a-z_]+$")
+                        it -> it instanceof String && ((String) it).matches("^[^,]+,-?\\d*(?:\\.\\d+)?,[a-z_]+$"),
+                        null
                 );
 
         ITEM_LZH = BUILDER
                 .comment("物品文言名称映射，为缺少文言名称的物品添加文言名称，或覆盖已有名称",
                         "Item LZH name mapping, assigns LZH names to items lacking them, or overrides existing names",
                         "e.g. [\"minecraft:apple,林檎\", \"minecraft:iron_axe,鐵斧\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("item_lzh"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
-                );
-
-        BLOCK_LZH = BUILDER
-                .comment("方块文言名称映射，为缺少文言名称的物品添加文言名称，或覆盖已有名称",
-                        "Block LZH name mapping, assigns LZH names to blocks lacking them, or overrides existing names",
-                        "e.g. [\"minecraft:oak_log,柞樁\", \"minecraft:granite,花崗石\"]")
-                .defineListAllowEmpty(
-                        List.of("block_lzh"),
-                        Arrays::asList,
-                        null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$"),
+                        null
                 );
 
         ENTITY_LZH = BUILDER
                 .comment("实体文言名称映射，为缺少文言名称的实体添加文言名称，或覆盖已有名称",
                         "Entity LZH name mapping, assigns LZH names to entities lacking them, or overrides existing names",
                         "e.g. [\"minecraft:zombie,殭屍\", \"minecraft:pig,豕\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("entity_lzh"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$"),
+                        null
                 );
 
         ENCHANTMENT_LZH = BUILDER
                 .comment("附魔文言名称映射，为缺少文言名称的附魔添加文言名称，或覆盖已有名称",
                         "Enchantment LZH name mapping, assigns LZH names to enchantments lacking them, or overrides existing names",
                         "e.g. [\"minecraft:protection,護\", \"minecraft:channeling,通雷術\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("enchantment_lzh"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$"),
+                        null
                 );
 
         RECEIVER_MAPPINGS = BUILDER
                 .comment("附魔接受者映射，为附魔添加对应物品，用于在字典中显示。若已在配置中添加新的附魔文言名称，必须在此处添加对应物品",
                         "Enchantment receiver mapping, adds corresponding items for enchantments to display in the dictionary. If you have added new LZH names for an enchantment in the configuration, you must add corresponding items here",
                         "e.g. [\"minecraft:sharpness,minecraft:iron_axe\", \"minecraft:power,minecraft:bow\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("receiver_mappings"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+$"),
+                        null
                 );
 
         EFFECT_LZH = BUILDER
                 .comment("状态效果文言名称映射，为缺少文言名称的状态效果添加文言名称，或覆盖已有名称",
                         "Status effect LZH name mapping, assigns LZH names to effects lacking them, or overrides existing names",
                         "e.g. [\"minecraft:regeneration,復甦\", \"minecraft:health_boost,益壽\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("effect_lzh"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$"),
+                        null
                 );
 
         POTION_LZH = BUILDER
                 .comment("药水文言名称映射，为缺少文言名称的药水添加文言名称，或覆盖已有名称",
                         "Potion LZH name mapping, assigns LZH names to potions lacking them, or overrides existing names",
                         "e.g. [\"minecraft:long_night_vision,久效夜視劑\", \"minecraft:awkward,粗劑\"]")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("potion_lzh"),
                         Arrays::asList,
                         null,
-                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$")
+                        it -> it instanceof String && ((String) it).matches("^[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+,[\\s\\S]+$"),
+                        null
                 );
 
         BUILDER.pop();

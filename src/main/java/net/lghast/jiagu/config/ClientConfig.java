@@ -12,6 +12,7 @@ public class ClientConfig {
     public static ModConfigSpec.DoubleValue WENCHANG_ALTAR_ROTATION_SPEED;
     public static ModConfigSpec.DoubleValue ERUDITE_WENCHANG_ALTAR_ROTATION_SPEED;
 
+    public static ModConfigSpec.BooleanValue DISPLAY_STRUCTURE_INFO_WHEN_SHIFT;
     public static ModConfigSpec.BooleanValue DISPLAY_DISASSEMBLY_INFO;
     public static ModConfigSpec.BooleanValue DISPLAY_ASSEMBLY_INFO;
 
@@ -31,6 +32,10 @@ public class ClientConfig {
 
         BUILDER.push("物品 Items");
 
+        DISPLAY_STRUCTURE_INFO_WHEN_SHIFT = BUILDER
+                .comment("甲骨文物品的解字合文信息是否仅在按住Shift键时显示",
+                        "Oracle bone structure information (assembled from / assembles into) only shows while holding Shift")
+                .define("display_structure_info_when_shift", true);
         DISPLAY_DISASSEMBLY_INFO = BUILDER
                 .comment("甲骨文物品显示解字信息 Jiagu inscription items display disassembly information")
                         .define("display_disassembly_info", true);
@@ -41,7 +46,7 @@ public class ClientConfig {
         PRESCRIPTION_MAPPINGS = BUILDER
                 .comment("药方状态效果映射，用于自定义储存某个状态效果的药方的纹理。除更改此配置外还需添加和修改相应物品模型JSON文件",
                         "Prescription status effect mapping, used to customize the texture of a prescription that stores a specific status effect. In addition to modifying this configuration, the corresponding item model JSON files must also be added or modified.")
-                .defineListAllowEmpty(
+                .defineList(
                         List.of("prescription_mappings"),
                         () -> Arrays.asList(
                                 "minecraft:poison=1.0",
@@ -75,7 +80,8 @@ public class ClientConfig {
                                 "minecraft:saturation=29.0"
                         ),
                         null,
-                        it -> it instanceof String && ((String) it).matches("[a-z0-9_.]+:[a-z0-9_.]+=[0-9]+(\\.[0-9]+)?")
+                        it -> it instanceof String && ((String) it).matches("[a-z0-9_.]+:[a-z0-9_.]+=[0-9]+(\\.[0-9]+)?"),
+                        null
                 );
 
         BUILDER.pop();

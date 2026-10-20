@@ -43,9 +43,8 @@ public class RubbingMachineMenu extends AbstractContainerMenu {
                 TEMPLATE_SLOT_X, TEMPLATE_SLOT_Y) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return !stack.is(ModTags.INVALID_TO_CHARACTERS) && stack.getCount() <= 1;
+                return !stack.is(ModTags.INVALID_TO_CHARACTERS);
             }
-
             @Override
             public int getMaxStackSize() {
                 return 1;

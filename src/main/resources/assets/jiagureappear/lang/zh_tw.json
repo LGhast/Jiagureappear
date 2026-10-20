@@ -87,6 +87,7 @@
   "advancements.jiagureappear.obtain_amethyst_upgrade.title": "懷金垂紫",
   "advancements.jiagureappear.obtain_prescription_users.description": "獲取醫之紫晶銘刻或蠱之紫晶銘刻，預設按下X鍵開啟其藥方槽位",
   "advancements.jiagureappear.obtain_prescription_users.title": "藥毒之辯",
+
   "block.jiagureappear.golden_bricks": "金磚",
   "block.jiagureappear.cangjie_ding_tripod": "倉頡鼎",
   "block.jiagureappear.cangjie_ding_tripod.wrong_item": "請使用正確的物品",
@@ -117,10 +118,12 @@
   "block.jiagureappear.wenchang_altar": "文昌壇",
   "block.jiagureappear.erudite_wenchang_altar": "博知文昌壇",
   "block.jiagureappear.yaowang_gourd": "藥王壺",
+
   "container.auto_disassembler": "漢字拆解器",
   "container.cangjie_morpher": "倉頡造字器",
   "container.rubbing_machine": "拓印器",
   "container.jiagureappear.yaowang_gourd": "藥王壺",
+
   "enchantment.jiagureappear.cremation": "焚化",
   "enchantment.jiagureappear.igniting": "走水",
   "enchantment.jiagureappear.flurry": "疾風",
@@ -132,8 +135,10 @@
   "enchantment.jiagureappear.malady": "沉痾",
   "enchantment.jiagureappear.massiveness": "千鈞",
   "enchantment.jiagureappear.aftershock": "磅礴",
+
   "entity.jiagureappear.parasite_spore": "蠱毒之瘴",
   "entity.minecraft.villager.jiagureappear.scholar": "墨客",
+
   "item.jiagureappear.dictionary": "字典",
   "item.jiagureappear.bone_lamella": "骨板",
   "item.jiagureappear.turtle_plastron": "龜腹甲",
@@ -182,7 +187,9 @@
   "item.minecraft.splash_potion.effect.long_darkness": "噴濺型黑暗藥水",
   "item.minecraft.lingering_potion.effect.long_darkness": "滯留型黑暗藥水",
   "item.minecraft.tipped_arrow.effect.long_darkness": "黑暗之箭",
+
   "creativetab.jiagureappear.jiagu_items": "歲在甲骨",
+
   "tooltip.jiagureappear.character_item_default": "未題字",
   "tooltip.jiagureappear.character_item_simple": "簡單非成字部件",
   "tooltip.jiagureappear.character_item_simple2": "簡單非成字部件二",
@@ -192,17 +199,19 @@
   "tooltip.jiagureappear.character_item_simple2_simplified": "簡非二",
   "tooltip.jiagureappear.character_item_complex_simplified": "復非",
   "tooltip.jiagureappear.character_item_reversal_simplified": "反轉",
-  "tooltip.jiagureappear.character_item": "當前題字: %s",
-  "tooltip.jiagureappear.taoist_talisman": "當前符圖：%s",
-  "tooltip.jiagureappear.prescription": "當前藥效: %s (%s)",
+  "tooltip.jiagureappear.character_item": "題字: %s",
+  "tooltip.jiagureappear.taoist_talisman": "符圖：%s",
+  "tooltip.jiagureappear.prescription": "藥效: %s (%s)",
   "tooltip.jiagureappear.prescription_no": "無藥效",
   "tooltip.jiagureappear.shot": "當前彈藥: %s",
   "tooltip.jiagureappear.shot_no": "無彈藥",
   "tooltip.jiagureappear.lzh": "文言: %s",
   "tooltip.jiagureappear.lzh_appended": "文言: %s (%s)",
+
   "key.categories.jiagureappear": "歲在甲骨",
-  "key.jiagureappear.open_prescription_gui": "開啟藥方GUI",
-  "tips.jiagureappear.wrong_language": "請使用文言文作為遊戲語言",
+  "key.jiagureappear.open_prescription_gui": "打開紫晶銘刻藥方頁面",
+  "key.jiagureappear.open_character_crafter": "打開甲骨文操作頁面",
+
   "gui.jiagureappear.prescription": "藥方",
   "gui.jiagureappear.dictionary": "字典",
   "gui.jiagureappear.dictionary.search": "搜尋漢字",
@@ -217,6 +226,11 @@
   "gui.jiagureappear.dictionary.unknown": "未知",
   "gui.jiagureappear.dictionary.recipe": "合文配方：",
   "gui.jiagureappear.dictionary.no_recipe": "未查詢到合文配方",
+  "gui.jiagureappear.character_crafter.title_assemble": "甲骨文組合",
+  "gui.jiagureappear.character_crafter.title_disassemble": "甲骨文拆解",
+  "gui.jiagureappear.character_crafter.to_assemble": "切換到組合模式",
+  "gui.jiagureappear.character_crafter.to_disassemble": "切換到拆解模式",
+
   "commands.jiaguinfo.disassembly": "可分解為：",
   "commands.jiaguinfo.not_found": "未記錄",
   "commands.jiaguinfo.assembly": "可合成為：",
