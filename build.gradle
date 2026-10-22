@@ -26,6 +26,9 @@ repositories {
     maven {
         url "https://neoforged.forgecdn.net/mojang-meta"
     }
+    maven {
+        url "https://maven.blamejared.com/"
+    }
 }
 
 base {
@@ -88,6 +91,8 @@ configurations {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

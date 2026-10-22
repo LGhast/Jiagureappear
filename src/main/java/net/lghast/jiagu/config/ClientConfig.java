@@ -15,6 +15,7 @@ public class ClientConfig {
     public static ModConfigSpec.BooleanValue DISPLAY_STRUCTURE_INFO_WHEN_SHIFT;
     public static ModConfigSpec.BooleanValue DISPLAY_DISASSEMBLY_INFO;
     public static ModConfigSpec.BooleanValue DISPLAY_ASSEMBLY_INFO;
+    public static ModConfigSpec.BooleanValue IDIOM_DESCRIPTION_REQUIRES_COLLECTION;
 
     public static ModConfigSpec.ConfigValue<List<? extends String>> PRESCRIPTION_MAPPINGS;
 
@@ -42,6 +43,10 @@ public class ClientConfig {
         DISPLAY_ASSEMBLY_INFO = BUILDER
                 .comment("甲骨文物品显示合文信息 Jiagu inscription items display assembly information")
                 .define("display_assembly_info", true);
+        IDIOM_DESCRIPTION_REQUIRES_COLLECTION = BUILDER
+                .comment("未收集的成语是否需要先收集才能查看简介",
+                        "Whether uncollected idioms require collection before viewing their description")
+                .define("idiom_description_requires_collection", false);
 
         PRESCRIPTION_MAPPINGS = BUILDER
                 .comment("药方状态效果映射，用于自定义储存某个状态效果的药方的纹理。除更改此配置外还需添加和修改相应物品模型JSON文件",

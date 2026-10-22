@@ -101,7 +101,7 @@ public class JsonCharacterLoader {
         JsonElement valueElem = obj.get("value");
         JsonElement identifierElem = obj.get("identifier");
         if (valueElem != null && identifierElem != null) {
-            float value = valueElem.getAsFloat();
+            int value = valueElem.getAsInt();
             String identifier = identifierElem.getAsString();
             if (identifier != null && !identifier.isEmpty()) {
                 dataMap.put(character, new CharacterInfo.CharacterData(value, identifier));

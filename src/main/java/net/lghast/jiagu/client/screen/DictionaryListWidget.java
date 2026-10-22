@@ -4,8 +4,10 @@ import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.common.content.item.PrescriptionItem;
 import net.lghast.jiagu.utils.ModUtils;
 import net.lghast.jiagu.lzh.LzhMappings;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarratedElementType;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -26,11 +28,12 @@ public class DictionaryListWidget extends AbstractWidget {
     private static final int ITEM_HEIGHT = 15;
     private static final float ITEM_SCALE = 0.8f;
 
-    private DisplayMode mode = DisplayMode.ASSEMBLY_RECIPE;
+    private LookupSection section = LookupSection.ASSEMBLY_RECIPE;
     private List<ItemStack> items = new ArrayList<>();
     private int currentPage = 0;
     private Runnable onPageChange;
     private Consumer<String> onItemClick;
+    private final List<CharacterButton> characterButtons = new ArrayList<>();
 
     public DictionaryListWidget(int x, int y, int width, int height) {
         super(x, y, width, height, Component.empty());
@@ -40,13 +43,14 @@ public class DictionaryListWidget extends AbstractWidget {
         this.onPageChange = onPageChange;
     }
 
-    public void setMode(DisplayMode mode){
-        this.mode = mode;
+    public void setSection(LookupSection section) {
+        this.section = section;
     }
 
     public void setItems(List<ItemStack> newItems) {
         this.items = new ArrayList<>(newItems);
         this.currentPage = 0;
+        rebuildButtons();
         if (onPageChange != null) {
             onPageChange.run();
         }
@@ -56,13 +60,36 @@ public class DictionaryListWidget extends AbstractWidget {
         this.onItemClick = onItemClick;
     }
 
-    @Override
-    protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        if(mode == DisplayMode.ASSEMBLY_RECIPE) return;
-        if(mode == DisplayMode.DEFAULT) return;
+    private void rebuildButtons() {
+        characterButtons.clear();
+        if (section == LookupSection.ASSEMBLY_LIST || section == LookupSection.ASSEMBLY_RECIPE || section == LookupSection.DEFAULT) {
+            return;
+        }
 
         Minecraft minecraft = Minecraft.getInstance();
+        int startIndex = currentPage * ITEMS_PER_PAGE;
+        int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, items.size());
+        for (int i = startIndex; i < endIndex; i++) {
+            ItemStack stack = items.get(i);
+            String text = getRenderedText(stack);
+            if (text.isEmpty()) continue;
 
+            int textX = getX() + 21;
+            int buttonY = getY() + (i - startIndex) * ITEM_HEIGHT;
+            for (int c = 0; c < text.length(); c++) {
+                String ch = String.valueOf(text.charAt(c));
+                int charWidth = minecraft.font.width(ch);
+                characterButtons.add(new CharacterButton(textX, buttonY, charWidth, ITEM_HEIGHT, ch, onItemClick));
+                textX += charWidth;
+            }
+        }
+    }
+
+    @Override
+    protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        if (section == LookupSection.ASSEMBLY_RECIPE || section == LookupSection.DEFAULT) return;
+
+        Minecraft minecraft = Minecraft.getInstance();
         if (items.isEmpty()) {
             String text = Component.translatable("gui.jiagureappear.dictionary.no_items").getString();
             int textWidth = minecraft.font.width(text);
@@ -83,7 +110,7 @@ public class DictionaryListWidget extends AbstractWidget {
 
             if (displayIndex % 2 == 0) {
                 graphics.fill(getX(), itemY, getX() + width - 1, itemY + ITEM_HEIGHT, 0x507a4c02);
-            }else{
+            } else {
                 graphics.fill(getX(), itemY, getX() + width - 1, itemY + ITEM_HEIGHT, 0x307a4c02);
             }
 
@@ -106,15 +133,47 @@ public class DictionaryListWidget extends AbstractWidget {
 
                 graphics.pose().popPose();
 
-                String renderedText = getRenderedText(stack);
-                String truncatedText = ModUtils.truncateToWidth(minecraft.font, renderedText, width - 20);
-                graphics.drawString(minecraft.font, truncatedText, getX() + 21, itemY+4, 0xFFFFFF, false);
+                if (section == LookupSection.ASSEMBLY_LIST) {
+                    String renderedText = getRenderedText(stack);
+                    String truncatedText = ModUtils.truncateToWidth(minecraft.font, renderedText, width - 20);
+                    graphics.drawString(minecraft.font, truncatedText, getX() + 21, itemY + 4, 0xFFFFFF, false);
+                }
             }
+        }
+
+        for (CharacterButton button : characterButtons) {
+            button.render(graphics, mouseX, mouseY, partialTick);
         }
     }
 
-    private String getRenderedText(ItemStack stack){
-        String text = switch (mode){
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (section == LookupSection.ASSEMBLY_RECIPE || section == LookupSection.DEFAULT) return false;
+        if (!isMouseOver(mouseX, mouseY)) return false;
+
+        for (CharacterButton characterButton : characterButtons) {
+            if (characterButton.mouseClicked(mouseX, mouseY, button)) {
+                return true;
+            }
+        }
+
+        if (section == LookupSection.ASSEMBLY_LIST) {
+            int index = getHoveredItemIndex(mouseX, mouseY);
+            if (index >= 0) {
+                ItemStack stack = items.get(index);
+                String inscription = CharacterItem.getInscription(stack);
+                if (inscription != null && !inscription.isEmpty() && onItemClick != null) {
+                    onItemClick.accept(inscription);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private String getRenderedText(ItemStack stack) {
+        String text = switch (section) {
             case ASSEMBLY_RECIPE, DEFAULT -> null;
             case ASSEMBLY_LIST -> CharacterItem.getConvertedInscription(stack);
             case RELATED_ITEMS -> LzhMappings.getLzhName(stack);
@@ -142,30 +201,6 @@ public class DictionaryListWidget extends AbstractWidget {
         return -1;
     }
 
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if(mode == DisplayMode.ASSEMBLY_RECIPE) return false;
-        if(mode == DisplayMode.DEFAULT) return false;
-        if (!isMouseOver(mouseX, mouseY)) return false;
-
-        int index = getHoveredItemIndex(mouseX, mouseY);
-        if (index >= 0) {
-            ItemStack stack = items.get(index);
-
-            if (mode == DisplayMode.ASSEMBLY_LIST) {
-                String inscription = CharacterItem.getInscription(stack);
-                if (inscription != null && !inscription.isEmpty() && onItemClick != null) {
-                    onItemClick.accept(inscription);
-                    return true;
-                }
-            }
-            return true;
-        }
-
-        return super.mouseClicked(mouseX, mouseY, button);
-    }
-
-
     public void nextPage() {
         int totalPages = getTotalPages();
         if (totalPages <= 1) return;
@@ -173,6 +208,7 @@ public class DictionaryListWidget extends AbstractWidget {
         if (currentPage >= totalPages) {
             currentPage = 0;
         }
+        rebuildButtons();
         if (onPageChange != null) {
             onPageChange.run();
         }
@@ -186,6 +222,7 @@ public class DictionaryListWidget extends AbstractWidget {
         if (currentPage < 0) {
             currentPage = 0;
         }
+        rebuildButtons();
         if (onPageChange != null) {
             onPageChange.run();
         }
@@ -196,8 +233,7 @@ public class DictionaryListWidget extends AbstractWidget {
     }
 
     public boolean hasNextPage() {
-        int totalPages = getTotalPages();
-        return totalPages > 1;
+        return getTotalPages() > 1;
     }
 
     private int getTotalPages() {
@@ -207,5 +243,35 @@ public class DictionaryListWidget extends AbstractWidget {
     @Override
     protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
         narrationElementOutput.add(NarratedElementType.TITLE, Component.translatable("gui.jiagureappear.dictionary"));
+    }
+
+    private class CharacterButton extends AbstractButton {
+        private final Consumer<String> onItemClick;
+
+        public CharacterButton(int x, int y, int width, int height, String text, Consumer<String> onItemClick) {
+            super(x, y, width, height, Component.literal(text));
+            this.onItemClick = onItemClick;
+        }
+
+        @Override
+        public void onPress() {
+            if (onItemClick != null) {
+                onItemClick.accept(getMessage().getString());
+            }
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+            Component text = getMessage();
+            if (isHovered()) {
+                text = text.copy().withStyle(ChatFormatting.BOLD);
+            }
+            graphics.drawString(Minecraft.getInstance().font, text, getX(), getY() + 4, 0xFFFFFF, false);
+        }
+
+        @Override
+        protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+            narrationElementOutput.add(NarratedElementType.TITLE, getMessage());
+        }
     }
 }

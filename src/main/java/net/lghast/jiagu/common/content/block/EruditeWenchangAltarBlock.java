@@ -1,8 +1,10 @@
 package net.lghast.jiagu.common.content.block;
 
 import com.mojang.serialization.MapCodec;
-import net.lghast.jiagu.common.system.advancement.IdiomFormedTrigger;
+import net.lghast.jiagu.idiom.IdiomRegistry;
 import net.lghast.jiagu.common.content.blockentity.EruditeWenchangAltarBlockEntity;
+import net.lghast.jiagu.network.IdiomCollectedPayload;
+import net.lghast.jiagu.register.system.ModAttachments;
 import net.lghast.jiagu.register.system.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -28,10 +30,12 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Set;
 
 @ParametersAreNonnullByDefault
 public class EruditeWenchangAltarBlock extends BaseEntityBlock {
@@ -114,8 +118,16 @@ public class EruditeWenchangAltarBlock extends BaseEntityBlock {
                 level.setBlock(pos, state.setValue(ITEM_COUNT, Math.min(itemCount+1,4)), 3);
 
                 String inscriptions = blockEntity.getInscriptions();
-                if (inscriptions != null && !level.isClientSide() && player instanceof ServerPlayer) {
-                    IdiomFormedTrigger.TRIGGER.get().trigger((ServerPlayer) player, inscriptions);
+                if (inscriptions != null && !level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
+                    String idiomId = IdiomRegistry.getIdByCharacters(inscriptions);
+                    if (idiomId != null) {
+                        Set<String> collected = serverPlayer.getData(ModAttachments.COLLECTED_IDIOMS.get());
+                        if (collected.add(idiomId)) {
+                            serverPlayer.setData(ModAttachments.COLLECTED_IDIOMS.get(), collected);
+                            PacketDistributor.sendToPlayer(serverPlayer,
+                                    new IdiomCollectedPayload(idiomId, inscriptions));
+                        }
+                    }
                 }
 
                 return InteractionResult.sidedSuccess(level.isClientSide());

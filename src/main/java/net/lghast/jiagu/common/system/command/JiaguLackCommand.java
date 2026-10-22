@@ -28,10 +28,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("unused")
@@ -41,8 +41,7 @@ public class JiaguLackCommand {
     private static long lastCacheUpdate = 0;
     private static final long CACHE_DURATION = 5000;
 
-    TreeSet<String> lacks = new TreeSet<>();
-    TreeSet<String> gross = new TreeSet<>();
+    private static final int LINE_BREAK_INTERVAL = 35;
 
     @SubscribeEvent
     public static void registerCommand(RegisterCommandsEvent event) {
@@ -83,7 +82,6 @@ public class JiaguLackCommand {
                     .map(ResourceLocation::getNamespace)
                     .forEach(namespacesCache::add);
 
-
             BuiltInRegistries.POTION.keySet().stream()
                     .map(ResourceLocation::getNamespace)
                     .forEach(namespacesCache::add);
@@ -94,83 +92,64 @@ public class JiaguLackCommand {
 
     private static int executeCommand(CommandContext<CommandSourceStack> context, String namespace) {
         CommandSourceStack source = context.getSource();
-        HashSet<String> lacks = new HashSet<>();
-        HashSet<String> gross = new HashSet<>();
 
-        List<Holder.Reference<MobEffect>> effectLists = BuiltInRegistries.MOB_EFFECT.holders()
-                .filter(holder -> filterByNamespace(holder, namespace))
-                .toList();
+        Map<String, Integer> total = new HashMap<>();
+        Map<String, Integer> missing = new HashMap<>();
 
-        List<Holder.Reference<Item>> itemLists = BuiltInRegistries.ITEM.holders()
-                .filter(holder -> filterByNamespace(holder, namespace))
-                .toList();
-
-        List<Holder.Reference<EntityType<?>>> entityLists = BuiltInRegistries.ENTITY_TYPE.holders()
-                .filter(holder -> filterByNamespace(holder, namespace))
-                .toList();
-
-        List<Holder.Reference<Potion>> potionLists = BuiltInRegistries.POTION.holders()
-                .filter(holder -> filterByNamespace(holder, namespace))
-                .toList();
-
-        for (Holder.Reference<MobEffect> effectList : effectLists) {
-            MobEffect effect = effectList.value();
-            String name = ModUtils.modifyName(effect);
-            if(name == null) continue;
-            char[] chars = name.toCharArray();
-            lackFilter(chars, lacks, gross);
+        for (Holder.Reference<MobEffect> effectHolder : BuiltInRegistries.MOB_EFFECT.holders()
+                .filter(holder -> filterByNamespace(holder, namespace)).toList()) {
+            String name = ModUtils.modifyName(effectHolder.value());
+            if (name != null) countChars(name, total, missing);
         }
 
-        for (Holder.Reference<Item> itemList : itemLists) {
-            ItemStack stack = new ItemStack(itemList.value());
-            if(stack.is(ModTags.INVALID_TO_CHARACTERS)){
-                continue;
-            }
+        for (Holder.Reference<Item> itemHolder : BuiltInRegistries.ITEM.holders()
+                .filter(holder -> filterByNamespace(holder, namespace)).toList()) {
+            ItemStack stack = new ItemStack(itemHolder.value());
+            if (stack.is(ModTags.INVALID_TO_CHARACTERS)) continue;
             String name = ModUtils.modifyName(stack);
-            if(name == null) continue;
-            char[] chars = name.toCharArray();
-            lackFilter(chars, lacks, gross);
+            if (name != null) countChars(name, total, missing);
         }
 
-        for (Holder.Reference<EntityType<?>> entityList : entityLists) {
-            EntityType<?> entity = entityList.value();
-            if (entity.getCategory() == MobCategory.MISC) {
-                continue;
-            }
+        for (Holder.Reference<EntityType<?>> entityHolder : BuiltInRegistries.ENTITY_TYPE.holders()
+                .filter(holder -> filterByNamespace(holder, namespace)).toList()) {
+            EntityType<?> entity = entityHolder.value();
+            if (entity.getCategory() == MobCategory.MISC) continue;
             String name = ModUtils.modifyName(entity);
-            if(name == null) continue;
-            char[] chars = name.toCharArray();
-            lackFilter(chars, lacks, gross);
+            if (name != null) countChars(name, total, missing);
         }
 
-        for (Holder.Reference<Potion> potionList : potionLists) {
+        for (Holder.Reference<Potion> potionHolder : BuiltInRegistries.POTION.holders()
+                .filter(holder -> filterByNamespace(holder, namespace)).toList()) {
             ItemStack stack = new ItemStack(Items.POTION);
-            stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potionList));
+            stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potionHolder));
             String name = ModUtils.modifyName(stack);
-            if(name == null) continue;
-            char[] chars = name.toCharArray();
-            lackFilter(chars, lacks, gross);
+            if (name != null) countChars(name, total, missing);
         }
 
-        int size = lacks.size();
-        int sum = gross.size();
+        int totalCount = total.size();
+        int missingCount = missing.size();
 
-        if(sum > 0){
-            if(size > 0) {
-                StringBuilder builder = new StringBuilder();
-                for (String s : lacks) {
-                    builder.append(s);
-                }
-                String output = ModUtils.insertLineBreaks(builder.toString(), 35);
-                source.sendSuccess(() -> Component.literal(output), false);
-            }
-
-            source.sendSuccess(() -> Component.literal("共缺失汉字：" + size + "/" + sum), false);
-        }else{
+        if (totalCount == 0) {
             source.sendSuccess(() -> Component.literal("此模组无汉字。"), false);
+            return 0;
         }
 
-        return 1;
+        if (namespace != null) {
+            source.sendSuccess(() -> Component.literal(namespace + ":"), false);
+        }
+
+        if (missingCount > 0) {
+            StringBuilder builder = new StringBuilder();
+            missing.entrySet().stream()
+                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                    .forEach(entry -> builder.append(entry.getKey()));
+
+            source.sendSuccess(() -> Component.literal(
+                    ModUtils.insertLineBreaks(builder.toString(), LINE_BREAK_INTERVAL)), false);
+        }
+
+        source.sendSuccess(() -> Component.literal("共缺失汉字：" + missingCount + "/" + totalCount), false);
+        return missingCount;
     }
 
     private static boolean filterByNamespace(Holder.Reference<?> holder, String namespace) {
@@ -180,15 +159,15 @@ public class JiaguLackCommand {
         return holder.key().location().getNamespace().equals(namespace);
     }
 
-    private static void lackFilter(char[] chars, Set<String> lacks, Set<String> gross){
-        for (char c : chars) {
+    private static void countChars(String name, Map<String, Integer> total, Map<String, Integer> missing) {
+        for (char c : name.toCharArray()) {
             String inscription = String.valueOf(c);
-            if(inscription.matches("[a-zA-Z()\"“”（） ]")){
+            if (inscription.matches("[a-zA-Z()\"“”（） ]")) {
                 continue;
             }
-            gross.add(inscription);
+            total.merge(inscription, 1, Integer::sum);
             if (!CharacterInfo.CHARACTER_DATA.containsKey(inscription)) {
-                lacks.add(inscription);
+                missing.merge(inscription, 1, Integer::sum);
             }
         }
     }

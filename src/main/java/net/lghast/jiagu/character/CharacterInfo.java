@@ -13,10 +13,15 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Central registry of jiagu inscription data loaded from JSON.
+ * Provides numeric value, quality, disassembly components, assembly relations
+ * and random "lucky" inscriptions.
+ */
 public class CharacterInfo {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public record CharacterData(float floatValue, String identifier) {}
+    public record CharacterData(int intValue, String identifier) {}
     public record StructureData(CharacterStructure structure, List<String> components) {}
 
     public static final Map<String, CharacterData> CHARACTER_DATA = new HashMap<>();
@@ -28,12 +33,6 @@ public class CharacterInfo {
 
     private static final List<String> inscriptionsLucky = new ArrayList<>();
     private static final List<String> inscriptionsLuckyAdvanced = new ArrayList<>();
-
-    public static String LATIN_LETTERS = "ÞþÇçŒœÆæÐðßÄäÖöÜüÀàÂâÉéÈèÊêËëÎîÏïÔôÙùÛûÜüŸÿ";
-    public static String GREEK_LETTERS = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω";
-    public static String KANA = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽっゃゅょアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポッャュョ";
-    public static String ARABIC_LETTERS = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي";
-    public static String CYRILLIC_LETTERS = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюяЄІЇЎҐЂЋЏЉЊђћџљњј";
 
     static {
         loadCoreData();
@@ -47,25 +46,18 @@ public class CharacterInfo {
         COUNTERPARTS.putAll(JsonCounterpartLoader.loadAll());
     }
 
-    public static float getFloatValue(String character) {
+    /**
+     * Numeric value used for sorting and quality. All characters, including
+     * foreign scripts, are registered in character.json; unknown ones return 0.
+     */
+    public static int getIntValue(String character) {
         CharacterData extraCharacterData = extraData.get(character);
         if(extraCharacterData != null){
-            return extraCharacterData.floatValue;
+            return extraCharacterData.intValue;
         }
 
         CharacterData data = CHARACTER_DATA.get(character);
-        if (data == null) {
-            if(character.length()==1) {
-                if(character.matches("[0-9%]")) return 5000.0f;
-                if (character.matches("[A-Za-z]") || LATIN_LETTERS.contains(character)) return 5001.0f;
-                if (GREEK_LETTERS.contains(character)) return 5002.0f;
-                if (KANA.contains(character)) return 5003.0f;
-                if (ARABIC_LETTERS.contains(character)) return 5004.0f;
-                if (CYRILLIC_LETTERS.contains(character)) return 5005.0f;
-            }
-            return 0.0f;
-        }
-        return data.floatValue();
+        return data == null ? 0 : data.intValue();
     }
 
     public static String getIdentifier(String character) {
@@ -81,8 +73,12 @@ public class CharacterInfo {
         return data.identifier();
     }
 
+    /**
+     * Maps the numeric value to a quality tier.
+     * Note: values in [4000, 6000) intentionally fall through to STONE.
+     */
     public static CharacterQuality getQuality(String character){
-        float value = getFloatValue(character);
+        int value = getIntValue(character);
         if(value>=0 && value<1000){
             return CharacterQuality.STONE;
         }
@@ -130,6 +126,10 @@ public class CharacterInfo {
         return data.structure;
     }
 
+    /**
+     * Rebuilds extra mappings from config strings.
+     * Component format: "字=a,b". Data format: "字,int,identifier".
+     */
     public static void reloadFromConfig() {
         Map<String, String> newComponentMap = new HashMap<>();
         List<? extends String> componentMappings = CommonConfig.CHARACTER_DISASSEMBLING_MAPPINGS.get();
@@ -152,7 +152,7 @@ public class CharacterInfo {
                 String[] parts = mapping.split(",");
                 if (parts.length != 3) continue;
                 if (parts[0] != null && parts[1] !=null && parts[2] !=null) {
-                    float value = Float.parseFloat(parts[1]);
+                    int value = Integer.parseInt(parts[1]);
                     newDataMap.put(parts[0], new CharacterData(value, parts[2]));
                 }
             } catch (Exception e) {
@@ -178,7 +178,7 @@ public class CharacterInfo {
     public static List<ItemStack> getCharacterItemAssembly(String searchValue) {
         return CHARACTER_COMPONENTS.entrySet().stream()
                 .filter(entry -> entry.getValue().components.contains(searchValue))
-                .sorted(Comparator.comparing(entry -> getFloatValue(entry.getKey())))
+                .sorted(Comparator.comparing(entry -> getIntValue(entry.getKey())))
                 .map(entry -> {
                     ItemStack stack = new ItemStack(ModItems.CHARACTER_ITEM.asItem());
                     CharacterItem.setInscription(stack, entry.getKey());
@@ -201,6 +201,11 @@ public class CharacterInfo {
         return result.toString();
     }
 
+    /**
+     * Builds a display string such as "木+口×2".
+     *
+     * @return null when the character cannot be disassembled
+     */
     public static String getCharacterDisassembly(String searchValue) {
         List<String> list = CharacterInfo.getComponents(searchValue);
         if (list == null || list.isEmpty()) return null;
@@ -227,6 +232,10 @@ public class CharacterInfo {
         return stringBuilder.toString();
     }
 
+    /**
+     * Replaces special component placeholders (simple/simple2/complex/reversal)
+     * with their localized names; single characters pass through unchanged.
+     */
     private static List<String> getConvertedComponents(List<String> list) {
         List<String> convertedComponents = new ArrayList<>();
         for (String component : list) {
@@ -252,7 +261,7 @@ public class CharacterInfo {
 
     private static void inscriptionsLuckyInitialize(){
         for (Map.Entry<String, CharacterData> entry : CHARACTER_DATA.entrySet()) {
-            float value = entry.getValue().floatValue;
+            int value = entry.getValue().intValue;
             if(value<1000){
                 String key = entry.getKey();
                 inscriptionsLuckyAdvanced.add(key);

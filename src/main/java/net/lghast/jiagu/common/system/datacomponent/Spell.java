@@ -7,27 +7,19 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import java.util.Objects;
 import java.util.Optional;
 
-public record Spell(Optional<Holder<Enchantment>> enchantment, int level, String spellName) {
-    public static final Spell EMPTY = new Spell(Optional.empty(), 0, "");
-
-    public Spell(Holder<Enchantment> enchantment, int level, String spellName) {
-        this(Optional.of(enchantment), level, spellName);
-    }
+public record Spell(Optional<Holder<Enchantment>> enchantment, int level) {
+    public static final Spell EMPTY = new Spell(Optional.empty(), 0);
 
     public Spell() {
-        this(Optional.empty(), 0, "");
-    }
-
-    public Spell(String spellName) {
-        this(Optional.empty(), 0, spellName);
-    }
-
-    public Spell(Holder<Enchantment> enchantment, String spellName) {
-        this(Optional.of(enchantment), 1, spellName);
+        this(Optional.empty(), 0);
     }
 
     public Spell(Holder<Enchantment> enchantment, int level) {
-        this(Optional.of(enchantment), level, ModUtils.modifyName(enchantment, level));
+        this(Optional.of(enchantment), level);
+    }
+
+    public String spellName() {
+        return enchantment.map(holder -> ModUtils.modifyName(holder, level)).orElse("");
     }
 
     @Override
@@ -42,32 +34,28 @@ public record Spell(Optional<Holder<Enchantment>> enchantment, int level, String
             enchantmentEqual = this.enchantment.isEmpty() && other.enchantment.isEmpty();
         }
 
-        return enchantmentEqual &&
-                this.level == other.level &&
-                Objects.equals(this.spellName, other.spellName);
+        return enchantmentEqual && this.level == other.level;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
                 enchantment.map(Holder::hashCode).orElse(0),
-                level,
-                spellName
+                level
         );
     }
 
     @Override
     public String toString() {
         return "Spell{enchantment=" + enchantment.map(Holder::getRegisteredName).orElse("empty") +
-                ", level=" + level +
-                ", spellName='" + spellName + "'}";
+                ", level=" + level + "}";
     }
 
-    public boolean isEmpty(){
-        return enchantment().isEmpty() || level <= 0 || spellName == null || spellName.isEmpty();
+    public boolean isEmpty() {
+        return enchantment().isEmpty() || level <= 0;
     }
 
-    public Holder<Enchantment> getEnchantment(){
+    public Holder<Enchantment> getEnchantment() {
         return enchantment.orElse(null);
     }
 }

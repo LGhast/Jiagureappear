@@ -25,6 +25,7 @@ public class JiaguReappear {
         ModEntityTypes.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
+        ModAttachments.register(modEventBus);
         ModIngredientTypes.register(modEventBus);
         ModParticles.register(modEventBus);
         ModPotions.register(modEventBus);

@@ -22,6 +22,11 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 
 import java.util.*;
 
+/**
+ * Maps items, entities, enchantments, potions and effects to Classical Chinese
+ * names, with reverse lookup of items by a single character.
+ * Data comes from JSON plus config overrides.
+ */
 public class LzhMappings {
     public static final Map<String, String> ITEM_MAP = new HashMap<>();
     public static final Map<String, String> ENTITY_MAP = new HashMap<>();
@@ -61,6 +66,10 @@ public class LzhMappings {
         RECEIVER_MAP.putAll(JsonReceiverLoader.loadAll());
     }
 
+    /**
+     * Populates the ResourceLocation-keyed caches. Spawn eggs are detected by
+     * the "孳...之卵" affix and stripped into EGG_CACHE for name matching.
+     */
     private static void precomputeCaches() {
         ITEM_CACHE.clear();
         ENTITY_CACHE.clear();
@@ -179,6 +188,10 @@ public class LzhMappings {
         return ITEM_CACHE.get(itemKey);
     }
 
+    /**
+     * Converts the base potion name into its variant: splash (噴劑),
+     * lingering (滯劑) or tipped arrow (之矢).
+     */
     private static String getPotionLzhName(ItemStack stack) {
         ensureInitialized();
         PotionContents potionContents = stack.getComponents().get(DataComponents.POTION_CONTENTS);
@@ -268,6 +281,10 @@ public class LzhMappings {
         return null;
     }
 
+    /**
+     * Returns items whose lzh name contains the single character, plus
+     * matching potions (skipped when the character is "劑").
+     */
     public static List<ItemStack> getItemStacksWith(String inscription) {
         if (inscription.length() != 1) return new ArrayList<>();
 
@@ -365,6 +382,10 @@ public class LzhMappings {
         return itemList;
     }
 
+    /**
+     * Returns the receiver item for each enchantment whose name contains the
+     * character, named after the enchantment (RECEIVER_CACHE: enchantment->item).
+     */
     public static List<ItemStack> getReceiverItemsWith(String inscription) {
         if (inscription.length() != 1) return new ArrayList<>();
 

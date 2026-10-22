@@ -1,7 +1,7 @@
 package net.lghast.jiagu.common.content.blockentity;
 
 import net.lghast.jiagu.common.content.block.EruditeWenchangAltarBlock;
-import net.lghast.jiagu.config.CommonConfig;
+import net.lghast.jiagu.idiom.IdiomRegistry;
 import net.lghast.jiagu.common.content.item.CharacterItem;
 import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.lghast.jiagu.register.content.ModBlocks;
@@ -73,7 +73,7 @@ public class EruditeWenchangAltarBlockEntity extends BlockEntity {
         setChanged();
         updateBlockState();
 
-        if(level instanceof ServerLevel serverLevel && CommonConfig.IDIOM_LIST.get().contains(getInscriptions())){
+        if(level instanceof ServerLevel serverLevel && IdiomRegistry.isValid(getInscriptions())){
             ModUtils.spawnParticles(serverLevel, ModParticles.JIAGU_FLOATING_PARTICLES.get(),
                     pos.getX()+0.5, pos.getY()+0.4, pos.getZ()+0.5, 0.3, 0.2, 0.3, 12, 0.005);
         }

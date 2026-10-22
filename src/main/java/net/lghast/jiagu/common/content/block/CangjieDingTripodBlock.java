@@ -75,7 +75,7 @@ public class CangjieDingTripodBlock extends HorizontalDirectionalBlock {
             return InteractionResult.SUCCESS;
         }
 
-        if(!offHandItem.is(ModTags.JIAGU_MATERIALS)){
+        if(!offHandItem.is(ModTags.JIAGU_MATERIALS) && !offHandItem.is(ModItems.YELLOW_PAPER)){
             player.displayClientMessage(Component.translatable("block.jiagureappear.cangjie_ding_tripod.lack_materials"),true);
             return InteractionResult.SUCCESS;
         }

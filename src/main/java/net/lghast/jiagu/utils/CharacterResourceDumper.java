@@ -56,7 +56,7 @@ public class CharacterResourceDumper {
 
         List<Map.Entry<String, CharacterInfo.CharacterData>> sorted =
                 new ArrayList<>(CharacterInfo.CHARACTER_DATA.entrySet());
-        sorted.sort(Comparator.comparingDouble(entry -> entry.getValue().floatValue()));
+        sorted.sort(Comparator.comparingInt(entry -> entry.getValue().intValue()));
 
         JsonObject characterModel = new JsonObject();
         characterModel.addProperty("parent", "minecraft:item/generated");
@@ -75,7 +75,7 @@ public class CharacterResourceDumper {
 
             JsonObject override = new JsonObject();
             JsonObject predicate = new JsonObject();
-            predicate.addProperty("jiagureappear:inscription", entry.getValue().floatValue());
+            predicate.addProperty("jiagureappear:inscription", entry.getValue().intValue());
             override.add("predicate", predicate);
             override.addProperty("model", "jiagureappear:item/characters/" + modelName);
             overrides.add(override);

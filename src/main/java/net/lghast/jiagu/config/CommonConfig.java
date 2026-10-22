@@ -40,7 +40,6 @@ public class CommonConfig {
     public static ModConfigSpec.DoubleValue YOLIME_BLOCK_BOUNCE_VELOCITY_CAP;
     public static ModConfigSpec.BooleanValue GOLD_BRICKS_EFFECT;
 
-    public static ModConfigSpec.ConfigValue<List<? extends String>> IDIOM_LIST;
     public static ModConfigSpec.ConfigValue<List<? extends String>> CHARACTER_DISASSEMBLING_MAPPINGS;
     public static ModConfigSpec.ConfigValue<List<? extends String>> CHARACTER_MAPPINGS;
 
@@ -53,19 +52,6 @@ public class CommonConfig {
 
     static {
         BUILDER.push("核心内容 Core Content");
-
-        IDIOM_LIST = BUILDER
-                .comment("有效成语列表 Valid idiom list",
-                        "列于此处的字符串会被判定为有效成语，但仍需要数据包自定义相关进度。",
-                        "Strings listed here will be recognized as valid idioms, though the relevant advancements still need to be customized via a data pack.")
-                .defineList("idiom_list",
-                        () -> Arrays.asList("小心翼翼", "一石二鳥", "九牛一毛", "水乳交融", "如魚得水",
-                                "從善如流", "孤芳自賞", "光明磊落", "自強不息", "一片丹心", "心靈手巧",
-                                "大逆不道", "胡說八道", "囊螢映雪", "背井離鄉", "粉墨登場", "求知若渴",
-                                "筆耕不輟", "名列前茅", "美中不足", "買櫝還珠", "父慈子孝", "堅如磐石",
-                                "目中無人"),
-                        () -> "成语",
-                        o -> o instanceof String);
 
         CHARACTER_DISASSEMBLING_MAPPINGS = BUILDER
                 .comment("汉字拆解配方,可覆盖原版配方。",

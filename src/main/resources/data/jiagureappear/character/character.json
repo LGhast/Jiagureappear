@@ -1,5170 +1,6830 @@
 {
   "土": {
-    "value": 1.0,
+    "value": 1,
     "identifier": "tu_soil"
   },
   "水": {
-    "value": 2.0,
+    "value": 2,
     "identifier": "shui_water"
   },
   "屮": {
-    "value": 3.0,
+    "value": 3,
     "identifier": "cao_grass"
   },
   "木": {
-    "value": 4.0,
+    "value": 4,
     "identifier": "mu_tree"
   },
   "口": {
-    "value": 5.0,
+    "value": 5,
     "identifier": "kou_mouth"
   },
   "人": {
-    "value": 6.0,
+    "value": 6,
     "identifier": "ren_human"
   },
   "又": {
-    "value": 7.0,
+    "value": 7,
     "identifier": "you_hand"
   },
   "山": {
-    "value": 8.0,
+    "value": 8,
     "identifier": "shan_mountain"
   },
   "豕": {
-    "value": 9.0,
+    "value": 9,
     "identifier": "shi_pig"
   },
   "甘": {
-    "value": 10.0,
+    "value": 10,
     "identifier": "gan_sweet",
     "structure": "VERTICAL",
     "components": ["口", "simple"]
   },
   "午": {
-    "value": 11.0,
+    "value": 11,
     "identifier": "wu_pestle"
   },
   "乍": {
-    "value": 12.0,
+    "value": 12,
     "identifier": "zha_sudden",
     "structure": "VERTICAL",
     "components": ["simple", "耒"]
   },
   "耒": {
-    "value": 13.0,
+    "value": 13,
     "identifier": "lei_plough"
   },
   "臼": {
-    "value": 14.0,
+    "value": 14,
     "identifier": "jiu_mortar"
   },
   "才": {
-    "value": 15.0,
+    "value": 15,
     "identifier": "cai_talent",
     "structure": "VERTICAL",
     "components": ["simple", "屮"]
   },
   "呂": {
-    "value": 16.0,
+    "value": 16,
     "identifier": "lv_metalstack"
   },
   "王": {
-    "value": 17.0,
+    "value": 17,
     "identifier": "wang_king"
   },
   "亼": {
-    "value": 18.0,
+    "value": 18,
     "identifier": "ji_mouth",
     "structure": "VERTICAL",
     "components": ["口", "reversal"]
   },
   "止": {
-    "value": 19.0,
+    "value": 19,
     "identifier": "zhi_toe"
   },
   "丁": {
-    "value": 20.0,
+    "value": 20,
     "identifier": "ding_nail"
   },
   "宀": {
-    "value": 21.0,
+    "value": 21,
     "identifier": "mian_house"
   },
   "刀": {
-    "value": 22.0,
+    "value": 22,
     "identifier": "dao_knife"
   },
   "方": {
-    "value": 23.0,
+    "value": 23,
     "identifier": "fang_square",
     "structure": "VERTICAL",
     "components": ["simple", "刀"]
   },
   "戈": {
-    "value": 24.0,
+    "value": 24,
     "identifier": "ge_daggeraxe"
   },
   "大": {
-    "value": 25.0,
+    "value": 25,
     "identifier": "da_big"
   },
   "厂": {
-    "value": 26.0,
+    "value": 26,
     "identifier": "han_cliff"
   },
   "火": {
-    "value": 27.0,
+    "value": 27,
     "identifier": "huo_fire"
   },
   "戶": {
-    "value": 28.0,
+    "value": 28,
     "identifier": "hu_door"
   },
   "片": {
-    "value": 29.0,
+    "value": 29,
     "identifier": "pian_slice"
   },
   "小": {
-    "value": 30.0,
+    "value": 30,
     "identifier": "xiao_small"
   },
   "少": {
-    "value": 31.0,
+    "value": 31,
     "identifier": "shao_few",
     "structure": "VERTICAL",
     "components": ["小", "simple"]
   },
   "凡": {
-    "value": 32.0,
+    "value": 32,
     "identifier": "fan_normal"
   },
   "曰": {
-    "value": 33.0,
+    "value": 33,
     "identifier": "yue_speak",
     "structure": "VERTICAL",
     "components": ["simple", "口"]
   },
   "阜": {
-    "value": 34.0,
+    "value": 34,
     "identifier": "fu_mount"
   },
   "网": {
-    "value": 35.0,
+    "value": 35,
     "identifier": "wang_net"
   },
   "之": {
-    "value": 36.0,
+    "value": 36,
     "identifier": "zhi_goto",
     "structure": "VERTICAL",
     "components": ["止", "simple"]
   },
   "雨": {
-    "value": 37.0,
+    "value": 37,
     "identifier": "yu_rain"
   },
   "巫": {
-    "value": 38.0,
+    "value": 38,
     "identifier": "wu_wizard"
   },
   "羊": {
-    "value": 39.0,
+    "value": 39,
     "identifier": "yang_goat"
   },
   "井": {
-    "value": 40.0,
+    "value": 40,
     "identifier": "jing_well"
   },
   "生": {
-    "value": 41.0,
+    "value": 41,
     "identifier": "sheng_birth",
     "structure": "VERTICAL",
     "components": ["屮", "simple"]
   },
   "尹": {
-    "value": 42.0,
+    "value": 42,
     "identifier": "yin_manage",
     "structure": "HORIZONTAL",
     "components": ["simple", "又"]
   },
   "禾": {
-    "value": 43.0,
+    "value": 43,
     "identifier": "he_crops"
   },
   "糸": {
-    "value": 44.0,
+    "value": 44,
     "identifier": "mi_silk"
   },
   "肉": {
-    "value": 45.0,
+    "value": 45,
     "identifier": "rou_meat"
   },
   "央": {
-    "value": 46.0,
+    "value": 46,
     "identifier": "yang_center",
     "structure": "VERTICAL",
     "components": ["simple", "大"]
   },
   "禽": {
-    "value": 47.0,
+    "value": 47,
     "identifier": "qin_bird"
   },
   "衣": {
-    "value": 48.0,
+    "value": 48,
     "identifier": "yi_clothes"
   },
   "卒": {
-    "value": 49.0,
+    "value": 49,
     "identifier": "zu_end",
     "structure": "VERTICAL",
     "components": ["simple", "衣"]
   },
   "歺": {
-    "value": 50.0,
+    "value": 50,
     "identifier": "e_bone"
   },
   "九": {
-    "value": 51.0,
+    "value": 51,
     "identifier": "jiu_nine"
   },
   "介": {
-    "value": 52.0,
+    "value": 52,
     "identifier": "jie_medium",
     "structure": "HORIZONTAL_LONG",
     "components": ["simple", "人", "simple"]
   },
   "田": {
-    "value": 53.0,
+    "value": 53,
     "identifier": "tian_field"
   },
   "女": {
-    "value": 54.0,
+    "value": 54,
     "identifier": "nv_female"
   },
   "玉": {
-    "value": 55.0,
+    "value": 55,
     "identifier": "yu_jade"
   },
   "玄": {
-    "value": 56.0,
+    "value": 56,
     "identifier": "xuan_deep",
     "structure": "SAME",
     "components": ["幺"]
   },
   "黑": {
-    "value": 57.0,
+    "value": 57,
     "identifier": "hei_black",
     "structure": "VERTICAL",
     "components": ["simple2", "大"]
   },
   "彔": {
-    "value": 58.0,
+    "value": 58,
     "identifier": "lu_winch"
   },
   "甲": {
-    "value": 59.0,
+    "value": 59,
     "identifier": "jia_armour"
   },
   "晶": {
-    "value": 60.0,
+    "value": 60,
     "identifier": "jing_stars"
   },
   "立": {
-    "value": 61.0,
+    "value": 61,
     "identifier": "li_stand",
     "structure": "VERTICAL",
     "components": ["大", "simple2"]
   },
   "米": {
-    "value": 62.0,
+    "value": 62,
     "identifier": "mi_rice"
   },
   "上": {
-    "value": 63.0,
+    "value": 63,
     "identifier": "shang_up"
   },
   "十": {
-    "value": 64.0,
+    "value": 64,
     "identifier": "shi_ten"
   },
   "下": {
-    "value": 65.0,
+    "value": 65,
     "identifier": "xia_down"
   },
   "目": {
-    "value": 66.0,
+    "value": 66,
     "identifier": "mu_eye"
   },
   "冎": {
-    "value": 67.0,
+    "value": 67,
     "identifier": "gua_bone"
   },
   "母": {
-    "value": 68.0,
+    "value": 68,
     "identifier": "mu_mum",
     "structure": "HORIZONTAL_LONG",
     "components": ["simple", "女", "simple"]
   },
   "且": {
-    "value": 69.0,
+    "value": 69,
     "identifier": "qie_and"
   },
   "示": {
-    "value": 70.0,
+    "value": 70,
     "identifier": "shi_show"
   },
   "一": {
-    "value": 71.0,
+    "value": 71,
     "identifier": "yi_one"
   },
   "二": {
-    "value": 72.0,
+    "value": 72,
     "identifier": "er_two",
     "structure": "VERTICAL",
     "components": ["simple", "一"]
   },
   "三": {
-    "value": 73.0,
+    "value": 73,
     "identifier": "san_three",
     "structure": "VERTICAL",
     "components": ["simple", "二"]
   },
   "父": {
-    "value": 74.0,
+    "value": 74,
     "identifier": "fu_father",
     "structure": "BIAS",
     "components": ["simple", "又"]
   },
   "高": {
-    "value": 75.0,
+    "value": 75,
     "identifier": "gao_high",
     "structure": "VERTICAL",
     "components": ["complex", "口"]
   },
   "斤": {
-    "value": 76.0,
+    "value": 76,
     "identifier": "jin_axe"
   },
   "力": {
-    "value": 77.0,
+    "value": 77,
     "identifier": "li_strength"
   },
   "每": {
-    "value": 78.0,
+    "value": 78,
     "identifier": "mei_each",
     "structure": "VERTICAL",
     "components": ["complex", "女"]
   },
   "欠": {
-    "value": 79.0,
+    "value": 79,
     "identifier": "qian_yawn",
     "structure": "VERTICAL",
     "components": ["simple", "卩"]
   },
   "耳": {
-    "value": 80.0,
+    "value": 80,
     "identifier": "er_ear"
   },
   "卯": {
-    "value": 81.0,
+    "value": 81,
     "identifier": "mao_mao"
   },
   "皿": {
-    "value": 82.0,
+    "value": 82,
     "identifier": "min_vessel"
   },
   "攴": {
-    "value": 83.0,
+    "value": 83,
     "identifier": "pu_tap",
     "structure": "TRIANGLE_RIGHT",
     "components": ["simple", "simple", "又"]
   },
   "殳": {
-    "value": 84.0,
+    "value": 84,
     "identifier": "shu_weapon",
     "structure": "HORIZONTAL",
     "components": ["complex", "又"]
   },
   "四": {
-    "value": 85.0,
+    "value": 85,
     "identifier": "si_four"
   },
   "五": {
-    "value": 86.0,
+    "value": 86,
     "identifier": "wu_five"
   },
   "彳": {
-    "value": 87.0,
+    "value": 87,
     "identifier": "chi_walk"
   },
   "亍": {
-    "value": 88.0,
+    "value": 88,
     "identifier": "chu_walk",
     "structure": "HORIZONTAL",
     "components": ["彳", "reversal"]
   },
   "黃": {
-    "value": 89.0,
+    "value": 89,
     "identifier": "huang_yellow",
     "structure": "VERTICAL",
     "components": ["大", "complex"]
   },
   "屰": {
-    "value": 90.0,
+    "value": 90,
     "identifier": "ni_reverse",
     "structure": "VERTICAL",
     "components": ["大", "reversal"]
   },
   "日": {
-    "value": 91.0,
+    "value": 91,
     "identifier": "ri_sun"
   },
   "广": {
-    "value": 92.0,
+    "value": 92,
     "identifier": "yan_house"
   },
   "鬼": {
-    "value": 93.0,
+    "value": 93,
     "identifier": "gui_ghost",
     "structure": "VERTICAL",
     "components": ["complex", "卩"]
   },
   "來": {
-    "value": 94.0,
+    "value": 94,
     "identifier": "lai_come"
   },
   "甬": {
-    "value": 95.0,
+    "value": 95,
     "identifier": "yong_bell",
     "structure": "VERTICAL",
     "components": ["simple", "用"]
   },
   "用": {
-    "value": 96.0,
+    "value": 96,
     "identifier": "yong_use"
   },
   "羽": {
-    "value": 97.0,
+    "value": 97,
     "identifier": "yu_feather"
   },
   "子": {
-    "value": 98.0,
+    "value": 98,
     "identifier": "zi_kid"
   },
   "革": {
-    "value": 99.0,
+    "value": 99,
     "identifier": "ge_leather"
   },
   "龜": {
-    "value": 100.0,
+    "value": 100,
     "identifier": "gui_turtle"
   },
   "虫": {
-    "value": 101.0,
+    "value": 101,
     "identifier": "hui_snake"
   },
   "馬": {
-    "value": 102.0,
+    "value": 102,
     "identifier": "ma_horse"
   },
   "其": {
-    "value": 103.0,
+    "value": 103,
     "identifier": "qi_it"
   },
   "犬": {
-    "value": 104.0,
+    "value": 104,
     "identifier": "quan_dog"
   },
   "心": {
-    "value": 105.0,
+    "value": 105,
     "identifier": "xin_heart"
   },
   "㫃": {
-    "value": 106.0,
+    "value": 106,
     "identifier": "yan_flag"
   },
   "朱": {
-    "value": 107.0,
+    "value": 107,
     "identifier": "zhu_red",
     "structure": "HORIZONTAL",
     "components": ["simple", "木"]
   },
   "仌": {
-    "value": 108.0,
+    "value": 108,
     "identifier": "bing_ice"
   },
   "冬": {
-    "value": 109.0,
+    "value": 109,
     "identifier": "dong_winter"
   },
   "亥": {
-    "value": 110.0,
+    "value": 110,
     "identifier": "hai_hai"
   },
   "柬": {
-    "value": 111.0,
+    "value": 111,
     "identifier": "jian_note"
   },
   "穴": {
-    "value": 112.0,
+    "value": 112,
     "identifier": "xue_cave"
   },
   "東": {
-    "value": 113.0,
+    "value": 113,
     "identifier": "dong_east"
   },
   "回": {
-    "value": 114.0,
+    "value": 114,
     "identifier": "hui_return"
   },
   "枼": {
-    "value": 115.0,
+    "value": 115,
     "identifier": "ye_leaf"
   },
   "月": {
-    "value": 116.0,
+    "value": 116,
     "identifier": "yue_moon"
   },
   "白": {
-    "value": 117.0,
+    "value": 117,
     "identifier": "bai_white"
   },
   "卜": {
-    "value": 118.0,
+    "value": 118,
     "identifier": "bu_divination"
   },
   "鼎": {
-    "value": 119.0,
+    "value": 119,
     "identifier": "ding_ding"
   },
   "豆": {
-    "value": 120.0,
+    "value": 120,
     "identifier": "dou_vessel"
   },
   "弓": {
-    "value": 121.0,
+    "value": 121,
     "identifier": "gong_bow"
   },
   "工": {
-    "value": 122.0,
+    "value": 122,
     "identifier": "gong_work"
   },
   "亡": {
-    "value": 123.0,
+    "value": 123,
     "identifier": "wang_escape"
   },
   "囟": {
-    "value": 124.0,
+    "value": 124,
     "identifier": "xin_fontanel"
   },
   "弋": {
-    "value": 125.0,
+    "value": 125,
     "identifier": "yi_arrow"
   },
   "爿": {
-    "value": 126.0,
+    "value": 126,
     "identifier": "pan_wall",
     "structure": "HORIZONTAL",
     "components": ["reversal", "片"]
   },
   "幺": {
-    "value": 127.0,
+    "value": 127,
     "identifier": "yao_small"
   },
   "貝": {
-    "value": 128.0,
+    "value": 128,
     "identifier": "bei_shell"
   },
   "手": {
-    "value": 129.0,
+    "value": 129,
     "identifier": "shou_hand"
   },
   "叉": {
-    "value": 130.0,
+    "value": 130,
     "identifier": "cha_fork",
     "structure": "VERTICAL",
     "components": ["simple", "又"]
   },
   "旦": {
-    "value": 131.0,
+    "value": 131,
     "identifier": "dan_morning",
     "structure": "VERTICAL",
     "components": ["日", "simple"]
   },
   "華": {
-    "value": 132.0,
+    "value": 132,
     "identifier": "hua_flower"
   },
   "旡": {
-    "value": 133.0,
+    "value": 133,
     "identifier": "ji_burp",
     "structure": "HORIZONTAL",
     "components": ["欠", "reversal"]
   },
   "盧": {
-    "value": 134.0,
+    "value": 134,
     "identifier": "lu_black"
   },
   "也": {
-    "value": 135.0,
+    "value": 135,
     "identifier": "ye_too"
   },
   "豸": {
-    "value": 136.0,
+    "value": 136,
     "identifier": "zhi_beast"
   },
   "鳥": {
-    "value": 137.0,
+    "value": 137,
     "identifier": "niao_bird"
   },
   "彡": {
-    "value": 138.0,
+    "value": 138,
     "identifier": "shan_fur"
   },
   "舌": {
-    "value": 139.0,
+    "value": 139,
     "identifier": "she_tongue",
     "structure": "VERTICAL",
     "components": ["complex", "口"]
   },
   "言": {
-    "value": 140.0,
+    "value": 140,
     "identifier": "yan_speak",
     "structure": "VERTICAL",
     "components": ["simple", "舌"]
   },
   "直": {
-    "value": 141.0,
+    "value": 141,
     "identifier": "zhi_straight",
     "structure": "VERTICAL",
     "components": ["simple", "目"]
   },
   "黽": {
-    "value": 142.0,
+    "value": 142,
     "identifier": "meng_frog"
   },
   "覃": {
-    "value": 143.0,
+    "value": 143,
     "identifier": "tan_saltbag"
   },
   "爪": {
-    "value": 144.0,
+    "value": 144,
     "identifier": "zhua_claw"
   },
   "卩": {
-    "value": 145.0,
+    "value": 145,
     "identifier": "jie_kneel"
   },
   "毛": {
-    "value": 146.0,
+    "value": 146,
     "identifier": "mao_hair"
   },
   "辛": {
-    "value": 147.0,
+    "value": 147,
     "identifier": "xin_spicy"
   },
   "翼": {
-    "value": 148.0,
+    "value": 148,
     "identifier": "yi_wing"
   },
   "元": {
-    "value": 149.0,
+    "value": 149,
     "identifier": "yuan_one"
   },
   "竹": {
-    "value": 150.0,
+    "value": 150,
     "identifier": "zhu_bamboo"
   },
   "容": {
-    "value": 151.0,
+    "value": 151,
     "identifier": "rong_contain",
     "structure": "VERTICAL",
     "components": ["穴", "simple"]
   },
   "干": {
-    "value": 152.0,
+    "value": 152,
     "identifier": "gan_shield"
   },
   "于": {
-    "value": 153.0,
+    "value": 153,
     "identifier": "yu_yu"
   },
   "冊": {
-    "value": 154.0,
+    "value": 154,
     "identifier": "ce_books"
   },
   "歹": {
-    "value": 155.0,
+    "value": 155,
     "identifier": "dai_die"
   },
   "羔": {
-    "value": 156.0,
+    "value": 156,
     "identifier": "gao_lamb",
     "structure": "HORIZONTAL_LONG",
     "components": ["simple", "羊", "simple"]
   },
   "鬲": {
-    "value": 157.0,
+    "value": 157,
     "identifier": "ge_vessel"
   },
   "良": {
-    "value": 158.0,
+    "value": 158,
     "identifier": "liang_good"
   },
   "尸": {
-    "value": 159.0,
+    "value": 159,
     "identifier": "shi_human"
   },
   "音": {
-    "value": 160.0,
+    "value": 160,
     "identifier": "yin_sound",
     "structure": "VERTICAL",
     "components": ["言", "simple"]
   },
   "周": {
-    "value": 161.0,
+    "value": 161,
     "identifier": "zhou_zhou"
   },
   "隹": {
-    "value": 162.0,
+    "value": 162,
     "identifier": "zhui_bird"
   },
   "鳳": {
-    "value": 163.0,
+    "value": 163,
     "identifier": "feng_phoenix"
   },
   "瓜": {
-    "value": 164.0,
+    "value": 164,
     "identifier": "gua_melon"
   },
   "南": {
-    "value": 165.0,
+    "value": 165,
     "identifier": "nan_south"
   },
   "牛": {
-    "value": 166.0,
+    "value": 166,
     "identifier": "niu_ox"
   },
   "矢": {
-    "value": 167.0,
+    "value": 167,
     "identifier": "shi_arrow"
   },
   "世": {
-    "value": 168.0,
+    "value": 168,
     "identifier": "shi_world"
   },
   "勿": {
-    "value": 169.0,
+    "value": 169,
     "identifier": "wu_not",
     "structure": "T_SHAPE_HORIZONTAL",
     "components": ["simple", "simple", "刀", "simple"]
   },
   "食": {
-    "value": 170.0,
+    "value": 170,
     "identifier": "shi_food"
   },
   "橐": {
-    "value": 171.0,
+    "value": 171,
     "identifier": "tuo_pocket"
   },
   "魚": {
-    "value": 172.0,
+    "value": 172,
     "identifier": "yu_fish"
   },
   "龍": {
-    "value": 173.0,
+    "value": 173,
     "identifier": "long_loong"
   },
   "兔": {
-    "value": 174.0,
+    "value": 174,
     "identifier": "tu_rabbit"
   },
   "文": {
-    "value": 175.0,
+    "value": 175,
     "identifier": "wen_word"
   },
   "臽": {
-    "value": 176.0,
+    "value": 176,
     "identifier": "xian_trap",
     "structure": "VERTICAL",
     "components": ["人", "simple"]
   },
   "丙": {
-    "value": 177.0,
+    "value": 177,
     "identifier": "bing_bing"
   },
   "官下": {
-    "value": 178.0,
+    "value": 178,
     "identifier": "dui_dui"
   },
   "矛": {
-    "value": 179.0,
+    "value": 179,
     "identifier": "mao_spear"
   },
   "夋": {
-    "value": 180.0,
+    "value": 180,
     "identifier": "qun_slowwalk"
   },
   "若": {
-    "value": 181.0,
+    "value": 181,
     "identifier": "ruo_if"
   },
   "匸": {
-    "value": 182.0,
+    "value": 182,
     "identifier": "xi_hide"
   },
   "酉": {
-    "value": 183.0,
+    "value": 183,
     "identifier": "you_wine"
   },
   "士": {
-    "value": 184.0,
+    "value": 184,
     "identifier": "shi_knight"
   },
   "毋": {
-    "value": 185.0,
+    "value": 185,
     "identifier": "wu_donot",
     "structure": "VERTICAL",
     "components": ["simple", "女"]
   },
   "虍": {
-    "value": 186.0,
+    "value": 186,
     "identifier": "hu_tiger"
   },
   "齊": {
-    "value": 187.0,
+    "value": 187,
     "identifier": "qi_neat"
   },
   "丘": {
-    "value": 188.0,
+    "value": 188,
     "identifier": "qiu_hill"
   },
   "束": {
-    "value": 189.0,
+    "value": 189,
     "identifier": "shu_bind"
   },
   "聿": {
-    "value": 190.0,
+    "value": 190,
     "identifier": "yu_brush",
     "structure": "TRIANGLE_INVERT",
     "components": ["simple", "又", "simple"]
   },
   "缶": {
-    "value": 191.0,
+    "value": 191,
     "identifier": "fou_vessel"
   },
   "果": {
-    "value": 192.0,
+    "value": 192,
     "identifier": "guo_fruit"
   },
   "雈": {
-    "value": 193.0,
+    "value": 193,
     "identifier": "huan_owl"
   },
   "皀": {
-    "value": 194.0,
+    "value": 194,
     "identifier": "ji_vessel"
   },
   "京": {
-    "value": 195.0,
+    "value": 195,
     "identifier": "jing_house"
   },
   "肙": {
-    "value": 196.0,
+    "value": 196,
     "identifier": "juan_bug",
     "structure": "VERTICAL",
     "components": ["simple", "肉"]
   },
   "皮": {
-    "value": 197.0,
+    "value": 197,
     "identifier": "pi_skin",
     "structure": "TRIANGLE_INVERT",
     "components": ["complex", "又", "simple"]
   },
   "求": {
-    "value": 198.0,
+    "value": 198,
     "identifier": "qiu_beg"
   },
   "司": {
-    "value": 199.0,
+    "value": 199,
     "identifier": "si_company",
     "structure": "HORIZONTAL",
     "components": ["口", "simple"]
   },
   "足": {
-    "value": 200.0,
+    "value": 200,
     "identifier": "zu_foot"
   },
   "八": {
-    "value": 201.0,
+    "value": 201,
     "identifier": "ba_eight"
   },
   "必": {
-    "value": 202.0,
+    "value": 202,
     "identifier": "bi_must"
   },
   "公": {
-    "value": 203.0,
+    "value": 203,
     "identifier": "gong_fair",
     "structure": "VERTICAL",
     "components": ["八", "simple"]
   },
   "卵": {
-    "value": 204.0,
+    "value": 204,
     "identifier": "luan_egg"
   },
   "黍": {
-    "value": 205.0,
+    "value": 205,
     "identifier": "shu_millet"
   },
   "首": {
-    "value": 206.0,
+    "value": 206,
     "identifier": "shou_head"
   },
   "帶": {
-    "value": 207.0,
+    "value": 207,
     "identifier": "dai_band"
   },
   "丂": {
-    "value": 208.0,
+    "value": 208,
     "identifier": "kao_horn"
   },
   "老": {
-    "value": 209.0,
+    "value": 209,
     "identifier": "lao_old"
   },
   "川": {
-    "value": 210.0,
+    "value": 210,
     "identifier": "chuan_river"
   },
   "乙": {
-    "value": 211.0,
+    "value": 211,
     "identifier": "yi_second"
   },
   "交": {
-    "value": 212.0,
+    "value": 212,
     "identifier": "jiao_cross"
   },
   "車": {
-    "value": 213.0,
+    "value": 213,
     "identifier": "che_vehicle"
   },
   "丹": {
-    "value": 214.0,
+    "value": 214,
     "identifier": "dan_red"
   },
   "息": {
-    "value": 215.0,
+    "value": 215,
     "identifier": "xi_breath",
     "structure": "T_SHAPE_INVERT",
     "components": ["自", "simple", "simple", "simple"]
   },
   "中": {
-    "value": 216.0,
+    "value": 216,
     "identifier": "zhong_middle"
   },
   "自": {
-    "value": 217.0,
+    "value": 217,
     "identifier": "zi_self"
   },
   "畀": {
-    "value": 218.0,
+    "value": 218,
     "identifier": "bi_give"
   },
   "不": {
-    "value": 219.0,
+    "value": 219,
     "identifier": "bu_no",
     "structure": "VERTICAL",
     "components": ["simple2", "木"]
   },
   "角": {
-    "value": 220.0,
+    "value": 220,
     "identifier": "jiao_horn"
   },
   "氏": {
-    "value": 221.0,
+    "value": 221,
     "identifier": "shi_family"
   },
   "囗": {
-    "value": 222.0,
+    "value": 222,
     "identifier": "wei_surround"
   },
   "亘": {
-    "value": 223.0,
+    "value": 223,
     "identifier": "xuan_round",
     "structure": "VERTICAL",
     "components": ["simple", "回"]
   },
   "引": {
-    "value": 224.0,
+    "value": 224,
     "identifier": "yin_pull"
   },
   "叀": {
-    "value": 225.0,
+    "value": 225,
     "identifier": "zhuan_spindle"
   },
   "熒": {
-    "value": 226.0,
+    "value": 226,
     "identifier": "ying_flash"
   },
   "亢": {
-    "value": 227.0,
+    "value": 227,
     "identifier": "kang_high",
     "structure": "VERTICAL",
     "components": ["大", "simple"]
   },
   "民": {
-    "value": 228.0,
+    "value": 228,
     "identifier": "min_civil",
     "structure": "VERTICAL",
     "components": ["目", "simple"]
   },
   "离下": {
-    "value": 229.0,
+    "value": 229,
     "identifier": "qin_net"
   },
   "卑": {
-    "value": 230.0,
+    "value": 230,
     "identifier": "bei_inferior",
     "structure": "TRIANGLE",
     "components": ["complex", "reversal", "又"]
   },
   "害": {
-    "value": 231.0,
+    "value": 231,
     "identifier": "hai_damage"
   },
   "勺": {
-    "value": 232.0,
+    "value": 232,
     "identifier": "shao_spoon"
   },
   "我": {
-    "value": 233.0,
+    "value": 233,
     "identifier": "wo_me"
   },
   "舟": {
-    "value": 234.0,
+    "value": 234,
     "identifier": "zhou_boat"
   },
   "丑": {
-    "value": 235.0,
+    "value": 235,
     "identifier": "chou_chou"
   },
   "朿": {
-    "value": 236.0,
+    "value": 236,
     "identifier": "ci_thorn"
   },
   "夕": {
-    "value": 237.0,
+    "value": 237,
     "identifier": "xi_moon",
     "structure": "SAME",
     "components": ["月"]
   },
   "天": {
-    "value": 238.0,
+    "value": 238,
     "identifier": "tian_sky",
     "structure": "VERTICAL_LONG",
     "components": ["simple", "simple", "大"]
   },
   "太": {
-    "value": 239.0,
+    "value": 239,
     "identifier": "tai_too",
     "structure": "VERTICAL_LONG",
     "components": ["大", "simple", "simple"]
   },
   "畾": {
-    "value": 240.0,
+    "value": 240,
     "identifier": "lei_thunderclap"
   },
   "雷": {
-    "value": 241.0,
+    "value": 241,
     "identifier": "lei_thunder",
     "structure": "VERTICAL",
     "components": ["simple", "畾"]
   },
   "單": {
-    "value": 242.0,
+    "value": 242,
     "identifier": "dan_single"
   },
   "㠯": {
-    "value": 243.0,
+    "value": 243,
     "identifier": "yi_use"
   },
   "叕": {
-    "value": 244.0,
+    "value": 244,
     "identifier": "zhuo_associate"
   },
   "刃": {
-    "value": 245.0,
+    "value": 245,
     "identifier": "ren_blade",
     "structure": "VERTICAL",
     "components": ["simple", "刀"]
   },
   "冖": {
-    "value": 246.0,
+    "value": 246,
     "identifier": "mi_hat"
   },
   "冃": {
-    "value": 247.0,
+    "value": 247,
     "identifier": "mao_hat",
     "structure": "VERTICAL_LONG",
     "components": ["冖", "simple", "simple"]
   },
   "美": {
-    "value": 248.0,
+    "value": 248,
     "identifier": "mei_beauty",
     "structure": "VERTICAL",
     "components": ["complex", "大"]
   },
   "吳": {
-    "value": 249.0,
+    "value": 249,
     "identifier": "wu_noise"
   },
   "兮": {
-    "value": 250.0,
+    "value": 250,
     "identifier": "xi_how",
     "structure": "ARROW_INVERT",
     "components": ["simple", "simple", "丂"]
   },
   "由": {
-    "value": 251.0,
+    "value": 251,
     "identifier": "you_because"
   },
   "至": {
-    "value": 252.0,
+    "value": 252,
     "identifier": "zhi_arrive",
     "structure": "VERTICAL_LONG",
     "components": ["矢", "reversal", "simple"]
   },
   "巨": {
-    "value": 253.0,
+    "value": 253,
     "identifier": "ju_giant"
   },
   "末": {
-    "value": 254.0,
+    "value": 254,
     "identifier": "mo_end",
     "structure": "VERTICAL",
     "components": ["simple", "木"]
   },
   "出": {
-    "value": 255.0,
+    "value": 255,
     "identifier": "chu_out",
     "structure": "VERTICAL",
     "components": ["止", "simple2"]
   },
   "癸": {
-    "value": 256.0,
+    "value": 256,
     "identifier": "gui_tenth"
   },
   "幻": {
-    "value": 257.0,
+    "value": 257,
     "identifier": "huan_magic",
     "structure": "HORIZONTAL",
     "components": ["幺", "simple"]
   },
   "虎": {
-    "value": 258.0,
+    "value": 258,
     "identifier": "hu_tigers",
     "structure": "VERTICAL",
     "components": ["虍", "complex"]
   },
   "臣": {
-    "value": 259.0,
+    "value": 259,
     "identifier": "chen_minister",
     "structure": "BIAS",
     "components": ["目", "reversal"]
   },
   "斗": {
-    "value": 260.0,
+    "value": 260,
     "identifier": "dou_ladler"
   },
   "泉": {
-    "value": 261.0,
+    "value": 261,
     "identifier": "quan_spring"
   },
   "盾": {
-    "value": 262.0,
+    "value": 262,
     "identifier": "dun_shield"
   },
   "蜀": {
-    "value": 263.0,
+    "value": 263,
     "identifier": "shu_shu",
     "structure": "VERTICAL",
     "components": ["目", "simple2"]
   },
   "牙": {
-    "value": 264.0,
+    "value": 264,
     "identifier": "ya_tooth"
   },
   "巾": {
-    "value": 265.0,
+    "value": 265,
     "identifier": "jin_cloth"
   },
   "昆": {
-    "value": 266.0,
+    "value": 266,
     "identifier": "kun_kun"
   },
   "匚": {
-    "value": 267.0,
+    "value": 267,
     "identifier": "fang_box"
   },
   "巠": {
-    "value": 268.0,
+    "value": 268,
     "identifier": "jing_water"
   },
   "丰": {
-    "value": 269.0,
+    "value": 269,
     "identifier": "feng_bumper"
   },
   "庚": {
-    "value": 270.0,
+    "value": 270,
     "identifier": "geng_seventh"
   },
   "久": {
-    "value": 271.0,
+    "value": 271,
     "identifier": "jiu_long"
   },
   "㐭": {
-    "value": 272.0,
+    "value": 272,
     "identifier": "lin_granary"
   },
   "素": {
-    "value": 273.0,
+    "value": 273,
     "identifier": "su_white",
     "structure": "VERTICAL",
     "components": ["complex", "糸"]
   },
   "丸": {
-    "value": 274.0,
+    "value": 274,
     "identifier": "wan_ball",
     "structure": "BIAS",
     "components": ["simple", "人"]
   },
   "無": {
-    "value": 275.0,
+    "value": 275,
     "identifier": "wu_nothing"
   },
   "尤": {
-    "value": 276.0,
+    "value": 276,
     "identifier": "you_especially",
     "structure": "VERTICAL",
     "components": ["simple2", "又"]
   },
   "西": {
-    "value": 277.0,
+    "value": 277,
     "identifier": "xi_west"
   },
   "瓦": {
-    "value": 278.0,
+    "value": 278,
     "identifier": "wa_tile"
   },
+  "厄": {
+    "value": 279,
+    "identifier": "e_doom"
+  },
+  "升": {
+    "value": 280,
+    "identifier": "sheng_litre"
+  },
+  "萬": {
+    "value": 281,
+    "identifier": "wan_scorpion"
+  },
   "林": {
-    "value": 1000.0,
+    "value": 1000,
     "identifier": "lin_woods",
     "structure": "HORIZONTAL",
     "components": ["木", "木"]
   },
   "从": {
-    "value": 1001.0,
+    "value": 1001,
     "identifier": "cong_follow",
     "structure": "HORIZONTAL",
     "components": ["人", "人"]
   },
   "艸": {
-    "value": 1002.0,
+    "value": 1002,
     "identifier": "cao_herbs",
     "structure": "HORIZONTAL",
     "components": ["屮", "屮"]
   },
   "喦": {
-    "value": 1003.0,
+    "value": 1003,
     "identifier": "nie_talkative",
     "structure": "RHOMBUS",
     "components": ["口", "口", "口", "simple"]
   },
   "敢": {
-    "value": 1004.0,
+    "value": 1004,
     "identifier": "gan_brave",
     "structure": "TRIANGLE",
     "components": ["豕", "甘", "又"]
   },
   "柞": {
-    "value": 1005.0,
+    "value": 1005,
     "identifier": "zuo_oak",
     "structure": "HORIZONTAL",
     "components": ["木", "乍"]
   },
   "舂": {
-    "value": 1006.0,
+    "value": 1006,
     "identifier": "chong_pestle",
     "structure": "T_SHAPE",
     "components": ["又", "午", "又", "臼"]
   },
   "材": {
-    "value": 1007.0,
+    "value": 1007,
     "identifier": "cai_timber",
     "structure": "HORIZONTAL",
     "components": ["木", "才"]
   },
   "金": {
-    "value": 1008.0,
+    "value": 1008,
     "identifier": "jin_metal",
     "structure": "TRIANGLE_RIGHT",
     "components": ["亼", "呂", "王"]
   },
   "正": {
-    "value": 1009.0,
+    "value": 1009,
     "identifier": "zheng_justice",
     "structure": "VERTICAL",
     "components": ["丁", "止"]
   },
   "呈": {
-    "value": 1010.0,
+    "value": 1010,
     "identifier": "cheng_submit",
     "structure": "VERTICAL",
     "components": ["口", "土"]
   },
   "屵": {
-    "value": 1011.0,
+    "value": 1011,
     "identifier": "e_cliff",
     "structure": "VERTICAL",
     "components": ["山", "厂"]
   },
   "反": {
-    "value": 1012.0,
+    "value": 1012,
     "identifier": "fan_reverse",
     "structure": "HORIZONTAL",
     "components": ["厂", "又"]
   },
   "石": {
-    "value": 1013.0,
+    "value": 1013,
     "identifier": "shi_stone",
     "structure": "HORIZONTAL",
     "components": ["厂", "口"]
   },
   "沙": {
-    "value": 1014.0,
+    "value": 1014,
     "identifier": "sha_sand",
     "structure": "HORIZONTAL",
     "components": ["水", "少"]
   },
   "同": {
-    "value": 1015.0,
+    "value": 1015,
     "identifier": "tong_same",
     "structure": "VERTICAL",
     "components": ["凡", "口"]
   },
   "岡": {
-    "value": 1016.0,
+    "value": 1016,
     "identifier": "gang_mount",
     "structure": "VERTICAL",
     "components": ["网", "山"]
   },
   "灰": {
-    "value": 1017.0,
+    "value": 1017,
     "identifier": "hui_ash",
     "structure": "TRIANGLE_INVERT",
     "components": ["simple", "又", "火"]
   },
   "霝": {
-    "value": 1018.0,
+    "value": 1018,
     "identifier": "ling_rain",
     "structure": "ARROW",
     "components": ["雨", "口", "口"]
   },
   "君": {
-    "value": 1019.0,
+    "value": 1019,
     "identifier": "jun_ruler",
     "structure": "VERTICAL",
     "components": ["尹", "口"]
   },
   "青": {
-    "value": 1020.0,
+    "value": 1020,
     "identifier": "qing_cyan",
     "structure": "VERTICAL",
     "components": ["生", "井"]
   },
   "戔": {
-    "value": 1021.0,
+    "value": 1021,
     "identifier": "can_damage",
     "structure": "HORIZONTAL_LONG",
     "components": ["戈", "reversal", "戈"]
   },
   "此": {
-    "value": 1022.0,
+    "value": 1022,
     "identifier": "ci_this",
     "structure": "HORIZONTAL_LONG",
     "components": ["止", "reversal", "人"]
   },
   "秧": {
-    "value": 1023.0,
+    "value": 1023,
     "identifier": "yang_seedling",
     "structure": "HORIZONTAL",
     "components": ["禾", "央"]
   },
   "森": {
-    "value": 1024.0,
+    "value": 1024,
     "identifier": "sen_forest",
     "structure": "ARROW",
     "components": ["木", "木", "木"]
   },
   "檎": {
-    "value": 1025.0,
+    "value": 1025,
     "identifier": "qin_apple",
     "structure": "HORIZONTAL",
     "components": ["木", "禽"]
   },
   "淬": {
-    "value": 1026.0,
+    "value": 1026,
     "identifier": "cui_quench",
     "structure": "HORIZONTAL",
     "components": ["水", "卒"]
   },
   "染": {
-    "value": 1027.0,
+    "value": 1027,
     "identifier": "ran_dye",
     "structure": "TRIANGLE_RIGHT",
     "components": ["九", "水", "木"]
   },
   "界": {
-    "value": 1028.0,
+    "value": 1028,
     "identifier": "jie_scope",
     "structure": "VERTICAL",
     "components": ["田", "介"]
   },
   "炎": {
-    "value": 1029.0,
+    "value": 1029,
     "identifier": "yan_hot",
     "structure": "VERTICAL",
     "components": ["火", "火"]
   },
   "赤": {
-    "value": 1030.0,
+    "value": 1030,
     "identifier": "chi_red",
     "structure": "VERTICAL",
     "components": ["大", "火"]
   },
   "安": {
-    "value": 1031.0,
+    "value": 1031,
     "identifier": "an_safe",
     "structure": "VERTICAL",
     "components": ["宀", "女"]
   },
   "墨": {
-    "value": 1032.0,
+    "value": 1032,
     "identifier": "mo_ink",
     "structure": "VERTICAL",
     "components": ["黑", "土"]
   },
   "綠": {
-    "value": 1033.0,
+    "value": 1033,
     "identifier": "lv_green",
     "structure": "HORIZONTAL",
     "components": ["糸", "彔"]
   },
   "焱": {
-    "value": 1034.0,
+    "value": 1034,
     "identifier": "yan_flames",
     "structure": "ARROW",
     "components": ["火", "火", "火"]
   },
   "古": {
-    "value": 1035.0,
+    "value": 1035,
     "identifier": "gu_ancient",
     "structure": "VERTICAL",
     "components": ["甲", "口"]
   },
   "粒": {
-    "value": 1036.0,
+    "value": 1036,
     "identifier": "li_grain",
     "structure": "HORIZONTAL",
     "components": ["米", "立"]
   },
   "星": {
-    "value": 1037.0,
+    "value": 1037,
     "identifier": "xing_star",
     "structure": "VERTICAL",
     "components": ["晶", "生"]
   },
   "眇": {
-    "value": 1038.0,
+    "value": 1038,
     "identifier": "miao_blindeye",
     "structure": "HORIZONTAL",
     "components": ["目", "少"]
   },
   "骨": {
-    "value": 1039.0,
+    "value": 1039,
     "identifier": "gu_bone",
     "structure": "VERTICAL",
     "components": ["冎", "肉"]
   },
   "祖": {
-    "value": 1040.0,
+    "value": 1040,
     "identifier": "zu_ancestor",
     "structure": "HORIZONTAL",
     "components": ["示", "且"]
   },
   "斧": {
-    "value": 1041.0,
+    "value": 1041,
     "identifier": "fu_axe",
     "structure": "HORIZONTAL_LONG",
     "components": ["父", "reversal", "斤"]
   },
   "海": {
-    "value": 1042.0,
+    "value": 1042,
     "identifier": "hai_sea",
     "structure": "HORIZONTAL",
     "components": ["水", "每"]
   },
   "欣": {
-    "value": 1043.0,
+    "value": 1043,
     "identifier": "xin_happy",
     "structure": "HORIZONTAL",
     "components": ["斤", "欠"]
   },
   "兄": {
-    "value": 1044.0,
+    "value": 1044,
     "identifier": "xiong_brother",
     "structure": "VERTICAL",
     "components": ["口", "人"]
   },
   "助": {
-    "value": 1045.0,
+    "value": 1045,
     "identifier": "zhu_help",
     "structure": "HORIZONTAL",
     "components": ["且", "力"]
   },
   "般": {
-    "value": 1046.0,
+    "value": 1046,
     "identifier": "ban_plate",
     "structure": "HORIZONTAL",
     "components": ["凡", "攴"]
   },
   "留": {
-    "value": 1047.0,
+    "value": 1047,
     "identifier": "liu_leave",
     "structure": "VERTICAL",
     "components": ["卯", "田"]
   },
   "殸": {
-    "value": 1048.0,
+    "value": 1048,
     "identifier": "qing_qing",
     "structure": "TRIANGLE",
     "components": ["simple", "厂", "殳"]
   },
   "陶": {
-    "value": 1049.0,
+    "value": 1049,
     "identifier": "tao_pottery",
     "structure": "TRIANGLE_RIGHT",
     "components": ["人", "阜", "人"]
   },
   "辵": {
-    "value": 1050.0,
+    "value": 1050,
     "identifier": "chuo_walk",
     "structure": "VERTICAL",
     "components": ["彳", "止"]
   },
   "段": {
-    "value": 1051.0,
+    "value": 1051,
     "identifier": "duan_section",
     "structure": "HORIZONTAL",
     "components": ["厂", "殳"]
   },
   "廣": {
-    "value": 1052.0,
+    "value": 1052,
     "identifier": "guang_vast",
     "structure": "VERTICAL",
     "components": ["广", "黃"]
   },
   "行": {
-    "value": 1053.0,
+    "value": 1053,
     "identifier": "xing_walk",
     "structure": "HORIZONTAL",
     "components": ["彳", "亍"]
   },
   "塊": {
-    "value": 1054.0,
+    "value": 1054,
     "identifier": "kuai_block",
     "structure": "HORIZONTAL",
     "components": ["土", "鬼"]
   },
   "麥": {
-    "value": 1055.0,
+    "value": 1055,
     "identifier": "mai_wheat",
     "structure": "VERTICAL_LONG",
     "components": ["來", "止", "reversal"]
   },
   "桶": {
-    "value": 1056.0,
+    "value": 1056,
     "identifier": "tong_barrel",
     "structure": "HORIZONTAL",
     "components": ["木", "甬"]
   },
   "雪": {
-    "value": 1057.0,
+    "value": 1057,
     "identifier": "xue_snow",
     "structure": "VERTICAL",
     "components": ["雨", "羽"]
   },
   "勇": {
-    "value": 1058.0,
+    "value": 1058,
     "identifier": "yong_brave",
     "structure": "VERTICAL",
     "components": ["甬", "力"]
   },
   "炙": {
-    "value": 1059.0,
+    "value": 1059,
     "identifier": "zhi_roast",
     "structure": "VERTICAL",
     "components": ["肉", "火"]
   },
   "籽": {
-    "value": 1060.0,
+    "value": 1060,
     "identifier": "zi_seed",
     "structure": "HORIZONTAL",
     "components": ["米", "子"]
   },
   "旗": {
-    "value": 1061.0,
+    "value": 1061,
     "identifier": "qi_flag",
     "structure": "VERTICAL",
     "components": ["㫃", "其"]
   },
   "蛛": {
-    "value": 1062.0,
+    "value": 1062,
     "identifier": "zhu_spider",
     "structure": "HORIZONTAL",
     "components": ["虫", "朱"]
   },
   "冰": {
-    "value": 1063.0,
+    "value": 1063,
     "identifier": "bing_ices",
     "structure": "HORIZONTAL",
     "components": ["仌", "水"]
   },
   "蟲": {
-    "value": 1064.0,
+    "value": 1064,
     "identifier": "chong_insect",
     "structure": "ARROW",
     "components": ["虫", "虫", "虫"]
   },
   "監": {
-    "value": 1065.0,
+    "value": 1065,
     "identifier": "jian_monitor",
     "structure": "TRIANGLE_RIGHT",
     "components": ["目", "皿", "卩"]
   },
   "門": {
-    "value": 1066.0,
+    "value": 1066,
     "identifier": "men_door",
     "structure": "HORIZONTAL",
     "components": ["戶", "戶"]
   },
   "罙": {
-    "value": 1067.0,
+    "value": 1067,
     "identifier": "shen_shen",
     "structure": "VERTICAL",
     "components": ["穴", "又"]
   },
   "燚": {
-    "value": 1068.0,
+    "value": 1068,
     "identifier": "yi_conflagrant",
     "structure": "SQUARE",
     "components": ["火", "火", "火", "火"]
   },
   "終": {
-    "value": 1069.0,
+    "value": 1069,
     "identifier": "zhong_end",
     "structure": "HORIZONTAL",
     "components": ["糸", "冬"]
   },
   "非": {
-    "value": 1070.0,
+    "value": 1070,
     "identifier": "fei_not",
     "structure": "HORIZONTAL_LONG",
     "components": ["人", "reversal", "人"]
   },
   "沒": {
-    "value": 1071.0,
+    "value": 1071,
     "identifier": "mo_sink",
     "structure": "VERTICAL",
     "components": ["回", "又"]
   },
   "玥": {
-    "value": 1072.0,
+    "value": 1072,
     "identifier": "yue_pearl",
     "structure": "HORIZONTAL",
     "components": ["玉", "月"]
   },
   "朝": {
-    "value": 1073.0,
+    "value": 1073,
     "identifier": "zhao_morning",
     "structure": "T_SHAPE_HORIZONTAL",
     "components": ["屮", "日", "月", "屮"]
   },
   "重": {
-    "value": 1074.0,
+    "value": 1074,
     "identifier": "zhong_heavy",
     "structure": "HORIZONTAL_LONG",
     "components": ["東", "reversal", "人"]
   },
   "倉": {
-    "value": 1075.0,
+    "value": 1075,
     "identifier": "cang_granary",
     "structure": "VERTICAL_LONG",
     "components": ["亼", "戶", "口"]
   },
   "翠": {
-    "value": 1076.0,
+    "value": 1076,
     "identifier": "cui_green",
     "structure": "VERTICAL",
     "components": ["羽", "卒"]
   },
   "代": {
-    "value": 1077.0,
+    "value": 1077,
     "identifier": "dai_generation",
     "structure": "HORIZONTAL",
     "components": ["人", "弋"]
   },
   "登": {
-    "value": 1078.0,
+    "value": 1078,
     "identifier": "deng_climb",
     "structure": "T_SHAPE",
     "components": ["止", "reversal", "止", "豆"]
   },
   "丐": {
-    "value": 1079.0,
+    "value": 1079,
     "identifier": "gai_beggar",
     "structure": "HORIZONTAL",
     "components": ["亡", "刀"]
   },
   "紅": {
-    "value": 1080.0,
+    "value": 1080,
     "identifier": "hong_red",
     "structure": "HORIZONTAL",
     "components": ["糸", "工"]
   },
   "票": {
-    "value": 1081.0,
+    "value": 1081,
     "identifier": "piao_ticket",
     "structure": "T_SHAPE",
     "components": ["又", "囟", "又", "火"]
   },
   "貞": {
-    "value": 1082.0,
+    "value": 1082,
     "identifier": "zhen_ding",
     "structure": "VERTICAL",
     "components": ["卜", "鼎"]
   },
   "床": {
-    "value": 1083.0,
+    "value": 1083,
     "identifier": "chuang_bed",
     "structure": "HORIZONTAL",
     "components": ["爿", "木"]
   },
   "戒": {
-    "value": 1084.0,
+    "value": 1084,
     "identifier": "jie_guard",
     "structure": "T_SHAPE_INVERT",
     "components": ["戈", "又", "reversal", "又"]
   },
   "戍": {
-    "value": 1085.0,
+    "value": 1085,
     "identifier": "shu_guard",
     "structure": "HORIZONTAL",
     "components": ["人", "戈"]
   },
   "罔": {
-    "value": 1086.0,
+    "value": 1086,
     "identifier": "wang_deceive",
     "structure": "VERTICAL",
     "components": ["网", "亡"]
   },
   "制": {
-    "value": 1087.0,
+    "value": 1087,
     "identifier": "zhi_policy",
     "structure": "HORIZONTAL",
     "components": ["木", "刀"]
   },
   "奴": {
-    "value": 1088.0,
+    "value": 1088,
     "identifier": "nu_slave",
     "structure": "HORIZONTAL",
     "components": ["女", "又"]
   },
   "戎": {
-    "value": 1089.0,
+    "value": 1089,
     "identifier": "rong_weapon",
     "structure": "HORIZONTAL",
     "components": ["甲", "戈"]
   },
   "嬰": {
-    "value": 1090.0,
+    "value": 1090,
     "identifier": "ying_baby",
     "structure": "ARROW_INVERT",
     "components": ["貝", "貝", "女"]
   },
   "扡": {
-    "value": 1091.0,
+    "value": 1091,
     "identifier": "chi_strip",
     "structure": "HORIZONTAL",
     "components": ["手", "也"]
   },
   "兌": {
-    "value": 1092.0,
+    "value": 1092,
     "identifier": "dui_convert",
     "structure": "ARROW_INVERT",
     "components": ["simple", "simple", "兄"]
   },
   "樺": {
-    "value": 1093.0,
+    "value": 1093,
     "identifier": "hua_birch",
     "structure": "HORIZONTAL",
     "components": ["木", "華"]
   },
   "既": {
-    "value": 1094.0,
+    "value": 1094,
     "identifier": "ji_already",
     "structure": "HORIZONTAL",
     "components": ["皀", "旡"]
   },
   "戟": {
-    "value": 1095.0,
+    "value": 1095,
     "identifier": "ji_halberd",
     "structure": "TRIANGLE",
     "components": ["㫃", "旦", "戈"]
   },
   "殼": {
-    "value": 1096.0,
+    "value": 1096,
     "identifier": "ke_shell",
     "structure": "HORIZONTAL",
     "components": ["complex", "殳"]
   },
   "爐": {
-    "value": 1097.0,
+    "value": 1097,
     "identifier": "lu_stove",
     "structure": "HORIZONTAL",
     "components": ["火", "盧"]
   },
   "善": {
-    "value": 1098.0,
+    "value": 1098,
     "identifier": "shan_kind",
     "structure": "ARROW",
     "components": ["羊", "言", "言"]
   },
   "攸": {
-    "value": 1099.0,
+    "value": 1099,
     "identifier": "you_flow",
     "structure": "HORIZONTAL",
     "components": ["人", "攴"]
   },
   "埴": {
-    "value": 1100.0,
+    "value": 1100,
     "identifier": "zhi_clay",
     "structure": "HORIZONTAL",
     "components": ["土", "直"]
   },
   "圭": {
-    "value": 1101.0,
+    "value": 1101,
     "identifier": "gui_jade",
     "structure": "VERTICAL",
     "components": ["土", "土"]
   },
   "奚": {
-    "value": 1102.0,
+    "value": 1102,
     "identifier": "xi_slave",
     "structure": "TRIANGLE_RIGHT_INVERT",
     "components": ["爪", "糸", "大"]
   },
   "字": {
-    "value": 1103.0,
+    "value": 1103,
     "identifier": "zi_character",
     "structure": "VERTICAL",
     "components": ["宀", "子"]
   },
   "辟": {
-    "value": 1104.0,
+    "value": 1104,
     "identifier": "pi_break",
     "structure": "HORIZONTAL",
     "components": ["卩", "辛"]
   },
   "完": {
-    "value": 1105.0,
+    "value": 1105,
     "identifier": "wan_finish",
     "structure": "VERTICAL",
     "components": ["宀", "元"]
   },
   "相": {
-    "value": 1106.0,
+    "value": 1106,
     "identifier": "xiang_phase",
     "structure": "HORIZONTAL",
     "components": ["木", "目"]
   },
   "翌": {
-    "value": 1107.0,
+    "value": 1107,
     "identifier": "yi_tomorrow",
     "structure": "HORIZONTAL",
     "components": ["立", "翼"]
   },
   "熔": {
-    "value": 1108.0,
+    "value": 1108,
     "identifier": "rong_melt",
     "structure": "HORIZONTAL",
     "components": ["火", "容"]
   },
   "旱": {
-    "value": 1109.0,
+    "value": 1109,
     "identifier": "han_dry",
     "structure": "VERTICAL",
     "components": ["日", "干"]
   },
   "洋": {
-    "value": 1110.0,
+    "value": 1110,
     "identifier": "yang_ocean",
     "structure": "HORIZONTAL",
     "components": ["水", "羊"]
   },
   "頁": {
-    "value": 1111.0,
+    "value": 1111,
     "identifier": "ye_head",
     "structure": "VERTICAL",
     "components": ["首", "卩"]
   },
   "巧": {
-    "value": 1112.0,
+    "value": 1112,
     "identifier": "qiao_ingenious",
     "structure": "HORIZONTAL",
     "components": ["工", "丂"]
   },
   "道": {
-    "value": 1113.0,
+    "value": 1113,
     "identifier": "dao_road",
     "structure": "HORIZONTAL_LONG",
     "components": ["彳", "首", "亍"]
   },
   "紙": {
-    "value": 1114.0,
+    "value": 1114,
     "identifier": "zhi_paper",
     "structure": "HORIZONTAL",
     "components": ["糸", "氏"]
   },
   "茲": {
-    "value": 1115.0,
+    "value": 1115,
     "identifier": "zi_this",
     "structure": "HORIZONTAL",
     "components": ["幺", "幺"]
   },
   "蝕": {
-    "value": 1116.0,
+    "value": 1116,
     "identifier": "shi_erode",
     "structure": "TRIANGLE_RIGHT",
     "components": ["人", "食", "虫"]
   },
   "垣": {
-    "value": 1117.0,
+    "value": 1117,
     "identifier": "yuan_wall",
     "structure": "HORIZONTAL",
     "components": ["土", "亘"]
   },
   "專": {
-    "value": 1118.0,
+    "value": 1118,
     "identifier": "zhuan_specially",
     "structure": "HORIZONTAL",
     "components": ["叀", "又"]
   },
   "伏": {
-    "value": 1119.0,
+    "value": 1119,
     "identifier": "fu_lie",
     "structure": "BIAS",
     "components": ["人", "犬"]
   },
   "映": {
-    "value": 1120.0,
+    "value": 1120,
     "identifier": "ying_reflect",
     "structure": "HORIZONTAL",
     "components": ["日", "央"]
   },
   "黯": {
-    "value": 1121.0,
+    "value": 1121,
     "identifier": "an_dark",
     "structure": "HORIZONTAL",
     "components": ["黑", "音"]
   },
   "雕": {
-    "value": 1122.0,
+    "value": 1122,
     "identifier": "diao_carve",
     "structure": "HORIZONTAL",
     "components": ["周", "隹"]
   },
   "奪": {
-    "value": 1123.0,
+    "value": 1123,
     "identifier": "duo_rob",
     "structure": "L_SHAPE",
     "components": ["衣", "小", "隹", "又"]
   },
   "糕": {
-    "value": 1124.0,
+    "value": 1124,
     "identifier": "gao_cake",
     "structure": "HORIZONTAL",
     "components": ["米", "羔"]
   },
   "羹": {
-    "value": 1125.0,
+    "value": 1125,
     "identifier": "geng_soup",
     "structure": "VERTICAL",
     "components": ["羔", "鬲"]
   },
   "畺": {
-    "value": 1126.0,
+    "value": 1126,
     "identifier": "jiang_jiang",
     "structure": "T_SHAPE_LONG",
     "components": ["simple", "simple", "simple", "田", "田"]
   },
   "狼": {
-    "value": 1127.0,
+    "value": 1127,
     "identifier": "lang_wolf",
     "structure": "HORIZONTAL",
     "components": ["良", "犬"]
   },
   "珊": {
-    "value": 1128.0,
+    "value": 1128,
     "identifier": "shan_coral",
     "structure": "HORIZONTAL",
     "components": ["玉", "冊"]
   },
   "死": {
-    "value": 1129.0,
+    "value": 1129,
     "identifier": "si_die",
     "structure": "HORIZONTAL",
     "components": ["歹", "人"]
   },
   "柵": {
-    "value": 1130.0,
+    "value": 1130,
     "identifier": "zha_fence",
     "structure": "HORIZONTAL",
     "components": ["木", "冊"]
   },
   "猋": {
-    "value": 1131.0,
+    "value": 1131,
     "identifier": "biao_dogs",
     "structure": "ARROW",
     "components": ["犬", "犬", "犬"]
   },
   "風": {
-    "value": 1132.0,
+    "value": 1132,
     "identifier": "feng_wind",
     "structure": "HORIZONTAL",
     "components": ["鳳", "凡"]
   },
   "竿": {
-    "value": 1133.0,
+    "value": 1133,
     "identifier": "gan_pole",
     "structure": "VERTICAL",
     "components": ["竹", "干"]
   },
   "寒": {
-    "value": 1134.0,
+    "value": 1134,
     "identifier": "han_cold",
     "structure": "RECTANGLE",
     "components": ["simple", "宀", "simple", "simple", "人", "simple"]
   },
   "魄": {
-    "value": 1135.0,
+    "value": 1135,
     "identifier": "po_soul",
     "structure": "HORIZONTAL",
     "components": ["白", "鬼"]
   },
   "扇": {
-    "value": 1136.0,
+    "value": 1136,
     "identifier": "shan_fan",
     "structure": "VERTICAL",
     "components": ["戶", "羽"]
   },
   "物": {
-    "value": 1137.0,
+    "value": 1137,
     "identifier": "wu_thing",
     "structure": "HORIZONTAL",
     "components": ["牛", "勿"]
   },
   "核": {
-    "value": 1138.0,
+    "value": 1138,
     "identifier": "he_core",
     "structure": "HORIZONTAL",
     "components": ["木", "亥"]
   },
   "洄": {
-    "value": 1139.0,
+    "value": 1139,
     "identifier": "hui_backwash",
     "structure": "HORIZONTAL",
     "components": ["水", "回"]
   },
   "囊": {
-    "value": 1140.0,
+    "value": 1140,
     "identifier": "nang_pocket",
     "structure": "T_SHAPE_INVERT",
     "components": ["橐", "土", "complex", "又"]
   },
   "昌": {
-    "value": 1141.0,
+    "value": 1141,
     "identifier": "chang_flourish",
     "structure": "VERTICAL",
     "components": ["日", "口"]
   },
   "香": {
-    "value": 1142.0,
+    "value": 1142,
     "identifier": "xiang_fragrance",
     "structure": "CROSS",
     "components": ["simple", "simple", "禾", "simple", "口"]
   },
   "焰": {
-    "value": 1143.0,
+    "value": 1143,
     "identifier": "yan_flame",
     "structure": "HORIZONTAL",
     "components": ["火", "臽"]
   },
   "官": {
-    "value": 1144.0,
+    "value": 1144,
     "identifier": "guan_office",
     "structure": "VERTICAL",
     "components": ["宀", "官下"]
   },
   "將": {
-    "value": 1145.0,
+    "value": 1145,
     "identifier": "jiang_general",
     "structure": "TRIANGLE_RIGHT",
     "components": ["又", "爿", "又"]
   },
   "匿": {
-    "value": 1146.0,
+    "value": 1146,
     "identifier": "ni_hide",
     "structure": "HORIZONTAL",
     "components": ["匸", "若"]
   },
   "酸": {
-    "value": 1147.0,
+    "value": 1147,
     "identifier": "suan_sour",
     "structure": "HORIZONTAL",
     "components": ["酉", "夋"]
   },
   "陷": {
-    "value": 1148.0,
+    "value": 1148,
     "identifier": "xian_pitfall",
     "structure": "HORIZONTAL",
     "components": ["阜", "臽"]
   },
   "餡": {
-    "value": 1149.0,
+    "value": 1149,
     "identifier": "xian_stuff",
     "structure": "HORIZONTAL",
     "components": ["食", "臽"]
   },
   "襄": {
-    "value": 1150.0,
+    "value": 1150,
     "identifier": "xiang_assist",
     "structure": "T_SHAPE_INVERT",
     "components": ["衣", "土", "complex", "又"]
   },
   "医": {
-    "value": 1151.0,
+    "value": 1151,
     "identifier": "yi_arrowbox",
     "structure": "HORIZONTAL",
     "components": ["匸", "矢"]
   },
   "矞": {
-    "value": 1152.0,
+    "value": 1152,
     "identifier": "yu_pierce",
     "structure": "VERTICAL",
     "components": ["矛", "丙"]
   },
   "椎": {
-    "value": 1153.0,
+    "value": 1153,
     "identifier": "zhui_centrum",
     "structure": "HORIZONTAL",
     "components": ["木", "隹"]
   },
   "毐": {
-    "value": 1154.0,
+    "value": 1154,
     "identifier": "ai_badman",
     "structure": "VERTICAL",
     "components": ["士", "毋"]
   },
   "蠱": {
-    "value": 1155.0,
+    "value": 1155,
     "identifier": "gu_parasite",
     "structure": "VERTICAL",
     "components": ["虫", "皿"]
   },
   "樂": {
-    "value": 1156.0,
+    "value": 1156,
     "identifier": "yue_music",
     "structure": "T_SHAPE",
     "components": ["幺", "白", "幺", "木"]
   },
   "劑": {
-    "value": 1157.0,
+    "value": 1157,
     "identifier": "ji_potion",
     "structure": "HORIZONTAL",
     "components": ["齊", "刀"]
   },
   "戲": {
-    "value": 1158.0,
+    "value": 1158,
     "identifier": "xi_play",
     "structure": "TRIANGLE",
     "components": ["虍", "豆", "戈"]
   },
   "虛": {
-    "value": 1159.0,
+    "value": 1159,
     "identifier": "xu_void",
     "structure": "VERTICAL",
     "components": ["虍", "丘"]
   },
   "者": {
-    "value": 1160.0,
+    "value": 1160,
     "identifier": "zhe_er",
     "structure": "CROSS",
     "components": ["simple", "simple", "木", "simple", "口"]
   },
   "幷": {
-    "value": 1161.0,
+    "value": 1161,
     "identifier": "bing_and",
     "structure": "HORIZONTAL_LONG",
     "components": ["人", "simple", "人"]
   },
   "化": {
-    "value": 1162.0,
+    "value": 1162,
     "identifier": "hua_vary",
     "structure": "TRIANGLE_RIGHT_INVERT",
     "components": ["人", "人", "reversal"]
   },
   "杜": {
-    "value": 1163.0,
+    "value": 1163,
     "identifier": "du_close",
     "structure": "HORIZONTAL",
     "components": ["土", "木"]
   },
   "服": {
-    "value": 1164.0,
+    "value": 1164,
     "identifier": "fu_serve",
     "structure": "HORIZONTAL_LONG",
     "components": ["凡", "卩", "又"]
   },
   "艮": {
-    "value": 1165.0,
+    "value": 1165,
     "identifier": "gen_gen",
     "structure": "TRIANGLE",
     "components": ["目", "人", "reversal"]
   },
   "蒦": {
-    "value": 1166.0,
+    "value": 1166,
     "identifier": "huo_capture",
     "structure": "VERTICAL",
     "components": ["雈", "又"]
   },
   "鵑": {
-    "value": 1167.0,
+    "value": 1167,
     "identifier": "juan_cuckoo",
     "structure": "HORIZONTAL",
     "components": ["肙", "鳥"]
   },
   "空": {
-    "value": 1168.0,
+    "value": 1168,
     "identifier": "kong_empty",
     "structure": "VERTICAL",
     "components": ["穴", "工"]
   },
   "球": {
-    "value": 1169.0,
+    "value": 1169,
     "identifier": "qiu_ball",
     "structure": "HORIZONTAL",
     "components": ["玉", "求"]
   },
   "甜": {
-    "value": 1170.0,
+    "value": 1170,
     "identifier": "tian_sweet",
     "structure": "HORIZONTAL",
     "components": ["舌", "甘"]
   },
   "退": {
-    "value": 1171.0,
+    "value": 1171,
     "identifier": "tui_quit",
     "structure": "T_SHAPE_HORIZONTAL",
     "components": ["皀", "reversal", "彳", "止"]
   },
   "豚": {
-    "value": 1172.0,
+    "value": 1172,
     "identifier": "tun_pig",
     "structure": "HORIZONTAL",
     "components": ["肉", "豕"]
   },
   "景": {
-    "value": 1173.0,
+    "value": 1173,
     "identifier": "jing_scene",
     "structure": "VERTICAL",
     "components": ["日", "京"]
   },
   "利": {
-    "value": 1174.0,
+    "value": 1174,
     "identifier": "li_sharp",
     "structure": "HORIZONTAL",
     "components": ["禾", "刀"]
   },
   "宓": {
-    "value": 1175.0,
+    "value": 1175,
     "identifier": "mi_quiet",
     "structure": "VERTICAL",
     "components": ["宀", "必"]
   },
   "泣": {
-    "value": 1176.0,
+    "value": 1176,
     "identifier": "qi_weep",
     "structure": "HORIZONTAL",
     "components": ["水", "立"]
   },
   "犰": {
-    "value": 1177.0,
+    "value": 1177,
     "identifier": "qiu_armadillo",
     "structure": "HORIZONTAL",
     "components": ["犬", "九"]
   },
   "尚": {
-    "value": 1178.0,
+    "value": 1178,
     "identifier": "shang_upper",
     "structure": "ARROW_INVERT",
     "components": ["simple", "simple", "向"]
   },
   "煉": {
-    "value": 1179.0,
+    "value": 1179,
     "identifier": "lian_smelt",
     "structure": "HORIZONTAL",
     "components": ["火", "柬"]
   },
   "鮮": {
-    "value": 1180.0,
+    "value": 1180,
     "identifier": "xian_fresh",
     "structure": "VERTICAL",
     "components": ["羊", "魚"]
   },
   "向": {
-    "value": 1181.0,
+    "value": 1181,
     "identifier": "xiang_direction",
     "structure": "VERTICAL",
     "components": ["宀", "口"]
   },
   "狀": {
-    "value": 1182.0,
+    "value": 1182,
     "identifier": "zhuang_state",
     "structure": "HORIZONTAL",
     "components": ["爿", "犬"]
   },
   "考": {
-    "value": 1183.0,
+    "value": 1183,
     "identifier": "kao_exam",
     "structure": "VERTICAL",
     "components": ["老", "丂"]
   },
   "可": {
-    "value": 1184.0,
+    "value": 1184,
     "identifier": "ke_can",
     "structure": "HORIZONTAL",
     "components": ["口", "丂"]
   },
   "乳": {
-    "value": 1185.0,
+    "value": 1185,
     "identifier": "ru_milk",
     "structure": "HORIZONTAL",
     "components": ["子", "女"]
   },
   "鬱": {
-    "value": 1186.0,
+    "value": 1186,
     "identifier": "yu_depress",
     "structure": "T_SHAPE_INVERT",
     "components": ["大", "木", "人", "木"]
   },
   "得": {
-    "value": 1187.0,
+    "value": 1187,
     "identifier": "de_obtain",
     "structure": "TRIANGLE_RIGHT",
     "components": ["貝", "彳", "又"]
   },
   "乾": {
-    "value": 1188.0,
+    "value": 1188,
     "identifier": "gan_dry",
     "structure": "TRIANGLE",
     "components": ["㫃", "旦", "乙"]
   },
   "㐬": {
-    "value": 1189.0,
+    "value": 1189,
     "identifier": "liu_drifting",
     "structure": "VERTICAL_LONG",
     "components": ["子", "reversal", "川"]
   },
   "融": {
-    "value": 1190.0,
+    "value": 1190,
     "identifier": "rong_fuse",
     "structure": "CROSS",
     "components": ["鬲", "虫", "reversal", "虫", "鬲"]
   },
   "如": {
-    "value": 1191.0,
+    "value": 1191,
     "identifier": "ru_like",
     "structure": "HORIZONTAL",
     "components": ["女", "口"]
   },
   "柄": {
-    "value": 1192.0,
+    "value": 1192,
     "identifier": "bing_haft",
     "structure": "HORIZONTAL",
     "components": ["木", "丙"]
   },
   "各": {
-    "value": 1193.0,
+    "value": 1193,
     "identifier": "ge_each",
     "structure": "VERTICAL_LONG",
     "components": ["止", "reversal", "口"]
   },
   "孤": {
-    "value": 1194.0,
+    "value": 1194,
     "identifier": "gu_lonely",
     "structure": "HORIZONTAL",
     "components": ["子", "瓜"]
   },
   "光": {
-    "value": 1195.0,
+    "value": 1195,
     "identifier": "guang_light",
     "structure": "VERTICAL",
     "components": ["火", "卩"]
   },
   "瑰": {
-    "value": 1196.0,
+    "value": 1196,
     "identifier": "gui_jades",
     "structure": "HORIZONTAL",
     "components": ["玉", "鬼"]
   },
   "明": {
-    "value": 1197.0,
+    "value": 1197,
     "identifier": "ming_bright",
     "structure": "HORIZONTAL",
     "components": ["日", "月"]
   },
   "牡": {
-    "value": 1198.0,
+    "value": 1198,
     "identifier": "mu_male",
     "structure": "HORIZONTAL",
     "components": ["牛", "土"]
   },
   "鼻": {
-    "value": 1199.0,
+    "value": 1199,
     "identifier": "bi_nose",
     "structure": "VERTICAL",
     "components": ["自", "畀"]
   },
   "粗": {
-    "value": 1200.0,
+    "value": 1200,
     "identifier": "cu_coarse",
     "structure": "HORIZONTAL",
     "components": ["米", "且"]
   },
   "弘": {
-    "value": 1201.0,
+    "value": 1201,
     "identifier": "hong_vast",
     "structure": "VERTICAL",
     "components": ["弓", "口"]
   },
   "螢": {
-    "value": 1202.0,
+    "value": 1202,
     "identifier": "ying_firefly",
     "structure": "VERTICAL",
     "components": ["熒", "虫"]
   },
   "北": {
-    "value": 1203.0,
+    "value": 1203,
     "identifier": "bei_north",
     "structure": "HORIZONTAL_LONG",
     "components": ["人", "reversal", "人"]
   },
   "抗": {
-    "value": 1204.0,
+    "value": 1204,
     "identifier": "kang_resist",
     "structure": "HORIZONTAL",
     "components": ["手", "亢"]
   },
   "刻": {
-    "value": 1205.0,
+    "value": 1205,
     "identifier": "ke_carve",
     "structure": "HORIZONTAL",
     "components": ["亥", "刀"]
   },
   "離": {
-    "value": 1206.0,
+    "value": 1206,
     "identifier": "li_part",
     "structure": "VERTICAL",
     "components": ["隹", "离下"]
   },
   "鄉": {
-    "value": 1207.0,
+    "value": 1207,
     "identifier": "xiang_village",
     "structure": "HORIZONTAL_LONG",
     "components": ["卩", "皀", "卩"]
   },
   "分": {
-    "value": 1208.0,
+    "value": 1208,
     "identifier": "fen_part",
     "structure": "VERTICAL",
     "components": ["八", "刀"]
   },
   "告": {
-    "value": 1209.0,
+    "value": 1209,
     "identifier": "gao_tell",
     "structure": "VERTICAL",
     "components": ["牛", "口"]
   },
   "割": {
-    "value": 1210.0,
+    "value": 1210,
     "identifier": "ge_cut",
     "structure": "HORIZONTAL",
     "components": ["害", "刀"]
   },
   "宮": {
-    "value": 1211.0,
+    "value": 1211,
     "identifier": "gong_palace",
     "structure": "VERTICAL",
     "components": ["宀", "complex"]
   },
   "牌": {
-    "value": 1212.0,
+    "value": 1212,
     "identifier": "pai_card",
     "structure": "HORIZONTAL",
     "components": ["片", "卑"]
   },
   "珀": {
-    "value": 1213.0,
+    "value": 1213,
     "identifier": "po_amber",
     "structure": "HORIZONTAL",
     "components": ["玉", "白"]
   },
   "嵌": {
-    "value": 1214.0,
+    "value": 1214,
     "identifier": "qian_inlay",
     "structure": "TRIANGLE",
     "components": ["山", "甘", "欠"]
   },
   "沓": {
-    "value": 1215.0,
+    "value": 1215,
     "identifier": "ta_crowd",
     "structure": "VERTICAL",
     "components": ["水", "口"]
   },
   "鞾": {
-    "value": 1216.0,
+    "value": 1216,
     "identifier": "xue_boot",
     "structure": "HORIZONTAL",
     "components": ["革", "華"]
   },
   "昜": {
-    "value": 1217.0,
+    "value": 1217,
     "identifier": "yang_sunlight",
     "structure": "VERTICAL",
     "components": ["日", "丂"]
   },
   "蟫": {
-    "value": 1218.0,
+    "value": 1218,
     "identifier": "yin_silverfish",
     "structure": "HORIZONTAL",
     "components": ["虫", "覃"]
   },
   "的": {
-    "value": 1219.0,
+    "value": 1219,
     "identifier": "de_of",
     "structure": "HORIZONTAL",
     "components": ["日", "勺"]
   },
   "瞿": {
-    "value": 1220.0,
+    "value": 1220,
     "identifier": "ju_frightened",
     "structure": "ARROW_INVERT",
     "components": ["目", "目", "隹"]
   },
   "粦": {
-    "value": 1221.0,
+    "value": 1221,
     "identifier": "lin_fire",
     "structure": "SAME",
     "components": ["炎"]
   },
   "絲": {
-    "value": 1222.0,
+    "value": 1222,
     "identifier": "si_silk",
     "structure": "HORIZONTAL",
     "components": ["糸", "糸"]
   },
   "縣": {
-    "value": 1223.0,
+    "value": 1223,
     "identifier": "xian_county",
     "structure": "SQUARE",
     "components": ["simple", "幺", "木", "目"]
   },
   "俞": {
-    "value": 1224.0,
+    "value": 1224,
     "identifier": "yu_boat",
     "structure": "HORIZONTAL",
     "components": ["舟", "complex"]
   },
   "置": {
-    "value": 1225.0,
+    "value": 1225,
     "identifier": "zhi_place",
     "structure": "VERTICAL",
     "components": ["网", "直"]
   },
   "刺": {
-    "value": 1226.0,
+    "value": 1226,
     "identifier": "ci_thorns",
     "structure": "HORIZONTAL",
     "components": ["朿", "刀"]
   },
   "責": {
-    "value": 1227.0,
+    "value": 1227,
     "identifier": "ze_blame",
     "structure": "VERTICAL",
     "components": ["朿", "貝"]
   },
   "知": {
-    "value": 1228.0,
+    "value": 1228,
     "identifier": "zhi_know",
     "structure": "HORIZONTAL_LONG",
     "components": ["子", "口", "大"]
   },
   "曹": {
-    "value": 1229.0,
+    "value": 1229,
     "identifier": "cao_peer",
     "structure": "ARROW_INVERT",
     "components": ["東", "東", "口"]
   },
   "合": {
-    "value": 1230.0,
+    "value": 1230,
     "identifier": "he_combine",
     "structure": "VERTICAL",
     "components": ["亼", "口"]
   },
   "名": {
-    "value": 1231.0,
+    "value": 1231,
     "identifier": "ming_name",
     "structure": "HORIZONTAL",
     "components": ["口", "夕"]
   },
   "汐": {
-    "value": 1232.0,
+    "value": 1232,
     "identifier": "xi_tide",
     "structure": "HORIZONTAL",
     "components": ["水", "夕"]
   },
   "占": {
-    "value": 1233.0,
+    "value": 1233,
     "identifier": "zhan_divine",
     "structure": "VERTICAL",
     "components": ["卜", "口"]
   },
   "汁": {
-    "value": 1234.0,
+    "value": 1234,
     "identifier": "zhi_juice",
     "structure": "HORIZONTAL",
     "components": ["水", "十"]
   },
   "狐": {
-    "value": 1235.0,
+    "value": 1235,
     "identifier": "hu_fox",
     "structure": "HORIZONTAL",
     "components": ["亡", "犬"]
   },
   "傀": {
-    "value": 1236.0,
+    "value": 1236,
     "identifier": "kui_puppet",
     "structure": "HORIZONTAL",
     "components": ["人", "鬼"]
   },
   "儡": {
-    "value": 1237.0,
+    "value": 1237,
     "identifier": "lei_puppet",
     "structure": "HORIZONTAL",
     "components": ["人", "畾"]
   },
   "校": {
-    "value": 1238.0,
+    "value": 1238,
     "identifier": "xiao_school",
     "structure": "HORIZONTAL",
     "components": ["木", "交"]
   },
   "筆": {
-    "value": 1239.0,
+    "value": 1239,
     "identifier": "bi_pen",
     "structure": "VERTICAL",
     "components": ["竹", "聿"]
   },
   "輟": {
-    "value": 1240.0,
+    "value": 1240,
     "identifier": "chuo_stop",
     "structure": "HORIZONTAL",
     "components": ["車", "叕"]
   },
   "彈": {
-    "value": 1241.0,
+    "value": 1241,
     "identifier": "dan_shot",
     "structure": "HORIZONTAL",
     "components": ["弓", "單"]
   },
   "耕": {
-    "value": 1242.0,
+    "value": 1242,
     "identifier": "geng_plough",
     "structure": "HORIZONTAL",
     "components": ["耒", "井"]
   },
   "加": {
-    "value": 1243.0,
+    "value": 1243,
     "identifier": "jia_add",
     "structure": "VERTICAL",
     "components": ["力", "口"]
   },
   "較": {
-    "value": 1244.0,
+    "value": 1244,
     "identifier": "jiao_compare",
     "structure": "HORIZONTAL",
     "components": ["車", "交"]
   },
   "肋": {
-    "value": 1245.0,
+    "value": 1245,
     "identifier": "lei_lib",
     "structure": "HORIZONTAL",
     "components": ["肉", "力"]
   },
   "獸": {
-    "value": 1246.0,
+    "value": 1246,
     "identifier": "shou_beast",
     "structure": "HORIZONTAL",
     "components": ["單", "犬"]
   },
   "守": {
-    "value": 1247.0,
+    "value": 1247,
     "identifier": "shou_defend",
     "structure": "VERTICAL",
     "components": ["宀", "又"]
   },
   "台": {
-    "value": 1248.0,
+    "value": 1248,
     "identifier": "tai_tai",
     "structure": "VERTICAL",
     "components": ["㠯", "口"]
   },
   "析": {
-    "value": 1249.0,
+    "value": 1249,
     "identifier": "xi_cut",
     "structure": "HORIZONTAL",
     "components": ["木", "斤"]
   },
   "漁": {
-    "value": 1250.0,
+    "value": 1250,
     "identifier": "yu_fishing",
     "structure": "HORIZONTAL",
     "components": ["水", "魚"]
   },
   "綴": {
-    "value": 1251.0,
+    "value": 1251,
     "identifier": "zhui_sew",
     "structure": "HORIZONTAL",
     "components": ["糸", "叕"]
   },
   "仇": {
-    "value": 1252.0,
+    "value": 1252,
     "identifier": "chou_hate",
     "structure": "HORIZONTAL",
     "components": ["人", "九"]
   },
   "軌": {
-    "value": 1253.0,
+    "value": 1253,
     "identifier": "gui_rail",
     "structure": "HORIZONTAL",
     "components": ["車", "九"]
   },
   "惠": {
-    "value": 1254.0,
+    "value": 1254,
     "identifier": "hui_favour",
     "structure": "VERTICAL",
     "components": ["叀", "心"]
   },
   "列": {
-    "value": 1255.0,
+    "value": 1255,
     "identifier": "lie_column",
     "structure": "HORIZONTAL",
     "components": ["歺", "刀"]
   },
   "驢": {
-    "value": 1256.0,
+    "value": 1256,
     "identifier": "lv_donkey",
     "structure": "HORIZONTAL",
     "components": ["馬", "盧"]
   },
   "盲": {
-    "value": 1257.0,
+    "value": 1257,
     "identifier": "mang_blind",
     "structure": "VERTICAL",
     "components": ["亡", "目"]
   },
   "牧": {
-    "value": 1258.0,
+    "value": 1258,
     "identifier": "mu_herd",
     "structure": "HORIZONTAL",
     "components": ["牛", "攴"]
   },
   "器": {
-    "value": 1259.0,
+    "value": 1259,
     "identifier": "qi_machine",
     "structure": "X_SHAPE",
     "components": ["口", "口", "犬", "口", "口"]
   },
   "則": {
-    "value": 1260.0,
+    "value": 1260,
     "identifier": "ze_rule",
     "structure": "HORIZONTAL",
     "components": ["鼎", "刀"]
   },
   "前": {
-    "value": 1261.0,
+    "value": 1261,
     "identifier": "qian_front",
     "structure": "VERTICAL",
     "components": ["止", "凡"]
   },
   "肅": {
-    "value": 1262.0,
+    "value": 1262,
     "identifier": "su_strict",
     "structure": "VERTICAL",
     "components": ["聿", "complex"]
   },
   "庶": {
-    "value": 1263.0,
+    "value": 1263,
     "identifier": "shu_citizen",
     "structure": "VERTICAL",
     "components": ["厂", "火"]
   },
   "采": {
-    "value": 1264.0,
+    "value": 1264,
     "identifier": "cai_pick",
     "structure": "VERTICAL",
     "components": ["爪", "枼"]
   },
   "翟": {
-    "value": 1265.0,
+    "value": 1265,
     "identifier": "di_bird",
     "structure": "VERTICAL",
     "components": ["羽", "隹"]
   },
   "囷": {
-    "value": 1266.0,
+    "value": 1266,
     "identifier": "qun_granary",
     "structure": "VERTICAL",
     "components": ["囗", "禾"]
   },
   "市": {
-    "value": 1267.0,
+    "value": 1267,
     "identifier": "shi_market",
     "structure": "VERTICAL",
     "components": ["之", "兮"]
   },
   "臺": {
-    "value": 1268.0,
+    "value": 1268,
     "identifier": "tai_platform",
     "structure": "VERTICAL_LONG",
     "components": ["simple", "高", "至"]
   },
   "誤": {
-    "value": 1269.0,
+    "value": 1269,
     "identifier": "wu_error",
     "structure": "HORIZONTAL",
     "components": ["言", "吳"]
   },
   "虞": {
-    "value": 1270.0,
+    "value": 1270,
     "identifier": "yu_worry",
     "structure": "VERTICAL",
     "components": ["虍", "吳"]
   },
   "胄": {
-    "value": 1271.0,
+    "value": 1271,
     "identifier": "zhou_helmet",
     "structure": "VERTICAL",
     "components": ["由", "冃"]
   },
   "族": {
-    "value": 1272.0,
+    "value": 1272,
     "identifier": "zu_ethnic",
     "structure": "VERTICAL",
     "components": ["㫃", "矢"]
   },
   "地": {
-    "value": 1273.0,
+    "value": 1273,
     "identifier": "di_land",
     "structure": "HORIZONTAL",
     "components": ["土", "也"]
   },
   "訪": {
-    "value": 1274.0,
+    "value": 1274,
     "identifier": "fang_visit",
     "structure": "HORIZONTAL",
     "components": ["言", "方"]
   },
   "膏": {
-    "value": 1275.0,
+    "value": 1275,
     "identifier": "gao_cream",
     "structure": "VERTICAL",
     "components": ["高", "肉"]
   },
   "炬": {
-    "value": 1276.0,
+    "value": 1276,
     "identifier": "ju_torch",
     "structure": "HORIZONTAL",
     "components": ["火", "巨"]
   },
   "豈": {
-    "value": 1277.0,
+    "value": 1277,
     "identifier": "qi_how",
     "structure": "VERTICAL",
     "components": ["complex", "豆"]
   },
   "延": {
-    "value": 1278.0,
+    "value": 1278,
     "identifier": "yan_extend",
     "structure": "HORIZONTAL",
     "components": ["彳", "止"]
   },
   "買": {
-    "value": 1279.0,
+    "value": 1279,
     "identifier": "mai_buy",
     "structure": "VERTICAL",
     "components": ["网", "貝"]
   },
   "睘": {
-    "value": 1280.0,
+    "value": 1280,
     "identifier": "qiong_stare",
     "structure": "VERTICAL_LONG",
     "components": ["目", "衣", "simple"]
   },
   "昷": {
-    "value": 1281.0,
+    "value": 1281,
     "identifier": "wen_warm",
     "structure": "RECTANGLE",
     "components": ["simple", "人", "simple", "simple", "皿", "simple"]
   },
   "珠": {
-    "value": 1282.0,
+    "value": 1282,
     "identifier": "zhu_pearl",
     "structure": "HORIZONTAL",
     "components": ["玉", "朱"]
   },
   "伐": {
-    "value": 1283.0,
+    "value": 1283,
     "identifier": "fa_hack",
     "structure": "HORIZONTAL",
     "components": ["人", "戈"]
   },
   "豪": {
-    "value": 1284.0,
+    "value": 1284,
     "identifier": "hao_porcupine",
     "structure": "VERTICAL",
     "components": ["高", "豕"]
   },
   "籙": {
-    "value": 1285.0,
+    "value": 1285,
     "identifier": "lu_talisman",
     "structure": "VERTICAL",
     "components": ["竹", "彔"]
   },
   "麻": {
-    "value": 1286.0,
+    "value": 1286,
     "identifier": "ma_numb",
     "structure": "TRIANGLE",
     "components": ["厂", "木", "木"]
   },
   "脾": {
-    "value": 1287.0,
+    "value": 1287,
     "identifier": "pi_spleen",
     "structure": "HORIZONTAL",
     "components": ["肉", "卑"]
   },
   "聖": {
-    "value": 1288.0,
+    "value": 1288,
     "identifier": "sheng_sage",
     "structure": "TRIANGLE_RIGHT",
     "components": ["耳", "口", "人"]
   },
   "朔": {
-    "value": 1289.0,
+    "value": 1289,
     "identifier": "shuo_newmoon",
     "structure": "HORIZONTAL",
     "components": ["屰", "月"]
   },
   "韋": {
-    "value": 1290.0,
+    "value": 1290,
     "identifier": "wei_leather",
     "structure": "CROSS",
     "components": ["止", "止", "囗", "止", "止"]
   },
   "脅": {
-    "value": 1291.0,
+    "value": 1291,
     "identifier": "xie_threat",
     "structure": "ARROW_INVERT",
     "components": ["力", "力", "肉"]
   },
   "衍": {
-    "value": 1292.0,
+    "value": 1292,
     "identifier": "yan_overflow",
     "structure": "HORIZONTAL_LONG",
     "components": ["彳", "水", "亍"]
   },
   "益": {
-    "value": 1293.0,
+    "value": 1293,
     "identifier": "yi_benefit",
     "structure": "VERTICAL",
     "components": ["complex", "皿"]
   },
   "義": {
-    "value": 1294.0,
+    "value": 1294,
     "identifier": "yi_justice",
     "structure": "VERTICAL",
     "components": ["羊", "我"]
   },
   "幼": {
-    "value": 1295.0,
+    "value": 1295,
     "identifier": "you_child",
     "structure": "VERTICAL",
     "components": ["力", "幺"]
   },
   "質": {
-    "value": 1296.0,
+    "value": 1296,
     "identifier": "zhi_quality",
     "structure": "ARROW_INVERT",
     "components": ["complex", "斤", "貝"]
   },
   "佃": {
-    "value": 1297.0,
+    "value": 1297,
     "identifier": "dian_rent",
     "structure": "HORIZONTAL",
     "components": ["田", "人"]
   },
   "蚪": {
-    "value": 1298.0,
+    "value": 1298,
     "identifier": "dou_tadpole",
     "structure": "HORIZONTAL",
     "components": ["虫", "斗"]
   },
   "夯": {
-    "value": 1299.0,
+    "value": 1299,
     "identifier": "hang_rammer",
     "structure": "VERTICAL",
     "components": ["大", "力"]
   },
   "畫": {
-    "value": 1300.0,
+    "value": 1300,
     "identifier": "hua_paint",
     "structure": "VERTICAL",
     "components": ["聿", "complex"]
   },
   "欮": {
-    "value": 1301.0,
+    "value": 1301,
     "identifier": "jue_qini",
     "structure": "HORIZONTAL",
     "components": ["屰", "欠"]
   },
   "科": {
-    "value": 1302.0,
+    "value": 1302,
     "identifier": "ke_sort",
     "structure": "HORIZONTAL",
     "components": ["禾", "斗"]
   },
   "庫": {
-    "value": 1303.0,
+    "value": 1303,
     "identifier": "ku_warehouse",
     "structure": "VERTICAL",
     "components": ["广", "車"]
   },
   "鎖右": {
-    "value": 1304.0,
+    "value": 1304,
     "identifier": "suo_shell",
     "structure": "VERTICAL",
     "components": ["小", "貝"]
   },
   "望": {
-    "value": 1305.0,
+    "value": 1305,
     "identifier": "wang_look",
     "structure": "VERTICAL_LONG",
     "components": ["臣", "人", "土"]
   },
   "孝": {
-    "value": 1306.0,
+    "value": 1306,
     "identifier": "xiao_filial",
     "structure": "VERTICAL",
     "components": ["老", "子"]
   },
   "原": {
-    "value": 1307.0,
+    "value": 1307,
     "identifier": "yuan_origin",
     "structure": "VERTICAL",
     "components": ["厂", "泉"]
   },
   "令": {
-    "value": 1308.0,
+    "value": 1308,
     "identifier": "ling_command",
     "structure": "VERTICAL",
     "components": ["亼", "卩"]
   },
   "榮": {
-    "value": 1309.0,
+    "value": 1309,
     "identifier": "rong_flower",
     "structure": "VERTICAL",
     "components": ["熒", "木"]
   },
   "襲": {
-    "value": 1310.0,
+    "value": 1310,
     "identifier": "xi_assault",
     "structure": "ARROW_INVERT",
     "components": ["龍", "龍", "衣"]
   },
   "雅": {
-    "value": 1311.0,
+    "value": 1311,
     "identifier": "ya_elegant",
     "structure": "HORIZONTAL",
     "components": ["牙", "隹"]
   },
   "猒": {
-    "value": 1312.0,
+    "value": 1312,
     "identifier": "yan_full",
     "structure": "TRIANGLE",
     "components": ["口", "肉", "犬"]
   },
   "與": {
-    "value": 1313.0,
+    "value": 1313,
     "identifier": "yu_and",
     "structure": "X_SHAPE",
     "components": ["爪", "爪", "牙", "又", "又"]
   },
   "輿": {
-    "value": 1314.0,
+    "value": 1314,
     "identifier": "yu_cabin",
     "structure": "X_SHAPE",
     "components": ["爪", "爪", "車", "又", "又"]
   },
   "燭": {
-    "value": 1315.0,
+    "value": 1315,
     "identifier": "zhu_candle",
     "structure": "HORIZONTAL",
     "components": ["火", "蜀"]
   },
   "熏": {
-    "value": 1316.0,
+    "value": 1316,
     "identifier": "xun_smoke",
     "structure": "VERTICAL",
     "components": ["黑", "火"]
   },
   "敝": {
-    "value": 1317.0,
+    "value": 1317,
     "identifier": "bi_worn",
     "structure": "HORIZONTAL",
     "components": ["巾", "攴"]
   },
   "棍": {
-    "value": 1318.0,
+    "value": 1318,
     "identifier": "gun_stick",
     "structure": "HORIZONTAL",
     "components": ["木", "昆"]
   },
   "㞷": {
-    "value": 1319.0,
+    "value": 1319,
     "identifier": "huang_go",
     "structure": "VERTICAL",
     "components": ["之", "王"]
   },
   "匠": {
-    "value": 1320.0,
+    "value": 1320,
     "identifier": "jiang_carpenter",
     "structure": "HORIZONTAL",
     "components": ["匚", "斤"]
   },
   "冒": {
-    "value": 1321.0,
+    "value": 1321,
     "identifier": "mao_risk",
     "structure": "VERTICAL",
     "components": ["冃", "目"]
   },
   "飾": {
-    "value": 1322.0,
+    "value": 1322,
     "identifier": "shi_decorate",
     "structure": "TRIANGLE_RIGHT",
     "components": ["人", "食", "巾"]
   },
   "刷": {
-    "value": 1323.0,
+    "value": 1323,
     "identifier": "shua_brush",
     "structure": "TRIANGLE",
     "components": ["尸", "巾", "刀"]
   },
   "匣": {
-    "value": 1324.0,
+    "value": 1324,
     "identifier": "xia_box",
     "structure": "HORIZONTAL",
     "components": ["匚", "甲"]
   },
   "臤": {
-    "value": 1325.0,
+    "value": 1325,
     "identifier": "xian_archer",
     "structure": "HORIZONTAL",
     "components": ["臣", "又"]
   },
   "肖": {
-    "value": 1326.0,
+    "value": 1326,
     "identifier": "xiao_similar",
     "structure": "VERTICAL",
     "components": ["小", "肉"]
   },
   "羍": {
-    "value": 1327.0,
+    "value": 1327,
     "identifier": "da_sheep",
     "structure": "VERTICAL",
     "components": ["大", "羊"]
   },
   "徑": {
-    "value": 1328.0,
+    "value": 1328,
     "identifier": "jing_path",
     "structure": "HORIZONTAL",
     "components": ["彳", "巠"]
   },
   "輕": {
-    "value": 1329.0,
+    "value": 1329,
     "identifier": "qing_light",
     "structure": "HORIZONTAL",
     "components": ["車", "巠"]
   },
   "典": {
-    "value": 1330.0,
+    "value": 1330,
     "identifier": "dian_classic",
     "structure": "ARROW",
     "components": ["冊", "又", "又"]
   },
   "布": {
-    "value": 1331.0,
+    "value": 1331,
     "identifier": "bu_cloth",
     "structure": "VERTICAL",
     "components": ["父", "巾"]
   },
   "疒": {
-    "value": 1332.0,
+    "value": 1332,
     "identifier": "ne_illness",
     "structure": "HORIZONTAL",
     "components": ["人", "片"]
   },
   "亶": {
-    "value": 1333.0,
+    "value": 1333,
     "identifier": "dan_sincere",
     "structure": "VERTICAL",
     "components": ["㐭", "旦"]
   },
   "夆": {
-    "value": 1334.0,
+    "value": 1334,
     "identifier": "feng_contradict",
     "structure": "VERTICAL_LONG",
     "components": ["止", "reversal", "丰"]
   },
   "吉": {
-    "value": 1335.0,
+    "value": 1335,
     "identifier": "ji_luck",
     "structure": "VERTICAL",
     "components": ["士", "口"]
   },
   "射": {
-    "value": 1336.0,
+    "value": 1336,
     "identifier": "she_shoot",
     "structure": "HORIZONTAL",
     "components": ["矢", "弓"]
   },
   "唐": {
-    "value": 1337.0,
+    "value": 1337,
     "identifier": "tang_boastful",
     "structure": "VERTICAL",
     "components": ["庚", "口"]
   },
   "信": {
-    "value": 1338.0,
+    "value": 1338,
     "identifier": "xin_believe",
     "structure": "HORIZONTAL",
     "components": ["人", "言"]
   },
   "夗": {
-    "value": 1339.0,
+    "value": 1339,
     "identifier": "yuan_bow",
     "structure": "HORIZONTAL",
     "components": ["肉", "丸"]
   },
   "滯": {
-    "value": 1340.0,
+    "value": 1340,
     "identifier": "zhi_linger",
     "structure": "HORIZONTAL",
     "components": ["水", "帶"]
   },
   "濁": {
-    "value": 1341.0,
+    "value": 1341,
     "identifier": "zhuo_dirty",
     "structure": "HORIZONTAL",
     "components": ["水", "蜀"]
   },
   "纍": {
-    "value": 1342.0,
+    "value": 1342,
     "identifier": "lei_pile",
     "structure": "VERTICAL",
     "components": ["畾", "糸"]
   },
   "玫": {
-    "value": 1343.0,
+    "value": 1343,
     "identifier": "mei_jade",
     "structure": "HORIZONTAL",
     "components": ["玉", "文"]
   },
   "尼": {
-    "value": 1344.0,
+    "value": 1344,
     "identifier": "ni_approach",
     "structure": "TRIANGLE",
     "components": ["尸", "reversal", "人"]
   },
   "效": {
-    "value": 1345.0,
+    "value": 1345,
     "identifier": "xiao_effect",
     "structure": "HORIZONTAL",
     "components": ["交", "攴"]
   },
   "循": {
-    "value": 1346.0,
+    "value": 1346,
     "identifier": "xun_along",
     "structure": "HORIZONTAL",
     "components": ["彳", "盾"]
   },
   "䙲": {
-    "value": 1347.0,
+    "value": 1347,
     "identifier": "qian_qian",
     "structure": "X_SHAPE",
     "components": ["爪", "爪", "西", "又", "又"]
   },
+  "昇": {
+    "value": 1348,
+    "identifier": "sheng_rise",
+    "structure": "VERTICAL",
+    "components": ["日", "升"]
+  },
+  "厲": {
+    "value": 1349,
+    "identifier": "li_strong",
+    "structure": "VERTICAL",
+    "components": ["厂", "萬"]
+  },
   "嚴": {
-    "value": 2000.0,
+    "value": 2000,
     "identifier": "yan_strict",
     "structure": "VERTICAL",
     "components": ["喦", "敢"]
   },
   "樁": {
-    "value": 2001.0,
+    "value": 2001,
     "identifier": "zhuang_stump",
     "structure": "HORIZONTAL",
     "components": ["木", "舂"]
   },
   "定": {
-    "value": 2002.0,
+    "value": 2002,
     "identifier": "ding_stable",
     "structure": "VERTICAL",
     "components": ["宀", "正"]
   },
   "鐵右": {
-    "value": 2003.0,
+    "value": 2003,
     "identifier": "zhi_big",
     "structure": "TRIANGLE",
     "components": ["大", "呈", "戈"]
   },
   "炭": {
-    "value": 2004.0,
+    "value": 2004,
     "identifier": "tan_charcoal",
     "structure": "VERTICAL",
     "components": ["屵", "火"]
   },
   "版": {
-    "value": 2005.0,
+    "value": 2005,
     "identifier": "ban_plank",
     "structure": "HORIZONTAL",
     "components": ["片", "反"]
   },
   "砂": {
-    "value": 2006.0,
+    "value": 2006,
     "identifier": "sha_grit",
     "structure": "HORIZONTAL",
     "components": ["石", "少"]
   },
   "銅": {
-    "value": 2007.0,
+    "value": 2007,
     "identifier": "tong_copper",
     "structure": "HORIZONTAL",
     "components": ["金", "同"]
   },
   "皆": {
-    "value": 2008.0,
+    "value": 2008,
     "identifier": "jie_all",
     "structure": "VERTICAL",
     "components": ["从", "曰"]
   },
   "靈": {
-    "value": 2009.0,
+    "value": 2009,
     "identifier": "ling_soul",
     "structure": "VERTICAL",
     "components": ["霝", "巫"]
   },
   "群": {
-    "value": 2010.0,
+    "value": 2010,
     "identifier": "qun_group",
     "structure": "VERTICAL",
     "components": ["君", "羊"]
   },
   "淺": {
-    "value": 2011.0,
+    "value": 2011,
     "identifier": "qian_shallow",
     "structure": "HORIZONTAL",
     "components": ["水", "戔"]
   },
   "綫": {
-    "value": 2012.0,
+    "value": 2012,
     "identifier": "xian_string",
     "structure": "HORIZONTAL",
     "components": ["糸", "戔"]
   },
   "胔": {
-    "value": 2013.0,
+    "value": 2013,
     "identifier": "zi_rottenmeat",
     "structure": "VERTICAL",
     "components": ["此", "肉"]
   },
   "板": {
-    "value": 2014.0,
+    "value": 2014,
     "identifier": "ban_board",
     "structure": "HORIZONTAL",
     "components": ["木", "反"]
   },
   "殘": {
-    "value": 2015.0,
+    "value": 2015,
     "identifier": "can_disable",
     "structure": "HORIZONTAL",
     "components": ["歺", "戔"]
   },
   "案": {
-    "value": 2016.0,
+    "value": 2016,
     "identifier": "an_table",
     "structure": "VERTICAL",
     "components": ["安", "木"]
   },
   "鈺": {
-    "value": 2017.0,
+    "value": 2017,
     "identifier": "yu_treasure",
     "structure": "HORIZONTAL",
     "components": ["金", "玉"]
   },
   "紫": {
-    "value": 2018.0,
+    "value": 2018,
     "identifier": "zi_purple",
     "structure": "VERTICAL",
     "components": ["此", "糸"]
   },
   "鋤": {
-    "value": 2019.0,
+    "value": 2019,
     "identifier": "chu_hoe",
     "structure": "HORIZONTAL",
     "components": ["金", "助"]
   },
   "鎬": {
-    "value": 2020.0,
+    "value": 2020,
     "identifier": "gao_pickaxe",
     "structure": "HORIZONTAL",
     "components": ["金", "高"]
   },
   "僉": {
-    "value": 2021.0,
+    "value": 2021,
     "identifier": "qian_all",
     "structure": "ARROW",
     "components": ["亼", "兄", "兄"]
   },
   "鍁": {
-    "value": 2022.0,
+    "value": 2022,
     "identifier": "xian_shovel",
     "structure": "HORIZONTAL",
     "components": ["金", "欣"]
   },
   "咒": {
-    "value": 2023.0,
+    "value": 2023,
     "identifier": "zhou_curse",
     "structure": "HORIZONTAL",
     "components": ["口", "兄"]
   },
   "盤": {
-    "value": 2024.0,
+    "value": 2024,
     "identifier": "pan_plate",
     "structure": "VERTICAL",
     "components": ["般", "皿"]
   },
   "聲": {
-    "value": 2025.0,
+    "value": 2025,
     "identifier": "sheng_sound",
     "structure": "VERTICAL_LONG",
     "components": ["殸", "耳", "口"]
   },
   "鍛": {
-    "value": 2026.0,
+    "value": 2026,
     "identifier": "duan_smith",
     "structure": "HORIZONTAL",
     "components": ["金", "段"]
   },
   "礦": {
-    "value": 2027.0,
+    "value": 2027,
     "identifier": "kuang_ore",
     "structure": "HORIZONTAL",
     "components": ["石", "廣"]
   },
   "莫": {
-    "value": 2028.0,
+    "value": 2028,
     "identifier": "mo_not",
     "structure": "VERTICAL_LONG",
     "components": ["艸", "日", "艸"]
   },
   "逆": {
-    "value": 2029.0,
+    "value": 2029,
     "identifier": "ni_converse",
     "structure": "HORIZONTAL",
     "components": ["辵", "屰"]
   },
   "湧": {
-    "value": 2030.0,
+    "value": 2030,
     "identifier": "yong_surge",
     "structure": "HORIZONTAL",
     "components": ["水", "勇"]
   },
   "從": {
-    "value": 2031.0,
+    "value": 2031,
     "identifier": "cong_follows",
     "structure": "HORIZONTAL",
     "components": ["辵", "从"]
   },
   "骸": {
-    "value": 2032.0,
+    "value": 2032,
     "identifier": "hai_skeleton",
     "structure": "HORIZONTAL",
     "components": ["骨", "亥"]
   },
   "檻": {
-    "value": 2033.0,
+    "value": 2033,
     "identifier": "jian_fence",
     "structure": "HORIZONTAL",
     "components": ["木", "監"]
   },
   "藍": {
-    "value": 2034.0,
+    "value": 2034,
     "identifier": "lan_blue",
     "structure": "VERTICAL",
     "components": ["艸", "監"]
   },
   "闌": {
-    "value": 2035.0,
+    "value": 2035,
     "identifier": "lan_fence",
     "structure": "VERTICAL",
     "components": ["門", "柬"]
   },
   "深": {
-    "value": 2036.0,
+    "value": 2036,
     "identifier": "shen_deep",
     "structure": "HORIZONTAL",
     "components": ["水", "罙"]
   },
   "緋": {
-    "value": 2037.0,
+    "value": 2037,
     "identifier": "fei_crimson",
     "structure": "HORIZONTAL",
     "components": ["糸", "非"]
   },
   "扉": {
-    "value": 2038.0,
+    "value": 2038,
     "identifier": "fei_door",
     "structure": "VERTICAL",
     "components": ["戶", "非"]
   },
   "種": {
-    "value": 2039.0,
+    "value": 2039,
     "identifier": "zhong_plant",
     "structure": "HORIZONTAL",
     "components": ["禾", "重"]
   },
   "莓": {
-    "value": 2040.0,
+    "value": 2040,
     "identifier": "mei_berry",
     "structure": "VERTICAL",
     "components": ["艸", "每"]
   },
   "葉": {
-    "value": 2041.0,
+    "value": 2041,
     "identifier": "ye_leaves",
     "structure": "VERTICAL",
     "components": ["艸", "枼"]
   },
   "蒼": {
-    "value": 2042.0,
+    "value": 2042,
     "identifier": "cang_gray",
     "structure": "VERTICAL",
     "components": ["艸", "倉"]
   },
   "橙": {
-    "value": 2043.0,
+    "value": 2043,
     "identifier": "cheng_orange",
     "structure": "HORIZONTAL",
     "components": ["木", "登"]
   },
   "赬": {
-    "value": 2044.0,
+    "value": 2044,
     "identifier": "cheng_red",
     "structure": "HORIZONTAL",
     "components": ["赤", "貞"]
   },
   "黛": {
-    "value": 2045.0,
+    "value": 2045,
     "identifier": "dai_cyan",
     "structure": "VERTICAL",
     "components": ["代", "黑"]
   },
   "荳": {
-    "value": 2046.0,
+    "value": 2046,
     "identifier": "dou_bean",
     "structure": "VERTICAL",
     "components": ["艸", "豆"]
   },
   "曷": {
-    "value": 2047.0,
+    "value": 2047,
     "identifier": "he_why",
     "structure": "VERTICAL",
     "components": ["日", "丐"]
   },
   "縹": {
-    "value": 2048.0,
+    "value": 2048,
     "identifier": "piao_lightcyan",
     "structure": "HORIZONTAL",
     "components": ["糸", "票"]
   },
   "英": {
-    "value": 2049.0,
+    "value": 2049,
     "identifier": "ying_flower",
     "structure": "VERTICAL",
     "components": ["艸", "央"]
   },
   "幾": {
-    "value": 2050.0,
+    "value": 2050,
     "identifier": "ji_several",
     "structure": "ARROW_INVERT",
     "components": ["幺", "幺", "戍"]
   },
   "網": {
-    "value": 2051.0,
+    "value": 2051,
     "identifier": "wang_web",
     "structure": "HORIZONTAL",
     "components": ["糸", "罔"]
   },
   "械": {
-    "value": 2052.0,
+    "value": 2052,
     "identifier": "xie_machine",
     "structure": "HORIZONTAL",
     "components": ["木", "戒"]
   },
   "製": {
-    "value": 2053.0,
+    "value": 2053,
     "identifier": "zhi_make",
     "structure": "VERTICAL",
     "components": ["制", "衣"]
   },
   "弩": {
-    "value": 2054.0,
+    "value": 2054,
     "identifier": "nu_crossbow",
     "structure": "VERTICAL",
     "components": ["奴", "弓"]
   },
   "㭜": {
-    "value": 2055.0,
+    "value": 2055,
     "identifier": "rong_acacia",
     "structure": "HORIZONTAL",
     "components": ["木", "戎"]
   },
   "探": {
-    "value": 2056.0,
+    "value": 2056,
     "identifier": "tan_explore",
     "structure": "HORIZONTAL",
     "components": ["手", "罙"]
   },
   "櫻": {
-    "value": 2057.0,
+    "value": 2057,
     "identifier": "ying_cherry",
     "structure": "HORIZONTAL",
     "components": ["木", "嬰"]
   },
   "潮": {
-    "value": 2058.0,
+    "value": 2058,
     "identifier": "chao_tide",
     "structure": "HORIZONTAL",
     "components": ["水", "朝"]
   },
   "苗": {
-    "value": 2059.0,
+    "value": 2059,
     "identifier": "miao_seedling",
     "structure": "VERTICAL",
     "components": ["艸", "田"]
   },
   "銳": {
-    "value": 2060.0,
+    "value": 2060,
     "identifier": "rui_sharp",
     "structure": "HORIZONTAL",
     "components": ["金", "兌"]
   },
   "剛": {
-    "value": 2061.0,
+    "value": 2061,
     "identifier": "gang_hard",
     "structure": "HORIZONTAL",
     "components": ["岡", "刀"]
   },
   "崗": {
-    "value": 2062.0,
+    "value": 2062,
     "identifier": "gang_mountain",
     "structure": "VERTICAL",
     "components": ["山", "岡"]
   },
   "燈": {
-    "value": 2063.0,
+    "value": 2063,
     "identifier": "deng_lamp",
     "structure": "HORIZONTAL",
     "components": ["火", "登"]
   },
   "繕": {
-    "value": 2064.0,
+    "value": 2064,
     "identifier": "shan_mend"
   },
   "修": {
-    "value": 2065.0,
+    "value": 2065,
     "identifier": "xiu_repair",
     "structure": "VERTICAL",
     "components": ["攸", "彡"]
   },
   "鸚": {
-    "value": 2066.0,
+    "value": 2066,
     "identifier": "ying_parrot",
     "structure": "HORIZONTAL",
     "components": ["嬰", "鳥"]
   },
   "悠": {
-    "value": 2067.0,
+    "value": 2067,
     "identifier": "you_remote",
     "structure": "VERTICAL",
     "components": ["攸", "心"]
   },
   "雞": {
-    "value": 2068.0,
+    "value": 2068,
     "identifier": "ji_chicken",
     "structure": "HORIZONTAL",
     "components": ["奚", "鳥"]
   },
   "鼃": {
-    "value": 2069.0,
+    "value": 2069,
     "identifier": "wa_frog",
     "structure": "VERTICAL",
     "components": ["圭", "黽"]
   },
   "蕈": {
-    "value": 2070.0,
+    "value": 2070,
     "identifier": "xun_mushroom",
     "structure": "VERTICAL",
     "components": ["艸", "覃"]
   },
   "璧": {
-    "value": 2071.0,
+    "value": 2071,
     "identifier": "bi_jade",
     "structure": "VERTICAL",
     "components": ["辟", "玉"]
   },
   "閃": {
-    "value": 2072.0,
+    "value": 2072,
     "identifier": "shan_spy",
     "structure": "VERTICAL",
     "components": ["門", "人"]
   },
   "箱": {
-    "value": 2073.0,
+    "value": 2073,
     "identifier": "xiang_chest",
     "structure": "VERTICAL",
     "components": ["竹", "相"]
   },
   "桿": {
-    "value": 2074.0,
+    "value": 2074,
     "identifier": "gan_rod",
     "structure": "HORIZONTAL",
     "components": ["木", "旱"]
   },
   "胡": {
-    "value": 2075.0,
+    "value": 2075,
     "identifier": "hu_why",
     "structure": "HORIZONTAL",
     "components": ["古", "肉"]
   },
   "蘆": {
-    "value": 2076.0,
+    "value": 2076,
     "identifier": "lu_reed",
     "structure": "VERTICAL",
     "components": ["艸", "盧"]
   },
   "芋": {
-    "value": 2077.0,
+    "value": 2077,
     "identifier": "yu_potato",
     "structure": "VERTICAL",
     "components": ["艸", "于"]
   },
   "韁": {
-    "value": 2078.0,
+    "value": 2078,
     "identifier": "jiang_rein",
     "structure": "HORIZONTAL",
     "components": ["革", "畺"]
   },
   "殭": {
-    "value": 2079.0,
+    "value": 2079,
     "identifier": "jiang_zombie",
     "structure": "HORIZONTAL",
     "components": ["歹", "畺"]
   },
   "屍": {
-    "value": 2080.0,
+    "value": 2080,
     "identifier": "shi_corpse",
     "structure": "VERTICAL",
     "components": ["尸", "死"]
   },
   "飆": {
-    "value": 2081.0,
+    "value": 2081,
     "identifier": "biao_gale",
     "structure": "HORIZONTAL",
     "components": ["猋", "風"]
   },
   "贆": {
-    "value": 2082.0,
+    "value": 2082,
     "identifier": "biao_shellfish",
     "structure": "HORIZONTAL",
     "components": ["貝", "猋"]
   },
   "枯": {
-    "value": 2083.0,
+    "value": 2083,
     "identifier": "ku_wither",
     "structure": "HORIZONTAL",
     "components": ["木", "古"]
   },
   "鮭": {
-    "value": 2084.0,
+    "value": 2084,
     "identifier": "gui_salmon",
     "structure": "HORIZONTAL",
     "components": ["魚", "圭"]
   },
   "饢": {
-    "value": 2085.0,
+    "value": 2085,
     "identifier": "nang_bread",
     "structure": "HORIZONTAL",
     "components": ["食", "囊"]
   },
   "鱈": {
-    "value": 2086.0,
+    "value": 2086,
     "identifier": "xue_cod",
     "structure": "HORIZONTAL",
     "components": ["魚", "雪"]
   },
   "叢": {
-    "value": 2087.0,
+    "value": 2087,
     "identifier": "cong_grove",
     "structure": "VERTICAL",
     "components": ["艸", "龍"]
   },
   "管": {
-    "value": 2088.0,
+    "value": 2088,
     "identifier": "guan_pipe",
     "structure": "VERTICAL",
     "components": ["竹", "官"]
   },
   "醬": {
-    "value": 2089.0,
+    "value": 2089,
     "identifier": "jiang_sauce",
     "structure": "VERTICAL",
     "components": ["將", "酉"]
   },
   "譎": {
-    "value": 2090.0,
+    "value": 2090,
     "identifier": "jue_cheat",
     "structure": "HORIZONTAL",
     "components": ["言", "矞"]
   },
   "莽": {
-    "value": 2091.0,
+    "value": 2091,
     "identifier": "mang_grassland",
     "structure": "VERTICAL_LONG",
     "components": ["艸", "犬", "艸"]
   },
   "釀": {
-    "value": 2092.0,
+    "value": 2092,
     "identifier": "niang_brew",
     "structure": "HORIZONTAL",
     "components": ["酉", "襄"]
   },
   "拓": {
-    "value": 2093.0,
+    "value": 2093,
     "identifier": "ta_rub",
     "structure": "HORIZONTAL",
     "components": ["手", "石"]
   },
   "醫": {
-    "value": 2094.0,
+    "value": 2094,
     "identifier": "yi_cure",
     "structure": "TRIANGLE_INVERT",
     "components": ["医", "殳", "酉"]
   },
   "毒": {
-    "value": 2095.0,
+    "value": 2095,
     "identifier": "du_poison",
     "structure": "VERTICAL",
     "components": ["屮", "毐"]
   },
   "藥": {
-    "value": 2096.0,
+    "value": 2096,
     "identifier": "yao_medicine",
     "structure": "VERTICAL",
     "components": ["艸", "樂"]
   },
   "書": {
-    "value": 2097.0,
+    "value": 2097,
     "identifier": "shu_book",
     "structure": "VERTICAL",
     "components": ["聿", "者"]
   },
   "速": {
-    "value": 2098.0,
+    "value": 2098,
     "identifier": "su_speed",
     "structure": "HORIZONTAL",
     "components": ["辵", "束"]
   },
   "餠": {
-    "value": 2099.0,
+    "value": 2099,
     "identifier": "bing_pie",
     "structure": "HORIZONTAL",
     "components": ["食", "幷"]
   },
   "爍": {
-    "value": 2100.0,
+    "value": 2100,
     "identifier": "shuo_flash",
     "structure": "HORIZONTAL",
     "components": ["火", "樂"]
   },
   "菔": {
-    "value": 2101.0,
+    "value": 2101,
     "identifier": "fu_raddish",
     "structure": "VERTICAL",
     "components": ["艸", "服"]
   },
   "根": {
-    "value": 2102.0,
+    "value": 2102,
     "identifier": "gen_root",
     "structure": "HORIZONTAL",
     "components": ["木", "艮"]
   },
   "護": {
-    "value": 2103.0,
+    "value": 2103,
     "identifier": "hu_protect",
     "structure": "HORIZONTAL",
     "components": ["言", "蒦"]
   },
   "漿": {
-    "value": 2104.0,
+    "value": 2104,
     "identifier": "jiang_water",
     "structure": "VERTICAL",
     "components": ["將", "水"]
   },
   "甁": {
-    "value": 2105.0,
+    "value": 2105,
     "identifier": "ping_bottle",
     "structure": "HORIZONTAL",
     "components": ["缶", "幷"]
   },
   "腿": {
-    "value": 2106.0,
+    "value": 2106,
     "identifier": "tui_leg",
     "structure": "HORIZONTAL",
     "components": ["肉", "退"]
   },
   "眼": {
-    "value": 2107.0,
+    "value": 2107,
     "identifier": "yan_eye",
     "structure": "HORIZONTAL",
     "components": ["目", "艮"]
   },
   "影": {
-    "value": 2108.0,
+    "value": 2108,
     "identifier": "ying_shadow",
     "structure": "HORIZONTAL",
     "components": ["景", "彡"]
   },
   "黎": {
-    "value": 2109.0,
+    "value": 2109,
     "identifier": "li_public",
     "structure": "VERTICAL",
     "components": ["利", "黍"]
   },
   "蜜": {
-    "value": 2110.0,
+    "value": 2110,
     "identifier": "mi_honey",
     "structure": "VERTICAL",
     "components": ["宓", "虫"]
   },
   "緲": {
-    "value": 2111.0,
+    "value": 2111,
     "identifier": "miao_misty",
     "structure": "HORIZONTAL",
     "components": ["糸", "眇"]
   },
   "賞": {
-    "value": 2112.0,
+    "value": 2112,
     "identifier": "shang_award",
     "structure": "VERTICAL",
     "components": ["尚", "貝"]
   },
   "碩": {
-    "value": 2113.0,
+    "value": 2113,
     "identifier": "shuo_large",
     "structure": "HORIZONTAL",
     "components": ["石", "頁"]
   },
   "蘚": {
-    "value": 2114.0,
+    "value": 2114,
     "identifier": "xian_moss",
     "structure": "VERTICAL",
     "components": ["艸", "鮮"]
   },
   "河": {
-    "value": 2115.0,
+    "value": 2115,
     "identifier": "he_river",
     "structure": "HORIZONTAL",
     "components": ["水", "可"]
   },
   "烤": {
-    "value": 2116.0,
+    "value": 2116,
     "identifier": "kao_grill",
     "structure": "HORIZONTAL",
     "components": ["火", "考"]
   },
   "迷": {
-    "value": 2117.0,
+    "value": 2117,
     "identifier": "mi_lost",
     "structure": "HORIZONTAL",
     "components": ["辵", "米"]
   },
   "鉸": {
-    "value": 2118.0,
+    "value": 2118,
     "identifier": "jiao_shears",
     "structure": "HORIZONTAL",
     "components": ["金", "交"]
   },
   "流": {
-    "value": 2119.0,
+    "value": 2119,
     "identifier": "liu_flow",
     "structure": "HORIZONTAL",
     "components": ["水", "㐬"]
   },
   "琉": {
-    "value": 2120.0,
+    "value": 2120,
     "identifier": "liu_glass",
     "structure": "HORIZONTAL",
     "components": ["玉", "㐬"]
   },
   "芳": {
-    "value": 2121.0,
+    "value": 2121,
     "identifier": "fang_fragrant",
     "structure": "VERTICAL",
     "components": ["艸", "方"]
   },
   "硄": {
-    "value": 2122.0,
+    "value": 2122,
     "identifier": "guang_glowstone",
     "structure": "HORIZONTAL",
     "components": ["石", "光"]
   },
   "花": {
-    "value": 2123.0,
+    "value": 2123,
     "identifier": "hua_flowers",
     "structure": "VERTICAL",
     "components": ["艸", "化"]
   },
   "滑": {
-    "value": 2124.0,
+    "value": 2124,
     "identifier": "hua_smooth",
     "structure": "HORIZONTAL",
     "components": ["水", "骨"]
   },
   "磊": {
-    "value": 2125.0,
+    "value": 2125,
     "identifier": "lei_stones",
     "structure": "ARROW",
     "components": ["石", "石", "石"]
   },
   "洛": {
-    "value": 2126.0,
+    "value": 2126,
     "identifier": "luo_luo",
     "structure": "HORIZONTAL",
     "components": ["水", "各"]
   },
   "強": {
-    "value": 2127.0,
+    "value": 2127,
     "identifier": "qiang_strong",
     "structure": "HORIZONTAL",
     "components": ["弘", "虫"]
   },
   "頌": {
-    "value": 2128.0,
+    "value": 2128,
     "identifier": "song_extol",
     "structure": "HORIZONTAL",
     "components": ["公", "頁"]
   },
   "導": {
-    "value": 2129.0,
+    "value": 2129,
     "identifier": "dao_guide",
     "structure": "VERTICAL",
     "components": ["道", "又"]
   },
   "說": {
-    "value": 2130.0,
+    "value": 2130,
     "identifier": "shuo_speak",
     "structure": "HORIZONTAL",
     "components": ["言", "兌"]
   },
   "慈": {
-    "value": 2131.0,
+    "value": 2131,
     "identifier": "ci_kind",
     "structure": "VERTICAL",
     "components": ["茲", "心"]
   },
   "骷": {
-    "value": 2132.0,
+    "value": 2132,
     "identifier": "ku_skeleton",
     "structure": "HORIZONTAL",
     "components": ["骨", "古"]
   },
   "幽": {
-    "value": 2133.0,
+    "value": 2133,
     "identifier": "you_dim",
     "structure": "VERTICAL",
     "components": ["茲", "火"]
   },
   "孳": {
-    "value": 2134.0,
+    "value": 2134,
     "identifier": "zi_spawn",
     "structure": "VERTICAL",
     "components": ["茲", "子"]
   },
   "團": {
-    "value": 2135.0,
+    "value": 2135,
     "identifier": "tuan_ball",
     "structure": "VERTICAL",
     "components": ["囗", "專"]
   },
   "磚": {
-    "value": 2136.0,
+    "value": 2136,
     "identifier": "zhuan_brick",
     "structure": "HORIZONTAL",
     "components": ["石", "專"]
   },
   "鎣": {
-    "value": 2137.0,
+    "value": 2137,
     "identifier": "ying_polish",
     "structure": "VERTICAL",
     "components": ["熒", "金"]
   },
   "背": {
-    "value": 2138.0,
+    "value": 2138,
     "identifier": "bei_back",
     "structure": "VERTICAL",
     "components": ["北", "肉"]
   },
   "离": {
-    "value": 2139.0,
+    "value": 2139,
     "identifier": "li_leave",
     "structure": "VERTICAL",
     "components": ["艸", "离下"]
   },
   "砼": {
-    "value": 2140.0,
+    "value": 2140,
     "identifier": "tong_concrete",
     "structure": "TRIANGLE_RIGHT",
     "components": ["人", "石", "工"]
   },
   "場": {
-    "value": 2141.0,
+    "value": 2141,
     "identifier": "chang_ground",
     "structure": "HORIZONTAL",
     "components": ["土", "昜"]
   },
   "粉": {
-    "value": 2142.0,
+    "value": 2142,
     "identifier": "fen_powder",
     "structure": "HORIZONTAL",
     "components": ["米", "分"]
   },
   "窖": {
-    "value": 2143.0,
+    "value": 2143,
     "identifier": "jiao_cellar",
     "structure": "VERTICAL",
     "components": ["穴", "告"]
   },
   "碎": {
-    "value": 2144.0,
+    "value": 2144,
     "identifier": "sui_crack",
     "structure": "HORIZONTAL",
     "components": ["石", "卒"]
   },
   "踏": {
-    "value": 2145.0,
+    "value": 2145,
     "identifier": "ta_step",
     "structure": "HORIZONTAL",
     "components": ["足", "沓"]
   },
   "營": {
-    "value": 2146.0,
+    "value": 2146,
     "identifier": "ying_camp",
     "structure": "HORIZONTAL",
     "components": ["熒", "宮"]
   },
   "釣": {
-    "value": 2147.0,
+    "value": 2147,
     "identifier": "diao_fish",
     "structure": "HORIZONTAL",
     "components": ["金", "勺"]
   },
   "磷": {
-    "value": 2148.0,
+    "value": 2148,
     "identifier": "lin_phosphorus",
     "structure": "HORIZONTAL",
     "components": ["石", "粦"]
   },
   "鱗": {
-    "value": 2149.0,
+    "value": 2149,
     "identifier": "lin_scute",
     "structure": "HORIZONTAL",
     "components": ["魚", "粦"]
   },
   "氍": {
-    "value": 2150.0,
+    "value": 2150,
     "identifier": "qu_carpet",
     "structure": "HORIZONTAL",
     "components": ["瞿", "毛"]
   },
   "毹": {
-    "value": 2151.0,
+    "value": 2151,
     "identifier": "shu_carpet",
     "structure": "HORIZONTAL",
     "components": ["俞", "毛"]
   },
   "㬎": {
-    "value": 2152.0,
+    "value": 2152,
     "identifier": "xian_xian",
     "structure": "VERTICAL_LONG",
     "components": ["日", "simple", "絲"]
   },
   "懸": {
-    "value": 2153.0,
+    "value": 2153,
     "identifier": "xuan_hang",
     "structure": "VERTICAL",
     "components": ["縣", "心"]
   },
   "積": {
-    "value": 2154.0,
+    "value": 2154,
     "identifier": "ji_heap",
     "structure": "HORIZONTAL",
     "components": ["禾", "責"]
   },
   "鈕": {
-    "value": 2155.0,
+    "value": 2155,
     "identifier": "niu_button",
     "structure": "HORIZONTAL",
     "components": ["金", "丑"]
   },
   "艚": {
-    "value": 2156.0,
+    "value": 2156,
     "identifier": "cao_boat",
     "structure": "HORIZONTAL",
     "components": ["舟", "曹"]
   },
   "黏": {
-    "value": 2157.0,
+    "value": 2157,
     "identifier": "nian_stick",
     "structure": "HORIZONTAL",
     "components": ["黍", "占"]
   },
   "拾": {
-    "value": 2158.0,
+    "value": 2158,
     "identifier": "shi_pick",
     "structure": "HORIZONTAL",
     "components": ["手", "合"]
   },
   "砧": {
-    "value": 2159.0,
+    "value": 2159,
     "identifier": "zhen_anvil",
     "structure": "HORIZONTAL",
     "components": ["石", "占"]
   },
   "蹇": {
-    "value": 2160.0,
+    "value": 2160,
     "identifier": "jian_unlucky",
     "structure": "VERTICAL",
     "components": ["寒", "足"]
   },
   "悅": {
-    "value": 2161.0,
+    "value": 2161,
     "identifier": "yue_happy",
     "structure": "HORIZONTAL",
     "components": ["心", "兌"]
   },
   "岸": {
-    "value": 2162.0,
+    "value": 2162,
     "identifier": "an_bank",
     "structure": "VERTICAL",
     "components": ["屵", "干"]
   },
   "鞍": {
-    "value": 2163.0,
+    "value": 2163,
     "identifier": "an_saddle",
     "structure": "HORIZONTAL",
     "components": ["革", "安"]
   },
   "桁": {
-    "value": 2164.0,
+    "value": 2164,
     "identifier": "heng_truss",
     "structure": "HORIZONTAL",
     "components": ["木", "行"]
   },
   "架": {
-    "value": 2165.0,
+    "value": 2165,
     "identifier": "jia_shelf",
     "structure": "VERTICAL",
     "components": ["加", "木"]
   },
   "苔": {
-    "value": 2166.0,
+    "value": 2166,
     "identifier": "tai_moss",
     "structure": "VERTICAL",
     "components": ["艸", "台"]
   },
   "測": {
-    "value": 2167.0,
+    "value": 2167,
     "identifier": "ce_test",
     "structure": "HORIZONTAL",
     "components": ["水", "則"]
   },
   "礫": {
-    "value": 2168.0,
+    "value": 2168,
     "identifier": "li_gravel",
     "structure": "HORIZONTAL",
     "components": ["石", "樂"]
   },
   "裂": {
-    "value": 2169.0,
+    "value": 2169,
     "identifier": "lie_crack",
     "structure": "VERTICAL",
     "components": ["列", "衣"]
   },
   "璘": {
-    "value": 2170.0,
+    "value": 2170,
     "identifier": "lin_luster",
     "structure": "HORIZONTAL",
     "components": ["玉", "粦"]
   },
   "籠": {
-    "value": 2171.0,
+    "value": 2171,
     "identifier": "long_cage",
     "structure": "VERTICAL",
     "components": ["竹", "龍"]
   },
   "顱": {
-    "value": 2172.0,
+    "value": 2172,
     "identifier": "lu_head",
     "structure": "HORIZONTAL",
     "components": ["盧", "頁"]
   },
   "䘃": {
-    "value": 2173.0,
+    "value": 2173,
     "identifier": "mo_bat",
     "structure": "HORIZONTAL",
     "components": ["虫", "墨"]
   },
   "盆": {
-    "value": 2174.0,
+    "value": 2174,
     "identifier": "pen_basin",
     "structure": "VERTICAL",
     "components": ["分", "皿"]
   },
   "嚮": {
-    "value": 2175.0,
+    "value": 2175,
     "identifier": "xiang_guide",
     "structure": "VERTICAL",
     "components": ["鄉", "向"]
   },
   "鰂": {
-    "value": 2176.0,
+    "value": 2176,
     "identifier": "zei_squid",
     "structure": "HORIZONTAL",
     "components": ["魚", "則"]
   },
   "棧": {
-    "value": 2177.0,
+    "value": 2177,
     "identifier": "zhan_inn",
     "structure": "HORIZONTAL",
     "components": ["木", "戔"]
   },
   "度": {
-    "value": 2178.0,
+    "value": 2178,
     "identifier": "du_spend",
     "structure": "VERTICAL",
     "components": ["石", "又"]
   },
   "嘯": {
-    "value": 2179.0,
+    "value": 2179,
     "identifier": "xiao_howl",
     "structure": "HORIZONTAL",
     "components": ["口", "肅"]
   },
   "鏽": {
-    "value": 2180.0,
+    "value": 2180,
     "identifier": "xiu_rust",
     "structure": "HORIZONTAL",
     "components": ["金", "肅"]
   },
   "蔗": {
-    "value": 2181.0,
+    "value": 2181,
     "identifier": "zhe_sugarcane",
     "structure": "VERTICAL",
     "components": ["艸", "庶"]
   },
   "茅": {
-    "value": 2182.0,
+    "value": 2182,
     "identifier": "mao_thatch",
     "structure": "VERTICAL",
     "components": ["艸", "矛"]
   },
   "簇": {
-    "value": 2183.0,
+    "value": 2183,
     "identifier": "cu_cluster",
     "structure": "VERTICAL",
     "components": ["竹", "族"]
   },
   "殆": {
-    "value": 2184.0,
+    "value": 2184,
     "identifier": "dai_danger",
     "structure": "HORIZONTAL",
     "components": ["歺", "台"]
   },
   "固": {
-    "value": 2185.0,
+    "value": 2185,
     "identifier": "gu_sturdy",
     "structure": "VERTICAL",
     "components": ["囗", "古"]
   },
   "連": {
-    "value": 2186.0,
+    "value": 2186,
     "identifier": "lian_link",
     "structure": "HORIZONTAL",
     "components": ["辵", "車"]
   },
   "傷": {
-    "value": 2187.0,
+    "value": 2187,
     "identifier": "shang_hurt",
     "structure": "TRIANGLE_RIGHT",
     "components": ["人", "人", "昜"]
   },
   "柿": {
-    "value": 2188.0,
+    "value": 2188,
     "identifier": "shi_persimmon",
     "structure": "HORIZONTAL",
     "components": ["木", "市"]
   },
   "檯": {
-    "value": 2189.0,
+    "value": 2189,
     "identifier": "tai_table",
     "structure": "HORIZONTAL",
     "components": ["木", "臺"]
   },
   "耀": {
-    "value": 2190.0,
+    "value": 2190,
     "identifier": "yao_flash",
     "structure": "HORIZONTAL",
     "components": ["光", "翟"]
   },
   "曜": {
-    "value": 2191.0,
+    "value": 2191,
     "identifier": "yao_obsidian",
     "structure": "HORIZONTAL",
     "components": ["日", "翟"]
   },
   "冶": {
-    "value": 2192.0,
+    "value": 2192,
     "identifier": "ye_smelt",
     "structure": "HORIZONTAL",
     "components": ["仌", "台"]
   },
   "釉": {
-    "value": 2193.0,
+    "value": 2193,
     "identifier": "you_glaze",
     "structure": "HORIZONTAL",
     "components": ["采", "由"]
   },
   "躍": {
-    "value": 2194.0,
+    "value": 2194,
     "identifier": "yue_jump",
     "structure": "HORIZONTAL",
     "components": ["足", "翟"]
   },
   "閘": {
-    "value": 2195.0,
+    "value": 2195,
     "identifier": "zha_switch",
     "structure": "VERTICAL",
     "components": ["門", "甲"]
   },
   "悲": {
-    "value": 2196.0,
+    "value": 2196,
     "identifier": "bei_sad",
     "structure": "VERTICAL",
     "components": ["非", "心"]
   },
   "獷": {
-    "value": 2197.0,
+    "value": 2197,
     "identifier": "guang_rude",
     "structure": "HORIZONTAL",
     "components": ["犬", "廣"]
   },
   "鎧": {
-    "value": 2198.0,
+    "value": 2198,
     "identifier": "kai_armour",
     "structure": "HORIZONTAL",
     "components": ["金", "豈"]
   },
   "閏": {
-    "value": 2199.0,
+    "value": 2199,
     "identifier": "run_leapyear",
     "structure": "VERTICAL",
     "components": ["門", "王"]
   },
   "涎": {
-    "value": 2200.0,
+    "value": 2200,
     "identifier": "xian_saliva",
     "structure": "HORIZONTAL",
     "components": ["水", "延"]
   },
   "還": {
-    "value": 2201.0,
+    "value": 2201,
     "identifier": "huan_return",
     "structure": "HORIZONTAL",
     "components": ["辵", "睘"]
   },
   "環": {
-    "value": 2202.0,
+    "value": 2202,
     "identifier": "huan_ring",
     "structure": "HORIZONTAL",
     "components": ["玉", "睘"]
   },
   "絡": {
-    "value": 2203.0,
+    "value": 2203,
     "identifier": "luo_bind",
     "structure": "HORIZONTAL",
     "components": ["糸", "各"]
   },
   "賣": {
-    "value": 2204.0,
+    "value": 2204,
     "identifier": "mai_sell",
     "structure": "VERTICAL",
     "components": ["出", "買"]
   },
   "溫": {
-    "value": 2205.0,
+    "value": 2205,
     "identifier": "wen_warmth",
     "structure": "HORIZONTAL",
     "components": ["水", "昷"]
   },
   "縕": {
-    "value": 2206.0,
+    "value": 2206,
     "identifier": "yun_linen",
     "structure": "HORIZONTAL",
     "components": ["糸", "昷"]
   },
   "赭": {
-    "value": 2207.0,
+    "value": 2207,
     "identifier": "zhe_brown",
     "structure": "HORIZONTAL",
     "components": ["赤", "者"]
   },
   "筏": {
-    "value": 2208.0,
+    "value": 2208,
     "identifier": "fa_raft",
     "structure": "VERTICAL",
     "components": ["竹", "伐"]
   },
   "嚎": {
-    "value": 2209.0,
+    "value": 2209,
     "identifier": "hao_howl",
     "structure": "HORIZONTAL",
     "components": ["口", "豪"]
   },
   "葵": {
-    "value": 2210.0,
+    "value": 2210,
     "identifier": "kui_mallow",
     "structure": "VERTICAL",
     "components": ["艸", "癸"]
   },
   "錄": {
-    "value": 2211.0,
+    "value": 2211,
     "identifier": "lu_record",
     "structure": "HORIZONTAL",
     "components": ["金", "彔"]
   },
   "魔": {
-    "value": 2212.0,
+    "value": 2212,
     "identifier": "mo_demon",
     "structure": "VERTICAL",
     "components": ["麻", "鬼"]
   },
   "溯": {
-    "value": 2213.0,
+    "value": 2213,
     "identifier": "su_recall",
     "structure": "HORIZONTAL",
     "components": ["水", "朔"]
   },
   "荅": {
-    "value": 2214.0,
+    "value": 2214,
     "identifier": "ta_bean",
     "structure": "VERTICAL",
     "components": ["艸", "合"]
   },
   "衛": {
-    "value": 2215.0,
+    "value": 2215,
     "identifier": "wei_guard",
     "structure": "HORIZONTAL_LONG",
     "components": ["彳", "韋", "亍"]
   },
   "儀": {
-    "value": 2216.0,
+    "value": 2216,
     "identifier": "yi_rite",
     "structure": "HORIZONTAL",
     "components": ["人", "義"]
   },
   "酵": {
-    "value": 2217.0,
+    "value": 2217,
     "identifier": "jiao_ferment",
     "structure": "HORIZONTAL",
     "components": ["酉", "孝"]
   },
   "厥": {
-    "value": 2218.0,
+    "value": 2218,
     "identifier": "jue_befaint",
     "structure": "VERTICAL",
     "components": ["厂", "欮"]
   },
   "蝌": {
-    "value": 2219.0,
+    "value": 2219,
     "identifier": "ke_tadpole",
     "structure": "HORIZONTAL",
     "components": ["虫", "科"]
   },
   "褲": {
-    "value": 2220.0,
+    "value": 2220,
     "identifier": "ku_trousers",
     "structure": "HORIZONTAL",
     "components": ["衣", "庫"]
   },
   "鎖": {
-    "value": 2221.0,
+    "value": 2221,
     "identifier": "suo_lock",
     "structure": "HORIZONTAL",
     "components": ["金", "鎖右"]
   },
   "鈴": {
-    "value": 2222.0,
+    "value": 2222,
     "identifier": "ling_bell",
     "structure": "HORIZONTAL",
     "components": ["金", "令"]
   },
   "零": {
-    "value": 2223.0,
+    "value": 2223,
     "identifier": "ling_zero",
     "structure": "VERTICAL",
     "components": ["雨", "令"]
   },
   "命": {
-    "value": 2224.0,
+    "value": 2224,
     "identifier": "ming_life",
     "structure": "HORIZONTAL",
     "components": ["口", "令"]
   },
   "絮": {
-    "value": 2225.0,
+    "value": 2225,
     "identifier": "xu_floss",
     "structure": "VERTICAL",
     "components": ["如", "糸"]
   },
   "燻": {
-    "value": 2226.0,
+    "value": 2226,
     "identifier": "xun_smoking",
     "structure": "HORIZONTAL",
     "components": ["火", "熏"]
   },
   "芽": {
-    "value": 2227.0,
+    "value": 2227,
     "identifier": "ya_bud",
     "structure": "VERTICAL",
     "components": ["艸", "牙"]
   },
   "厭": {
-    "value": 2228.0,
+    "value": 2228,
     "identifier": "yan_dislike",
     "structure": "VERTICAL",
     "components": ["厂", "猒"]
   },
   "蔽": {
-    "value": 2229.0,
+    "value": 2229,
     "identifier": "bi_shield",
     "structure": "VERTICAL",
     "components": ["艸", "敝"]
   },
   "堅": {
-    "value": 2230.0,
+    "value": 2230,
     "identifier": "jian_hard",
     "structure": "VERTICAL",
     "components": ["臤", "土"]
   },
   "開": {
-    "value": 2231.0,
+    "value": 2231,
     "identifier": "kai_open",
     "structure": "T_SHAPE_INVERT",
     "components": ["門", "又", "simple", "又"]
   },
   "匡": {
-    "value": 2232.0,
+    "value": 2232,
     "identifier": "kuang_frame",
     "structure": "HORIZONTAL",
     "components": ["匚", "㞷"]
   },
   "帽": {
-    "value": 2233.0,
+    "value": 2233,
     "identifier": "mao_hats",
     "structure": "HORIZONTAL",
     "components": ["巾", "冒"]
   },
   "磐": {
-    "value": 2234.0,
+    "value": 2234,
     "identifier": "pan_rock",
     "structure": "VERTICAL",
     "components": ["般", "石"]
   },
   "鞘": {
-    "value": 2235.0,
+    "value": 2235,
     "identifier": "qiao_sheath",
     "structure": "HORIZONTAL",
     "components": ["革", "肖"]
   },
   "消": {
-    "value": 2236.0,
+    "value": 2236,
     "identifier": "xiao_disappear",
     "structure": "HORIZONTAL",
     "components": ["水", "肖"]
   },
   "削": {
-    "value": 2237.0,
+    "value": 2237,
     "identifier": "xue_weaken",
     "structure": "HORIZONTAL",
     "components": ["肖", "刀"]
   },
   "達": {
-    "value": 2238.0,
+    "value": 2238,
     "identifier": "da_reach",
     "structure": "HORIZONTAL",
     "components": ["辵", "羍"]
   },
   "莖": {
-    "value": 2239.0,
+    "value": 2239,
     "identifier": "jing_stem",
     "structure": "VERTICAL",
     "components": ["艸", "巠"]
   },
   "疲": {
-    "value": 2240.0,
+    "value": 2240,
     "identifier": "pi_tired",
     "structure": "HORIZONTAL",
     "components": ["疒", "皮"]
   },
   "烽": {
-    "value": 2241.0,
+    "value": 2241,
     "identifier": "feng_beacon",
     "structure": "HORIZONTAL",
     "components": ["火", "夆"]
   },
   "蜂": {
-    "value": 2242.0,
+    "value": 2242,
     "identifier": "feng_bee",
     "structure": "HORIZONTAL",
     "components": ["虫", "夆"]
   },
   "頡": {
-    "value": 2243.0,
+    "value": 2243,
     "identifier": "jie_jie",
     "structure": "HORIZONTAL",
     "components": ["吉", "頁"]
   },
   "結": {
-    "value": 2244.0,
+    "value": 2244,
     "identifier": "jie_knot",
     "structure": "HORIZONTAL",
     "components": ["糸", "吉"]
   },
   "嶸": {
-    "value": 2245.0,
+    "value": 2245,
     "identifier": "rong_mountains",
     "structure": "HORIZONTAL",
     "components": ["山", "榮"]
   },
   "壇": {
-    "value": 2246.0,
+    "value": 2246,
     "identifier": "tan_altar",
     "structure": "HORIZONTAL",
     "components": ["土", "亶"]
   },
   "糖": {
-    "value": 2247.0,
+    "value": 2247,
     "identifier": "tang_sugar",
     "structure": "HORIZONTAL",
     "components": ["米", "唐"]
   },
   "宛": {
-    "value": 2248.0,
+    "value": 2248,
     "identifier": "wan_hollow",
     "structure": "VERTICAL",
     "components": ["宀", "夗"]
   },
   "疣": {
-    "value": 2249.0,
+    "value": 2249,
     "identifier": "you_wart",
     "structure": "HORIZONTAL",
     "components": ["疒", "尤"]
   },
   "螺": {
-    "value": 2250.0,
+    "value": 2250,
     "identifier": "luo_conch",
     "structure": "HORIZONTAL",
     "components": ["虫", "纍"]
   },
   "騾": {
-    "value": 2251.0,
+    "value": 2251,
     "identifier": "luo_mule",
     "structure": "HORIZONTAL",
     "components": ["馬", "纍"]
   },
   "泥": {
-    "value": 2252.0,
+    "value": 2252,
     "identifier": "ni_mud",
     "structure": "HORIZONTAL",
     "components": ["水", "尼"]
   },
   "螈": {
-    "value": 2253.0,
+    "value": 2253,
     "identifier": "yuan_axolotl",
     "structure": "HORIZONTAL",
     "components": ["虫", "原"]
   },
   "仙": {
-    "value": 2254.0,
+    "value": 2254,
     "identifier": "xian_fairy",
     "structure": "HORIZONTAL",
     "components": ["人", "䙲"]
   },
   "遷": {
-    "value": 2255.0,
+    "value": 2255,
     "identifier": "qian_move",
     "structure": "HORIZONTAL",
     "components": ["辵", "䙲"]
   },
   "硫": {
-    "value": 2256.0,
+    "value": 2256,
     "identifier": "liu_sulfur",
     "structure": "HORIZONTAL",
     "components": ["石", "㐬"]
   },
+  "釜": {
+    "value": 2257,
+    "identifier": "fu_pot",
+    "structure": "VERTICAL",
+    "components": ["父", "金"]
+  },
+  "礪": {
+    "value": 2258,
+    "identifier": "li_whetstone",
+    "structure": "HORIZONTAL",
+    "components": ["石", "厲"]
+  },
   "巖": {
-    "value": 3000.0,
+    "value": 3000,
     "identifier": "yan_rock",
     "structure": "VERTICAL",
     "components": ["山", "嚴"]
   },
   "錠": {
-    "value": 3001.0,
+    "value": 3001,
     "identifier": "ding_ingot",
     "structure": "HORIZONTAL",
     "components": ["金", "定"]
   },
   "鐵": {
-    "value": 3002.0,
+    "value": 3002,
     "identifier": "tie_iron",
     "structure": "HORIZONTAL",
     "components": ["金", "鐵右"]
   },
   "階": {
-    "value": 3003.0,
+    "value": 3003,
     "identifier": "jie_stairs",
     "structure": "HORIZONTAL",
     "components": ["阜", "皆"]
   },
   "模": {
-    "value": 3004.0,
+    "value": 3004,
     "identifier": "mu_model",
     "structure": "HORIZONTAL",
     "components": ["木", "莫"]
   },
   "楷": {
-    "value": 3005.0,
+    "value": 3005,
     "identifier": "kai_pattern",
     "structure": "HORIZONTAL",
     "components": ["木", "皆"]
   },
   "樅": {
-    "value": 3006.0,
+    "value": 3006,
     "identifier": "zong_fir",
     "structure": "HORIZONTAL",
     "components": ["木", "從"]
   },
   "蘭": {
-    "value": 3007.0,
+    "value": 3007,
     "identifier": "lan_orchid",
     "structure": "VERTICAL",
     "components": ["艸", "闌"]
   },
   "靛": {
-    "value": 3008.0,
+    "value": 3008,
     "identifier": "dian_indigo",
     "structure": "HORIZONTAL",
     "components": ["青", "定"]
   },
   "褐": {
-    "value": 3009.0,
+    "value": 3009,
     "identifier": "he_brown",
     "structure": "HORIZONTAL",
     "components": ["衣", "曷"]
   },
   "渴": {
-    "value": 3010.0,
+    "value": 3010,
     "identifier": "ke_thirst",
     "structure": "HORIZONTAL",
     "components": ["水", "曷"]
   },
   "機": {
-    "value": 3011.0,
+    "value": 3011,
     "identifier": "ji_machine",
     "structure": "HORIZONTAL",
     "components": ["木", "幾"]
   },
   "貓": {
-    "value": 3012.0,
+    "value": 3012,
     "identifier": "mao_cat",
     "structure": "HORIZONTAL",
     "components": ["豸", "苗"]
   },
   "瑚": {
-    "value": 3013.0,
+    "value": 3013,
     "identifier": "hu_coral",
     "structure": "HORIZONTAL",
     "components": ["玉", "胡"]
   },
   "藜": {
-    "value": 3014.0,
+    "value": 3014,
     "identifier": "li_beet",
     "structure": "VERTICAL",
     "components": ["艸", "黎"]
   },
   "謎": {
-    "value": 3015.0,
+    "value": 3015,
     "identifier": "mi_mystery",
     "structure": "HORIZONTAL",
     "components": ["言", "迷"]
   },
   "堦": {
-    "value": 3016.0,
+    "value": 3016,
     "identifier": "jie_basalt",
     "structure": "HORIZONTAL",
     "components": ["土", "皆"]
   },
   "落": {
-    "value": 3017.0,
+    "value": 3017,
     "identifier": "luo_fall",
     "structure": "VERTICAL",
     "components": ["艸", "洛"]
   },
   "礠": {
-    "value": 3018.0,
+    "value": 3018,
     "identifier": "ci_magnet",
     "structure": "HORIZONTAL",
     "components": ["石", "慈"]
   },
   "璃": {
-    "value": 3019.0,
+    "value": 3019,
     "identifier": "li_glass",
     "structure": "HORIZONTAL",
     "components": ["玉", "离"]
   },
   "濕": {
-    "value": 3020.0,
+    "value": 3020,
     "identifier": "shi_wet",
     "structure": "HORIZONTAL",
     "components": ["水", "㬎"]
   },
   "膜": {
-    "value": 3021.0,
+    "value": 3021,
     "identifier": "mo_membrane",
     "structure": "HORIZONTAL",
     "components": ["肉", "莫"]
   },
   "錨": {
-    "value": 3022.0,
+    "value": 3022,
     "identifier": "mao_anchor",
     "structure": "HORIZONTAL",
     "components": ["金", "苗"]
   },
   "渡": {
-    "value": 3023.0,
+    "value": 3023,
     "identifier": "du_ferry",
     "structure": "HORIZONTAL",
     "components": ["水", "度"]
   },
   "蓮": {
-    "value": 3024.0,
+    "value": 3024,
     "identifier": "lian_lotus",
     "structure": "VERTICAL",
     "components": ["艸", "連"]
   },
   "潤": {
-    "value": 3025.0,
+    "value": 3025,
     "identifier": "run_moist",
     "structure": "HORIZONTAL",
     "components": ["水", "閏"]
   },
   "鏈": {
-    "value": 3026.0,
+    "value": 3026,
     "identifier": "lian_chain",
     "structure": "HORIZONTAL",
     "components": ["金", "連"]
   },
   "櫝": {
-    "value": 3027.0,
+    "value": 3027,
     "identifier": "du_box",
     "structure": "HORIZONTAL",
     "components": ["木", "賣"]
   },
   "續": {
-    "value": 3028.0,
+    "value": 3028,
     "identifier": "xu_continue",
     "structure": "HORIZONTAL",
     "components": ["糸", "賣"]
   },
   "蘊": {
-    "value": 3029.0,
+    "value": 3029,
     "identifier": "yun_contain",
     "structure": "VERTICAL",
     "components": ["艸", "縕"]
   },
   "塔": {
-    "value": 3030.0,
+    "value": 3030,
     "identifier": "ta_tower",
     "structure": "HORIZONTAL",
     "components": ["土", "荅"]
   },
   "蕨": {
-    "value": 3031.0,
+    "value": 3031,
     "identifier": "jue_fern",
     "structure": "VERTICAL",
     "components": ["艸", "厥"]
   },
   "㵖": {
-    "value": 3032.0,
+    "value": 3032,
     "identifier": "nv_wet",
     "structure": "HORIZONTAL",
     "components": ["水", "絮"]
   },
   "魘": {
-    "value": 3033.0,
+    "value": 3033,
     "identifier": "yan_nightmare",
     "structure": "VERTICAL",
     "components": ["厭", "鬼"]
   },
   "䃮": {
-    "value": 3034.0,
+    "value": 3034,
     "identifier": "da_cobblestone",
     "structure": "HORIZONTAL",
     "components": ["石", "達"]
   },
   "劍": {
-    "value": 3035.0,
+    "value": 3035,
     "identifier": "jian_sword",
     "structure": "HORIZONTAL",
     "components": ["金", "僉"]
   },
   "椀": {
-    "value": 3036.0,
+    "value": 3036,
     "identifier": "wan_bowl",
     "structure": "HORIZONTAL",
     "components": ["木", "宛"]
   },
   "躚": {
-    "value": 3037.0,
+    "value": 3037,
     "identifier": "xian_dance",
     "structure": "HORIZONTAL",
     "components": ["足", "遷"]
   },
+  "0": {
+    "value": 5000,
+    "identifier": "numbers"
+  },
   "1": {
-    "value": 5000.0,
+    "value": 5001,
+    "identifier": "numbers"
+  },
+  "2": {
+    "value": 5002,
+    "identifier": "numbers"
+  },
+  "3": {
+    "value": 5003,
+    "identifier": "numbers"
+  },
+  "4": {
+    "value": 5004,
+    "identifier": "numbers"
+  },
+  "5": {
+    "value": 5005,
+    "identifier": "numbers"
+  },
+  "6": {
+    "value": 5006,
+    "identifier": "numbers"
+  },
+  "7": {
+    "value": 5007,
+    "identifier": "numbers"
+  },
+  "8": {
+    "value": 5008,
+    "identifier": "numbers"
+  },
+  "9": {
+    "value": 5009,
+    "identifier": "numbers"
+  },
+  "%": {
+    "value": 5010,
     "identifier": "numbers"
   },
   "A": {
-    "value": 5001.0,
+    "value": 5100,
+    "identifier": "latin_letters"
+  },
+  "B": {
+    "value": 5101,
+    "identifier": "latin_letters"
+  },
+  "C": {
+    "value": 5102,
+    "identifier": "latin_letters"
+  },
+  "D": {
+    "value": 5103,
+    "identifier": "latin_letters"
+  },
+  "E": {
+    "value": 5104,
+    "identifier": "latin_letters"
+  },
+  "F": {
+    "value": 5105,
+    "identifier": "latin_letters"
+  },
+  "G": {
+    "value": 5106,
+    "identifier": "latin_letters"
+  },
+  "H": {
+    "value": 5107,
+    "identifier": "latin_letters"
+  },
+  "I": {
+    "value": 5108,
+    "identifier": "latin_letters"
+  },
+  "J": {
+    "value": 5109,
+    "identifier": "latin_letters"
+  },
+  "K": {
+    "value": 5110,
+    "identifier": "latin_letters"
+  },
+  "L": {
+    "value": 5111,
+    "identifier": "latin_letters"
+  },
+  "M": {
+    "value": 5112,
+    "identifier": "latin_letters"
+  },
+  "N": {
+    "value": 5113,
+    "identifier": "latin_letters"
+  },
+  "O": {
+    "value": 5114,
+    "identifier": "latin_letters"
+  },
+  "P": {
+    "value": 5115,
+    "identifier": "latin_letters"
+  },
+  "Q": {
+    "value": 5116,
+    "identifier": "latin_letters"
+  },
+  "R": {
+    "value": 5117,
+    "identifier": "latin_letters"
+  },
+  "S": {
+    "value": 5118,
+    "identifier": "latin_letters"
+  },
+  "T": {
+    "value": 5119,
+    "identifier": "latin_letters"
+  },
+  "U": {
+    "value": 5120,
+    "identifier": "latin_letters"
+  },
+  "V": {
+    "value": 5121,
+    "identifier": "latin_letters"
+  },
+  "W": {
+    "value": 5122,
+    "identifier": "latin_letters"
+  },
+  "X": {
+    "value": 5123,
+    "identifier": "latin_letters"
+  },
+  "Y": {
+    "value": 5124,
+    "identifier": "latin_letters"
+  },
+  "Z": {
+    "value": 5125,
+    "identifier": "latin_letters"
+  },
+  "a": {
+    "value": 5126,
+    "identifier": "latin_letters"
+  },
+  "b": {
+    "value": 5127,
+    "identifier": "latin_letters"
+  },
+  "c": {
+    "value": 5128,
+    "identifier": "latin_letters"
+  },
+  "d": {
+    "value": 5129,
+    "identifier": "latin_letters"
+  },
+  "e": {
+    "value": 5130,
+    "identifier": "latin_letters"
+  },
+  "f": {
+    "value": 5131,
+    "identifier": "latin_letters"
+  },
+  "g": {
+    "value": 5132,
+    "identifier": "latin_letters"
+  },
+  "h": {
+    "value": 5133,
+    "identifier": "latin_letters"
+  },
+  "i": {
+    "value": 5134,
+    "identifier": "latin_letters"
+  },
+  "j": {
+    "value": 5135,
+    "identifier": "latin_letters"
+  },
+  "k": {
+    "value": 5136,
+    "identifier": "latin_letters"
+  },
+  "l": {
+    "value": 5137,
+    "identifier": "latin_letters"
+  },
+  "m": {
+    "value": 5138,
+    "identifier": "latin_letters"
+  },
+  "n": {
+    "value": 5139,
+    "identifier": "latin_letters"
+  },
+  "o": {
+    "value": 5140,
+    "identifier": "latin_letters"
+  },
+  "p": {
+    "value": 5141,
+    "identifier": "latin_letters"
+  },
+  "q": {
+    "value": 5142,
+    "identifier": "latin_letters"
+  },
+  "r": {
+    "value": 5143,
+    "identifier": "latin_letters"
+  },
+  "s": {
+    "value": 5144,
+    "identifier": "latin_letters"
+  },
+  "t": {
+    "value": 5145,
+    "identifier": "latin_letters"
+  },
+  "u": {
+    "value": 5146,
+    "identifier": "latin_letters"
+  },
+  "v": {
+    "value": 5147,
+    "identifier": "latin_letters"
+  },
+  "w": {
+    "value": 5148,
+    "identifier": "latin_letters"
+  },
+  "x": {
+    "value": 5149,
+    "identifier": "latin_letters"
+  },
+  "y": {
+    "value": 5150,
+    "identifier": "latin_letters"
+  },
+  "z": {
+    "value": 5151,
+    "identifier": "latin_letters"
+  },
+  "Þ": {
+    "value": 5152,
+    "identifier": "latin_letters"
+  },
+  "þ": {
+    "value": 5153,
+    "identifier": "latin_letters"
+  },
+  "Ç": {
+    "value": 5154,
+    "identifier": "latin_letters"
+  },
+  "ç": {
+    "value": 5155,
+    "identifier": "latin_letters"
+  },
+  "Œ": {
+    "value": 5156,
+    "identifier": "latin_letters"
+  },
+  "œ": {
+    "value": 5157,
+    "identifier": "latin_letters"
+  },
+  "Æ": {
+    "value": 5158,
+    "identifier": "latin_letters"
+  },
+  "æ": {
+    "value": 5159,
+    "identifier": "latin_letters"
+  },
+  "Ð": {
+    "value": 5160,
+    "identifier": "latin_letters"
+  },
+  "ð": {
+    "value": 5161,
+    "identifier": "latin_letters"
+  },
+  "ß": {
+    "value": 5162,
+    "identifier": "latin_letters"
+  },
+  "Ä": {
+    "value": 5163,
+    "identifier": "latin_letters"
+  },
+  "ä": {
+    "value": 5164,
+    "identifier": "latin_letters"
+  },
+  "Ö": {
+    "value": 5165,
+    "identifier": "latin_letters"
+  },
+  "ö": {
+    "value": 5166,
+    "identifier": "latin_letters"
+  },
+  "Ü": {
+    "value": 5167,
+    "identifier": "latin_letters"
+  },
+  "ü": {
+    "value": 5168,
+    "identifier": "latin_letters"
+  },
+  "À": {
+    "value": 5169,
+    "identifier": "latin_letters"
+  },
+  "à": {
+    "value": 5170,
+    "identifier": "latin_letters"
+  },
+  "Â": {
+    "value": 5171,
+    "identifier": "latin_letters"
+  },
+  "â": {
+    "value": 5172,
+    "identifier": "latin_letters"
+  },
+  "É": {
+    "value": 5173,
+    "identifier": "latin_letters"
+  },
+  "é": {
+    "value": 5174,
+    "identifier": "latin_letters"
+  },
+  "È": {
+    "value": 5175,
+    "identifier": "latin_letters"
+  },
+  "è": {
+    "value": 5176,
+    "identifier": "latin_letters"
+  },
+  "Ê": {
+    "value": 5177,
+    "identifier": "latin_letters"
+  },
+  "ê": {
+    "value": 5178,
+    "identifier": "latin_letters"
+  },
+  "Ë": {
+    "value": 5179,
+    "identifier": "latin_letters"
+  },
+  "ë": {
+    "value": 5180,
+    "identifier": "latin_letters"
+  },
+  "Î": {
+    "value": 5181,
+    "identifier": "latin_letters"
+  },
+  "î": {
+    "value": 5182,
+    "identifier": "latin_letters"
+  },
+  "Ï": {
+    "value": 5183,
+    "identifier": "latin_letters"
+  },
+  "ï": {
+    "value": 5184,
+    "identifier": "latin_letters"
+  },
+  "Ô": {
+    "value": 5185,
+    "identifier": "latin_letters"
+  },
+  "ô": {
+    "value": 5186,
+    "identifier": "latin_letters"
+  },
+  "Ù": {
+    "value": 5187,
+    "identifier": "latin_letters"
+  },
+  "ù": {
+    "value": 5188,
+    "identifier": "latin_letters"
+  },
+  "Û": {
+    "value": 5189,
+    "identifier": "latin_letters"
+  },
+  "û": {
+    "value": 5190,
+    "identifier": "latin_letters"
+  },
+  "Ÿ": {
+    "value": 5193,
+    "identifier": "latin_letters"
+  },
+  "ÿ": {
+    "value": 5194,
     "identifier": "latin_letters"
   },
   "Α": {
-    "value": 5002.0,
+    "value": 5200,
+    "identifier": "greek_letters"
+  },
+  "Β": {
+    "value": 5201,
+    "identifier": "greek_letters"
+  },
+  "Γ": {
+    "value": 5202,
+    "identifier": "greek_letters"
+  },
+  "Δ": {
+    "value": 5203,
+    "identifier": "greek_letters"
+  },
+  "Ε": {
+    "value": 5204,
+    "identifier": "greek_letters"
+  },
+  "Ζ": {
+    "value": 5205,
+    "identifier": "greek_letters"
+  },
+  "Η": {
+    "value": 5206,
+    "identifier": "greek_letters"
+  },
+  "Θ": {
+    "value": 5207,
+    "identifier": "greek_letters"
+  },
+  "Ι": {
+    "value": 5208,
+    "identifier": "greek_letters"
+  },
+  "Κ": {
+    "value": 5209,
+    "identifier": "greek_letters"
+  },
+  "Λ": {
+    "value": 5210,
+    "identifier": "greek_letters"
+  },
+  "Μ": {
+    "value": 5211,
+    "identifier": "greek_letters"
+  },
+  "Ν": {
+    "value": 5212,
+    "identifier": "greek_letters"
+  },
+  "Ξ": {
+    "value": 5213,
+    "identifier": "greek_letters"
+  },
+  "Ο": {
+    "value": 5214,
+    "identifier": "greek_letters"
+  },
+  "Π": {
+    "value": 5215,
+    "identifier": "greek_letters"
+  },
+  "Ρ": {
+    "value": 5216,
+    "identifier": "greek_letters"
+  },
+  "Σ": {
+    "value": 5217,
+    "identifier": "greek_letters"
+  },
+  "Τ": {
+    "value": 5218,
+    "identifier": "greek_letters"
+  },
+  "Υ": {
+    "value": 5219,
+    "identifier": "greek_letters"
+  },
+  "Φ": {
+    "value": 5220,
+    "identifier": "greek_letters"
+  },
+  "Χ": {
+    "value": 5221,
+    "identifier": "greek_letters"
+  },
+  "Ψ": {
+    "value": 5222,
+    "identifier": "greek_letters"
+  },
+  "Ω": {
+    "value": 5223,
+    "identifier": "greek_letters"
+  },
+  "α": {
+    "value": 5224,
+    "identifier": "greek_letters"
+  },
+  "β": {
+    "value": 5225,
+    "identifier": "greek_letters"
+  },
+  "γ": {
+    "value": 5226,
+    "identifier": "greek_letters"
+  },
+  "δ": {
+    "value": 5227,
+    "identifier": "greek_letters"
+  },
+  "ε": {
+    "value": 5228,
+    "identifier": "greek_letters"
+  },
+  "ζ": {
+    "value": 5229,
+    "identifier": "greek_letters"
+  },
+  "η": {
+    "value": 5230,
+    "identifier": "greek_letters"
+  },
+  "θ": {
+    "value": 5231,
+    "identifier": "greek_letters"
+  },
+  "ι": {
+    "value": 5232,
+    "identifier": "greek_letters"
+  },
+  "κ": {
+    "value": 5233,
+    "identifier": "greek_letters"
+  },
+  "λ": {
+    "value": 5234,
+    "identifier": "greek_letters"
+  },
+  "μ": {
+    "value": 5235,
+    "identifier": "greek_letters"
+  },
+  "ν": {
+    "value": 5236,
+    "identifier": "greek_letters"
+  },
+  "ξ": {
+    "value": 5237,
+    "identifier": "greek_letters"
+  },
+  "ο": {
+    "value": 5238,
+    "identifier": "greek_letters"
+  },
+  "π": {
+    "value": 5239,
+    "identifier": "greek_letters"
+  },
+  "ρ": {
+    "value": 5240,
+    "identifier": "greek_letters"
+  },
+  "σ": {
+    "value": 5241,
+    "identifier": "greek_letters"
+  },
+  "τ": {
+    "value": 5242,
+    "identifier": "greek_letters"
+  },
+  "υ": {
+    "value": 5243,
+    "identifier": "greek_letters"
+  },
+  "φ": {
+    "value": 5244,
+    "identifier": "greek_letters"
+  },
+  "χ": {
+    "value": 5245,
+    "identifier": "greek_letters"
+  },
+  "ψ": {
+    "value": 5246,
+    "identifier": "greek_letters"
+  },
+  "ω": {
+    "value": 5247,
     "identifier": "greek_letters"
   },
   "あ": {
-    "value": 5003.0,
+    "value": 5300,
     "identifier": "kana"
   },
-  "ي": {
-    "value": 5004.0,
+  "い": {
+    "value": 5301,
+    "identifier": "kana"
+  },
+  "う": {
+    "value": 5302,
+    "identifier": "kana"
+  },
+  "え": {
+    "value": 5303,
+    "identifier": "kana"
+  },
+  "お": {
+    "value": 5304,
+    "identifier": "kana"
+  },
+  "か": {
+    "value": 5305,
+    "identifier": "kana"
+  },
+  "き": {
+    "value": 5306,
+    "identifier": "kana"
+  },
+  "く": {
+    "value": 5307,
+    "identifier": "kana"
+  },
+  "け": {
+    "value": 5308,
+    "identifier": "kana"
+  },
+  "こ": {
+    "value": 5309,
+    "identifier": "kana"
+  },
+  "さ": {
+    "value": 5310,
+    "identifier": "kana"
+  },
+  "し": {
+    "value": 5311,
+    "identifier": "kana"
+  },
+  "す": {
+    "value": 5312,
+    "identifier": "kana"
+  },
+  "せ": {
+    "value": 5313,
+    "identifier": "kana"
+  },
+  "そ": {
+    "value": 5314,
+    "identifier": "kana"
+  },
+  "た": {
+    "value": 5315,
+    "identifier": "kana"
+  },
+  "ち": {
+    "value": 5316,
+    "identifier": "kana"
+  },
+  "つ": {
+    "value": 5317,
+    "identifier": "kana"
+  },
+  "て": {
+    "value": 5318,
+    "identifier": "kana"
+  },
+  "と": {
+    "value": 5319,
+    "identifier": "kana"
+  },
+  "な": {
+    "value": 5320,
+    "identifier": "kana"
+  },
+  "に": {
+    "value": 5321,
+    "identifier": "kana"
+  },
+  "ぬ": {
+    "value": 5322,
+    "identifier": "kana"
+  },
+  "ね": {
+    "value": 5323,
+    "identifier": "kana"
+  },
+  "の": {
+    "value": 5324,
+    "identifier": "kana"
+  },
+  "は": {
+    "value": 5325,
+    "identifier": "kana"
+  },
+  "ひ": {
+    "value": 5326,
+    "identifier": "kana"
+  },
+  "ふ": {
+    "value": 5327,
+    "identifier": "kana"
+  },
+  "へ": {
+    "value": 5328,
+    "identifier": "kana"
+  },
+  "ほ": {
+    "value": 5329,
+    "identifier": "kana"
+  },
+  "ま": {
+    "value": 5330,
+    "identifier": "kana"
+  },
+  "み": {
+    "value": 5331,
+    "identifier": "kana"
+  },
+  "む": {
+    "value": 5332,
+    "identifier": "kana"
+  },
+  "め": {
+    "value": 5333,
+    "identifier": "kana"
+  },
+  "も": {
+    "value": 5334,
+    "identifier": "kana"
+  },
+  "や": {
+    "value": 5335,
+    "identifier": "kana"
+  },
+  "ゆ": {
+    "value": 5336,
+    "identifier": "kana"
+  },
+  "よ": {
+    "value": 5337,
+    "identifier": "kana"
+  },
+  "ら": {
+    "value": 5338,
+    "identifier": "kana"
+  },
+  "り": {
+    "value": 5339,
+    "identifier": "kana"
+  },
+  "る": {
+    "value": 5340,
+    "identifier": "kana"
+  },
+  "れ": {
+    "value": 5341,
+    "identifier": "kana"
+  },
+  "ろ": {
+    "value": 5342,
+    "identifier": "kana"
+  },
+  "わ": {
+    "value": 5343,
+    "identifier": "kana"
+  },
+  "を": {
+    "value": 5344,
+    "identifier": "kana"
+  },
+  "ん": {
+    "value": 5345,
+    "identifier": "kana"
+  },
+  "が": {
+    "value": 5346,
+    "identifier": "kana"
+  },
+  "ぎ": {
+    "value": 5347,
+    "identifier": "kana"
+  },
+  "ぐ": {
+    "value": 5348,
+    "identifier": "kana"
+  },
+  "げ": {
+    "value": 5349,
+    "identifier": "kana"
+  },
+  "ご": {
+    "value": 5350,
+    "identifier": "kana"
+  },
+  "ざ": {
+    "value": 5351,
+    "identifier": "kana"
+  },
+  "じ": {
+    "value": 5352,
+    "identifier": "kana"
+  },
+  "ず": {
+    "value": 5353,
+    "identifier": "kana"
+  },
+  "ぜ": {
+    "value": 5354,
+    "identifier": "kana"
+  },
+  "ぞ": {
+    "value": 5355,
+    "identifier": "kana"
+  },
+  "だ": {
+    "value": 5356,
+    "identifier": "kana"
+  },
+  "ぢ": {
+    "value": 5357,
+    "identifier": "kana"
+  },
+  "づ": {
+    "value": 5358,
+    "identifier": "kana"
+  },
+  "で": {
+    "value": 5359,
+    "identifier": "kana"
+  },
+  "ど": {
+    "value": 5360,
+    "identifier": "kana"
+  },
+  "ば": {
+    "value": 5361,
+    "identifier": "kana"
+  },
+  "び": {
+    "value": 5362,
+    "identifier": "kana"
+  },
+  "ぶ": {
+    "value": 5363,
+    "identifier": "kana"
+  },
+  "べ": {
+    "value": 5364,
+    "identifier": "kana"
+  },
+  "ぼ": {
+    "value": 5365,
+    "identifier": "kana"
+  },
+  "ぱ": {
+    "value": 5366,
+    "identifier": "kana"
+  },
+  "ぴ": {
+    "value": 5367,
+    "identifier": "kana"
+  },
+  "ぷ": {
+    "value": 5368,
+    "identifier": "kana"
+  },
+  "ぺ": {
+    "value": 5369,
+    "identifier": "kana"
+  },
+  "ぽ": {
+    "value": 5370,
+    "identifier": "kana"
+  },
+  "っ": {
+    "value": 5371,
+    "identifier": "kana"
+  },
+  "ゃ": {
+    "value": 5372,
+    "identifier": "kana"
+  },
+  "ゅ": {
+    "value": 5373,
+    "identifier": "kana"
+  },
+  "ょ": {
+    "value": 5374,
+    "identifier": "kana"
+  },
+  "ア": {
+    "value": 5375,
+    "identifier": "kana"
+  },
+  "イ": {
+    "value": 5376,
+    "identifier": "kana"
+  },
+  "ウ": {
+    "value": 5377,
+    "identifier": "kana"
+  },
+  "エ": {
+    "value": 5378,
+    "identifier": "kana"
+  },
+  "オ": {
+    "value": 5379,
+    "identifier": "kana"
+  },
+  "カ": {
+    "value": 5380,
+    "identifier": "kana"
+  },
+  "キ": {
+    "value": 5381,
+    "identifier": "kana"
+  },
+  "ク": {
+    "value": 5382,
+    "identifier": "kana"
+  },
+  "ケ": {
+    "value": 5383,
+    "identifier": "kana"
+  },
+  "コ": {
+    "value": 5384,
+    "identifier": "kana"
+  },
+  "サ": {
+    "value": 5385,
+    "identifier": "kana"
+  },
+  "シ": {
+    "value": 5386,
+    "identifier": "kana"
+  },
+  "ス": {
+    "value": 5387,
+    "identifier": "kana"
+  },
+  "セ": {
+    "value": 5388,
+    "identifier": "kana"
+  },
+  "ソ": {
+    "value": 5389,
+    "identifier": "kana"
+  },
+  "タ": {
+    "value": 5390,
+    "identifier": "kana"
+  },
+  "チ": {
+    "value": 5391,
+    "identifier": "kana"
+  },
+  "ツ": {
+    "value": 5392,
+    "identifier": "kana"
+  },
+  "テ": {
+    "value": 5393,
+    "identifier": "kana"
+  },
+  "ト": {
+    "value": 5394,
+    "identifier": "kana"
+  },
+  "ナ": {
+    "value": 5395,
+    "identifier": "kana"
+  },
+  "ニ": {
+    "value": 5396,
+    "identifier": "kana"
+  },
+  "ヌ": {
+    "value": 5397,
+    "identifier": "kana"
+  },
+  "ネ": {
+    "value": 5398,
+    "identifier": "kana"
+  },
+  "ノ": {
+    "value": 5399,
+    "identifier": "kana"
+  },
+  "ハ": {
+    "value": 5400,
+    "identifier": "kana"
+  },
+  "ヒ": {
+    "value": 5401,
+    "identifier": "kana"
+  },
+  "フ": {
+    "value": 5402,
+    "identifier": "kana"
+  },
+  "ヘ": {
+    "value": 5403,
+    "identifier": "kana"
+  },
+  "ホ": {
+    "value": 5404,
+    "identifier": "kana"
+  },
+  "マ": {
+    "value": 5405,
+    "identifier": "kana"
+  },
+  "ミ": {
+    "value": 5406,
+    "identifier": "kana"
+  },
+  "ム": {
+    "value": 5407,
+    "identifier": "kana"
+  },
+  "メ": {
+    "value": 5408,
+    "identifier": "kana"
+  },
+  "モ": {
+    "value": 5409,
+    "identifier": "kana"
+  },
+  "ヤ": {
+    "value": 5410,
+    "identifier": "kana"
+  },
+  "ユ": {
+    "value": 5411,
+    "identifier": "kana"
+  },
+  "ヨ": {
+    "value": 5412,
+    "identifier": "kana"
+  },
+  "ラ": {
+    "value": 5413,
+    "identifier": "kana"
+  },
+  "リ": {
+    "value": 5414,
+    "identifier": "kana"
+  },
+  "ル": {
+    "value": 5415,
+    "identifier": "kana"
+  },
+  "レ": {
+    "value": 5416,
+    "identifier": "kana"
+  },
+  "ロ": {
+    "value": 5417,
+    "identifier": "kana"
+  },
+  "ワ": {
+    "value": 5418,
+    "identifier": "kana"
+  },
+  "ヲ": {
+    "value": 5419,
+    "identifier": "kana"
+  },
+  "ン": {
+    "value": 5420,
+    "identifier": "kana"
+  },
+  "ガ": {
+    "value": 5421,
+    "identifier": "kana"
+  },
+  "ギ": {
+    "value": 5422,
+    "identifier": "kana"
+  },
+  "グ": {
+    "value": 5423,
+    "identifier": "kana"
+  },
+  "ゲ": {
+    "value": 5424,
+    "identifier": "kana"
+  },
+  "ゴ": {
+    "value": 5425,
+    "identifier": "kana"
+  },
+  "ザ": {
+    "value": 5426,
+    "identifier": "kana"
+  },
+  "ジ": {
+    "value": 5427,
+    "identifier": "kana"
+  },
+  "ズ": {
+    "value": 5428,
+    "identifier": "kana"
+  },
+  "ゼ": {
+    "value": 5429,
+    "identifier": "kana"
+  },
+  "ゾ": {
+    "value": 5430,
+    "identifier": "kana"
+  },
+  "ダ": {
+    "value": 5431,
+    "identifier": "kana"
+  },
+  "ヂ": {
+    "value": 5432,
+    "identifier": "kana"
+  },
+  "ヅ": {
+    "value": 5433,
+    "identifier": "kana"
+  },
+  "デ": {
+    "value": 5434,
+    "identifier": "kana"
+  },
+  "ド": {
+    "value": 5435,
+    "identifier": "kana"
+  },
+  "バ": {
+    "value": 5436,
+    "identifier": "kana"
+  },
+  "ビ": {
+    "value": 5437,
+    "identifier": "kana"
+  },
+  "ブ": {
+    "value": 5438,
+    "identifier": "kana"
+  },
+  "ベ": {
+    "value": 5439,
+    "identifier": "kana"
+  },
+  "ボ": {
+    "value": 5440,
+    "identifier": "kana"
+  },
+  "パ": {
+    "value": 5441,
+    "identifier": "kana"
+  },
+  "ピ": {
+    "value": 5442,
+    "identifier": "kana"
+  },
+  "プ": {
+    "value": 5443,
+    "identifier": "kana"
+  },
+  "ペ": {
+    "value": 5444,
+    "identifier": "kana"
+  },
+  "ポ": {
+    "value": 5445,
+    "identifier": "kana"
+  },
+  "ッ": {
+    "value": 5446,
+    "identifier": "kana"
+  },
+  "ャ": {
+    "value": 5447,
+    "identifier": "kana"
+  },
+  "ュ": {
+    "value": 5448,
+    "identifier": "kana"
+  },
+  "ョ": {
+    "value": 5449,
+    "identifier": "kana"
+  },
+  "ا": {
+    "value": 5450,
     "identifier": "arabic_letters"
   },
+  "ب": {
+    "value": 5451,
+    "identifier": "arabic_letters"
+  },
+  "ت": {
+    "value": 5452,
+    "identifier": "arabic_letters"
+  },
+  "ث": {
+    "value": 5453,
+    "identifier": "arabic_letters"
+  },
+  "ج": {
+    "value": 5454,
+    "identifier": "arabic_letters"
+  },
+  "ح": {
+    "value": 5455,
+    "identifier": "arabic_letters"
+  },
+  "خ": {
+    "value": 5456,
+    "identifier": "arabic_letters"
+  },
+  "د": {
+    "value": 5457,
+    "identifier": "arabic_letters"
+  },
+  "ذ": {
+    "value": 5458,
+    "identifier": "arabic_letters"
+  },
+  "ر": {
+    "value": 5459,
+    "identifier": "arabic_letters"
+  },
+  "ز": {
+    "value": 5460,
+    "identifier": "arabic_letters"
+  },
+  "س": {
+    "value": 5461,
+    "identifier": "arabic_letters"
+  },
+  "ش": {
+    "value": 5462,
+    "identifier": "arabic_letters"
+  },
+  "ص": {
+    "value": 5463,
+    "identifier": "arabic_letters"
+  },
+  "ض": {
+    "value": 5464,
+    "identifier": "arabic_letters"
+  },
+  "ط": {
+    "value": 5465,
+    "identifier": "arabic_letters"
+  },
+  "ظ": {
+    "value": 5466,
+    "identifier": "arabic_letters"
+  },
+  "ع": {
+    "value": 5467,
+    "identifier": "arabic_letters"
+  },
+  "غ": {
+    "value": 5468,
+    "identifier": "arabic_letters"
+  },
+  "ف": {
+    "value": 5469,
+    "identifier": "arabic_letters"
+  },
+  "ق": {
+    "value": 5470,
+    "identifier": "arabic_letters"
+  },
+  "ك": {
+    "value": 5471,
+    "identifier": "arabic_letters"
+  },
+  "ل": {
+    "value": 5472,
+    "identifier": "arabic_letters"
+  },
+  "م": {
+    "value": 5473,
+    "identifier": "arabic_letters"
+  },
+  "ن": {
+    "value": 5474,
+    "identifier": "arabic_letters"
+  },
+  "ه": {
+    "value": 5475,
+    "identifier": "arabic_letters"
+  },
+  "و": {
+    "value": 5476,
+    "identifier": "arabic_letters"
+  },
+  "ي": {
+    "value": 5477,
+    "identifier": "arabic_letters"
+  },
+  "А": {
+    "value": 5500,
+    "identifier": "cyrillic_letters"
+  },
+  "Б": {
+    "value": 5501,
+    "identifier": "cyrillic_letters"
+  },
+  "В": {
+    "value": 5502,
+    "identifier": "cyrillic_letters"
+  },
+  "Г": {
+    "value": 5503,
+    "identifier": "cyrillic_letters"
+  },
   "Д": {
-    "value": 5005.0,
+    "value": 5504,
+    "identifier": "cyrillic_letters"
+  },
+  "Е": {
+    "value": 5505,
+    "identifier": "cyrillic_letters"
+  },
+  "Ё": {
+    "value": 5506,
+    "identifier": "cyrillic_letters"
+  },
+  "Ж": {
+    "value": 5507,
+    "identifier": "cyrillic_letters"
+  },
+  "З": {
+    "value": 5508,
+    "identifier": "cyrillic_letters"
+  },
+  "И": {
+    "value": 5509,
+    "identifier": "cyrillic_letters"
+  },
+  "Й": {
+    "value": 5510,
+    "identifier": "cyrillic_letters"
+  },
+  "К": {
+    "value": 5511,
+    "identifier": "cyrillic_letters"
+  },
+  "Л": {
+    "value": 5512,
+    "identifier": "cyrillic_letters"
+  },
+  "М": {
+    "value": 5513,
+    "identifier": "cyrillic_letters"
+  },
+  "Н": {
+    "value": 5514,
+    "identifier": "cyrillic_letters"
+  },
+  "О": {
+    "value": 5515,
+    "identifier": "cyrillic_letters"
+  },
+  "П": {
+    "value": 5516,
+    "identifier": "cyrillic_letters"
+  },
+  "Р": {
+    "value": 5517,
+    "identifier": "cyrillic_letters"
+  },
+  "С": {
+    "value": 5518,
+    "identifier": "cyrillic_letters"
+  },
+  "Т": {
+    "value": 5519,
+    "identifier": "cyrillic_letters"
+  },
+  "У": {
+    "value": 5520,
+    "identifier": "cyrillic_letters"
+  },
+  "Ф": {
+    "value": 5521,
+    "identifier": "cyrillic_letters"
+  },
+  "Х": {
+    "value": 5522,
+    "identifier": "cyrillic_letters"
+  },
+  "Ц": {
+    "value": 5523,
+    "identifier": "cyrillic_letters"
+  },
+  "Ч": {
+    "value": 5524,
+    "identifier": "cyrillic_letters"
+  },
+  "Ш": {
+    "value": 5525,
+    "identifier": "cyrillic_letters"
+  },
+  "Щ": {
+    "value": 5526,
+    "identifier": "cyrillic_letters"
+  },
+  "Ъ": {
+    "value": 5527,
+    "identifier": "cyrillic_letters"
+  },
+  "Ы": {
+    "value": 5528,
+    "identifier": "cyrillic_letters"
+  },
+  "Ь": {
+    "value": 5529,
+    "identifier": "cyrillic_letters"
+  },
+  "Э": {
+    "value": 5530,
+    "identifier": "cyrillic_letters"
+  },
+  "Ю": {
+    "value": 5531,
+    "identifier": "cyrillic_letters"
+  },
+  "Я": {
+    "value": 5532,
+    "identifier": "cyrillic_letters"
+  },
+  "а": {
+    "value": 5533,
+    "identifier": "cyrillic_letters"
+  },
+  "б": {
+    "value": 5534,
+    "identifier": "cyrillic_letters"
+  },
+  "в": {
+    "value": 5535,
+    "identifier": "cyrillic_letters"
+  },
+  "г": {
+    "value": 5536,
+    "identifier": "cyrillic_letters"
+  },
+  "д": {
+    "value": 5537,
+    "identifier": "cyrillic_letters"
+  },
+  "е": {
+    "value": 5538,
+    "identifier": "cyrillic_letters"
+  },
+  "ё": {
+    "value": 5539,
+    "identifier": "cyrillic_letters"
+  },
+  "ж": {
+    "value": 5540,
+    "identifier": "cyrillic_letters"
+  },
+  "з": {
+    "value": 5541,
+    "identifier": "cyrillic_letters"
+  },
+  "и": {
+    "value": 5542,
+    "identifier": "cyrillic_letters"
+  },
+  "й": {
+    "value": 5543,
+    "identifier": "cyrillic_letters"
+  },
+  "к": {
+    "value": 5544,
+    "identifier": "cyrillic_letters"
+  },
+  "л": {
+    "value": 5545,
+    "identifier": "cyrillic_letters"
+  },
+  "м": {
+    "value": 5546,
+    "identifier": "cyrillic_letters"
+  },
+  "н": {
+    "value": 5547,
+    "identifier": "cyrillic_letters"
+  },
+  "о": {
+    "value": 5548,
+    "identifier": "cyrillic_letters"
+  },
+  "п": {
+    "value": 5549,
+    "identifier": "cyrillic_letters"
+  },
+  "р": {
+    "value": 5550,
+    "identifier": "cyrillic_letters"
+  },
+  "с": {
+    "value": 5551,
+    "identifier": "cyrillic_letters"
+  },
+  "т": {
+    "value": 5552,
+    "identifier": "cyrillic_letters"
+  },
+  "у": {
+    "value": 5553,
+    "identifier": "cyrillic_letters"
+  },
+  "ф": {
+    "value": 5554,
+    "identifier": "cyrillic_letters"
+  },
+  "х": {
+    "value": 5555,
+    "identifier": "cyrillic_letters"
+  },
+  "ц": {
+    "value": 5556,
+    "identifier": "cyrillic_letters"
+  },
+  "ч": {
+    "value": 5557,
+    "identifier": "cyrillic_letters"
+  },
+  "ш": {
+    "value": 5558,
+    "identifier": "cyrillic_letters"
+  },
+  "щ": {
+    "value": 5559,
+    "identifier": "cyrillic_letters"
+  },
+  "ъ": {
+    "value": 5560,
+    "identifier": "cyrillic_letters"
+  },
+  "ы": {
+    "value": 5561,
+    "identifier": "cyrillic_letters"
+  },
+  "ь": {
+    "value": 5562,
+    "identifier": "cyrillic_letters"
+  },
+  "э": {
+    "value": 5563,
+    "identifier": "cyrillic_letters"
+  },
+  "ю": {
+    "value": 5564,
+    "identifier": "cyrillic_letters"
+  },
+  "я": {
+    "value": 5565,
+    "identifier": "cyrillic_letters"
+  },
+  "Є": {
+    "value": 5566,
+    "identifier": "cyrillic_letters"
+  },
+  "І": {
+    "value": 5567,
+    "identifier": "cyrillic_letters"
+  },
+  "Ї": {
+    "value": 5568,
+    "identifier": "cyrillic_letters"
+  },
+  "Ў": {
+    "value": 5569,
+    "identifier": "cyrillic_letters"
+  },
+  "Ґ": {
+    "value": 5570,
+    "identifier": "cyrillic_letters"
+  },
+  "Ђ": {
+    "value": 5571,
+    "identifier": "cyrillic_letters"
+  },
+  "Ћ": {
+    "value": 5572,
+    "identifier": "cyrillic_letters"
+  },
+  "Џ": {
+    "value": 5573,
+    "identifier": "cyrillic_letters"
+  },
+  "Љ": {
+    "value": 5574,
+    "identifier": "cyrillic_letters"
+  },
+  "Њ": {
+    "value": 5575,
+    "identifier": "cyrillic_letters"
+  },
+  "ђ": {
+    "value": 5576,
+    "identifier": "cyrillic_letters"
+  },
+  "ћ": {
+    "value": 5577,
+    "identifier": "cyrillic_letters"
+  },
+  "џ": {
+    "value": 5578,
+    "identifier": "cyrillic_letters"
+  },
+  "љ": {
+    "value": 5579,
+    "identifier": "cyrillic_letters"
+  },
+  "њ": {
+    "value": 5580,
+    "identifier": "cyrillic_letters"
+  },
+  "ј": {
+    "value": 5581,
     "identifier": "cyrillic_letters"
   },
   "simple": {
-    "value": 6000.0,
+    "value": 6000,
     "identifier": "simple_noncharacter_component",
     "structure": "SAME",
     "components": ["simple2"]
   },
   "reversal": {
-    "value": 6001.0,
+    "value": 6001,
     "identifier": "character_reversal"
   },
   "complex": {
-    "value": 6002.0,
+    "value": 6002,
     "identifier": "complex_character_component",
     "structure": "SQUARE",
     "components": ["simple", "simple", "simple", "simple"]
   },
   "simple2": {
-    "value": 6003.0,
+    "value": 6003,
     "identifier": "simple_character_component2",
     "structure": "SAME",
     "components": ["simple"]
   },
   "LGhast": {
-    "value": 7000.0,
+    "value": 7000,
     "identifier": "lghast"
   },
   "Minecraft": {
-    "value": 7001.0,
+    "value": 7001,
     "identifier": "minecraft"
   }
 }

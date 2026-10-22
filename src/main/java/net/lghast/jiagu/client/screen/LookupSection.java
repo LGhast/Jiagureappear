@@ -2,7 +2,7 @@ package net.lghast.jiagu.client.screen;
 
 import net.minecraft.network.chat.Component;
 
-public enum DisplayMode {
+public enum LookupSection {
     ASSEMBLY_RECIPE("gui.jiagureappear.dictionary.assembly_recipe"),
     ASSEMBLY_LIST("gui.jiagureappear.dictionary.assembly_list"),
     RELATED_ITEMS("gui.jiagureappear.dictionary.related_items"),
@@ -13,7 +13,7 @@ public enum DisplayMode {
 
     private final String displayName;
 
-    DisplayMode(String displayName) {
+    LookupSection(String displayName) {
         this.displayName = displayName;
     }
 

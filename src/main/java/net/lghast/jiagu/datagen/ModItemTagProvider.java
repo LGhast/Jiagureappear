@@ -66,7 +66,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BONE_LAMELLA.asItem())
                 .add(ModItems.TURTLE_PLASTRON.asItem())
                 .add(Items.TURTLE_HELMET)
-                .add(ModItems.YELLOW_PAPER.asItem())
         ;
 
         tag(ModTags.JIAGU_LUCKY_BLOCK_ITEMS)

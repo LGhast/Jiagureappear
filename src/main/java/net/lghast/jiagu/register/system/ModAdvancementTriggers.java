@@ -5,7 +5,6 @@ import net.neoforged.bus.api.IEventBus;
 
 public class ModAdvancementTriggers {
     public static void register(IEventBus modEventBus){
-        IdiomFormedTrigger.TRIGGER_TYPES.register(modEventBus);
         DisassembleTrigger.TRIGGER_TYPES.register(modEventBus);
         RubTrigger.TRIGGER_TYPES.register(modEventBus);
         RubEnchantmentTrigger.TRIGGER_TYPES.register(modEventBus);

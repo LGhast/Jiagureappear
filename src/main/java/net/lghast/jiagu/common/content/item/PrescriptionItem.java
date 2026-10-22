@@ -4,10 +4,13 @@ import net.lghast.jiagu.common.system.datacomponent.Prescription;
 import net.lghast.jiagu.register.system.ModDataComponents;
 import net.lghast.jiagu.utils.ModUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.*;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
@@ -51,11 +54,25 @@ public class PrescriptionItem extends Item {
         super.appendHoverText(stack, context, components, tooltipFlag);
         MobEffect effect = getEffect(stack);
         if(effect!= null) {
-            components.add(Component.translatable("tooltip.jiagureappear.prescription", ModUtils.modifyName(effect), effect.getDisplayName())
-                    .withStyle(ChatFormatting.GRAY));
+            String lzhName = ModUtils.modifyName(effect);
+            if (lzhName == null) {
+                lzhName = effect.getDisplayName().getString();
+            }
+            if (isLzhLanguage()) {
+                components.add(Component.translatable("tooltip.jiagureappear.prescription_lzh", lzhName)
+                        .withStyle(ChatFormatting.GRAY));
+            } else {
+                components.add(Component.translatable("tooltip.jiagureappear.prescription", lzhName, effect.getDisplayName())
+                        .withStyle(ChatFormatting.GRAY));
+            }
         }else{
             components.add(Component.translatable("tooltip.jiagureappear.prescription_no")
                     .withStyle(ChatFormatting.DARK_GRAY));
         }
+    }
+
+    private static boolean isLzhLanguage() {
+        return FMLEnvironment.dist == Dist.CLIENT
+                && "lzh".equals(Minecraft.getInstance().getLanguageManager().getSelected());
     }
 }

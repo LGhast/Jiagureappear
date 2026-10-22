@@ -3,6 +3,12 @@ package net.lghast.jiagu.character;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the visual layout of a Chinese character as a 3x3 grid.
+ * Each constant encodes a shape via a template string: ';' separates the
+ * three rows, letters A-E are component placeholders, and spaces are empty
+ * cells (see {@link #getComponentList(List)}).
+ */
 public enum CharacterStructure {
     HORIZONTAL("   ;AB ;   "),
     VERTICAL(" A ; B ;   "),
@@ -32,6 +38,14 @@ public enum CharacterStructure {
         this.format = format;
     }
 
+    /**
+     * Expands the shape template into a 9-cell list (row-major).
+     * A cell is null for empty space, otherwise the component mapped by the
+     * letter's index (A=0, B=1, ...).
+     *
+     * @param components ordered component names
+     * @return always exactly 9 elements
+     */
     public List<String> getComponentList(List<String> components) {
         List<String> result = new ArrayList<>();
 

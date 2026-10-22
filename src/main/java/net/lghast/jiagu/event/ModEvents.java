@@ -8,8 +8,11 @@ import net.lghast.jiagu.register.content.ModItems;
 import net.lghast.jiagu.register.content.ModPotions;
 import net.lghast.jiagu.register.content.ModVillagers;
 import net.lghast.jiagu.character.CharacterInfo;
+import net.lghast.jiagu.register.system.ModAttachments;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -23,6 +26,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
@@ -122,7 +126,7 @@ public class ModEvents {
                 ItemStack itemStack = new ItemStack(ModItems.CHARACTER_ITEM.get(), 1);
                 String luckyInscription = CharacterInfo.getLuckyInscriptionAny(randomSource);
                 CharacterItem.setInscription(itemStack, luckyInscription);
-                int level = (int)(CharacterInfo.getFloatValue(luckyInscription)/1000);
+                int level = CharacterInfo.getIntValue(luckyInscription) / 1000;
                 int cost = switch (level) {
                     case 0,6 -> 3;
                     case 1 -> 6;
@@ -147,6 +151,19 @@ public class ModEvents {
                     new ItemCost(ModItems.SOUR_BERRIES, 10),
                     new ItemStack(Items.EMERALD, 1), 36, 30, 0.05f
             ));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            if (!player.getData(ModAttachments.WELCOME_SHOWN.get())) {
+                player.setData(ModAttachments.WELCOME_SHOWN.get(), true);
+                player.sendSystemMessage(Component.translatable("welcome.jiagureappear.line1"));
+                player.sendSystemMessage(Component.translatable("welcome.jiagureappear.line2"));
+                player.sendSystemMessage(Component.translatable("welcome.jiagureappear.line3"));
+                player.sendSystemMessage(Component.translatable("welcome.jiagureappear.line4"));
+            }
         }
     }
 }

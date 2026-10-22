@@ -35,5 +35,11 @@ public class NetworkRegistry {
                 OpenCharacterCrafterPayload.STREAM_CODEC,
                 OpenCharacterCrafterPayload::handle
         );
+
+        registrar.playToClient(
+                IdiomCollectedPayload.TYPE,
+                IdiomCollectedPayload.STREAM_CODEC,
+                IdiomCollectedPayload::handle
+        );
     }
 }

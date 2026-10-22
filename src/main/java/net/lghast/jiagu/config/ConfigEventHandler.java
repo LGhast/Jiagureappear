@@ -8,6 +8,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 
 @SuppressWarnings("unused")
 @EventBusSubscriber(modid = JiaguReappear.MOD_ID, value = Dist.CLIENT)
@@ -19,7 +20,6 @@ public class ConfigEventHandler {
         }
         if (event.getConfig().getSpec() == CommonConfig.SPEC) {
             CharacterInfo.reloadFromConfig();
-            LzhMappings.initialize();
         }
     }
 
@@ -32,5 +32,10 @@ public class ConfigEventHandler {
             CharacterInfo.reloadFromConfig();
             LzhMappings.reloadFromConfig();
         }
+    }
+
+    @SubscribeEvent
+    public static void onLoadComplete(FMLLoadCompleteEvent event) {
+        LzhMappings.initialize();
     }
 }

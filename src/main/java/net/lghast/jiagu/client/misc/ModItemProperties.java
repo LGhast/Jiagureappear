@@ -18,7 +18,7 @@ public class ModItemProperties {
                 propertyIdInscription,
                 (stack, level, entity, seed) -> {
                     String inscription = CharacterItem.getInscription(stack);
-                    return CharacterInfo.getFloatValue(inscription);
+                    return CharacterInfo.getIntValue(inscription);
                 });
 
         PrescriptionInfo.reloadFromConfig();

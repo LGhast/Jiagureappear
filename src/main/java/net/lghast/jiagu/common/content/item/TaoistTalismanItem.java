@@ -36,6 +36,11 @@ public class TaoistTalismanItem extends Item {
     }
 
     @Override
+    public boolean isFoil(ItemStack stack) {
+        return !getSpell(stack).isEmpty();
+    }
+
+    @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         Spell spell = getSpell(stack);
         if(spell.isEmpty()) return;

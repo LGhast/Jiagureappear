@@ -54,8 +54,7 @@ public class ModDataComponents {
     public static final Codec<Spell> SPELL_CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Enchantment.CODEC.optionalFieldOf("enchantment").forGetter(Spell::enchantment),
-                    Codec.INT.optionalFieldOf("level", 0).forGetter(Spell::level),
-                    Codec.STRING.optionalFieldOf("spell_name", "").forGetter(Spell::spellName)
+                    Codec.INT.optionalFieldOf("level", 0).forGetter(Spell::level)
             ).apply(instance, Spell::new)
     );
 
@@ -65,8 +64,6 @@ public class ModDataComponents {
                     Spell::enchantment,
                     ByteBufCodecs.INT,
                     Spell::level,
-                    ByteBufCodecs.STRING_UTF8,
-                    Spell::spellName,
                     Spell::new
             );
 
