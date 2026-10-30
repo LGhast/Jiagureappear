@@ -70,15 +70,15 @@ public class DictionaryScreen extends AbstractContainerScreen<DictionaryMenu> {
     private static final int ITEM_PREVIEW_X = 212;
     private static final int ITEM_PREVIEW_Y = 19;
 
-    private static final int WIDGET_X = 173;
-    private static final int WIDGET_Y = 55;
+    private static final int WIDGET_X = 174;
+    private static final int WIDGET_Y = 56;
     private static final int WIDGET_WIDTH = 103;
     private static final int WIDGET_HEIGHT = 112;
 
-    private static final int PREV_BUTTON_X = 161;
-    private static final int PREV_BUTTON_Y = 54;
-    private static final int NEXT_BUTTON_X = 161;
-    private static final int NEXT_BUTTON_Y = 149;
+    private static final int PREV_BUTTON_X = 162;
+    private static final int PREV_BUTTON_Y = 55;
+    private static final int NEXT_BUTTON_X = 162;
+    private static final int NEXT_BUTTON_Y = 150;
     private static final int BUTTON_SIZE = 12;
 
     private static final int SECTION_BUTTON_START_X = 32;
@@ -487,7 +487,7 @@ public class DictionaryScreen extends AbstractContainerScreen<DictionaryMenu> {
             int lineStep = (int) (this.font.lineHeight * scale) + 1;
             int totalHeight = lines.size() * lineStep;
             int maxHeight = IDIOM_DESCRIPTION_PAGE_BUTTON_Y - IDIOM_DESCRIPTION_Y;
-            if (totalHeight <= maxHeight || scale <= 0.5f) {
+            if (totalHeight <= maxHeight || scale <= 0.3f) {
                 break;
             }
             scale -= 0.05f;

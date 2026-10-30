@@ -787,7 +787,7 @@
     "value": 176,
     "identifier": "xian_trap",
     "structure": "VERTICAL",
-    "components": ["人", "simple"]
+    "components": ["人", "simple2"]
   },
   "丙": {
     "value": 177,
@@ -1268,6 +1268,44 @@
   "萬": {
     "value": 281,
     "identifier": "wan_scorpion"
+  },
+  "勹": {
+    "value": 282,
+    "identifier": "bao_hug"
+  },
+  "巤": {
+    "value": 283,
+    "identifier": "lie_hair"
+  },
+  "壺": {
+    "value": 284,
+    "identifier": "hu_pot"
+  },
+  "翏": {
+    "value": 285,
+    "identifier": "liu_fly",
+    "structure": "VERTICAL",
+    "components": ["羽", "simple"]
+  },
+  "轡": {
+    "value": 286,
+    "identifier": "pei_reins",
+    "structure": "VERTICAL",
+    "components": ["叀", "complex"]
+  },
+  "千": {
+    "value": 287,
+    "identifier": "qian_thousand",
+    "structure": "VERTICAL",
+    "components": ["人", "simple"]
+  },
+  "它": {
+    "value": 288,
+    "identifier": "ta_snake"
+  },
+  "巳": {
+    "value": 289,
+    "identifier": "si_fetus"
   },
   "林": {
     "value": 1000,
@@ -3369,6 +3407,126 @@
     "structure": "VERTICAL",
     "components": ["厂", "萬"]
   },
+  "時": {
+    "value": 1350,
+    "identifier": "shi_time",
+    "structure": "VERTICAL",
+    "components": ["之", "日"]
+  },
+  "軍": {
+    "value": 1351,
+    "identifier": "jun_army",
+    "structure": "VERTICAL",
+    "components": ["勹", "車"]
+  },
+  "胃": {
+    "value": 1352,
+    "identifier": "wei_stomach",
+    "structure": "VERTICAL",
+    "components": ["complex", "肉"]
+  },
+  "作": {
+    "value": 1353,
+    "identifier": "zuo_work",
+    "structure": "HORIZONTAL",
+    "components": ["人", "乍"]
+  },
+  "甫": {
+    "value": 1354,
+    "identifier": "fu_garden",
+    "structure": "VERTICAL",
+    "components": ["屮", "田"]
+  },
+  "樹": {
+    "value": 1355,
+    "identifier": "shu_tree",
+    "structure": "HORIZONTAL",
+    "components": ["木", "又"]
+  },
+  "蠟": {
+    "value": 1356,
+    "identifier": "la_wax",
+    "structure": "HORIZONTAL",
+    "components": ["虫", "巤"]
+  },
+  "縞": {
+    "value": 1357,
+    "identifier": "gao_pale",
+    "structure": "HORIZONTAL",
+    "components": ["糸", "高"]
+  },
+  "臨": {
+    "value": 1358,
+    "identifier": "lin_administer",
+    "structure": "TRIANGLE_RIGHT_INVERT",
+    "components": ["臣", "人", "complex"]
+  },
+  "膠": {
+    "value": 1359,
+    "identifier": "jiao_glue",
+    "structure": "HORIZONTAL",
+    "components": ["肉", "翏"]
+  },
+  "仁": {
+    "value": 1360,
+    "identifier": "ren_benevolent",
+    "structure": "HORIZONTAL",
+    "components": ["人", "二"]
+  },
+  "濟": {
+    "value": 1361,
+    "identifier": "ji_help",
+    "structure": "HORIZONTAL",
+    "components": ["水", "齊"]
+  },
+  "疾": {
+    "value": 1362,
+    "identifier": "ji_illness",
+    "structure": "BIAS",
+    "components": ["人", "矢"]
+  },
+  "凋": {
+    "value": 1363,
+    "identifier": "diao_wither",
+    "structure": "HORIZONTAL",
+    "components": ["仌", "周"]
+  },
+  "橫": {
+    "value": 1364,
+    "identifier": "heng_horizontal",
+    "structure": "HORIZONTAL",
+    "components": ["木", "黃"]
+  },
+  "戠": {
+    "value": 1365,
+    "identifier": "zhi_zhi",
+    "structure": "HORIZONTAL",
+    "components": ["complex", "戈"]
+  },
+  "沈": {
+    "value": 1366,
+    "identifier": "shen_sink",
+    "structure": "HORIZONTAL_LONG",
+    "components": ["水", "牛", "水"]
+  },
+  "沉": {
+    "value": 1367,
+    "identifier": "chen_sink",
+    "structure": "SAME",
+    "components": ["沈"]
+  },
+  "駝": {
+    "value": 1368,
+    "identifier": "tuo_camel",
+    "structure": "HORIZONTAL",
+    "components": ["馬", "它"]
+  },
+  "包": {
+    "value": 1369,
+    "identifier": "bao_bag",
+    "structure": "VERTICAL",
+    "components": ["勹", "巳"]
+  },
   "嚴": {
     "value": 2000,
     "identifier": "yan_strict",
@@ -4921,6 +5079,60 @@
     "structure": "HORIZONTAL",
     "components": ["石", "厲"]
   },
+  "運": {
+    "value": 2259,
+    "identifier": "yun_run",
+    "structure": "HORIZONTAL",
+    "components": ["辵", "軍"]
+  },
+  "暉": {
+    "value": 2260,
+    "identifier": "hui_sunlight",
+    "structure": "HORIZONTAL",
+    "components": ["日", "軍"]
+  },
+  "尃": {
+    "value": 2261,
+    "identifier": "fu_disperse",
+    "structure": "VERTICAL",
+    "components": ["甫", "又"]
+  },
+  "焚": {
+    "value": 2262,
+    "identifier": "fen_burn",
+    "structure": "VERTICAL",
+    "components": ["林", "火"]
+  },
+  "疴": {
+    "value": 2263,
+    "identifier": "ke_illness",
+    "structure": "HORIZONTAL",
+    "components": ["疒", "可"]
+  },
+  "髑": {
+    "value": 2264,
+    "identifier": "du_skull",
+    "structure": "HORIZONTAL",
+    "components": ["骨", "蜀"]
+  },
+  "熾": {
+    "value": 2265,
+    "identifier": "chi_burn",
+    "structure": "HORIZONTAL",
+    "components": ["火", "戠"]
+  },
+  "蟙": {
+    "value": 2266,
+    "identifier": "zhi_bat",
+    "structure": "HORIZONTAL",
+    "components": ["虫", "戠"]
+  },
+  "泡": {
+    "value": 2267,
+    "identifier": "pao_bubble",
+    "structure": "HORIZONTAL",
+    "components": ["水", "包"]
+  },
   "巖": {
     "value": 3000,
     "identifier": "yan_rock",
@@ -5148,6 +5360,12 @@
     "identifier": "xian_dance",
     "structure": "HORIZONTAL",
     "components": ["足", "遷"]
+  },
+  "博": {
+    "value": 3038,
+    "identifier": "bo_erudite",
+    "structure": "HORIZONTAL",
+    "components": ["干", "尃"]
   },
   "0": {
     "value": 5000,

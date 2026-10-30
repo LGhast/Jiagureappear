@@ -8,6 +8,7 @@
   "bogged": "濘髑",
   "breeze": "風靈",
   "camel": "橐駝",
+  "camel_husk": "枯橐駝",
   "cat": "貓",
   "cave_spider": "穴蛛",
   "chicken": "雞",
@@ -39,8 +40,10 @@
   "magma_cube": "火漿魔",
   "mooshroom": "牟蕈",
   "mule": "騾",
+  "nautilus": "鸚鵡螺",
   "ocelot": "虎貓",
   "panda": "貓熊",
+  "parched": "枯髑",
   "parrot": "鸚鵡",
   "phantom": "魘靈",
   "pig": "豕",
@@ -79,6 +82,7 @@
   "zoglin": "屍化獷豕",
   "zombie": "殭屍",
   "zombie_horse": "屍馬",
-  "zombie_villager": "屍化鄉民",
-  "zombified_piglin": "屍化豕靈"
+  "zombie_nautilus": "屍鸚鵡螺",
+  "zombified_piglin": "屍化豕靈",
+  "zombie_villager": "屍化鄉民"
 }

@@ -22,5 +22,9 @@
   "maiduhuanzhu": { "characters": "買櫝還珠", "icon": "minecraft:ender_chest" },
   "fucizixiao": { "characters": "父慈子孝", "icon": "minecraft:egg" },
   "jianrupanshi": { "characters": "堅如磐石", "icon": "minecraft:reinforced_deepslate" },
-  "muzhongwuren": { "characters": "目中無人", "icon": "minecraft:ender_eye" }
+  "muzhongwuren": { "characters": "目中無人", "icon": "minecraft:ender_eye" },
+  "shiyunbuqi": { "characters": "時運不齊", "icon": "minecraft:rabbit_foot" },
+  "yushulinfeng": { "characters": "玉樹臨風", "icon": "minecraft:birch_sapling" },
+  "xuanhujishi": { "characters": "懸壺濟世", "icon": "jiagureappear:yaowang_gourd" },
+  "qianjunwanma": { "characters": "千軍萬馬", "icon": "minecraft:horse_spawn_egg" }
 }

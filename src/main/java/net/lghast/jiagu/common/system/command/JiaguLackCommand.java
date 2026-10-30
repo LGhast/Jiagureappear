@@ -14,6 +14,7 @@ import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
@@ -24,6 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -61,7 +63,12 @@ public class JiaguLackCommand {
 
     private static CompletableFuture<Suggestions> suggestNamespaces(CommandContext<CommandSourceStack> context, SuggestionsBuilder builder) {
         updateNamespacesCache();
-        return SharedSuggestionProvider.suggest(namespacesCache, builder);
+        Set<String> all = new HashSet<>(namespacesCache);
+        try {
+            context.getSource().getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT)
+                    .keySet().stream().map(ResourceLocation::getNamespace).forEach(all::add);
+        } catch (Exception ignored) {}
+        return SharedSuggestionProvider.suggest(all, builder);
     }
 
     private static void updateNamespacesCache() {
@@ -123,6 +130,13 @@ public class JiaguLackCommand {
             ItemStack stack = new ItemStack(Items.POTION);
             stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potionHolder));
             String name = ModUtils.modifyName(stack);
+            if (name != null) countChars(name, total, missing);
+        }
+
+        for (Holder.Reference<Enchantment> enchantmentHolder : source.getLevel().registryAccess()
+                .registryOrThrow(Registries.ENCHANTMENT).holders()
+                .filter(holder -> filterByNamespace(holder, namespace)).toList()) {
+            String name = ModUtils.modifyName(enchantmentHolder, 1);
             if (name != null) countChars(name, total, missing);
         }
 
