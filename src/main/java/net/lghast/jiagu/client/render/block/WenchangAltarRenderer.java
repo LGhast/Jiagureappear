@@ -4,7 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.lghast.jiagu.common.content.blockentity.WenchangAltarBlockEntity;
 import net.lghast.jiagu.config.ClientConfig;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -18,9 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class WenchangAltarRenderer implements BlockEntityRenderer<WenchangAltarBlockEntity> {
-    public WenchangAltarRenderer(BlockEntityRendererProvider.Context context) {}
+    private final ItemRenderer itemRenderer;
 
-    private static float getRotationSpeed(){
+    public WenchangAltarRenderer(BlockEntityRendererProvider.Context context) {
+        this.itemRenderer = context.getItemRenderer();
+    }
+
+    private static float getRotationSpeed() {
         return ClientConfig.WENCHANG_ALTAR_ROTATION_SPEED.get().floatValue();
     }
 
@@ -31,9 +34,7 @@ public class WenchangAltarRenderer implements BlockEntityRenderer<WenchangAltarB
         ItemStack item = blockEntity.getItem();
         if (item.isEmpty()) return;
 
-        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
         Level level = blockEntity.getLevel();
-
         if (level == null) return;
 
         float gameTime = (level.getGameTime() + partialTick) / 20.0f;

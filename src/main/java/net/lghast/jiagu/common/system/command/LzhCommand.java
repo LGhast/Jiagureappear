@@ -53,6 +53,7 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber
 public class LzhCommand {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final String LANGUAGE = "lzh";
 
     @SubscribeEvent
     public static void registerCommand(RegisterCommandsEvent event) {
@@ -85,7 +86,7 @@ public class LzhCommand {
             source.sendFailure(Component.literal("该命令只能由玩家执行。"));
             return 0;
         }
-        if (!"lzh".equals(player.clientInformation().language())) {
+        if (!LANGUAGE.equals(player.clientInformation().language())) {
             source.sendFailure(Component.literal("当前语言不是文言文，无法使用 supply。"));
             return 0;
         }

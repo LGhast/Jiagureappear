@@ -44,7 +44,6 @@ public class ModEnchantments {
             ResourceLocation.fromNamespaceAndPath(JiaguReappear.MOD_ID, "aftershock"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context){
-        var enchantments = context.lookup(Registries.ENCHANTMENT);
         var item = context.lookup(Registries.ITEM);
 
         register(context, IGNITING, Enchantment.enchantment(Enchantment.definition(

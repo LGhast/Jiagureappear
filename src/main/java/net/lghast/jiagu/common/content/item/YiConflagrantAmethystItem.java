@@ -15,6 +15,8 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -28,8 +30,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class YiConflagrantAmethystItem extends Item {
+    private static final double RANGE_XZ = 4;
+    private static final double RANGE_Y = 1.5;
+
     public YiConflagrantAmethystItem(Properties properties) {
-        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(60));
+        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(80));
     }
 
     @Override
@@ -65,24 +70,34 @@ public class YiConflagrantAmethystItem extends Item {
     @Override
     public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseDuration) {
         super.onUseTick(level, user, stack, remainingUseDuration);
-        if (level.isClientSide) return;
-        float interval = getInterval(level, stack);
+
+        if (level.isClientSide) {
+            spawnRangeParticles(level, user);
+            return;
+        }
+
+        int interval = Math.max(1, Math.round(getInterval(level, stack)));
         int elapsed = getUseDuration(stack, user) - remainingUseDuration;
-        if (elapsed <= 0 || interval <= 0 || elapsed % interval != 0) return;
-        double rangeXZ = 4;
-        double rangeY = 1.5;
+        if (elapsed <= 0 || elapsed % interval != 0) return;
+
         AABB area = new AABB(
-                user.getX() - rangeXZ, user.getY() - rangeY, user.getZ() - rangeXZ,
-                user.getX() + rangeXZ, user.getY() + rangeY, user.getZ() + rangeXZ
+                user.getX() - RANGE_XZ, user.getY() - RANGE_Y, user.getZ() - RANGE_XZ,
+                user.getX() + RANGE_XZ, user.getY() + RANGE_Y, user.getZ() + RANGE_XZ
         );
         for (LivingEntity target : level.getEntitiesOfClass(LivingEntity.class, area, e -> e != user && e.isAlive())) {
+            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 0, false, false));
+
+            double dx = target.getX() - user.getX();
+            double dz = target.getZ() - user.getZ();
+            double distance = Math.sqrt(dx * dx + dz * dz);
+
             Holder<DamageType> damageTypeHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
                     .getHolderOrThrow(DamageTypes.IN_FIRE);
             DamageSource source = new DamageSource(damageTypeHolder, user);
-            if (target.hurt(source, getDamage(level, target))) {
+            if (target.hurt(source, getDamage(level, target, distance))) {
                 Holder<Enchantment> ignitingHolder = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT)
                         .getHolderOrThrow(ModEnchantments.IGNITING);
-                if(stack.getEnchantmentLevel(ignitingHolder)>0){
+                if (stack.getEnchantmentLevel(ignitingHolder) > 0) {
                     target.igniteForSeconds(5);
                 }
                 if (level.getRandom().nextFloat() < 0.1f) {
@@ -94,7 +109,17 @@ public class YiConflagrantAmethystItem extends Item {
         }
     }
 
-    private void burnVisualEffect(Level level, LivingEntity target){
+    private void spawnRangeParticles(Level level, LivingEntity user) {
+        double y = user.getY();
+        for (int i = 0; i < 24; i++) {
+            double angle = i * (2 * Math.PI / 24);
+            double x = user.getX() + Math.cos(angle) * RANGE_XZ;
+            double z = user.getZ() + Math.sin(angle) * RANGE_XZ;
+            level.addParticle(ParticleTypes.FLAME, x, y, z, 0, 0, 0);
+        }
+    }
+
+    private void burnVisualEffect(Level level, LivingEntity target) {
         if (level instanceof ServerLevel serverLevel) {
             ModUtils.spawnParticles(serverLevel, ParticleTypes.FLAME,
                     target.getX(), target.getY() + 1.0, target.getZ(), 0.5, 0.5, 0.5, 20, 0.02);
@@ -110,14 +135,18 @@ public class YiConflagrantAmethystItem extends Item {
         return Math.max(1, baseInterval * (1.0f - (stack.getEnchantmentLevel(cremationHolder) * 0.17f)));
     }
 
-    private float getDamage(Level level, LivingEntity target) {
-        float baseDamage = CommonConfig.YI_CONFLAGRANT_BASE_DAMAGE.get().floatValue();
-        boolean extraDamageToFur = CommonConfig.YI_CONFLAGRANT_EXTRA_DAMAGE_TO_FUR.get();
+    private float getDamage(Level level, LivingEntity target, double distance) {
+        float centerDamage = CommonConfig.YI_CONFLAGRANT_CENTER_DAMAGE.get().floatValue();
+        float edgeDamage = CommonConfig.YI_CONFLAGRANT_EDGE_DAMAGE.get().floatValue();
 
+        float ratio = (float) Math.clamp(distance / RANGE_XZ, 0.0, 1.0);
+        float damage = centerDamage + (edgeDamage - centerDamage) * ratio;
+
+        boolean extraDamageToFur = CommonConfig.YI_CONFLAGRANT_EXTRA_DAMAGE_TO_FUR.get();
         if (extraDamageToFur && target.getType().is(ModTags.MOBS_WITH_FUR)) {
-            return level.getRandom().nextFloat() < 0.4f ? baseDamage * 2 : baseDamage;
+            return level.getRandom().nextFloat() < 0.4f ? damage * 2 : damage;
         }
-        return baseDamage;
+        return damage;
     }
 
     @Override

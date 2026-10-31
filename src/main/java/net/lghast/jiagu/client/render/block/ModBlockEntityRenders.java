@@ -4,6 +4,7 @@ import net.lghast.jiagu.register.content.ModBlockEntities;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
+@SuppressWarnings("unused")
 public class ModBlockEntityRenders {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
